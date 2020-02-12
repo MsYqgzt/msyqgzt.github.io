@@ -1,3 +1,3 @@
-# 首页
+# My first blog
 
-> An awesome project.
+> Just give it a try
