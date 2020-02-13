@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AlertNote</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+<meta charset="UTF-8">
+<title>AlertNote</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="Description">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- Theme: Simple (latest v0.x.x) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+<!-- link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" -->
 </head>
 <body>
-  <div id="app">Loading…</div>
-  <script>
-    window.$docsify = {
-	  themeColor: '#ef5350',
-      name: 'AlertNote',
-	  logo: '',
-      repo: '',
-	  loadSidebar: true,
-      loadNavbar: true,
-	  auto2top: true,
-	  coverpage: false,
-	  autoHeader: false,
-	  mergeNavbar: true,
+<div id="app">
+  Loading…
+</div>
+<script>
+window.$docsify = {
+    themeColor: '#ef5350',
+    name: 'AlertNote',
+    logo: '',
+    repo: '',
+    loadSidebar: true,
+    loadNavbar: true,
+	auto2top: true,
+	coverpage: false,
+	autoHeader: true,
+	mergeNavbar: true,
 	  
-	  //Alerts
-	  'flexible-alerts': {
-		note: {label: "Note"},
-		tip: {label: "Tip"},
-		warning: {label: "Warnung"},
-		danger: {label: "Achtung"}
-      }
-    }
-  </script>
-  
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
-  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-  
+    //Themeable
+    themeable: {
+        readyTransition : true, // default
+        responsiveTables: true  // default
+    },
+    
+	//Alerts插件
+    'flexible-alerts': {
+        note: {label: "Note"},
+        tip: {label: "Tip"},
+        warning: {label: "Warnung"},
+        danger: {label: "Achtung"}
+    },
+    
+    search:{
+        maxAge: 86400000, //过期时间，单位毫秒，默认一天
+        paths: [], //or 'auto'
+
+        placeholder: {
+            '/zh_cn/': '搜索',
+            '/': 'Type to search'
+        },
+        noData: {
+            '/zh_cn/': '无搜索结果',
+            '/': 'No Results'
+        },
+
+        // 搜索标题的最大程级, 1 - 6
+        depth: 3
+}
+    
+}
+</script> 
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script> 
+<!-- docsify-themeable --> 
+<script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script> 
+<!-- emoji标签解码 --> 
+<script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script> 
+<!--图片缩放--> 
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script> 
+<!-- Alerts文本框 --> 
+<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script> 
+<!-- Search --> 
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 </body>
 </html>
