@@ -6,67 +6,70 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="description" content="Description">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!-- Theme: Simple (latest v0.x.x) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    
 <!-- link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" -->
+    
+<!-- Theme: Defaults -->
+<!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"-->
+
+<!-- Theme: Simple -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" >
+
 </head>
 <body>
-<div id="app">
-  Loading…
-</div>
+<div id="app"></div>
 <script>
-window.$docsify = {
-    themeColor: '#ef5350',
-    name: '📕 AlertNote',
-    logo: '',
-    repo: '',
-    loadSidebar: true,
-    subMaxLevel:3,
-    loadNavbar: true,
-    auto2top: true,
-    coverpage: false,
-	autoHeader: true,
-	mergeNavbar: true,
-	  
-    //Themeable
-    themeable: {
-        readyTransition : true, // default
-        responsiveTables: true  // default
-    },
-    
-	//Alerts插件
-    'flexible-alerts': {
-        note: {label: "Note"},
-        tip: {label: "Tip"},
-        warning: {label: "Warnung"},
-        danger: {label: "Achtung"}
-    },
-    
-    search:{
-        maxAge: 86400000, //过期时间，单位毫秒，默认一天
-        paths: [], //or 'auto'
+    window.$docsify = {
+        themeColor: '#ef5350',
+        name: '📕 AlertNote',
+        logo: '',
+        repo: '',
+        loadSidebar: true,
+        subMaxLevel:3,
+        loadNavbar: false,
+        auto2top: true,
+        coverpage: false,
+        autoHeader: true,
+        mergeNavbar: true,
 
-        placeholder: {
-            '/zh-cn/': '搜索',
-            '/': 'Type to search'
-        },
-        noData: {
-            '/zh-cn/': '无搜索结果',
-            '/': 'No Results'
+        //Themeable
+        themeable: {
+            readyTransition : true, // default
+            responsiveTables: true  // default
         },
 
-        // 搜索标题的最大程级, 1 - 6
-        depth: 3
-    },
-    
-    footer: {
-      copy: '<span>Acme &copy;2020</span>',
-      auth: 'by MsYqgzt',
-      pre: '<hr/>',
-      style: 'text-align: right;',
-      style: 'className'
+        //Alerts插件
+        'flexible-alerts': {
+            note: {label: "Note"},
+            tip: {label: "Tip"},
+            warning: {label: "Warning"},
+            danger: {label: "Achtung"}
+        },
+
+        search:{
+            maxAge: 86400000, //过期时间，单位毫秒，默认一天
+            paths: [], //or 'auto'
+
+            placeholder: {
+                '/zh-cn/': '搜索',
+                '/': 'Type to search'
+            },
+            noData: {
+                '/zh-cn/': '无搜索结果',
+                '/': 'No Results'
+            },
+            // 搜索标题的最大程级, 1 - 6
+            depth: 3
+        },
+
+        footer: {
+          copy: '<span>Acme &copy;2020</span>',
+          auth: 'by MsYqgzt',
+          pre: '<hr/>',
+          style: 'text-align: right;',
+          style: 'className'
+        }
     }
-}
 </script> 
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script> 
 <!-- docsify-themeable --> 
@@ -79,6 +82,14 @@ window.$docsify = {
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script> 
 <!-- Alerts文本框 --> 
 <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script> 
+
+<!-- 两列布局--> 
+<!-- slide:break-50 --> 
+<!-- script src="//unpkg.com/docsify-slides/dist/docsify-slides.min.js"></script --> 
+
+<!-- docsify-example-panels (latest) --> 
+<script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script> 
+
 <!--Footer--> 
 <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
 </body>
