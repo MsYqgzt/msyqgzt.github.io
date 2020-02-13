@@ -9,7 +9,7 @@
   ------
 
 - **碎碎念**
-  - [关于搭建这个博客的过程我都在经历什么](zh_cn/chat/AboutBlog.md)
+  - [搭建博客的过程我都在经历什么](zh_cn/chat/AboutBlog.md)
 
   ------
   

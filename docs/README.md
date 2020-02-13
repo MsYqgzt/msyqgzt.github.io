@@ -14,5 +14,5 @@
 > [!tip|style:flat|label:近期文章|labelVisibility:visible|iconVisibility:visible]
 > 📃 [Adobe Audition录音室后期技巧](/zh_cn/media/audition.md) ⏱2020/02/12
 > 
-> 📃 [关于搭建这个博客的过程我都在经历什么](/zh_cn/chat/AboutBlog.md) ⏱2020/02/12
+> 📃 [搭建博客的过程我都在经历什么](/zh_cn/chat/AboutBlog.md) ⏱2020/02/12
 > 
