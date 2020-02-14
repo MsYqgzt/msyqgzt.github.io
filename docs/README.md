@@ -10,7 +10,6 @@
 </div>
 
 > [!tip|style:flat|label:近期文章|labelVisibility:visible|iconVisibility:visible]
+> 📃 [如何搭建一个博客](/zh-cn/chat/如何搭建一个博客.md) 📅2020/02/14
 > 📃 [Adobe Audition录音室后期技巧](/zh-cn/media/audition.md) 📅2020/02/12
->
-> 📃 [搭建博客的过程我都在经历什么](/zh-cn/chat/AboutBlog.md) 📅2020/02/12
 >
