@@ -9,7 +9,6 @@
 </div>
 
 > [!tip|style:flat|label:近期文章|labelVisibility:visible|iconVisibility:visible]
-> 📃 [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md) 📅2020/02/14
->
-> 📃 [Adobe Audition录音室后期技巧](/zh-cn/media/audition.md) 📅2020/02/12
->
+>📃 [计算机图形学笔记](/zh-cn/计算机图形学/概述.md) 📅2020/02/20
+> 
+>📃 [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md) 📅2020/02/14
