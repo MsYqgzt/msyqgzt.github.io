@@ -4,9 +4,10 @@
   - 暂无
 - **交互设计基础**
   - [平台设计规范](/zh-cn/交互设计/1.平台设计规范.md)
-- **爬虫学习笔记**
-  - [爬虫简介](/zh-cn/bot/1.简介.md) 
-  - [http&https协议](/zh-cn/bot/2.http&https协议.md)
+- **Python爬虫笔记**
+  - [爬虫简介](/zh-cn/PythonBot/1.简介.md) 
+  - [http&https协议](/zh-cn/PythonBot/2.http&https协议.md)
+  - [requests模块](/zh-cn/PythonBot/3.request模块.md)
 - **音频后期笔记**
   - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
 - **杂项技术笔记**
