@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>AlertNote</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="description" content="Description">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>AlertNote</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" -->
 
-<!-- link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" --> 
+    <!-- Theme: Defaults -->
+    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"-->
 
-<!-- Theme: Defaults --> 
-<!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css"--> 
-
-<!-- Theme: Simple -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" >
+    <!-- Theme: Simple -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 </head>
+
 <body>
-<div id="app">
-</div>
-<script>
-    window.$docsify = {
-        themeColor: '#ef5350',
-        name: '📕 AlertNote',
-        logo: '',
-        repo: '',
-		homepage: '/zh-cn/README.md',
-        loadSidebar: true,
-        subMaxLevel: 3,
-        loadNavbar: false,
-        auto2top: true,
-        coverpage: false,
-        autoHeader: true,
-        mergeNavbar: true,
+    <div id="app">
+    </div>
+    <script>
+        window.$docsify = {
+            themeColor: '#ef5350',
+            name: '📕 AlertNote',
+            logo: '',
+            repo: '',
+            homepage: '/zh-cn/README.md',
+            loadSidebar: true,
+            subMaxLevel: 3,
+            loadNavbar: false,
+            auto2top: true,
+            coverpage: false,
+            autoHeader: true,
+            mergeNavbar: true,
 
-        //Themeable
-        themeable: {
-            readyTransition : true, // default
-            responsiveTables: true  // default
-        },
-
-        //Alerts插件
-        'flexible-alerts': {
-            note: {label: "Note"},
-            tip: {label: "Tip"},
-            warning: {label: "Warning"},
-            danger: {label: "Achtung"}
-        },
-
-        search:{
-            maxAge: 86400000, //过期时间，单位毫秒，默认一天
-            paths: [], //or 'auto'
-
-            placeholder: {
-                '/zh-cn/': '搜索',
-                '/': 'Type to search'
+            //Themeable
+            themeable: {
+                readyTransition: true, // default
+                responsiveTables: true // default
             },
-            noData: {
-                '/zh-cn/': '无搜索结果',
-                '/': 'No Results'
-            },
-            // 搜索标题的最大程级, 1 - 6
-            depth: 3
-        },
-        
-        //tabs
-        tabs: {
-            persist: true,   // 刷新保留状态
-            sync: true,      // 同类标签同步
-            theme: 'material',// classic,material,false
-            tabComments: true,// 注释定义生效
-            tabHeadings: false // 标题+粗体markdown定义生效
-        },
 
-        footer: {
-            copy: '<span>Acme &copy;2020</span>',
-            auth: 'by MsYqgzt',
-            pre: '<hr/>',
-            style: 'text-align: right;',
-            style: 'className'
+            //Alerts插件
+            'flexible-alerts': {
+                note: {
+                    label: {
+                        '/zh-cn/': 'Note',
+                        '/': 'Note'
+                    }
+                },
+                tip: {
+                    label: {
+                        '/zh-cn/': 'Tip',
+                        '/': 'Tip'
+                    }
+                },
+                warning: {
+                    label: {
+                        '/zh-cn/': 'Warning',
+                        '/': 'Warning'
+                    }
+                },
+                danger: {
+                    label: {
+                        '/zh-cn/': 'Attention',
+                        '/': 'Attention'
+                    }
+                }
+            },
+
+            //copyCode
+            copyCode: {
+                buttonText: {
+                    '/zh-cn/': '复制',
+                    '/': 'Copy'
+                },
+                errorText: {
+                    '/zh-cn/': '发生错误',
+                    '/': 'Error'
+                },
+                successText: {
+                    '/zh-cn/': '已复制',
+                    '/': 'Copied'
+                }
+            },
+
+            search: {
+                maxAge: 86400000, //过期时间，单位毫秒，默认一天
+                paths: [], //or 'auto'
+
+                placeholder: {
+                    '/zh-cn/': '搜索',
+                    '/': 'Type to search'
+                },
+                noData: {
+                    '/zh-cn/': '无搜索结果',
+                    '/': 'No Results'
+                },
+                // 搜索标题的最大程级, 1 - 6
+                depth: 3
+            },
+
+            //tabs
+            tabs: {
+                persist: true, // 刷新保留状态
+                sync: true, // 同类标签同步
+                theme: 'material', // classic,material,false
+                tabComments: true, // 注释定义生效
+                tabHeadings: true // 标题+粗体markdown定义生效
+            },
+
+            footer: {
+                copy: '<span>Acme &copy;2020</span>',
+                auth: 'by MsYqgzt',
+                pre: '<hr/>',
+                style: 'text-align: right;',
+                style: 'className'
+            }
         }
-    }
-</script> 
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script> 
-<!-- docsify-themeable --> 
-<script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script> 
-<!-- emoji标签解码 --> 
-<script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script> 
-<!-- docsify-katex 数学模型 -->
-<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
-<!--图片缩放--> 
-<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script> 
-<!-- Search --> 
-<script src="//unpkg.com/docsify/lib/plugins/search.js"></script> 
-<!-- Alerts文本框 --> 
-<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script> 
-<!-- docsify-tabs --> 
-<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script> 
+    </script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <!-- docsify-themeable -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
 
-<!-- 两列布局--> 
-<!-- slide:break-50 --> 
-<!-- script src="//unpkg.com/docsify-slides/dist/docsify-slides.min.js"></script --> 
+    <!-- docsify-katex -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 
-<!--Footer--> 
-<script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+    <!-- docsify-copy-code -->
+    <script src="https://unpkg.com/docsify-copy-code@2"></script>
+
+    <!-- emoji -->
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
+    <!--zoom-image-->
+    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+    <!-- search -->
+    <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+    <!-- alerts文本框 -->
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    <!-- docsify-tabs -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
+    <!-- 两列布局-->
+    <!-- slide:break-50 -->
+    <!-- script src="//unpkg.com/docsify-slides/dist/docsify-slides.min.js"></script -->
+
+    <!--Footer-->
+    <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
 </body>
+
 </html>

@@ -8,7 +8,7 @@
 - **Python爬虫笔记**
   - [爬虫简介](/zh-cn/pythonBot/1.README.md) 
   - [http&https协议](/zh-cn/pythonBot/2.http&https协议.md)
-  - [requests模块](/zh-cn/pythonBot/3.request模块.md)
+  - [requests模块](/zh-cn/pythonBot/3.request.md)
 - **音频后期笔记**
   - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
 - **杂项技术笔记**
