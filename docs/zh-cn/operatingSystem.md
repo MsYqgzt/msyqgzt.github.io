@@ -2,15 +2,18 @@
 
 
 > **算法知识点**
+>
 > 先来先服务（FCFS）调度算法
+>
 > 最短作业优先（SJF）调度算法
+>
 > 最高优先级优先（HPF）调度算法
+>
 > 最高响应比优先（HRF）调度算法
-> 
 
-> **作业调度基础算法**
-> 作业的平均周转时间 $ T={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi}) $
-> 作业的平均带权周转时间 $ W={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi})/t_{si} $
+- **作业调度基础算法**
+  - 作业的平均周转时间 $ T={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi}) $
+  - 作业的平均带权周转时间 $ W={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi})/t_{si} $
 
 > **例题**
 > 两个程序，其中A请求系统服务时间5s，B请求系统服务时间为100s，设第0到第5秒前，CPU运行C进程。
