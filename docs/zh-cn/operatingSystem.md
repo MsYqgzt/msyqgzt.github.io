@@ -13,8 +13,9 @@
 
 
 - **作业调度基础算法**
-  - 作业的平均周转时间 $ T={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi}) $
-  - 作业的平均带权周转时间 $ W={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi)-t_{bi})/t_{si} $
+  - 作业的平均周转时间 $ T={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi}-t_{bi}) $
+  - 作业的平均带权周转时间 $ W={1 \over n}\displaystyle\sum_{i=1}^n(t_{fi}-t_{bi})/t_{si} $
+  - $t_{bi}$ 为作业提交的时间点，$t_{fi}$ 为作业结束的时间点，$t_{si}$ 为作业运行期间占用CPU的时间
 
 
 > **例题**
