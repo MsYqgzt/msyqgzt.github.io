@@ -23,11 +23,11 @@
   - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
 
 - **杂项技术笔记**
-  - [想学好是件不容易的事](/zh-cn/tech/想学好是件不容易的事.md) 
   - [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md)
   - [测试](/zh-cn/tech/test.md)
 
 - **碎碎念**
+  - [想学好是件不容易的事](/zh-cn/chat/想学好是件不容易的事.md) 
   - [搭建博客的过程我都在经历什么](/zh-cn/chat/搭建博客的过程我都在经历什么.md)
   - [成功用ipad云同步博客](/zh-cn/chat/ipad云同步测试.md)
 
