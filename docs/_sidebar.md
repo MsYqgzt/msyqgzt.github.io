@@ -23,6 +23,7 @@
   - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
 
 - **杂项技术笔记**
+  - [想学好是件不容易的事](/zh-cn/tech/想学好是件不容易的事.md) 
   - [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md)
   - [测试](/zh-cn/tech/test.md)
 
