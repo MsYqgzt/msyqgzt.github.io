@@ -1,7 +1,7 @@
 - **计算机图形学笔记**
   - [概述](/zh-cn/graphics/1.README.md)
-  - [直线扫描转换算法](/zh-cn/graphics/2.直线扫描转换.md)
-  - [多边形的转换算法与区域填充](/zh-cn/graphics/3.多边形的扫描转换与区域填充.md)
+  - [直线扫描转换](/zh-cn/graphics/2.直线扫描转换.md)
+  - [多边形的转换与区域填充](/zh-cn/graphics/3.多边形的扫描转换与区域填充.md)
   - [反走样](/zh-cn/graphics/4.反走样.md)
 
 - [**操作系统算法笔记**](/zh-cn/operatingSystem.md)
