@@ -7,8 +7,9 @@
 - [**操作系统算法笔记**](/zh-cn/operatingSystem.md)
 
 - **游戏制作笔记**
-  - 暂无
-
+  
+- 暂无
+  
 - **交互设计基础**
   - [目录](/zh-cn/interactionDesign/0.README.md)
   - [平台设计规范](/zh-cn/interactionDesign/1.平台设计规范.md)
@@ -20,18 +21,21 @@
   - [requests模块](/zh-cn/pythonBot/3.request.md)
 
 - **音频后期笔记**
-  - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
-
+  
+- [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
+  
 - **杂项技术笔记**
   - [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md)
   - [测试](/zh-cn/tech/test.md)
 
 - **碎碎念**
+  - [资源站开始营业](/zh-cn/chat/资源站开始营业.md)
   - [想学好是件不容易的事](/zh-cn/chat/想学好是件不容易的事.md) 
   - [搭建博客的过程我都在经历什么](/zh-cn/chat/搭建博客的过程我都在经历什么.md)
   - [成功用ipad云同步博客](/zh-cn/chat/ipad云同步测试.md)
-
+  
 - **友情链接**
+  
   - 暂无
 
 ------
