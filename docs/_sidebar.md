@@ -31,7 +31,7 @@
 <br/>
 
 - **音频后期笔记 🎵**
-  - [Adobe Audition 录音室后期技巧](/zh-cn/media/audition.md)
+  - [Au 录音室后期技巧](/zh-cn/media/audition.md)
 
 <br/>
 
