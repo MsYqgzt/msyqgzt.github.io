@@ -1,6 +1,6 @@
 - **操作系统算法笔记 💾**
-  - [作业调度](/zh-cn/operatingSystem/作业调度.md)
-  - [进程管理](/zh-cn/operatingSystem/进程管理.md)
+  - [作业调度](/zh-cn/operatingSystem/1.作业调度.md)
+  - [进程管理](/zh-cn/operatingSystem/2.进程管理.md)
 
 <br/>
 
