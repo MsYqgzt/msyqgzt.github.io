@@ -9,7 +9,7 @@
   - [直线扫描转换](/zh-cn/graphics/2.直线扫描转换.md)
   - [多边形的转换与区域填充](/zh-cn/graphics/3.多边形的扫描转换与区域填充.md)
   - [反走样](/zh-cn/graphics/4.反走样.md)
-  - [直线裁剪](/zh-cn/graphics/5.直线裁剪算法.md)
+  - [裁剪算法](/zh-cn/graphics/5.裁剪算法.md)
 
 <br/>
 
