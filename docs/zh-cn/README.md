@@ -5,7 +5,7 @@
 
 <div style="text-align:center;">
     <p>👇已更新国内节点，提升访问速度👇</p>
-	<img src="https://i.loli.net/2020/03/15/SfO4loyag2CKZMd.png" alt="AlertNote.png" style="zoom:70%;" />
+	<img src="https://i.loli.net/2020/03/16/5fkUipJE4dB92mz.png" alt="QR" style="zoom:70%;" />
 </div>
 
 
