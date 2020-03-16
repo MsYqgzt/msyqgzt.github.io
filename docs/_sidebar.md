@@ -1,10 +1,10 @@
-- **操作系统算法笔记 💾**
+- **操作系统算法 💾**
   - [作业调度](/zh-cn/operatingSystem/1.作业调度.md)
   - [进程管理](/zh-cn/operatingSystem/2.进程管理.md)
 
 <br/>
 
-- **计算机图形学笔记 🔗**
+- **计算机图形学 🔗**
   - [概述](/zh-cn/graphics/1.README.md)
   - [直线扫描转换](/zh-cn/graphics/2.直线扫描转换.md)
   - [多边形的转换与区域填充](/zh-cn/graphics/3.多边形的扫描转换与区域填充.md)
@@ -13,7 +13,7 @@
 
 <br/>
 
-- **游戏制作笔记 🕹**
+- **游戏制作 🕹**
   - 暂无
 
 <br/>
@@ -25,19 +25,19 @@
 
 <br/>
 
-- **Python爬虫笔记 🐾**
+- **Python爬虫 🐾**
   - [爬虫简介](/zh-cn/pythonBot/1.README.md) 
   - [http&https协议](/zh-cn/pythonBot/2.http&https协议.md)
   - [requests模块](/zh-cn/pythonBot/3.request.md)
 
 <br/>
 
-- **音频后期笔记 🎵**
+- **音频后期 🎵**
   - [Au 录音室后期技巧](/zh-cn/media/audition.md)
 
 <br/>
 
-- **杂项技术笔记 🗺**
+- **杂项技术 🗺**
   - [如何搭建一个博客](/zh-cn/tech/如何搭建一个博客.md)
   - [测试](/zh-cn/tech/test.md)
 
