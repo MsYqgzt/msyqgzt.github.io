@@ -1,6 +1,7 @@
 - **操作系统算法 💾**
   - [作业调度](/zh-cn/operatingSystem/1.作业调度.md)
   - [进程管理](/zh-cn/operatingSystem/2.进程管理.md)
+  - [进程的并发控制](/zh-cn/operatingSystem/3.进程的并发控制.md)
 
 <br/>
 
@@ -22,6 +23,7 @@
   - [目录](/zh-cn/interactionDesign/0.README.md)
   - [平台设计规范](/zh-cn/interactionDesign/1.平台设计规范.md)
   - [需求设计分析与方案选择](/zh-cn/interactionDesign/2.需求设计分析与方案选择.md)
+  - [信息架构设计](/zh-cn/interactionDesign/3.信息架构设计.md)
 
 <br/>
 
