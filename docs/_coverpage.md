@@ -8,6 +8,6 @@ Gift OR Curse
 
 2B OR NOT 2B
 
-[GetStart](/zh-cn/)
+[快速开始](/zh-cn/)
 [资源站](https://msyqgzt.github.io/source/)
-[Github](https://github.com/MsYqgzt/blogs)
+[GitHub](https://github.com/MsYqgzt/blogs)
