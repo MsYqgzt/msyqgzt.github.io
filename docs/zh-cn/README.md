@@ -9,7 +9,7 @@
 
 > [!tip|style:flat|label:近期文章|labelVisibility:visible|iconVisibility:visible]
 >
-> 📃 [数据库原理与应用](/zh-cn/dataBase/1.README.md) 📅2020/03/27
+> 📃 [数据库原理与应用](/zh-cn/dataBase/1.README.md) 📅2020/03/29
 >
 > 📃 [操作系统笔记](/zh-cn/operatingSystem/1.作业调度.md) 📅2020/03/20
 >
