@@ -20,3 +20,16 @@
 > 📃 [Python爬虫笔记](/zh-cn/pythonBot/1.README.md) 📅2020/03/23
 >
 
+```mermaid
+gantt
+dateFormat YYYY-MM-DD
+section 课程学习
+数据库: 2020-03-28, 64d
+交互设计: 2020-03-02, 90d
+计算机图形学: 2020-03-02, 90d
+操作系统: 2020-03-02, 90d
+section 游戏制作
+虚幻四: 2020-05-05, 60d
+
+```
+<p style="text-align:center;"><strong>计划时间轴</strong></p>
