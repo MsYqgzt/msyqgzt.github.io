@@ -10,4 +10,3 @@ Gift OR Curse
 
 [快速开始](/zh-cn/)
 [资源站](https://msyqgzt.github.io/source/)
-[GitHub](https://github.com/MsYqgzt/blogs)
