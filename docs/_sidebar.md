@@ -13,6 +13,7 @@
   - [裁剪算法](/zh-cn/graphics/5.裁剪算法.md)
   - [消隐算法](/zh-cn/graphics/6.消隐算法.md)
   - [二维图形变换](/zh-cn/graphics/7.二维图形变换.md)
+  - [三维图形变换](/zh-cn/graphics/8.三维图形变换.md)
 
 <br/>
 
