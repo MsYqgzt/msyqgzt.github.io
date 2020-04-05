@@ -23,6 +23,14 @@
 
 <br/>
 
+- **交互设计基础 🧨**
+  - [目录](/zh-cn/interactionDesign/0.README.md)
+  - [平台设计规范](/zh-cn/interactionDesign/1.平台设计规范.md)
+  - [需求设计分析与方案选择](/zh-cn/interactionDesign/2.需求设计分析与方案选择.md)
+  - [信息架构设计](/zh-cn/interactionDesign/3.信息架构设计.md)
+
+------
+
 - **C# 开发笔记 👴**
   - [WPF-样式(Style)](/zh-cn/CSharp/WPF_Style.md)
 
@@ -30,14 +38,6 @@
 
 - **游戏制作 🕹**
   - 暂无
-
-<br/>
-
-- **交互设计基础 🧨**
-  - [目录](/zh-cn/interactionDesign/0.README.md)
-  - [平台设计规范](/zh-cn/interactionDesign/1.平台设计规范.md)
-  - [需求设计分析与方案选择](/zh-cn/interactionDesign/2.需求设计分析与方案选择.md)
-  - [信息架构设计](/zh-cn/interactionDesign/3.信息架构设计.md)
 
 <br/>
 
