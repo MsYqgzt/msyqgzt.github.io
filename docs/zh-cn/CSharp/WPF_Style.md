@@ -1,4 +1,36 @@
-# WPF样式(Style)
+<Window.Resources>
+
+  <local:L2BConverter x:Key="evtr"/>
+
+  <Style TargetType="TextBox">
+
+​    <Style.Triggers>
+
+​      <DataTrigger Binding="{Binding RelativeSource= {x:Static RelativeSource.Self}, Path=Text.Length, Converter={StaticResource evtr}}" Value="false">
+
+​        <Setter Property="BorderBrush" Value="Red"/>
+
+​        <Setter Property="BorderThickness" Value="1"/>
+
+​      </DataTrigger>
+
+​    </Style.Triggers>
+
+  </Style>
+
+</Window.Resources>
+
+
+
+<StackPanel>
+
+  <TextBox Margin="5"/>
+
+  <TextBox Margin="5,0"/>
+
+  <TextBox Margin="5"/>
+
+</StackPanel>WPF样式(Style)
 
 ## 基础样式
 
@@ -212,8 +244,9 @@ $$
 
 ```xaml
 <Window x:Class="Styles.SimpleTriggers" 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="SimpleTriggers" Height="300" Width="300">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SimpleTriggers" Height="300" Width="300">
     <Window.Resources>
         <Style x:Key="BigFontButton">
             <Style.Setters>
@@ -273,6 +306,8 @@ $$
 <Style TargetType="ListBoxItem">
     <Setter Property="Opacity" Value="0.5"/>
     <Setter Property="MaxHeight" Value="75"/>
+    
+    <!-- 事件触发器 -->
     <Style.Triggers>
         <Trigger Property="IsSelected" Value="True">
             <Trigger.Setters>
@@ -284,7 +319,9 @@ $$
             <EventTrigger.Actions>
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="MaxHeight" To="90"/>
+                        <DoubleAnimation Duration="0:0:0.2"
+                                         Storyboard.TargetProperty="MaxHeight"
+                                         To="90"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger.Actions>
@@ -294,7 +331,8 @@ $$
             <EventTrigger.Actions>
                 <BeginStoryboard>
                     <Storyboard>
-                        <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="MaxHeight"/>
+                        <DoubleAnimation Duration="0:0:1"
+                                         Storyboard.TargetProperty="MaxHeight"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger.Actions>
@@ -309,85 +347,45 @@ $$
 ### 数据触发器-`DataTrigger`
 
 > 根据绑定的数据不同，显示不同的内容
+>
+> `DataTrigger`对象的`Binding`属性会把数据不断更新，一旦数据的值与`Value`属性一致，`DataTrigger`即被触发
 
 ```xaml
-<TreeView Name="_tree" Margin="0" BorderThickness="0" VerticalAlignment="Stretch" Background="Transparent" ItemsSource="{Binding Children}">
-    <TreeView.ItemTemplate>
-        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-            <Border CornerRadius="0" Margin="1"
-                    x:Name="back" MinWidth="70"
-                    Background="Transparent"
-                    DataContext="{Binding}"
-                    PreviewMouseMove="TreeItem_PreviewMouseMove">
-                <StackPanel Orientation="Horizontal" Margin="2">
-                    <Image x:Name="BGimage"
-                           Source="/Vdc3D.Coms.DModelEditor;component/Images/item.png"
-                           Height="15" Width="15" />
-                    <TextBlock Text="{Binding ShowText}" Margin="2 0"/>
-                </StackPanel>
-                <Border.ContextMenu>
-                    <ContextMenu x:Name="menu">
-                        <MenuItem Header="Add Directory"
-                                  x:Name="menu_addDir"
-                                  Click="AddDir_Click"
-                                  DataContext="{Binding}"/>
-                        <MenuItem Header="Add Property"
-                                  x:Name="menu_addChild"
-                                  Click="AddChild_Click"
-                                  DataContext="{Binding}"/>
-                        <MenuItem Header="Edit"
-                                  Click="Modify_Click"
-                                  DataContext="{Binding}"/>
-                        <MenuItem Header="Delete"
-                                  Click="Delete_Click"
-                                  DataContext="{Binding}"/>
-                    </ContextMenu>
-                </Border.ContextMenu>
-            </Border>
-            <HierarchicalDataTemplate.Triggers>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TreeViewItem}},Path=IsExpanded}"
-                                   Value="False"/>
-                        <Condition Binding="{Binding IsDir}" Value="True"/>
-                    </MultiDataTrigger.Conditions>
-                    <MultiDataTrigger.Setters>
-                        <Setter TargetName="BGimage"
-                                Property="Source"
-                                Value="/Vdc3D.Coms.DModelEditor;component/Images/dir.png" />
-                    </MultiDataTrigger.Setters>
-                </MultiDataTrigger>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TreeViewItem}},Path=IsExpanded}" Value="True"/>
-                        <Condition Binding="{Binding IsDir}" Value="True"/>
-                    </MultiDataTrigger.Conditions>
-                    <MultiDataTrigger.Setters>
-                        <Setter TargetName="BGimage"
-                                Property="Source"
-                                Value="/Vdc3D.Coms.DModelEditor;component/Images/dir_open.png" />
-                    </MultiDataTrigger.Setters>
-                </MultiDataTrigger>
-                <DataTrigger Binding="{Binding IsDir}" Value="True">
-                    <Setter TargetName="menu_addDir"
-                            Property="Visibility"
-                            Value="Visible"/>
-                    <Setter TargetName="menu_addChild"
-                            Property="Visibility"
-                            Value="Visible"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsDir}"
-                             Value="False">
-                    <Setter TargetName="menu_addDir"
-                            Property="Visibility"
-                            Value="Collapsed"/>
-                    <Setter TargetName="menu_addChild"
-                            Property="Visibility"
-                            Value="Collapsed"/>
-                </DataTrigger>
-            </HierarchicalDataTemplate.Triggers>
-        </HierarchicalDataTemplate>
-    </TreeView.ItemTemplate>
-</TreeView>
+<Window.Resources>
+    <local:L2BConverter x:Key="evtr"/>
+    <Style TargetType="TextBox">
+        <Style.Triggers>
+            <!-- 数据触发器 -->
+            <DataTrigger Binding="{Binding RelativeSource= {x:Static RelativeSource.Self}, Path=Text.Length, Converter={StaticResource evtr}}" Value="false">
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</Window.Resources>
+
+<StackPanel>
+    <TextBox Margin="5"/>
+    <TextBox Margin="5,0"/>
+    <TextBox Margin="5"/>
+</StackPanel>
 ```
 
+后台代码：
+
+```c#
+public class L2BConverter : IValueConverter {       
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        int textLength = (int) value;           
+        return textLength > 6 ? true : false;       
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException ();       
+    }
+}
+```
+
+经`Converter`转换后，长度值会转换为`bool`类型值。`DataTrigger`的Value被设置为`false`，也就是当`TextBox`的**文本长度**小于7时，`DataTrigger`会使用自己的一组`Setter`把`TextBox`的边框设为红色
