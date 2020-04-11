@@ -2,6 +2,7 @@
   - [作业调度](/zh-cn/operatingSystem/1.作业调度.md)
   - [进程管理](/zh-cn/operatingSystem/2.进程管理.md)
   - [进程的并发控制](/zh-cn/operatingSystem/3.进程的并发控制.md)
+  - [存储管理](/zh-cn/operatingSystem/4.存储管理.md)
 
 <br/>
 
