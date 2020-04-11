@@ -15,6 +15,7 @@
   - [消隐算法](/zh-cn/graphics/6.消隐算法.md)
   - [二维图形变换](/zh-cn/graphics/7.二维图形变换.md)
   - [三维图形变换](/zh-cn/graphics/8.三维图形变换.md)
+  - [曲线曲面](/zh-cn/graphics/9.曲线曲面.md)
 
 <br/>
 
