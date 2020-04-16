@@ -1,36 +1,4 @@
-<Window.Resources>
-
-  <local:L2BConverter x:Key="evtr"/>
-
-  <Style TargetType="TextBox">
-
-​    <Style.Triggers>
-
-​      <DataTrigger Binding="{Binding RelativeSource= {x:Static RelativeSource.Self}, Path=Text.Length, Converter={StaticResource evtr}}" Value="false">
-
-​        <Setter Property="BorderBrush" Value="Red"/>
-
-​        <Setter Property="BorderThickness" Value="1"/>
-
-​      </DataTrigger>
-
-​    </Style.Triggers>
-
-  </Style>
-
-</Window.Resources>
-
-
-
-<StackPanel>
-
-  <TextBox Margin="5"/>
-
-  <TextBox Margin="5,0"/>
-
-  <TextBox Margin="5"/>
-
-</StackPanel>WPF样式(Style)
+# WPF样式(Style)
 
 ## 基础样式
 
