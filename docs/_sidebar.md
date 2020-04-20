@@ -48,6 +48,7 @@
   - [爬虫简介](/zh-cn/pythonBot/1.README.md) 
   - [http&https协议](/zh-cn/pythonBot/2.http&https协议.md)
   - [requests模块](/zh-cn/pythonBot/3.request.md)
+  - [数据解析](/zh-cn/pythonBot/4.数据解析.md)
 
 <br/>
 
@@ -59,6 +60,7 @@
 <br/>
 
 - **碎碎念 🤣**
+  - [生活有感](/zh-cn/chat/生活有感.md)
   - [改变沉闷的状态](/zh-cn/chat/改变沉闷的状态.md)
   - [记录最近疲惫的状态](/zh-cn/chat/记录最近疲惫的状态.md)
   - [资源站开始营业](/zh-cn/chat/资源站开始营业.md)
