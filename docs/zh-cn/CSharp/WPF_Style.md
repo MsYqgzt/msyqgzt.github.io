@@ -13,20 +13,20 @@
     xmlns:local="clr-namespace:StyleTest"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d"
-
+    
     <Window.Resources>
         <FontFamily x:Key="ButtonFontFamily">Times New Roman</FontFamily>
         <sys:Double x:Key="ButtonFontSize">16</sys:Double>
         <FontWeight x:Key="ButtonFontWeight">Bold</FontWeight>
     </Window.Resources>
-
     <StackPanel VerticalAlignment="Center">
         <Button Name="btn" Content="Resource Button"
                 FontFamily="{StaticResource ButtonFontFamily}"
                 FontSize="{StaticResource ButtonFontSize}"
                 FontWeight="{StaticResource ButtonFontWeight}"/>
-        </StackPanel>
+    </StackPanel>
 </Window>
+
 ```
 
 1. 为窗口添加三个资源
