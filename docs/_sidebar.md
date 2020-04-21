@@ -36,6 +36,7 @@
 
 - **C# 开发笔记 👴**
   - [WPF-样式(Style)](/zh-cn/CSharp/WPF_Style.md)
+  - [代码实现贝塞尔曲线](/zh-cn/CSharp/Besier.md)
 
 <br/>
 
