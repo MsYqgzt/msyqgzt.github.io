@@ -10,6 +10,8 @@
 
 > [!tip|style:flat|label:近期文章|labelVisibility:visible|iconVisibility:visible]
 >
+> 📃 [C#-通过代码实现贝塞尔曲线](/zh-cn/CSharp/Besier.md) 📅2020/04/22
+>
 > 📃 [碎碎念-生活有感](/zh-cn/chat/生活有感.md) 📅2020/04/21
 >
 > 📃 [Python爬虫-数据解析](/zh-cn/pythonBot/4.数据解析.md) 📅2020/04/21
