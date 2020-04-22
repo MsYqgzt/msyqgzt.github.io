@@ -1,6 +1,6 @@
 # 代码实现贝塞尔曲线
 
-贝塞尔曲线是我在学习过程中发现的很有意思的一个玩意儿。这次就打算用C#实现以下它的实现案例。
+贝塞尔曲线是我在学习过程中发现的很有意思的一个玩意儿。这次就打算用C#实现一下它的实现案例。
 
 首先我们先来大致了解一下什么是贝塞尔曲线
 
@@ -10,9 +10,9 @@
 >
 >逼近该特征多边形的曲线被称为**Bezier曲线**。
 
-um，大致理解的意思就是在直线图像的基础上创造曲线，那么先有直线再有曲线这个思路就明朗了。
+um，大致理解的意思就是在直线图像的基础上创造曲线，那么先有直线 再有曲线 这个思路就明朗了。
 
-我们要做的就是**自己画几条连续的直线段**，最后产生曲线交给算法即可。
+我们要做的就是**自己画几条连续的直线段**，最后的产生曲线交给算法即可。
 
 ## 编写画直线功能
 
@@ -32,11 +32,13 @@ struct System.Drawing.Point{
 
 可以看出，C#中有很多点的表示形式，其中就有二维的坐标表达法
 
-那么好了，现在我们有了定义点的方式，现在就需要再深入一点，这些点的数量我们不应该去限制（是可以这么干，但这不符合实际需求，总不能为了写1万个案例改1万次代码不是？），所以我们需要一个能够“收放自如”的点的集合或者数组，它的容量能随着数据的数量而弹性改变。C#中还是有这么一样东西，叫做`List`，查查定义
+那么好了，现在我们有了定义点的方式，现在就需要再深入一点，这些点的数量我们不应该去限制（是可以这么干，但这不符合实际需求，总不能为了写1万个案例改1万次代码不是？）
+
+所以我们需要一个能够“收放自如”的点的集合或者数组，它的容量能随着数据的数量而弹性改变。C#中还是有这么一样东西，叫做`List`，查查定义
 
 > List泛型集合是C#编程中的经常使用的集合之一，相对数组，**它可以动态的添加元素而不是声明的时候就必须指定大小**。
 >
-> 相对于ArrayList集合和Hashtable集合的优势是其元素的数据类型可以确定。而不是默认的父类类型object。
+> 相对于`ArrayList`集合和`Hashtable`集合的优势是其元素的数据类型可以确定。而不是默认的父类类型`object`。
 
 什么泛型啊什么集合的，看不懂都无所谓，能够确定的是，它可以动态的添加元素，并且大小随之改变。那么就来看看这个东西的定义格式
 
@@ -83,12 +85,12 @@ gra.DrawEllipse (blackPen, 左上角坐标X, 左上角坐标, 宽度, 高度);//
 private void Paper_Click (object sender, EventArgs e) {
     //第一步：标出点的位置
     Graphics gra = ((PictureBox)sender).CreateGraphics();
-    Pen pen = new Pen (Color.Red, 2); //画笔（红色，2宽度）
+    Pen pen = new Pen(Color.Red, 2); //画笔（红色，2宽度）
     //画椭圆（x坐标、y坐标、宽、高）
-    gra.DrawEllipse (pen, ((MouseEventArgs) e).X - 2, ((MouseEventArgs) e).Y - 2, 4, 4);
+    gra.DrawEllipse(pen, ((MouseEventArgs) e).X - 2, ((MouseEventArgs) e).Y - 2, 4, 4);
 
     //第二步：获取光标点击的坐标相对位置，存储坐标到List<Point>内
-    Points.Add (new Point(((MouseEventArgs) e).X, ((MouseEventArgs) e).Y));
+    Points.Add(new Point(((MouseEventArgs) e).X, ((MouseEventArgs) e).Y));
 
     
     //第三步：获取上一个点和当前点进行连线
@@ -100,7 +102,7 @@ private void Paper_Click (object sender, EventArgs e) {
 }
 ```
 
-到这一步，就可以画出华丽（?）的折，也就是**特征多边形**了
+到这一步，就可以画出华丽（?）的折线，也就是**特征多边形**了
 
 ![b0](https://gitee.com/MsYqgzt/picStorage/raw/master/Besier_0.gif)
 
@@ -208,7 +210,7 @@ $$
 
 对于任意次数的贝塞尔曲线，就会有**n个点**，有一个循环的参数**从0循环到n-1，我们可以把这个参数设为m**，循环结束后产生的**n个基函数**就得出来了。
 
-而循环的内容是同一个公式，也就是：$B_{i,n}(t)={n!\over i!(n-0)!}t^i(1-t)^{n-i}$
+而循环的内容是同一个公式，也就是：$B_{m,n}(t)={n!\over m!(n-m)!}t^m(1-t)^{n-m}$
 
 这里基函数的结果可以用数组B[]来存储，大小**与控制点的数量一致**
 
@@ -236,12 +238,12 @@ double[] B = new double[Points.Count];
 
 //计算所有基函数，分别累加XY，存到resultPoints
 for (int i = 0; i < Points.Count; i++) {
-    int temp = n - i;
-    B[i] = calculateN (n) / (calculateN (i) * calculateN (temp)) * Math.Pow (t, i) * Math.Pow (1 - t, temp);
-    X += (int) (Points[i].X * B[i]);
-    Y += (int) (Points[i].Y * B[i]);
+    int temp = m - i;
+    B[i] = calculateN (m) / (calculateN (i) * calculateN (temp)) * Math.Pow (t, i) * Math.Pow (1 - t, temp);
+    X += (int)(Points[i].X * B[i]);
+    Y += (int)(Points[i].Y * B[i]);
 }
-resultPoints.Add (new Point (X, Y));
+resultPoints.Add(new Point (X, Y));
 ```
 
 ------
@@ -271,7 +273,7 @@ int n = Points.Count - 1;
 double[] B = new double[Points.Count];
 
 //t-绘制进度 & Δt-平滑程度
-for (double t = 0; t < 1; t += 0.01) {
+for (double t = 0; t < 1; t += 0.1) {
 
     int X = 0, Y = 0;
     
@@ -300,7 +302,7 @@ List<Point> Points = new List<Point>();
 List<Point> resultPoints = new List<Point>();
 
 //画板点击事件，添加控制点
-private void Paper_Click (object sender, EventArgs e) {
+private void Paper_Click(object sender, EventArgs e) {
     //第一步：标出点的位置
     Graphics gra = ((PictureBox)sender).CreateGraphics();
     Pen pen = new Pen (Color.Red, 2); //画笔（红色，2宽度）
@@ -329,7 +331,7 @@ int calculateN(int n) {
 }
 
 //曲线生成按钮点击事件
-private void btnGen_Click (object sender, EventArgs e) {
+private void btnGen_Click(object sender, EventArgs e) {
     //=======贝塞尔曲线算法========
     int n = Points.Count - 1;
     double[] B = new double[Points.Count];
@@ -364,7 +366,7 @@ private void btnGen_Click (object sender, EventArgs e) {
 
 ![b1](https://gitee.com/MsYqgzt/picStorage/raw/master/Besier_1.gif)
 
-看来是成功的对吧！只是看起来不太丝。但还记得那个t吗，当初我们的精度是0.1，我们再缩小跨度，改成0.001，就可以纵享丝滑了。
+看来是成功的对吧！只是看起来不平滑。但还记得那个t吗，当初我们的精度是0.1，我们再缩小跨度，改成0.001，就可以纵享丝滑了。
 
 ![b2](https://gitee.com/MsYqgzt/picStorage/raw/master/Besier_2.gif)
 
