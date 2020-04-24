@@ -1,6 +1,6 @@
 # 代码实现贝塞尔曲线
 
-贝塞尔曲线是我在学习过程中发现的很有意思的一个玩意儿。这次就打算用C#实现一下它的实现案例。
+贝塞尔曲线是我在学习过程中发现的很有意思的一个玩意儿。这次就打算用C#实现一下它的案例。
 
 首先我们先来大致了解一下什么是贝塞尔曲线
 
@@ -40,7 +40,9 @@ struct System.Drawing.Point{
 >
 > 相对于`ArrayList`集合和`Hashtable`集合的优势是其元素的数据类型可以确定。而不是默认的父类类型`object`。
 
-什么泛型啊什么集合的，看不懂都无所谓，能够确定的是，它可以动态的添加元素，并且大小随之改变。那么就来看看这个东西的定义格式
+什么泛型啊什么集合的，看不懂都无所谓，能够确定的是，它可以动态的添加元素，并且大小随之改变。
+
+来看看这个东西的定义格式
 
 ```c#
 using System.Collections.Generic;
@@ -60,8 +62,6 @@ List<Point> Points = new List<Point>();
 List<Point> resultPoints = new List<Point>();
 ```
 
-
-
 ------
 
 现在我们有了点集合，就可以拿“笔”来画“形状”了，很不巧的是 C#中也有关于画笔的定义。
@@ -72,7 +72,7 @@ using System.Drawing;
 Graphics gra = Paper.CreateGraphics();
 Pen blackPen = new Pen(Color.Black, 2);//创建画笔（颜色，宽度/粗细）
 gra.DrawLine(blackPen, 起点, 终点);//绘制直线
-gra.DrawEllipse (blackPen, 左上角坐标X, 左上角坐标, 宽度, 高度);//绘制椭圆
+gra.DrawEllipse (blackPen, 左上角坐标X, 左上角坐标Y, 宽度, 高度);//绘制椭圆
 ```
 
 画直线还有一步，就是要一个能画线的控件，这里我选择的是图片控件`PictureBox`，取名为`Paper`，也是有其他选择的，原理相同。
@@ -94,9 +94,9 @@ private void Paper_Click (object sender, EventArgs e) {
 
     
     //第三步：获取上一个点和当前点进行连线
-    if (Points.Count > 1) {
-        Point point0 = new Point(Points[Points.Count - 2].X, Points[Points.Count - 2].Y);
-        Point point1 = new Point(Points[Points.Count - 1].X, Points[Points.Count - 1].Y);
+    if (Points.Count >= 1) {
+        Point point0 = new Point(Points[Points.Count - 1].X, Points[Points.Count - 1].Y);
+        Point point1 = new Point(Points[Points.Count].X, Points[Points.Count].Y);
         gra.DrawLine(pen, point0, point1);
     }
 }
@@ -135,7 +135,7 @@ private void Paper_Click (object sender, EventArgs e) {
 > $$
 > 这恰好是连接起点$P_0$和终点$P_1$的直线段
 >
-> ------
+> <br/>
 >
 > **二次Bezier曲线**
 >
@@ -161,7 +161,7 @@ private void Paper_Click (object sender, EventArgs e) {
 > =(P_2-2P_1+P_0)t^2+2(P_1-P_0)t+P_0
 > $$
 >
-> ------
+> <br/>
 >
 > **三次Bezier曲线**
 >
@@ -246,7 +246,7 @@ for (int i = 0; i < Points.Count; i++) {
 resultPoints.Add(new Point (X, Y));
 ```
 
-------
+<br/>
 
 现在我们再回来收拾t这个家伙，这玩意代表着什么呢？
 
