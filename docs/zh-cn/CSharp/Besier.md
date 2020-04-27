@@ -370,4 +370,69 @@ private void btnGen_Click(object sender, EventArgs e) {
 
 ![b2](https://gitee.com/MsYqgzt/picStorage/raw/master/Besier_2.gif)
 
-不过这个算法还有一些小问题，在后续会慢慢改进。
+不过这个算法从定义出发，还有一些小问题，运算效率也很离谱。
+
+
+
+## 算法优化
+
+贝塞尔曲线的另一种算法比较精髓，让我们来看看描述
+
+> Bezier曲线的递推(de Castel jau)算法
+>
+> - 根据Bezier曲线的定义确定的参数方程绘制Bezier曲线，因其计算量过大，不太适合在工程上使用
+>
+> - Bezier曲线上的任一个点P(t)，都是**其它相邻线段的同等比例(t)点处的连线**，再取同等比例(t)的点再连线，一直取到**最后那条线段的同等比例(t)处**，该点就是Beizer曲线上的点P(t)
+>
+> - 由(n+1)个控制点$P_i(i=0,1,…,n)$定义的n次Bezier曲线$P_0^n$。n可被定义为分别由前、后n个控制点定义的两条(n-1)次Bezier曲线$P_0^{n-1}$与$P_1^{n-1}$的线性组合
+>
+> - 由此得到Bezier曲线的递推计算公式：
+>   $$
+>   P_i^k=\begin{cases}
+>   P_i~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~k=0\\
+>   (1-t)P_i^{k-1}+tP_{i+1}^{k-1}~~~~~~~~k=1,2,…,n~~/~~i=0,1,…,n-k
+>   \end{cases}
+>   $$
+
+文字比较抽象，可以用一张图来描述这个过程，是最简单的三点曲线，更多点的情况下，道理是一样的。
+
+![Bezier_Gen](https://gitee.com/MsYqgzt/picStorage/raw/master/Bezier%20gen.gif)
+
+直观的来看还挺容易的，不过写起来可不一定，来理清一下思路
+
+首先整个环境需要一个t∈[0,1]来作为大的循环前提。在这之下，提取每个线段的t比例的位置，得到一组新的直线段，再提取每个线段的t比例的位置，得到下一组直线段……直到最后只剩下2个点，也就是一个直线段的时候，提取这个直线段的长度在t比例下的位置，就获得了Bezier曲线在t比例下的像素坐标点了。
+
+所以这里需要用到递归函数，会稍微复杂一些【也就秃顶了而已】，但是省去了阶乘和大量的四则运算，计算的效率有了质的飞跃。这里直接贴上核心算法的代码。
+
+```c#
+/// <summary> Bezier曲线算法 </summary>
+/// <param name="points">特征多边形的点集合</param>
+/// <param name="step">曲线平滑程度，数值越大越平滑</param>
+/// <returns></returns>
+List<Point> Bezier_generate(List<Point> points, int step = 100) {
+    if (points.Count == 0) return new List<Point>();
+
+    List<Point> resultPoints = new List<Point>();
+    for (double t = 0; t < 1; t += 1.0 / step) {
+        resultPoints.Add (Bezier_loop (points, new List<Point>(), t));
+    }
+
+    return resultPoints;
+}
+
+Point Bezier_loop(List<Point> points, List<Point> temp, double t) {
+    for (int i = 1; i < points.Count; i++) {
+        int deltaX = (int) (t * (points[i].X - points[i - 1].X) + 0.5),
+            deltaY = (int) (t * (points[i].Y - points[i - 1].Y) + 0.5);
+
+        temp.Add (new Point(points[i - 1].X + deltaX, points[i - 1].Y + deltaY));
+    }
+    if (temp.Count > 1) {
+        return Bezier_loop (temp, new List<Point>(), t);
+    } 
+    else {
+        return temp[0];
+    }
+}
+```
+
