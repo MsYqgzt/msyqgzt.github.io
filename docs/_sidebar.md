@@ -27,10 +27,12 @@
 <br/>
 
 - **交互设计基础 🧨**
-  - [目录](/zh-cn/interactionDesign/0.README.md)
   - [平台设计规范](/zh-cn/interactionDesign/1.平台设计规范.md)
   - [需求设计分析与方案选择](/zh-cn/interactionDesign/2.需求设计分析与方案选择.md)
   - [信息架构设计](/zh-cn/interactionDesign/3.信息架构.md)
+  - [流程设计](/zh-cn/interactionDesign/4.流程设计.md)
+  - [让页面布局更优雅](/zh-cn/interactionDesign/5.让页面布局更优雅.md)
+  - [交互设计文档](/zh-cn/interactionDesign/6.交互设计文档.md)
 
 ------
 
