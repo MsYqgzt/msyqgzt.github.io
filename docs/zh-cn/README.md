@@ -10,8 +10,4 @@
 
 > [!tip|style:flat|label:最近文章|labelVisibility:visible|iconVisibility:visible]
 >
-> 📃 [交互设计基础](/zh-cn/interactionDesign/6.交互设计文档.md) 📅2020/04/30
->
-> 📃 [C#-通过代码实现贝塞尔曲线](/zh-cn/CSharp/Besier.md) 📅2020/04/28
->
-> 📃 [Python爬虫-数据解析](/zh-cn/pythonBot/4.数据解析.md) 📅2020/04/21
+> 📃 [碎碎念 - 偶遇深夜](/zh-cn/chat/2020.5.5深夜.md) 📅2020/05/05
