@@ -23,6 +23,6 @@ section 游戏制作
 
 
 
-## 支持作者
+## 请我喝杯咖啡？
 
 ![donate](/donate.jpg)

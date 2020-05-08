@@ -10,4 +10,4 @@
 
 > [!tip|style:flat|label:最近文章|labelVisibility:visible|iconVisibility:visible]
 >
-> 📃 [碎碎念 - 偶遇深夜](/zh-cn/chat/2020.5.5深夜.md) 📅2020/05/05
+> 📃 [碎碎念 - 梦游记](/zh-cn/chat/梦游记.md) 📅2020/05/07
