@@ -1,6 +1,6 @@
 
 
-![](logo.png)
+![logo](logo.svg)
 
 # AlertNote
 
