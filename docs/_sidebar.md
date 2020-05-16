@@ -1,6 +1,6 @@
 - **计算机网络**
   - [概述](/zh-cn/network/1.概述.md)
-  - [你们必愿意看的](/zh-cn/network/你们更愿意看的.md)
+  - [你们愿意看的](/zh-cn/network/你们更愿意看的.md)
 
 <br/>
 
