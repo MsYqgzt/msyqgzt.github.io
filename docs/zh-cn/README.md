@@ -10,6 +10,8 @@
 
 > [!tip|style:flat|label:最近文章|labelVisibility:visible|iconVisibility:visible]
 >
+> 📃 [程序设计模式](/zh-cn/graphics/1.README.md) 📅2020/05/26
+>
 > 📃 [计算机图形学-真实感图形](/zh-cn/graphics/10.真实感图形学.md) 📅2020/05/22
 >
 > 📃 [深呼吸](/zh-cn/chat/深呼吸.md) 📅2020/05/22
