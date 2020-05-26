@@ -5,12 +5,12 @@
 <br/>
 
 - **操作系统算法 💾**
-  - [作业调度](/zh-cn/operatingSystem/1.作业调度.md)
-  - [进程管理](/zh-cn/operatingSystem/2.进程管理.md)
-  - [进程的并发控制](/zh-cn/operatingSystem/3.进程的并发控制.md)
-  - [存储管理](/zh-cn/operatingSystem/4.存储管理.md)
-  - [虚拟存储管理](/zh-cn/operatingSystem/5.虚拟存储管理.md)
-  - [设备管理](/zh-cn/operatingSystem/6.设备管理.md)
+  - [作业调度](/zh-cn/OS/1.作业调度.md)
+  - [进程管理](/zh-cn/OS/2.进程管理.md)
+  - [进程的并发控制](/zh-cn/OS/3.进程的并发控制.md)
+  - [存储管理](/zh-cn/OS/4.存储管理.md)
+  - [虚拟存储管理](/zh-cn/OS/5.虚拟存储管理.md)
+  - [设备管理](/zh-cn/OS/6.设备管理.md)
 
 <br/>
 
@@ -48,6 +48,7 @@
 - **程序设计模式 📐**
   - [概述](/zh-cn/designPattern/README.md)
   - [工厂模式](/zh-cn/designPattern/Factory_Pattern.md)
+  - [抽象工厂模式](/zh-cn/designPattern/Abstract_Factory_Pattern.md)
 
 <br/>
 

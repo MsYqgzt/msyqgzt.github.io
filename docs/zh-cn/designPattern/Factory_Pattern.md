@@ -37,7 +37,7 @@
 
 ## 实例
 
-1. 创建一个接口：
+1. 创建一个接口
 
 ```c#
     /// <summary> 创建鞋类接口 </summary>
@@ -49,7 +49,7 @@
 
 <br/>
 
-2. 创建实现接口的实体类：
+2. 创建实现接口的实体类
 
 ```c#
     /// <summary> 某踏 </summary>
@@ -80,7 +80,7 @@
 
 <br/>
 
-3. 创建一个工厂，生成基于给定信息的实体类的对象：
+3. 创建一个工厂，生成基于给定信息的实体类的对象
 
 ```c#
     public class ShoseFactory
@@ -124,7 +124,6 @@
             ShoseFactory shoseFactory = new ShoseFactory();
 
             //穿鞋
-
             Shose shose1 = shoseFactory.GetShose("Anta");
             shose1.wear();
 
