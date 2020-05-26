@@ -45,6 +45,11 @@
 
 ------
 
+- [**程序设计模式 📐**](/zh-cn/CSharp/designPattern.md)
+  - [工厂模式](/zh-cn/CSharp/Factory Pattern.md)
+
+<br/>
+
 - **C# 开发笔记 👴**
   - [WPF-样式(Style)](/zh-cn/CSharp/WPF_Style.md)
   - [代码实现贝塞尔曲线](/zh-cn/CSharp/Besier.md)
