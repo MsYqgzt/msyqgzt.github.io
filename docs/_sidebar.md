@@ -46,8 +46,8 @@
 ------
 
 - **程序设计模式 📐**
-  - [概述](/zh-cn/CSharp/README.md)
-  - [工厂模式](/zh-cn/CSharp/Factory Pattern.md)
+  - [概述](/zh-cn/designPattern/README.md)
+  - [工厂模式](/zh-cn/designPattern/Factory_Pattern.md)
 
 <br/>
 
