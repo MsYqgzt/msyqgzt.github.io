@@ -45,10 +45,7 @@
 
 ------
 
-- **程序设计模式 📐**
-  - [概述](/zh-cn/designPattern/README.md)
-  - [工厂模式](/zh-cn/designPattern/Factory_Pattern.md)
-  - [抽象工厂模式](/zh-cn/designPattern/Abstract_Factory_Pattern.md)
+- **[程序设计模式 📐](/zh-cn/designPattern/README.md)**
 
 <br/>
 
