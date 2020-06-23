@@ -45,18 +45,14 @@
 
 ------
 
-- **[程序设计模式 📐](/zh-cn/designPattern/README.md)**
+- **游戏编程模式 🕹**
+  - [目录](/zh-cn/gameProgrammingPatterns/README.md)
 
 <br/>
 
 - **C# 开发笔记 👴**
   - [WPF-样式(Style)](/zh-cn/CSharp/WPF_Style.md)
   - [代码实现贝塞尔曲线](/zh-cn/CSharp/Besier.md)
-
-<br/>
-
-- **游戏制作 🕹**
-  - 暂无
 
 <br/>
 

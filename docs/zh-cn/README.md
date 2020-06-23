@@ -1,7 +1,7 @@
-# Hey，你来啦
+# 你在补考名单上.jpg
 > 我是居住在福州的IT技术与游戏开发爱好者，欢迎来到我的~~鱼塘~~个人领域。
 >
-> 这里用于保存我在学校或者自发学习过程中的收获和成果，以及各种扯皮。这些东西不会很高大上，但相信会很有趣。希望能够留下，值得为之保留的东西，打磨自己、分享给需要的人。
+> 这儿用于保存我在学校或者自发学习过程中的收获和成果，以及各种闲谈扯皮。这些东西不会很高大上，但相信会很有趣。希望能够留下，值得为之保留的东西，打磨自己、分享给需要的人。
 
 <div style="text-align:center;">
 	<img src="https://i.loli.net/2020/03/16/5fkUipJE4dB92mz.png" alt="QR" style="zoom:70%;"/>
@@ -10,11 +10,8 @@
 
 > [!tip|style:flat|label:最近文章|labelVisibility:visible|iconVisibility:visible]
 >
-> 📃 [程序设计模式](/zh-cn/designPattern/README.md) 📅2020/05/26
+> 📃 [游戏编程模式](/zh-cn/gameProgrammingPatterns/README.md) 📅2020/06/23
 >
 > 📃 [计算机图形学-真实感图形](/zh-cn/graphics/10.真实感图形学.md) 📅2020/05/22
 >
-> 📃 [深呼吸](/zh-cn/chat/深呼吸.md) 📅2020/05/22
->
-> 📃 [你们愿意看的-计算机网络 例题整理](/zh-cn/network/你们更愿意看的.md) 📅2020/05/16
->
+> 注：碎碎念的更新不再推送显示
