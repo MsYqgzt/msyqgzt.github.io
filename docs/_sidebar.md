@@ -63,6 +63,7 @@
 <br/>
 
 - **Python爬虫 🐾**
+  - [Python基础](/zh-cn/pythonBot/0.Python.md)
   - [爬虫简介](/zh-cn/pythonBot/1.README.md) 
   - [http&https协议](/zh-cn/pythonBot/2.http&https协议.md)
   - [requests模块](/zh-cn/pythonBot/3.request.md)
