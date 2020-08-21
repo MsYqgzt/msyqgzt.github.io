@@ -10,6 +10,6 @@
 
 > [!tip|style:flat|label:最近文章|labelVisibility:visible|iconVisibility:visible]
 >
-> 📃 [游戏编程模式](/zh-cn/gameProgrammingPatterns/README.md) 📅2020/06/23
+> 📃 [游戏编程模式](/zh-cn/gameProgrammingPatterns/README.md) 📅2020/08/21
 >
 > 

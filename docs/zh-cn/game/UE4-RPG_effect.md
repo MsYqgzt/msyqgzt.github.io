@@ -66,14 +66,61 @@ $
 - 定义颜色
   - 按住3，创建RGB属性
   - M键+单击创建混合属性，连接颜色和材质
-  - Blend Mode设置为Masked，Shading Mode设为Unlit，以将黑色部分设置为透明
-  - 连接至`Emissive Color`（高光层）
+  - Blend Mode设置为Masked，Shading Mode设为Unlit，以将黑色部分设置为透明 ->`Emissive Color`（高光层）
 - 设置缩放：`TextureCoordinate`属性
-- 动态化：按住P键单击放置Panner，设置贴图速度
+- 动态化：按住P键单击放置`Panner`，设置贴图速度
 - 复制多层参数不同的贴图，按住A点击放置叠加属性，将效果叠加
 - 创建底色，叠加效果
-- 将圆形贴图连接至`Opacity Mask`（透明通道）
+- 圆形贴图 ->`Opacity Mask`（透明通道）
 - 实现血量反馈
   - 按住0单击放置数值变量
   - 创建`LinearGradient`（线性渐变）
   - 创建if判断
+- 创建血量边界
+  - 创建`Add`节点
+  - 血量数值 -> `Add`
+  - 创建血量边界数值 ->`Add`
+  - 创建if判断
+  - `Add`->`if-A`
+  - `LinearGradient`->`if-B`
+  - 将if的结果做反向处理，与原先的血量混合->`Multiply`
+  - 设置单独的`Panner`和`TextureCoordinate`，和血量模块相加
+  - 提高亮度
+
+## UI制作
+
+> - 文件结构
+>   - UI
+>     - Mesh
+>     - MAT
+>     - Texture
+>       - UI框架贴图
+
+- Mesh导入贴图，MAT创建材质
+- 创建显示组件（Cube），导入材质，移动到摄像机前合适位置
+- 同理创建血量球材质
+- 绑定UI和摄像机
+  - 在事件蓝图下创建`Event Begin Play`
+  - 选中UI框架，创建`Attach To(UI框架)`
+  - 将摄像机拖拽到蓝图内
+  - 绑定位置
+    - `Event Begin Play`->`Attach To(UI框架)`根节点
+    - `Attach To(UI框架)`->`Attach To(血量球)`根节点
+    - Camera ->`In Parent`
+    - `Attach Type`=`Keep World Position`
+
+- 动态材质获取
+  - 编辑角色蓝图，新建`Health`变量(`float`)
+  - 新建`血量`变量(`MaterialInstanceDynamic`)
+  - 将血槽材质与血量绑定
+    - 选中血槽组件
+    - `Construction Script`->`Create Dynamic Material Instance`(血槽) -`Return Value`->SET（血量变量）
+  - 编辑事件蓝图，新建`Event Tick`-> 新建`Set Scalar Parameter Value`
+    - 血量变量->`Target`
+    - `Health`->`Value`
+    - 回到血量材质编辑蓝图，命名血量数值组件
+    - 回到事件蓝图，设置`Parameter Name`
+  - 动态改变血量
+    - 各种碰撞事件起点->`Cast To （角色名）`->`SET`
+      - `As (角色名)`->`Target`
+      - `As (角色名)`->`Target  Health`->数值组件(+-*/)->`Health`
