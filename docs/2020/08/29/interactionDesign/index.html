@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    <link rel="shortcut icon" type='image/x-icon' href="/testblog/favicon.svg">
+
+
+    <!-- meta -->
+
+
+<title>交互设计基础 | AlertNote</title>
+
+
+    <meta name="keywords" content="设计, 人机交互">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="平台设计规范移动端1.界面设计规范IOS  导航栏：  用于实现在应用不同信息层级结构间的导航，有时候也可用于管理当前屏幕内容   工具栏：  用于放置操作当前屏幕中各对象的控件   标签栏：  标签栏让用户在不同的任务、界面和模式中进行切换    Android   应用栏（APP Bar） 应用栏在以前的安卓版本中被叫做操作栏 是用来显示应用的标识，应用导航，内容搜索以及其他操作    2.导">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交互设计基础">
+<meta property="og:url" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="平台设计规范移动端1.界面设计规范IOS  导航栏：  用于实现在应用不同信息层级结构间的导航，有时候也可用于管理当前屏幕内容   工具栏：  用于放置操作当前屏幕中各对象的控件   标签栏：  标签栏让用户在不同的任务、界面和模式中进行切换    Android   应用栏（APP Bar） 应用栏在以前的安卓版本中被叫做操作栏 是用来显示应用的标识，应用导航，内容搜索以及其他操作    2.导">
+<meta property="og:locale">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.1.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.1.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.2.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.2.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.2.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.2.5.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.5.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.3.6.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.1.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.3.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.3.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.3.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.3.5.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/2.4.1.png">
+<meta property="article:published_time" content="2020-08-29T09:49:49.593Z">
+<meta property="article:modified_time" content="2020-08-29T11:44:25.289Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="设计">
+<meta property="article:tag" content="人机交互">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://msyqgzt.gitee.io/testblog/2020/08/29/interactionDesign/1.1.1.png">
+
+
+    
+<link rel="stylesheet" href="/testblog/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/testblog/css/style/dark.css">
+
+    
+<script src="/testblog/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/testblog/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/testblog/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+    
+    <link rel="stylesheet" href="/testblog/css/style/note.css" media="none" onload="this.media='all'">
+
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/testblog/" class="button">
+            <span class="logo__text">
+                AlertNote
+            </span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/testblog/" class="navbar-menu button">
+                        首页
+                    </a>
+                
+                    <a href="/testblog/categories/" class="navbar-menu button">
+                        分类
+                    </a>
+                
+                    <a href="/testblog/tags/" class="navbar-menu button">
+                        标签
+                    </a>
+                
+                    <a href="/testblog/archives/" class="navbar-menu button">
+                        归档
+                    </a>
+                
+                    <a href="/testblog/friends/" class="navbar-menu button">
+                        友链
+                    </a>
+                
+                    <a href="/testblog/about/" class="navbar-menu button">
+                        关于我
+                    </a>
+                
+            </div>
+        
+        
+        
+    <a href="/testblog/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="javaScript:void(0);" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='32' height='32' fill="currentColor" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13.889,11.611c-0.17,0.17-0.443,0.17-0.612,0l-3.189-3.187l-3.363,3.36c-0.171,0.171-0.441,0.171-0.612,0c-0.172-0.169-0.172-0.443,0-0.611l3.667-3.669c0.17-0.17,0.445-0.172,0.614,0l3.496,3.493C14.058,11.167,14.061,11.443,13.889,11.611 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.692-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.383,10c0-4.07-3.312-7.382-7.383-7.382S2.618,5.93,2.618,10S5.93,17.381,10,17.381S17.383,14.07,17.383,10"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
+                </svg>
+            </a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                <a class="dropback-icon button" id="btn-dropback">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                        <path fill="currentColor" d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"></path>
+                    </svg>
+                </a>
+                
+                    <a href="/testblog/" class="dropdown-menu button">
+                        首页
+                    </a>
+                
+                    <a href="/testblog/categories/" class="dropdown-menu button">
+                        分类
+                    </a>
+                
+                    <a href="/testblog/tags/" class="dropdown-menu button">
+                        标签
+                    </a>
+                
+                    <a href="/testblog/archives/" class="dropdown-menu button">
+                        归档
+                    </a>
+                
+                    <a href="/testblog/friends/" class="dropdown-menu button">
+                        友链
+                    </a>
+                
+                    <a href="/testblog/about/" class="dropdown-menu button">
+                        关于我
+                    </a>
+                
+            </div>
+            <script>
+                document.getElementById('btn-dropdown').addEventListener('click', () => {
+                    const dd = document.getElementById('dropdown-menus');
+                    requestAnimationFrame(() => {
+                        dd.style.display = 'flex';
+                        requestAnimationFrame(() => {
+                            dd.style.transform = 'translateY(0)';
+                            dd.style.opacity = '1';
+                        });
+                    });
+                });
+                document.getElementById('btn-dropback').addEventListener('click', () => {
+                    const dd = document.getElementById('dropdown-menus');
+                    dd.style.transform = 'translateY(2.25rem)';                    
+                    dd.style.opacity = '0';
+                    setTimeout(() => {dd.style.display = 'none';}, 350);
+                });
+            </script>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+<div class="post-title">
+    <h1 class="post-title__text">
+        交互设计基础
+    </h1>
+    <div class="post-title__meta">
+        <a href="/testblog/archives/2020/08/" class="post-meta__date button">
+    2020-08-29
+</a>
+        
+    <span class="separate-dot"></span><a href="/testblog/categories/%E8%AE%BE%E8%AE%A1/" class="button">设计</a>
+
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <div class="post__with-side">
+        <aside class="post-side">
+            <div class="post-side__toc">
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">平台设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF"><span class="toc-number">1.1.</span> <span class="toc-text">移动端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.界面设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IOS"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">IOS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Android"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Android</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AF%BC%E8%88%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.导航设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">标签式导航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E6%AE%B5%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">分段式导航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%88%B5%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">舵式导航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%BD%E5%B1%89%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">抽屉式导航</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">下拉菜单式导航</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%97%E8%A1%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.列表设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%88%97%E8%A1%A8"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">垂直列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AE%E6%92%AD%E9%9D%A2%E6%9D%BF"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">轮播面板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%97%E8%A1%A8"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">网格列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E7%AB%AF"><span class="toc-number">1.2.</span> <span class="toc-text">Web端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.网页布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.页面设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%87%AA%E9%80%82%E5%BA%94%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.自适应设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90%E4%B8%8E%E6%96%B9%E6%A1%88%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">需求设计分析与方案选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E4%BA%A7%E5%93%81%E9%9C%80%E8%A6%81%E6%80%9D%E8%80%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">设计产品需要思考的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">完整的交互设计循环过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E4%B8%9A%E5%8A%A1%E9%9C%80%E6%B1%82"><span class="toc-number">2.3.</span> <span class="toc-text">分析业务需求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E7%9B%AE%E7%9A%84-amp-%E7%9B%AE%E6%A0%87"><span class="toc-number">2.3.1.</span> <span class="toc-text">了解目的&amp;目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82"><span class="toc-number">2.3.2.</span> <span class="toc-text">分析用户需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E8%A7%A3%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="toc-number">2.3.3.</span> <span class="toc-text">分解关键因素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%8E%E7%A1%AE%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5"><span class="toc-number">2.3.4.</span> <span class="toc-text">明确设计策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90"><span class="toc-number">2.3.5.</span> <span class="toc-text">用户体验路径分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.3.6.</span> <span class="toc-text">选择合适的解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BA%92%E8%81%94%E7%BD%91%E4%BA%A7%E5%93%81%E5%9B%A2%E9%98%9F%E7%9A%84%E5%88%86%E5%B7%A5"><span class="toc-number">2.3.6.1.</span> <span class="toc-text">1. 互联网产品团队的分工</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88%E7%9A%84%E8%AF%84%E4%BB%B7%E7%BB%B4%E5%BA%A6"><span class="toc-number">2.3.6.2.</span> <span class="toc-text">2. 交互设计方案的评价维度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88%E7%9A%84%E5%86%B3%E7%AD%96%E6%96%B9%E5%BC%8F%E4%B8%8E%E8%BF%87%E7%A8%8B"><span class="toc-number">2.3.6.3.</span> <span class="toc-text">3. 交互设计方案的决策方式与过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E6%8E%A8%E9%94%80%E4%BD%A0%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88"><span class="toc-number">2.3.6.4.</span> <span class="toc-text">4. 如何推销你的设计方案</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text">信息架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">认识信息架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A7%E5%93%81%E7%9A%84%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">什么是产品的信息架构？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E4%BA%A7%E5%93%81%E9%9C%80%E8%A6%81%E5%90%88%E7%90%86%E7%9A%84%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%EF%BC%9F"><span class="toc-number">3.1.2.</span> <span class="toc-text">为何产品需要合理的信息架构？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E4%B8%BA%E4%BD%95%E9%9C%80%E8%A6%81%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">信息架构为何需要设计？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">前期准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%8C%E5%9C%BA%E6%99%AF%EF%BC%8C%E4%B9%A0%E6%83%AF"><span class="toc-number">3.2.1.</span> <span class="toc-text">了解用户，场景，习惯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%E9%9C%80%E6%B1%82"><span class="toc-number">3.2.2.</span> <span class="toc-text">了解业务需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%A0%94%E7%AB%9E%E5%93%81%E7%9A%84%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.3.</span> <span class="toc-text">调研竞品的信息架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E7%89%87%E5%88%86%E7%B1%BB%E6%B3%95"><span class="toc-number">3.2.4.</span> <span class="toc-text">卡片分类法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BA%A7%E5%87%BA%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.</span> <span class="toc-text">如何产出产品信息架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%92%8CAxure%E6%95%B4%E5%90%88%E4%BF%A1%E6%81%AF"><span class="toc-number">3.3.1.</span> <span class="toc-text">利用思维导图和Axure整合信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E5%B1%82%E5%92%8C%E5%BA%A6%E7%9A%84%E5%B9%B3%E8%A1%A1"><span class="toc-number">3.3.2.</span> <span class="toc-text">寻找层和度的平衡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%A0%B8%E5%BF%83%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.3.</span> <span class="toc-text">验证核心使用流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%80%83%E8%99%91%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E5%92%8C%E4%BA%A4%E4%BA%92%E6%9E%84%E5%9B%BE%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.3.4.</span> <span class="toc-text">考虑信息架构和交互构图的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF-1"><span class="toc-number">3.3.4.1.</span> <span class="toc-text">移动端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#web%E7%AB%AF"><span class="toc-number">3.3.4.2.</span> <span class="toc-text">web端</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E8%AE%A8%E8%AE%BA%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87"><span class="toc-number">3.3.5.</span> <span class="toc-text">为讨论做好准备</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%84%E5%88%A4%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.4.</span> <span class="toc-text">如何评判产品信息架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.1.</span> <span class="toc-text">用户测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%92%B0%E5%86%99%E4%BA%A7%E5%93%81%E8%AF%B4%E6%98%8E%E4%B9%A6"><span class="toc-number">3.4.2.</span> <span class="toc-text">撰写产品说明书</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E6%8E%A8%E5%B9%BF%EF%BC%9A%E7%94%A8%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E6%80%9D%E8%B7%AF%E8%AE%BE%E8%AE%A1%E9%A1%B5%E9%9D%A2"><span class="toc-number">3.5.</span> <span class="toc-text">信息架构推广：用信息架构思路设计页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E5%9C%A8%E5%8D%95%E4%B8%80%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1%E6%97%B6%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.1.</span> <span class="toc-text">为何在单一页面设计时需要考虑信息架构问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%8E%E7%A1%AE%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E9%80%BB%E8%BE%91%E6%80%A7%E4%B8%8E%E9%87%8D%E8%A6%81%E7%BA%A7"><span class="toc-number">3.5.2.</span> <span class="toc-text">明确一个页面中的元素逻辑性与重要级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%8D%95%E4%B8%80%E9%A1%B5%E9%9D%A2"><span class="toc-number">3.5.3.</span> <span class="toc-text">绘制单一页面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">流程设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E4%BA%A7%E5%93%81%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="toc-number">4.1.1.</span> <span class="toc-text">用户和产品的交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%81%E4%B8%9A%E4%B8%AD%E7%9A%84%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%BF%98%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.1.2.</span> <span class="toc-text">企业中的流程设计还需要考虑什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%A7%80%E7%9A%84%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="toc-number">4.1.3.</span> <span class="toc-text">优秀的流程设计有什么好处？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.</span> <span class="toc-text">如何进行流程设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%85%E5%88%86%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%E9%9C%80%E6%B1%82"><span class="toc-number">4.2.1.</span> <span class="toc-text">充分理解业务需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%94%A8%E6%88%B7%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%89%80%E6%9C%89%E6%8E%A5%E8%A7%A6%E7%82%B9"><span class="toc-number">4.2.2.</span> <span class="toc-text">找到用户完成任务的所有接触点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A2%B3%E7%90%86%E6%8E%A5%E8%A7%A6%E7%82%B9"><span class="toc-number">4.2.3.</span> <span class="toc-text">梳理接触点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%BA%A4%E4%BA%92%E7%A8%BF"><span class="toc-number">4.2.4.</span> <span class="toc-text">根据流程设计交互稿</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8%E6%B5%81%E7%A8%8B"><span class="toc-number">4.2.5.</span> <span class="toc-text">处理异常流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.3.</span> <span class="toc-text">流程设计与交互工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.3.1.</span> <span class="toc-text">流程设计与信息架构设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%94%A8%E6%88%B7%E5%9C%BA%E6%99%AF"><span class="toc-number">4.3.2.</span> <span class="toc-text">流程设计与用户场景</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A9%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%E6%9B%B4%E4%BC%98%E9%9B%85"><span class="toc-number">5.</span> <span class="toc-text">让页面布局更优雅</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A6"><span class="toc-number">5.1.</span> <span class="toc-text">设计心理学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E6%8E%92%E7%89%88%E5%B8%83%E5%B1%80"><span class="toc-number">5.2.</span> <span class="toc-text">页面排版布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1%EF%BC%9A%E7%A1%AE%E5%AE%9A%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%BB%BB%E5%8A%A1%E7%9B%AE%E7%9A%84"><span class="toc-number">5.2.1.</span> <span class="toc-text">Step 1：确定页面的任务目的</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A1%E9%87%8F%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%A0%87%E5%87%86"><span class="toc-number">5.2.1.1.</span> <span class="toc-text">衡量页面的标准</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%85%83%E7%B4%A0%E7%9A%84%E7%BB%84%E7%BB%87%E5%88%86%E7%B1%BB"><span class="toc-number">5.2.2.</span> <span class="toc-text">Step 2：信息元素的组织分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3%EF%BC%9A%E5%AF%B9%E7%BB%84%E5%9D%97%E8%BF%9B%E8%A1%8C%E6%8E%92%E7%89%88%E5%B8%83%E5%B1%80"><span class="toc-number">5.2.3.</span> <span class="toc-text">Step 3：对组块进行排版布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-4%EF%BC%9A%E6%9D%83%E8%A1%A1%E5%B9%B3%E5%8F%B0%E8%A7%84%E8%8C%83%E5%92%8C%E7%94%A8%E6%88%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B9%A0%E6%83%AF"><span class="toc-number">5.2.4.</span> <span class="toc-text">Step 4：权衡平台规范和用户的使用习惯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-5%EF%BC%9A%E9%A1%B5%E9%9D%A2%E6%8E%92%E7%89%88%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%AA%8C%E8%AF%81"><span class="toc-number">5.2.5.</span> <span class="toc-text">Step 5：页面排版的设计验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3"><span class="toc-number">6.</span> <span class="toc-text">交互设计文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3"><span class="toc-number">6.1.</span> <span class="toc-text">什么是交互设计文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%B0%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3"><span class="toc-number">6.2.</span> <span class="toc-text">撰写高质量的交互设计文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">6.3.</span> <span class="toc-text">交互设计文档的实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%AE%9E%E4%BE%8B"><span class="toc-number">7.</span> <span class="toc-text">项目实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">7.1.</span> <span class="toc-text">需求分析</span></a></li></ol></li></ol>
+            </div>
+        </aside>
+        <article class="post content-card">
+            <div class="post__header"></div>
+            <div class="post__content">
+                <h2 id="平台设计规范"><a href="#平台设计规范" class="headerlink" title="平台设计规范"></a>平台设计规范</h2><h3 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h3><h4 id="1-界面设计规范"><a href="#1-界面设计规范" class="headerlink" title="1.界面设计规范"></a>1.界面设计规范</h4><h5 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h5><img src="/testblog/2020/08/29/interactionDesign/1.1.1.png" class="" title="1.1.1">
+<ul>
+<li><p>导航栏：</p>
+<blockquote>
+<p>用于实现在应用不同信息层级结构间的导航，有时候也可用于管理当前屏幕内容</p>
+</blockquote>
+</li>
+<li><p>工具栏：</p>
+<blockquote>
+<p>用于放置操作当前屏幕中各对象的控件</p>
+</blockquote>
+</li>
+<li><p>标签栏：</p>
+<blockquote>
+<p>标签栏让用户在不同的任务、界面和模式中进行切换</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h5><img src="/testblog/2020/08/29/interactionDesign/1.1.2.png" class="" title="1.1.2">
+
+<ul>
+<li>应用栏（APP Bar）<blockquote>
+<p>应用栏在以前的安卓版本中被叫做操作栏</p>
+<p>是用来显示应用的标识，应用导航，内容搜索以及其他操作</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-导航设计模式"><a href="#2-导航设计模式" class="headerlink" title="2.导航设计模式"></a>2.导航设计模式</h4><h5 id="标签式导航"><a href="#标签式导航" class="headerlink" title="标签式导航"></a>标签式导航</h5><ul>
+<li>特点<ul>
+<li>适用于多个重要功能的罗列</li>
+<li>入口扁平化</li>
+<li>导航控件占据面积大，能够轻松进行点击操作，进行功能间快速切换</li>
+</ul>
+</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/1.2.1.png" class="" title="1.2.1">
+
+<h5 id="分段式导航"><a href="#分段式导航" class="headerlink" title="分段式导航"></a>分段式导航</h5><ul>
+<li>特点<ul>
+<li>由分段式控件所控制的一种导航模式</li>
+<li>尺寸较小，能轻松地融入界面，不占用空间</li>
+<li>设计师还能在其两侧放置其他的UI组件</li>
+</ul>
+</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/1.2.2.png" class="" title="1.2.2">
+
+<blockquote>
+<p>它只是iOS的标准控件，一般不在Android端使用</p>
+<p>不适合作为一级导航，往往作为二级导航与标签导航嵌套使用</p>
+</blockquote>
+<h5 id="舵式导航"><a href="#舵式导航" class="headerlink" title="舵式导航"></a>舵式导航</h5><ul>
+<li>特点<ul>
+<li>标签式导航的变体</li>
+<li>适用于多个重要功能中存在一个特别重要的功能</li>
+</ul>
+</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/1.2.3.png" class="" title="1.2.3">
+
+<h5 id="抽屉式导航"><a href="#抽屉式导航" class="headerlink" title="抽屉式导航"></a>抽屉式导航</h5><ul>
+<li>特点<ul>
+<li>隐藏不重要功能，让用户更专注核心功能</li>
+<li>能够大大减少主界面中的导航控件数量</li>
+<li>被折叠的功能使用率较低</li>
+</ul>
+</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/1.2.4.png" class="" title="1.2.4">
+
+
+<h5 id="下拉菜单式导航"><a href="#下拉菜单式导航" class="headerlink" title="下拉菜单式导航"></a>下拉菜单式导航</h5><ul>
+<li>特点<ul>
+<li>盛行于Android4.0，现在使用的不多，但可以和滚动式菜单相结合</li>
+<li>收起时：体积小巧，节省空间</li>
+<li>展开时：能显示丰富的导航条目</li>
+<li>往往没有关闭按钮</li>
+</ul>
+</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/1.2.5.png" class="" title="1.2.5">
+
+<h4 id="3-列表设计模式"><a href="#3-列表设计模式" class="headerlink" title="3.列表设计模式"></a>3.列表设计模式</h4><h5 id="垂直列表"><a href="#垂直列表" class="headerlink" title="垂直列表"></a>垂直列表</h5><blockquote>
+<p>简单清晰、易于理解、冷静高效、快速定位</p>
+<p>适合二级导航，或功能层级比较浅，且功能间切换不频繁的主导航</p>
+</blockquote>
+<img src="/testblog/2020/08/29/interactionDesign/1.3.1.png" class="" title="1.3.1">
+
+<img src="/testblog/2020/08/29/interactionDesign/1.3.2.png" class="" title="1.3.2">
+
+<blockquote>
+<p>[!note|style:flat|label:注意|labelVisibility:visible|iconVisibility:visible]<br>大都为左对齐</p>
+<p>需要调整条目详细程度与页面展示条目数量之间的平衡</p>
+</blockquote>
+<h5 id="轮播面板"><a href="#轮播面板" class="headerlink" title="轮播面板"></a>轮播面板</h5><blockquote>
+<p>隐藏内容、充分利用空间。</p>
+<p>体验感强，适合一些功能选项较少，且不频繁跳转的产品，或者是浏览体验式的产品。</p>
+</blockquote>
+<img src="/testblog/2020/08/29/interactionDesign/1.3.3.png" class="" title="1.3.3">
+
+<img src="/testblog/2020/08/29/interactionDesign/1.3.4.png" class="" title="1.3.4">
+
+<blockquote>
+<p>这类样式通常需要指示器，来提示用户屏幕外面还有内容</p>
+</blockquote>
+<h5 id="网格列表"><a href="#网格列表" class="headerlink" title="网格列表"></a>网格列表</h5><blockquote>
+<p>能同时显示大量图片、提升界面魅力</p>
+<p>功能扁平化，能充分利用界面</p>
+<p>适合作为二级导航，在有限空间内罗列大量功能</p>
+<p>注重于显示图片，和较少的文字显示</p>
+</blockquote>
+<img src="/testblog/2020/08/29/interactionDesign/1.3.5.png" class="" title="1.3.5">
+
+<img src="/testblog/2020/08/29/interactionDesign/1.3.6.png" class="" title="1.3.6">
+
+<br/>
+
+<h3 id="Web端"><a href="#Web端" class="headerlink" title="Web端"></a>Web端</h3><h4 id="1-网页布局"><a href="#1-网页布局" class="headerlink" title="1.网页布局"></a>1.网页布局</h4><img src="/testblog/2020/08/29/interactionDesign/2.1.1.png" class="" title="2.1.1">
+
+<h4 id="2-页面设计"><a href="#2-页面设计" class="headerlink" title="2.页面设计"></a>2.页面设计</h4><ul>
+<li>页面中的设计元素<ul>
+<li>LOGO</li>
+<li>导航栏</li>
+<li>用户登录或信息</li>
+<li>网站推广内容</li>
+<li>广告</li>
+<li>其他信息</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-自适应设计"><a href="#3-自适应设计" class="headerlink" title="3.自适应设计"></a>3.自适应设计</h4><h2 id="需求设计分析与方案选择"><a href="#需求设计分析与方案选择" class="headerlink" title="需求设计分析与方案选择"></a>需求设计分析与方案选择</h2><blockquote>
+<p>设计师没有细致地沟通业务需求，一直改方案，但没有观点；</p>
+<p>没有仔细地分析用户需求，只是简单地进行页面排版；</p>
+<p>没有对用户体验路径进行仔细分析，缺乏一个好的方式引导用户使用。</p>
+<p>这些都是设计方案不能让人满意的原因</p>
+</blockquote>
+<h3 id="设计产品需要思考的问题"><a href="#设计产品需要思考的问题" class="headerlink" title="设计产品需要思考的问题"></a>设计产品需要思考的问题</h3><ul>
+<li>为什么要做这个功能？（业务目的）</li>
+<li>品期望得到怎样的成果？（业务目标）</li>
+<li>谁来使用这个功能？（目标用户）</li>
+<li>他们为什么要使用这个功能？（用户需求）</li>
+<li>如何让他们都来使用这个功能？（将业务目标转化为用户行为）</li>
+</ul>
+<h3 id="完整的交互设计循环过程"><a href="#完整的交互设计循环过程" class="headerlink" title="完整的交互设计循环过程"></a>完整的交互设计循环过程</h3><ul>
+<li>Plan：分析业务需求和用户需求，明确设计策略。<ul>
+<li>分析业务需求（业务目的、业务目标）</li>
+<li>分析用户需求（目标用户、用户体验目标）</li>
+<li>分解关键因素（用户的动机、担忧、障碍）</li>
+<li>归纳设计需求，明确设计策略</li>
+</ul>
+</li>
+<li>Do：根据设计策略，设计完整的解决方案细节。</li>
+<li>Check：走查、验证并修复问题，跟踪用户反馈。</li>
+<li>Action：总结经验修订目标，开始下一个Plan</li>
+</ul>
+<br/>
+
+<h3 id="分析业务需求"><a href="#分析业务需求" class="headerlink" title="分析业务需求"></a>分析业务需求</h3><h4 id="了解目的-amp-目标"><a href="#了解目的-amp-目标" class="headerlink" title="了解目的&amp;目标"></a>了解目的&amp;目标</h4><p>简而言之，目的是达到了某个目标之后想要做的事情，也就是实现目标的真正动机。</p>
+<blockquote>
+<p><strong>业务需求=业务目的+业务目标</strong></p>
+<p>提供用户注册功能是一个业务需求，提高注册转化率是它的业务<strong>目标</strong>。</p>
+<p>当我们提高了注册转化率，就能获得更多的注册用户数，从而实现有效进行用户管理的<strong>目的</strong>。</p>
+</blockquote>
+<p><strong>互联网常见的目标（提升/降低）：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">产品类</th>
+<th align="center">市场类</th>
+<th align="center">品牌类</th>
+<th align="center">营收类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PV、UV、用户数、转化率、留存率、活跃度等</td>
+<td align="center">传播量、市场份额、各种排名等</td>
+<td align="center">服务认知、品牌认知、品牌忠诚度等</td>
+<td align="center">销售量、销售额、利润率、ROI等</td>
+</tr>
+</tbody></table>
+<ul>
+<li>目标应该符合<strong>SMART原则</strong><ul>
+<li>Specific - 具体</li>
+<li>Measurable - 可衡量</li>
+<li>Attainable - 可实现</li>
+<li>Relevant - 有关联</li>
+<li>Time-based - 有时限</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="分析用户需求"><a href="#分析用户需求" class="headerlink" title="分析用户需求"></a>分析用户需求</h4><p><strong>明确目标用户</strong>，目标用户是群体，而不是个体</p>
+<blockquote>
+<p><strong>用户需求=目标用户（特征、经验）+用户场景+用户行为+体验目标</strong></p>
+<p>最终得到衡量指标</p>
+</blockquote>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th align="center">用户需求</th>
+<th align="center">目标用户<br/>（特征、经验）</th>
+<th align="center">用户场景</th>
+<th align="center">用户行为</th>
+<th align="center">体验目标</th>
+<th align="center">衡量指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">申请在云课堂<br/>开课</td>
+<td align="center">某PPT讲师<br/>熟练使用电脑</td>
+<td align="center">通过电脑申请</td>
+<td align="center">点击申请按钮</td>
+<td align="center">快速完成在线表单填写</td>
+<td align="center">表单的填写效率<br/>（提高）</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="分解关键因素"><a href="#分解关键因素" class="headerlink" title="分解关键因素"></a>分解关键因素</h4><p>将业务视角转换为用户视角</p>
+<table>
+<thead>
+<tr>
+<th align="center">业务视角</th>
+<th align="center">用户视角</th>
+<th align="center">用户视角</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">有更多的专业人士和机构到云课堂开课<br/>（业务目标）</td>
+<td align="center">用户基于何种<strong>动机</strong>来开课，<br/>在申请开课前有哪些<strong>担忧</strong>？<br/>（用户意愿分析）</td>
+<td align="center">用户在使用过程中，<br/>会遇到哪些<strong>障碍</strong>？</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>举例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>业务需求</th>
+<th>业务目标</th>
+<th align="left">衡量指标</th>
+<th align="left">关键因素分解</th>
+<th align="left">对应的解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td align="left"></td>
+<td align="left">动机：<br/>- 能赚到钱<br/>- 教会别人，扩大自己的专业影响力；</td>
+<td align="left">- 提供成功案例</td>
+</tr>
+<tr>
+<td>做一个课程提供方入驻申请介绍页面</td>
+<td>有更多的专业人士、<br/>机构到云课堂开课</td>
+<td align="left">通过电脑申请<br/>(提高)</td>
+<td align="left">担忧：<br/>- 申请免费吗？<br/>- 赚不到钱<br/>- 平台没有足够大的用户群体<br/>- 需要提供太多的信息<br/>- 平台没有知名度<br/>- 平台技术不稳定<br/>- 审核时间太长<br/>- 是否适合我<br/>- 平台功能不强大<br/>- 是否支持我的运营类目<br/>- 将来如问收款</td>
+<td align="left">- 告诉用户免费申请<br/>- 提供成功案例<br/>- 增加平台用户数量显示<br/>- 告诉用户只需要1分钟就能完成表单提交<br/>- 告诉用户云课堂是在线教育NO1<br/>- 提供7x24技术支持<br/>- 告诉用户24小时内会快速审核<br/>- 说明什么样的人可以来申请<br/>- 告诉用户有牛逼的欤学管理功能<br/>- 告诉用户接受不同领域的课程<br/>- 告诉用户使用“网易支付”收款安全又放心</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">用户需求</th>
+<th align="left">用户体验目标</th>
+<th align="left">衡量指标</th>
+<th align="left">关键因素分解</th>
+<th align="left">对应的解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">申请在云课堂开课</td>
+<td align="left">快速完成在线表单填写</td>
+<td align="left">表单的填写效率<br/>(提高)</td>
+<td align="left"><strong>障碍：</strong><br/>- 需要提供太多信息<br/>- 网络不稳定<br/>- 没有相关的证件</td>
+<td align="left">- 减少非必要的信息输入<br/>- 现在申请还送XXX<br/>- 提高网络稳定性<br/>- 支持多种证明文件</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="明确设计策略"><a href="#明确设计策略" class="headerlink" title="明确设计策略"></a>明确设计策略</h4><p>归纳好设计需求，去掉重复的解决方案，得到下表。</p>
+<table>
+<thead>
+<tr>
+<th>关键因素分析</th>
+<th>对应的解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>动机：</strong><br/>- 能赚到钱；<br/>- 教会别人，扩大自己的专业影响力；</td>
+<td>- 提供成功案例</td>
+</tr>
+<tr>
+<td><strong>担忧：</strong><br/>- 申请免费吗？<br/>- 赚不到钱；<br/>- 平台没有足够大的用户群体；<br/>- 需要提供太多的信息<br/>- 平台没有知名度；<br/>- 平台技术不稳定；<br/>- 审核时间太长；<br/>- ·是否适合我；<br/>- 平台功能不强大<br/>- 是否支持我的运营类目；<br/>- 将来如何收款；</td>
+<td>- 告诉用户免费申请；<br/>- 提供成功案例；<br/>- 增加平台用户数量显示；<br/>- 告诉用户只需要1分钟就能完成表单提交；<br/>- 告诉用户云课堂是在线教育NO1；<br/>- 提供7×24技术支持；<br/>- 告诉用户24小时内会快速审核；<br/>- 说明什么样的人可以来申请；<br/>- 告诉用户有牛的教学管理功能；<br/>- 告诉用户接受不同领域的课程；<br/>- 告诉用户使用“网易支付收款安全又放心；</td>
+</tr>
+<tr>
+<td><strong>障碍：</strong><br/>- 需要提供太多的信息；<br/>- 网络不稳定；<br/>- 没有相关的证件；</td>
+<td>- 减少非必要的信息输入；<br/>- 现在申请还送XXX提高网络稳定性；<br/>- 支持多种证明文件；</td>
+</tr>
+</tbody></table>
+<p>根据结果可以得出设计师能需要提供的交互方式</p>
+<hr>
+<h4 id="用户体验路径分析"><a href="#用户体验路径分析" class="headerlink" title="用户体验路径分析"></a>用户体验路径分析</h4><ul>
+<li>画出用户体验路径和情感坐标</li>
+<li>整理各个接触点的问题和惊喜</li>
+<li>判断各个接触点的情感高低</li>
+<li>连接情感曲线</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/2.3.1.png" class="" title="2.3.1">
+
+<hr>
+<h4 id="选择合适的解决方案"><a href="#选择合适的解决方案" class="headerlink" title="选择合适的解决方案"></a>选择合适的解决方案</h4><h5 id="1-互联网产品团队的分工"><a href="#1-互联网产品团队的分工" class="headerlink" title="1. 互联网产品团队的分工"></a>1. 互联网产品团队的分工</h5><ul>
+<li>初创型：同一角色担当产品管理+项目管理+交互设计</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/2.3.2.png" class="" title="2.3.2">
+
+<ul>
+<li>中大型：交互设计角色开始独立</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/2.3.3.png" class="" title="2.3.3">
+
+<ul>
+<li>细分型：项目管理角色开始独立</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/2.3.4.png" class="" title="2.3.4">
+
+<ul>
+<li>不同的需求，提供不同程度的专业支持</li>
+</ul>
+<img src="/testblog/2020/08/29/interactionDesign/2.3.5.png" class="" title="2.3.5">
+
+<ul>
+<li>产品经理的主要工作<ul>
+<li>评估产品机会</li>
+<li>制定产品目标和策略</li>
+<li>规划产品的发展路线图</li>
+<li>定义产品需求和业务目标</li>
+<li>监督需求的实现</li>
+<li>关注市场反馈并作出及时调整</li>
+<li>维护不同团队的沟通</li>
+</ul>
+</li>
+</ul>
+<p>——目的是让产品实现长期的用户满意，保持市场竟争优势，把产品的商业价值发挥到最大。</p>
+<ul>
+<li>交互设计师的主要工作<ul>
+<li>分析业务目标和用户体验目标</li>
+<li>分解阻碍用户达成体验目标的关键因素</li>
+<li>制定设计目标和策略</li>
+<li>设计信息架构、用户操作流程、导航和UI细节</li>
+<li>输岀相关设计规格文档，建立并维护设计规范</li>
+<li>跟踪视觉设计、技术开发的实现情况</li>
+<li>优化产品可用性，持续改善用户体验</li>
+</ul>
+</li>
+</ul>
+<p>——目的是让产品和用户之间建立有机关系，有效实现用户目标和产品目标。</p>
+<hr>
+<h5 id="2-交互设计方案的评价维度"><a href="#2-交互设计方案的评价维度" class="headerlink" title="2. 交互设计方案的评价维度"></a>2. 交互设计方案的评价维度</h5><ul>
+<li>有用性：能同时满足业务目标和用户体验目标</li>
+<li>可用性：用户易于理解、学习，使用无障碍</li>
+<li>吸引力：打动人的细节，或者超越期望的设计</li>
+</ul>
+<blockquote>
+<p><strong>尼尔森十大可用性原则</strong></p>
+<ol>
+<li>可视性原则：系统状态有反馈，等待时间要合适。</li>
+<li>环境贴切原则：使用用户语言而不是开发者语言，贴近生活实际而不是学术概念</li>
+<li>撤销重做原则：操作失误可回退。</li>
+<li>一致性原则：同一事物和同类操作的表示用语要各处保持一致。</li>
+<li>防错原则：关键操作有确认提示，及早消除误操作。</li>
+<li>易取原则：识别胜于回忆，提供必要的信息提示（可视&amp;易取），减少记忆负担</li>
+<li>灵活高效原则：为新手和专家设计定制化的操作方式，快捷操作可调整</li>
+<li>易读性原则：减少无关信息，体现简洁美感</li>
+<li>容错原则：给用户明确的错误信息，并协助用户方便的从错误中恢复工作。</li>
+<li>人性化帮助原则：无需文档就能流畅应用当然更好，一般地文档很必要，而且也提供便利的检索功能，面向用户任务描述，列出具体实现步骤，并且不要太冗长</li>
+</ol>
+</blockquote>
+<hr>
+<h5 id="3-交互设计方案的决策方式与过程"><a href="#3-交互设计方案的决策方式与过程" class="headerlink" title="3. 交互设计方案的决策方式与过程"></a>3. 交互设计方案的决策方式与过程</h5><ul>
+<li><p>决策方式</p>
+<ul>
+<li>使团队保持清晰的、一致的目标，并坚持不妥协</li>
+<li>允许妥协无伤大雅的细节，避免钻牛角尖，或过度设计</li>
+<li>保持开放心态，倾听各方意见但是你要自己做决定</li>
+</ul>
+</li>
+<li><p>决策过程</p>
+<ul>
+<li>内部Review：指设计师的作品先在设讲团队进行审核，吸收专业方面的建议</li>
+<li>外部评审：通常作为一个会议的形式存在，交互设计师在完成了设计且和产品经理确认需求满足情况之后，输出相关的设计文档，召集大家进行讲解</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="4-如何推销你的设计方案"><a href="#4-如何推销你的设计方案" class="headerlink" title="4. 如何推销你的设计方案"></a>4. 如何推销你的设计方案</h5><ol>
+<li>将思考过程可视化：将需求分析的结果可视化（如做成表格）展示出来。</li>
+<li>自己人效应：变交互设计师要和产品经理起去梳理需求，而不是一味地抱怨需求不完整。如果因为需求不完整而拒绝了产品经理，这绝对是个错误的合作方式。交互设计师应该主动参与产品构思，井且和产品经理一起分析需求归纳目标。</li>
+<li>准备一份PPT。</li>
+<li>讲一个动听的故事：可以以用户的某一种场景作为开端，讲述它是如何接御这个产品，以及是如何一步一步使用这个功能的，这个比起照着交互稿一页一页地念会更加有用。</li>
+<li>掌握必要的演讲技巧与表达能力。</li>
+</ol>
+<h2 id="信息架构设计"><a href="#信息架构设计" class="headerlink" title="信息架构设计"></a>信息架构设计</h2><h3 id="认识信息架构设计"><a href="#认识信息架构设计" class="headerlink" title="认识信息架构设计"></a>认识信息架构设计</h3><h4 id="什么是产品的信息架构？"><a href="#什么是产品的信息架构？" class="headerlink" title="什么是产品的信息架构？"></a>什么是产品的信息架构？</h4><blockquote>
+<p>信息架构设计是对信息进行结构、组织方式以及归类的设计好<strong>让使用者与用户容易使用与理解</strong>的一项艺术与科学。</p>
+</blockquote>
+<h4 id="为何产品需要合理的信息架构？"><a href="#为何产品需要合理的信息架构？" class="headerlink" title="为何产品需要合理的信息架构？"></a>为何产品需要合理的信息架构？</h4><blockquote>
+<p>让用户一眼就明白你的产品能做什么，大概怎么用。</p>
+<p>用户都能在需要的时候容易地找到某个功能。</p>
+<p>以至于<strong>带给用户更好的体验，使产品获得更高的留存率</strong></p>
+</blockquote>
+<h4 id="信息架构为何需要设计？"><a href="#信息架构为何需要设计？" class="headerlink" title="信息架构为何需要设计？"></a>信息架构为何需要设计？</h4><blockquote>
+<p>信息架构不是功能的简单堆叠，所以，需要<strong>更有逻辑性</strong>的方法</p>
+</blockquote>
+<br/>
+
+<h3 id="前期准备工作"><a href="#前期准备工作" class="headerlink" title="前期准备工作"></a>前期准备工作</h3><h4 id="了解用户，场景，习惯"><a href="#了解用户，场景，习惯" class="headerlink" title="了解用户，场景，习惯"></a>了解用户，场景，习惯</h4><p>通过对<strong>Persona(用户角色模型)、用户场景</strong>的了解与分析，得出用户的使用习惯。</p>
+<ul>
+<li>尊重用户习惯：<ul>
+<li>用户通常用你的产品做什么？</li>
+<li>用户用这类产品最关心什么？</li>
+<li>用户有哪些思维定式？</li>
+<li>用户用什么类似的产品？</li>
+</ul>
+</li>
+</ul>
+<p>创新：从自己本身的用户习惯出发</p>
+<h4 id="了解业务需求"><a href="#了解业务需求" class="headerlink" title="了解业务需求"></a>了解业务需求</h4><p>从产品经理那了解业务需求：不突出业务无关内容</p>
+<p>从运营&amp;市场了解业务需求：让信息架构有更大的兼容性，能让产品产生更多可能性</p>
+<h4 id="调研竞品的信息架构"><a href="#调研竞品的信息架构" class="headerlink" title="调研竞品的信息架构"></a>调研竞品的信息架构</h4><blockquote>
+<p>知己知彼，百战不殆</p>
+<p>找3-5个同品类竞品，分析他们的信息架构，构造思维导图</p>
+<p>自己的产品过去的版本同样也是竞品</p>
+</blockquote>
+<ul>
+<li>分析共性与差异</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">共性（要遵循的用户习惯）</th>
+<th align="center">差异（设计机会点）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">消息&amp;联系人</td>
+<td align="center">音乐产品里看的内容</td>
+</tr>
+<tr>
+<td align="center">发现音乐</td>
+<td align="center">购物网站的首页</td>
+</tr>
+<tr>
+<td align="center">购物车</td>
+<td align="center">打车应用的侧边栏</td>
+</tr>
+</tbody></table>
+<h4 id="卡片分类法"><a href="#卡片分类法" class="headerlink" title="卡片分类法"></a>卡片分类法</h4><p>了解竞品后，还要进一步了解用户的<strong>心智模型</strong></p>
+<blockquote>
+<p><strong>心智模型：</strong>基于用户的经历或学习，认为事情应该如何发展</p>
+<p><strong>卡片分类法：</strong>让用户对功能卡片进行分类，组织，并给相关功能的集合重新定义名称的一种自下而上的<strong>整理方法</strong></p>
+</blockquote>
+<ul>
+<li><p><strong>卡片分类法的大致步骤：</strong></p>
+<ul>
+<li>介绍卡片</li>
+<li>用户归类卡片</li>
+<li>让用户取名</li>
+<li>继续归类</li>
+<li>简单访谈</li>
+<li>拍照存档</li>
+</ul>
+</li>
+<li><p><strong>需要以下这些东西</strong></p>
+<ul>
+<li>目标用户功能/信息卡片（便利贴）</li>
+<li>2支笔（一定要写的出字）</li>
+<li>空白的卡片（便利贴）</li>
+<li>笔记本（记录用户发言）</li>
+</ul>
+</li>
+<li><p><strong>功能/信息卡片怎么提取？</strong></p>
+<ul>
+<li><p>它是功能或界面的名字，比如：联系人名片，对话窗口，拨号呼叫。</p>
+</li>
+<li><p>根据你的调研诉求，来决定卡片的颗粒度。</p>
+</li>
+<li><p>功能/信息卡片不能出现包含关系。</p>
+</li>
+<li><p>卡片总数不要超过30张，那会让用户无从下手。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>如何更好地引导用户</strong></p>
+<ul>
+<li>介绍卡片：是否理解每一张卡片的含义，如果不理解可以询问</li>
+<li>用户归类卡片：为什么把这些卡片放在一类？</li>
+<li>让用户取名字：这类卡片取个名字，可以叫什么？/根据你刚刚的归类原因，是不是可以叫XXX？</li>
+<li>继续归类：这一类的卡片数量较多，是否可以进一步细分？/现在已经分了N类，是否还有哪几类能再放在一起？</li>
+<li>简单访谈：在分类过程中是否有什么纠结的地方？</li>
+<li>拍照存档：是否确定这是最后的结果？</li>
+</ul>
+</li>
+</ul>
+<p>最后通过此方法产出一份思维导图</p>
+<br/>
+
+<h3 id="如何产出产品信息架构设计"><a href="#如何产出产品信息架构设计" class="headerlink" title="如何产出产品信息架构设计"></a>如何产出产品信息架构设计</h3><h4 id="利用思维导图和Axure整合信息"><a href="#利用思维导图和Axure整合信息" class="headerlink" title="利用思维导图和Axure整合信息"></a>利用思维导图和Axure整合信息</h4><ul>
+<li>为自己的产品做一张信息架构树状图<ul>
+<li>对每一层进行分级</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>重要性分级≠排序</p>
+</blockquote>
+<ul>
+<li>使用Axure，利用站点地图体现信息架构</li>
+</ul>
+<h4 id="寻找层和度的平衡"><a href="#寻找层和度的平衡" class="headerlink" title="寻找层和度的平衡"></a>寻找层和度的平衡</h4><ul>
+<li>层=信息架构树的深度</li>
+<li>度=某一节点子节点的广度</li>
+<li>层过深=进入某一叶功能时需要非常多层级，操作困难。一般情况不超过5</li>
+<li>度过多=在某一层级（页面）有太多的内容，用户认知成本增加，容易找不到想找的内容。</li>
+</ul>
+<h4 id="验证核心使用流程"><a href="#验证核心使用流程" class="headerlink" title="验证核心使用流程"></a>验证核心使用流程</h4><p>在信息架构层面确保<strong>核心使用流程的通畅</strong></p>
+<ol>
+<li>尽量保证根据树结构进行层级自上而下前进</li>
+<li>不连通层级间的跳跃，尽量发生在最后一层级</li>
+</ol>
+<h4 id="考虑信息架构和交互构图的关系"><a href="#考虑信息架构和交互构图的关系" class="headerlink" title="考虑信息架构和交互构图的关系"></a>考虑信息架构和交互构图的关系</h4><blockquote>
+<p>不要在信息架构构图层面，为了”不一样”而不一样</p>
+</blockquote>
+<h5 id="移动端-1"><a href="#移动端-1" class="headerlink" title="移动端"></a>移动端</h5><ul>
+<li>利用重要性分级<ul>
+<li>Tabs导航：第一重要级中多项</li>
+<li>抽屉式导航：第一重要级中只有一项</li>
+<li>复合式导航</li>
+</ul>
+</li>
+</ul>
+<h5 id="web端"><a href="#web端" class="headerlink" title="web端"></a>web端</h5><ul>
+<li><p>利用不同结构，体现重要级</p>
+</li>
+<li><p>利用布局，体现逻辑关系</p>
+</li>
+</ul>
+<h4 id="为讨论做好准备"><a href="#为讨论做好准备" class="headerlink" title="为讨论做好准备"></a>为讨论做好准备</h4><blockquote>
+<p>你的过程就是你的底气</p>
+</blockquote>
+<p>通过足够的过程来支撑你设计理念，讲清楚为什么要这么设计，增加讨论资本。</p>
+<br/>
+
+<h3 id="如何评判产品信息架构设计"><a href="#如何评判产品信息架构设计" class="headerlink" title="如何评判产品信息架构设计"></a>如何评判产品信息架构设计</h3><h4 id="用户测试"><a href="#用户测试" class="headerlink" title="用户测试"></a>用户测试</h4><ul>
+<li><p>用户是否在你不介绍具体产品的情况下，通过短时间的使用，说出产品可以用来做什么。</p>
+</li>
+<li><p>让用户进行核心流程任务，检查完成任务是否顺利。</p>
+</li>
+<li><p>给用户一个找寻一个相对层级较深的功能的任务，检测用户是否能通过信息架构名称找到功能。</p>
+</li>
+</ul>
+<h4 id="撰写产品说明书"><a href="#撰写产品说明书" class="headerlink" title="撰写产品说明书"></a>撰写产品说明书</h4><p>通过撰写一份使用说明书，让用户阅读，过一段时间考察用户的记忆程度</p>
+<br/>
+
+<h3 id="信息架构推广：用信息架构思路设计页面"><a href="#信息架构推广：用信息架构思路设计页面" class="headerlink" title="信息架构推广：用信息架构思路设计页面"></a>信息架构推广：用信息架构思路设计页面</h3><h4 id="为何在单一页面设计时需要考虑信息架构问题"><a href="#为何在单一页面设计时需要考虑信息架构问题" class="headerlink" title="为何在单一页面设计时需要考虑信息架构问题"></a>为何在单一页面设计时需要考虑信息架构问题</h4><ul>
+<li><p>确定页面所需要呈现的信息</p>
+</li>
+<li><p>绘制信息架构树状图</p>
+</li>
+<li><p>重要性分级</p>
+</li>
+<li><p>绘制页面</p>
+</li>
+</ul>
+<h4 id="明确一个页面中的元素逻辑性与重要级"><a href="#明确一个页面中的元素逻辑性与重要级" class="headerlink" title="明确一个页面中的元素逻辑性与重要级"></a>明确一个页面中的元素逻辑性与重要级</h4><img src="/testblog/2020/08/29/interactionDesign/2.4.1.png" class="" title="2.4.1">
+
+<h4 id="绘制单一页面"><a href="#绘制单一页面" class="headerlink" title="绘制单一页面"></a>绘制单一页面</h4><p>逻辑相关的内容使用统一的形式，位置，并让区块联通</p>
+<p>利用大小，位置，色彩体现重要级</p>
+<h2 id="流程设计"><a href="#流程设计" class="headerlink" title="流程设计"></a>流程设计</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="用户和产品的交互"><a href="#用户和产品的交互" class="headerlink" title="用户和产品的交互"></a>用户和产品的交互</h4><blockquote>
+<p><strong>用户如何打电话？</strong></p>
+<ol>
+<li>拨号→确认号码→呼叫号码【拨号键盘】</li>
+<li>寻找联系人→选中目标→找到号码→呼叫号码【通讯录】</li>
+<li>找到未接电话→呼叫号码【最近通话】</li>
+</ol>
+</blockquote>
+<h4 id="企业中的流程设计还需要考虑什么？"><a href="#企业中的流程设计还需要考虑什么？" class="headerlink" title="企业中的流程设计还需要考虑什么？"></a>企业中的流程设计还需要考虑什么？</h4><blockquote>
+<p>以<strong>不干扰用户使用流程的方式</strong>完成业务需求</p>
+</blockquote>
+<h4 id="优秀的流程设计有什么好处？"><a href="#优秀的流程设计有什么好处？" class="headerlink" title="优秀的流程设计有什么好处？"></a>优秀的流程设计有什么好处？</h4><ul>
+<li>增加任务的完成率</li>
+<li>让用户更方便地完成任务</li>
+<li>对错误的充分思考</li>
+<li>夸张的业务完成度</li>
+</ul>
+<h3 id="如何进行流程设计"><a href="#如何进行流程设计" class="headerlink" title="如何进行流程设计"></a>如何进行流程设计</h3><h4 id="充分理解业务需求"><a href="#充分理解业务需求" class="headerlink" title="充分理解业务需求"></a>充分理解业务需求</h4><ol>
+<li><p>业务需要达成的商业目标</p>
+<p>for example：易信免费电话</p>
+<p>利用免费电话这样的刚需功能点，吸引更多用户，从而帮助用户形成社交关系</p>
+</li>
+<li><p>业务受到哪些技术和商务限制</p>
+<p>免费电话需要耗费公司本身资源，实际技术原理为公司支付了用户通话费用，因此无法大量送给所有用户</p>
+</li>
+<li><p>了解业务所需要的合作方</p>
+<p>某某合作方支持了活动，所以希望得到曝光</p>
+</li>
+</ol>
+<h4 id="找到用户完成任务的所有接触点"><a href="#找到用户完成任务的所有接触点" class="headerlink" title="找到用户完成任务的所有接触点"></a>找到用户完成任务的所有接触点</h4><blockquote>
+<p>**接触点(Touchpoint)**：和产品或某一渠道发生交互的关键点</p>
+<p>用户点击一个Button、用户看到某个信息…</p>
+</blockquote>
+<p>接触点来自于<strong>用户场景</strong></p>
+<blockquote>
+<p>用户场景：基于用户模型，经验，用户调研的体验故事</p>
+<ol>
+<li>小明和平时一样，给在老家的妈妈打电话报平安，聊了15分钟，小明挂断了电话。</li>
+<li>小明看到了剩余电话时长不多的提示，想想还有半个月才到下月时长更新，因此想了解下如何获取更多时长</li>
+<li>小明通过如何获取更多时长的入口，了解到只要邀请好友加入App，就能在本月获取额外时长赠送。</li>
+<li>小明想了想，觉得可以邀请公司中关系比较好的同事，于是通过微信把邀请链接发给了同事。</li>
+<li>为了能确保同事下载注册App帮助自己获取额外时长，小明在微信中简单介绍了一下App，并告诉同事如何通过自己分享的链接帮助自己获取时长。</li>
+</ol>
+</blockquote>
+<p>Tips:</p>
+<ul>
+<li>为了完成流程设计，需要构思的用户场景有多个，学会合并同类项</li>
+<li>要顾及头尾，它们是最容易被遗漏的接触点</li>
+</ul>
+<h4 id="梳理接触点"><a href="#梳理接触点" class="headerlink" title="梳理接触点"></a>梳理接触点</h4><p>用户做了某件事→改变了用户所处的状态，产生<strong>接受新信息</strong>的机会</p>
+<p>用户看到某个信息→获得了新的知识从而<em>产生新的想法</em></p>
+<blockquote>
+<p><strong>例子：</strong></p>
+<p>挂断电话→<em>可以接受电话的其他信息</em>→看到时常不足信息→<em>产生了解怎么办的欲望</em>→点击了解如何获取更多→<em>准备接受获取方法的信息</em>→查看获取更多时长的信息→<em>产生尝试的想法</em>→…</p>
+<p><strong>最好的模式：</strong>做事—看信息—做事</p>
+<p>做事—做事模式：用户的经验足矣支撑行为。例如：输入账号——输入密码</p>
+<p>看信息—看信息模式：信息量较多，需要依次理解。例如：看到活动大致流程——看到具体规则</p>
+</blockquote>
+<p>接下来就是做流程图，同时<strong>加入业务需求所需的流程节点</strong></p>
+<ol>
+<li>不需要用户操作地加在中间流程。</li>
+<li>加在使用流程的最后</li>
+</ol>
+<h4 id="根据流程设计交互稿"><a href="#根据流程设计交互稿" class="headerlink" title="根据流程设计交互稿"></a>根据流程设计交互稿</h4><ul>
+<li>在交互稿上体现用户操作流程</li>
+<li>如果出现流程有很多分支时，不要制作在一个页面中，这样会让交互稿可读性变差。更好的做法是在站点地图上体现这些分支</li>
+<li>不要随意地跳过某一页面，流程设计需要考虑到流程中出现的每个页面</li>
+<li>注意前后页面的关联性和一致性。</li>
+<li>在完成交互稿后，请对照接触点流程检査一遍交互，确认毎个接触点的过度是自然的。你提供了完成一个接触点所需要的全部信息</li>
+</ul>
+<h4 id="处理异常流程"><a href="#处理异常流程" class="headerlink" title="处理异常流程"></a>处理异常流程</h4><ul>
+<li><p>必须要考虑的异常</p>
+<ul>
+<li>用户网络故障</li>
+<li>服务器资源不足</li>
+<li>不要造成不可挽回的损失=&gt;自动保存机制</li>
+</ul>
+</li>
+<li><p>了解错误返回码可以让错误考虑更全面</p>
+</li>
+<li><p>预测用户可能出现的错误</p>
+<ul>
+<li>错误的点击</li>
+</ul>
+</li>
+<li><p>注意处理的力度</p>
+<ul>
+<li>Toast：提示文字少，且可以马上重试</li>
+<li>Alert：提示文字较多，且需要用户确认</li>
+</ul>
+</li>
+<li><p>正常流程设计&gt;核心异常流程设计&gt;可以简单解决的小异常</p>
+</li>
+</ul>
+<h3 id="流程设计与交互工作"><a href="#流程设计与交互工作" class="headerlink" title="流程设计与交互工作"></a>流程设计与交互工作</h3><h4 id="流程设计与信息架构设计"><a href="#流程设计与信息架构设计" class="headerlink" title="流程设计与信息架构设计"></a>流程设计与信息架构设计</h4><ul>
+<li>从0到1的交互设计稿<ul>
+<li>信息架构设计</li>
+<li>核心流程设计</li>
+<li>信息架构调整</li>
+<li>完成所有流程设计</li>
+</ul>
+</li>
+</ul>
+<h4 id="流程设计与用户场景"><a href="#流程设计与用户场景" class="headerlink" title="流程设计与用户场景"></a>流程设计与用户场景</h4><p>$$<br>\begin{cases}<br>用户目标\业务目标\用户体验目标<br>\end{cases}\implies用户场景\implies相应流程设计\implies{一个结合页面\的用户场景故事}<br>$$</p>
+<h2 id="让页面布局更优雅"><a href="#让页面布局更优雅" class="headerlink" title="让页面布局更优雅"></a>让页面布局更优雅</h2><h3 id="设计心理学"><a href="#设计心理学" class="headerlink" title="设计心理学"></a>设计心理学</h3><blockquote>
+<p><strong>为什么要懂视觉心理学？</strong></p>
+<ul>
+<li>运用用户观察和思考的规律来设计界面</li>
+<li>构建的用户体验和使用场景需要通过视觉界面来实现</li>
+<li>更好地向视觉设计师传递设计方案</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>接近性</strong></p>
+<ul>
+<li>依据间距来判断彼此间的关系，空间上的亲近暗示关系上的亲近</li>
+</ul>
+</li>
+<li><p><strong>相似性</strong></p>
+<ul>
+<li>如果其他因素相同，那么相似的物体看起来归属于一组</li>
+</ul>
+</li>
+<li><p><strong>相似 VS 对比</strong></p>
+<ul>
+<li>相似，表明是同类，快速做出判断</li>
+<li>对比，表明彼此差异，适当引导</li>
+</ul>
+</li>
+<li><p><strong>封闭性</strong></p>
+<ul>
+<li>人们倾向于将缺损的轮廓加以补充使成为一个完整的封闭图形</li>
+<li>本质性上是对完整状态的认知倾向，比如“操作的闭环”</li>
+</ul>
+</li>
+<li><p><strong>连续性</strong></p>
+<ul>
+<li>凡具有连续性或者共同运动方向的物理容易被看做一个整体</li>
+</ul>
+</li>
+<li><p><strong>对称性</strong></p>
+<ul>
+<li>根据视觉元素重量的不同，来营造实现视觉平衡</li>
+</ul>
+</li>
+<li><p><strong>情感化</strong></p>
+<ul>
+<li>色彩帮助营造网站的整体氛围</li>
+<li>明确情感需求，并准确转递给视觉设计师</li>
+</ul>
+</li>
+</ul>
+<h3 id="页面排版布局"><a href="#页面排版布局" class="headerlink" title="页面排版布局"></a>页面排版布局</h3><blockquote>
+<p>页面排版布局，就像整理房间，都是在有限的空间内，对特定的信息进行整理/归类/摆放的过程。</p>
+</blockquote>
+<h4 id="Step-1：确定页面的任务目的"><a href="#Step-1：确定页面的任务目的" class="headerlink" title="Step 1：确定页面的任务目的"></a>Step 1：确定页面的任务目的</h4><blockquote>
+<p>“页面”是用户体验的重要载体</p>
+</blockquote>
+<h5 id="衡量页面的标准"><a href="#衡量页面的标准" class="headerlink" title="衡量页面的标准"></a>衡量页面的标准</h5><ul>
+<li><p>满足<strong>用户需求</strong>，减少用户的理解和操作成本，还能深深地吸引用户，让这个产品捕获用户的芳心。</p>
+<ul>
+<li>有用：最重要的衡量基准—用户和产品需求的满足</li>
+<li>易用：架构清晰/流程清晰/不需思考</li>
+<li>好用：友好和充满情感化</li>
+</ul>
+</li>
+<li><p>用户到达每个<strong>产品页面的目的</strong>：$获取信息+操作流程=完成“任务”$</p>
+<ul>
+<li>阅读类<ul>
+<li>为了营造沉浸式的阅读体验在阅读时，隐藏操作按钮。</li>
+<li>但需要操作时，仅需轻触屏幕，即可唤起操作栏。</li>
+</ul>
+</li>
+<li>音乐类<ul>
+<li>为了沉浸式的体验，享受音乐的乐趣，通过黑胶唱片的形式，展示音乐播放的主体</li>
+<li>按照设计规范和手指活动范围，将必要操作展示在唱片下侧</li>
+</ul>
+</li>
+<li>列表类<ul>
+<li>为了突出“建群”操作，广场以悬浮入口”的形式</li>
+<li>建群页面，合理地处理了建群和加群的需求</li>
+</ul>
+</li>
+<li>支付类<ul>
+<li>半遮罩的设计，减少页面跳转</li>
+<li>营造一种都是当前页面的体验，提供用户付款率</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Step-2：信息元素的组织分类"><a href="#Step-2：信息元素的组织分类" class="headerlink" title="Step 2：信息元素的组织分类"></a>Step 2：信息元素的组织分类</h4><blockquote>
+<p>卡片分类：“可能是”信息组织分类最好的方法</p>
+</blockquote>
+<ul>
+<li>卡片分类的应用场景<ul>
+<li>信息架构</li>
+<li>导航设计</li>
+<li>页面设计</li>
+</ul>
+</li>
+<li>卡片分类的逻辑：现实生活的映射</li>
+</ul>
+<h4 id="Step-3：对组块进行排版布局"><a href="#Step-3：对组块进行排版布局" class="headerlink" title="Step 3：对组块进行排版布局"></a>Step 3：对组块进行排版布局</h4><ul>
+<li>常用设计原则<ul>
+<li>设计策略<ul>
+<li>整体原则：清晰的视觉引导<ul>
+<li>用户固有的阅读习惯</li>
+<li>对角线法则</li>
+</ul>
+</li>
+<li>显示：严谨的页面逻辑关系，突出主要任务流程</li>
+<li>弱化：弱化次要流程<ul>
+<li>除了视觉上的区分外，也可以通过增加操作步骤，来有意增加某些任务难度</li>
+</ul>
+</li>
+<li>删除：删除不必要的功能</li>
+<li>隐藏：不能删除的非必要信息<ul>
+<li>除了可以隐藏一些“鸡肋”功能外，一些高阶的功能，普通用户比较很少会用到，只有高级用户才会用到</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>影响因素<ul>
+<li>操作频率<ul>
+<li>拇指操作区域</li>
+<li>操作频率</li>
+</ul>
+</li>
+<li>距离与面积<ul>
+<li>费次定律：用户使用指点设备到达一个目标的时间同以下两个因素有关：距离(D)和目标大小(S)。<ol>
+<li>设备当前位置和目标位置的距离（D）距离越长，所用时间越长；</li>
+<li>目标的大小（S），目标越大，所用时间越短。</li>
+</ol>
+</li>
+<li>悖论1：当面积增加不会带来可用性的持续增长</li>
+<li>悖论2：距离太近可能引发分组不清、界面混论、容错低等问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>情感化设计</li>
+<li>动效<ul>
+<li>至于交互不在于酷炫，而是体验的一部分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Step-4：权衡平台规范和用户的使用习惯"><a href="#Step-4：权衡平台规范和用户的使用习惯" class="headerlink" title="Step 4：权衡平台规范和用户的使用习惯"></a>Step 4：权衡平台规范和用户的使用习惯</h4><blockquote>
+<ul>
+<li><p><strong>在实际设计中，针对不同平台，我们需要设计几套方案？</strong></p>
+<ul>
+<li>是否区分设计，需要看当前项目的阶段和项目重点</li>
+</ul>
+</li>
+<li><p><strong>如果我们人力有限，能否只设计一套方案？这一套方案该怎么提供？</strong></p>
+<ul>
+<li>如果不区分设计，在大框架一致的前提下，尊重平台控件使用规范</li>
+</ul>
+</li>
+<li><p><strong>如何以最低成本来设计两套（Android &amp; iOS）方案？</strong></p>
+<ol>
+<li><p>如果采取分别的设计，发挥各自平台最大的潜力，做到极致</p>
+</li>
+<li><p>混合设计也许能够从另外一个层面解决跨平台兼容问题</p>
+</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>Native App</p>
+<ul>
+<li>Native APP指的是原生程序，一般依托于操作系统，有很强的交互，是一个完整的App，可拓展性强。需要用户下载安装使用。</li>
+<li>语言：Object C（iOS）、Java（Android）</li>
+<li>页面：存放在本地</li>
+</ul>
+</li>
+<li><p>Web App</p>
+<ul>
+<li>Web App指采用Html5语言写出的App，不需要下载安装。类似于现在所说的轻应用。生存在浏览器中的应用，基本上可以说是触屏版的网页应用。</li>
+<li>语言：html</li>
+<li>页面：存放于服务器</li>
+</ul>
+</li>
+<li><p>Hybrid App</p>
+<ul>
+<li>结合Native App与Web App</li>
+<li>混合设计：<ol>
+<li>页面框架由本地native构成，确保稳定性。</li>
+<li>页面内容由H5构成，保证迭代的灵活性。</li>
+</ol>
+</li>
+<li>Hybrid App设计的注意事项<ul>
+<li>简化不重要的动画/动效，简化复杂的图形文字样式</li>
+<li>少用手势，少用弹窗</li>
+<li>减少页面内容，减少控件数量，减少页面跳转次数，尽量在当前页面显示</li>
+<li>增强Loading时的趣味性，增强页面主次关系，增强控件复用性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Step-5：页面排版的设计验证"><a href="#Step-5：页面排版的设计验证" class="headerlink" title="Step 5：页面排版的设计验证"></a>Step 5：页面排版的设计验证</h4><blockquote>
+<p>实践是检验真理的的唯一标准。</p>
+<p>只有在真实任务场景中，帮助用户快速完成目标的页面才是最好的设计</p>
+</blockquote>
+<ul>
+<li><p>关于借鉴与设计的三个阶段</p>
+<ul>
+<li>阶段1：为了借鉴而借鉴</li>
+<li>阶段2：为了避免借鉴，而差异化设计</li>
+<li>阶段3：为了用户习惯而设计</li>
+</ul>
+</li>
+<li><p>交互设计师工作最常用到快速验证方法</p>
+<ul>
+<li><p>交互“专家评估”</p>
+<p>邀请交互专家 &gt; 系统评估 &gt; 需求交互&amp;可用性问题 &gt; 整理结果 &gt; 修改及排期</p>
+</li>
+</ul>
+<blockquote>
+<p>专家评估是一种专家评审法，由几个评价者根据通用的可用性原则和经验来发现系统潜在的可用性问题。</p>
+<ol>
+<li><p>邀请可用性评估专家</p>
+</li>
+<li><p>每一个评估人员进行1-2小时使用系统；</p>
+</li>
+<li><p>以可用性启发为基础，让评估人员对用户界面进行系统的检查，找出存在的可用性问题；</p>
+</li>
+<li><p>之后提供一份独立的报告，在报告中应包括可用性问题的描述，问题的严重性以及改进的建议；</p>
+</li>
+<li><p>构建一个对系统的评价并尝试找出解决方案。</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>“粗暴”的用户测试<ol>
+<li>不拘泥于形势的原型</li>
+<li>有针对性抓取同事进行测试</li>
+<li>可以任务走查，也可是AB测试</li>
+<li>获取测试结果后快速优化</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="交互设计文档"><a href="#交互设计文档" class="headerlink" title="交互设计文档"></a>交互设计文档</h2><h3 id="什么是交互设计文档"><a href="#什么是交互设计文档" class="headerlink" title="什么是交互设计文档"></a>什么是交互设计文档</h3><blockquote>
+<p>交互设计文档不是一个简单的Axure文档，而是一套体系，一个完整的产品。</p>
+<p>$需求确定&gt;交互设计&gt;视觉设计&gt;产品开发&gt;测试优化&gt;上线迭代$</p>
+<ul>
+<li>需求确定阶段：具象产品需求，以可视化（草图）的页面形式，谈论需求的满足情况</li>
+<li>交互设计：作为交互设计方案的载体，详细阐述设计方案的细节，用来与上下游谈论方案的可行性，确定最终方案。</li>
+<li>视觉设计：根据交互稿设计出视觉效果图，关注页面的布局结构，顺序位置，主次及交互方式等</li>
+<li>开发阶段：通过交互文档，交互设计师与各端开发确定方案的可实现性。开发人员依据交互文档的实现方式进行开发。</li>
+<li>测试阶段：严格测试设计方案最终的实现效果，确保产品的质量。</li>
+</ul>
+</blockquote>
+<ul>
+<li>交互文档的重要性<ol>
+<li>让相关者明白设计方案及分工。</li>
+<li>可以作为界面验收时的checklist.</li>
+<li>确保用户体验一致性和统一性，达到传承传递的作用。</li>
+</ol>
+</li>
+<li>交互文档没做好会带来<ol>
+<li>造成信息不对称，误解方案。</li>
+<li>给交互设计师自己带来很多不必要的麻烦。</li>
+<li>产品开发变的混乱。</li>
+<li>导致整个产品达不到预期、产品失败问题。</li>
+</ol>
+</li>
+</ul>
+<h3 id="撰写高质量的交互设计文档"><a href="#撰写高质量的交互设计文档" class="headerlink" title="撰写高质量的交互设计文档"></a>撰写高质量的交互设计文档</h3><ul>
+<li><p>选择什么工具来制作交互设计文档？</p>
+<ul>
+<li><p>Axure</p>
+</li>
+<li><p>Sketch</p>
+</li>
+<li><p>Keynote/PPT</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>团队内软件版本保持一致</p>
+</blockquote>
+<ul>
+<li><p>交互文档展示</p>
+<ul>
+<li><p>封面</p>
+<ul>
+<li>项目简介（某产品/功能—版本号）</li>
+<li>产品策划人</li>
+<li>交互设计师</li>
+<li>视觉设计师</li>
+<li>开发人员</li>
+<li>测试人员</li>
+</ul>
+</li>
+<li><p>目录</p>
+<ol>
+<li>结构清晰</li>
+<li>命名准确</li>
+</ol>
+</li>
+<li><p>修订记录</p>
+<ul>
+<li><p>意义</p>
+<ol>
+<li>方便各方快速了解更新内容，而无需一页一页的查找，浪费不必要的时间和精力。</li>
+<li>对交互设计师自己也是一个记录笔记的地方，避免遗忘。</li>
+<li>当各方意见相左时，修订记录是最好的约定。</li>
+</ol>
+</li>
+<li><p>如何做</p>
+<ol>
+<li>以天为单位清楚记录从文档建立时到开发完成甚至到跟进阶段所有修改的内容。</li>
+<li>便于其他人的查找，可附上页面链接，直接跳转相应页面。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>需求分析及业务流程图</p>
+</li>
+<li><p>信息架构图</p>
+</li>
+<li><p>交互流程图</p>
+</li>
+<li><p>交互方案</p>
+<ul>
+<li>流程<ul>
+<li>一个页面一个任务：每一页能展示的内容是有限的，如果同一页中堆积太多线框图会造成问题</li>
+<li>每个任务都要有起点</li>
+<li>同一个页面的不同状态，最好在一个页面展示（不要忽视极端情况）</li>
+</ul>
+</li>
+<li>页面内容<ul>
+<li>页面布局规范，准确传递设计方案</li>
+<li>尽量黑白灰，避免视觉干扰</li>
+</ul>
+</li>
+<li>交互说明<ul>
+<li>交互规则及逻辑关系（点击后产生XX提示）</li>
+<li>交互迭代要有标示（XX时间补充）</li>
+<li>点击后的交互反馈<ul>
+<li>控件何时激活，何时不激活</li>
+<li>点击后跳转情况，时间纬度上的变化，比如跳转，加载，按钮状态</li>
+</ul>
+</li>
+<li>动效如何说明<ol>
+<li>通缩局部小图展示动效的每个分镜头</li>
+<li>通过文案描述，讲解动效需求</li>
+<li>视觉设计师提供动态效果图</li>
+</ol>
+</li>
+<li>需要视觉设计师注意的特别标明<ol>
+<li>哪些页面需要视觉稿</li>
+<li>哪些需要视觉特殊处理</li>
+<li>在视觉上有情感需求</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>控件库</li>
+<li>布局规范说明</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="交互设计文档的实际应用"><a href="#交互设计文档的实际应用" class="headerlink" title="交互设计文档的实际应用"></a>交互设计文档的实际应用</h3><ul>
+<li>产品经理（需求方）：需求的提出方。有可能是产品经理、产品运营、利益相关者甚至是老板。<ol>
+<li>明确需求——与产品经理一起明确需求</li>
+<li>制定规则——展示规则</li>
+<li>变更需求——方案变更周知</li>
+</ol>
+</li>
+<li>视觉设计师：交互设计师的下游，他们根据交互稿设计出最终的视觉效果<ol>
+<li>单个页面设计——每块元素的合理布局</li>
+<li>不能轻易调整交互文档——少用视觉元素</li>
+<li>可以设计调整的地方——局部细节排版可以合作完成</li>
+</ol>
+</li>
+<li>开发工程师：产品的最终实现者，根据产品需求形成可实现的技术设计并完成相应的开发工作。<ol>
+<li>功能的实现方式——交互细节/交互逻辑的详细描述</li>
+<li>实现方式的变更——变更前的确定，以及变更后的通知</li>
+</ol>
+</li>
+<li>测试工程师：产品的把关者，产品开发完成后，需要由他们负责验收成果。<ol>
+<li>撰写测试用例——详细表述细节</li>
+<li>极端情况——极端情况说明</li>
+<li>交互文档的严格实行者——交互设计师的好朋友</li>
+</ol>
+</li>
+</ul>
+<h2 id="项目实例"><a href="#项目实例" class="headerlink" title="项目实例"></a>项目实例</h2><ul>
+<li><strong>美团App—基于社区的拼单功能</strong><ul>
+<li>产品策划人：王俊</li>
+<li>交互设计师：黄聪</li>
+<li>测试人员：曾佳仪、何雨欣、刘雅静、刘福安、谢锐敏</li>
+</ul>
+</li>
+</ul>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul>
+<li>用户需求：点的外卖不满足起送费，但自己又不需要点那么多</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">用户需求</th>
+<th align="center">目标用户 （特征、经验）</th>
+<th align="center">用户场景</th>
+<th align="center">用户行为</th>
+<th align="center">体验目标</th>
+<th align="center">衡量指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">通过美团点花更少钱点外卖</td>
+<td align="center">某普通用户，熟练使用美团App</td>
+<td align="center">使用手机</td>
+<td align="center">发起/搜索附近的拼单</td>
+<td align="center">在一定时间内完成拼单订餐</td>
+<td align="center">用户的外卖订餐率提高</td>
+</tr>
+</tbody></table>
+<ul>
+<li>业务需求</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">关键因素分解</th>
+<th align="left">对应解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">动机：<br/>- 能省钱<br/>- 拼单更方便</td>
+<td align="left">- 优化流程</td>
+</tr>
+<tr>
+<td align="left">担忧：<br/>- 不能省钱<br/>- 使用不方便<br/>- 配送速度不够快<br/>- 隐私泄露<br/>- 不能使用优惠券</td>
+<td align="left">- 告诉用户对比原先省下多少钱<br/>- 提供快捷的拼单入口<br/>- 告诉用户预计配送时间<br/>- 告诉用户个人信息仅商家可见<br/>- 提供优惠券选择入口</td>
+</tr>
+<tr>
+<td align="left">障碍：<br/>- 需要提供较多信息<br/>- 网络不稳定</td>
+<td align="left">- 减少非必要的信息输入<br/>- 现在使用享受减免优惠<br/>- 提高网络稳定性<br/></td>
+</tr>
+</tbody></table>
+<ul>
+<li>用户场景<ul>
+<li>小李同学突然想喝一杯奶茶了，她点了一杯奶茶发现达不到配送费。于是她进入拼单页面，去搜索附近拼单，然后发现小王同学也想一起拼单。最后两个人拼单成功，并且先后在自己家中收到了配送员的外卖。</li>
+<li>小王同学在拼单过程中，由于在5分钟内没有等到其他用户，小王选择让系统向他推荐其他有用户正在拼单或可领取优惠券的附近店铺。</li>
+<li>小丽同学匹配到了其他拼单人，但在拼单过程中，对方拼单者由于临时有事放下手机，在5分钟内没有完成订餐，系统自动取消了这次拼单。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>社区拼单：</strong>根据用自身的位置信息，向周围人发起，有<strong>时间设定</strong></p>
+<p><strong>好友拼单：</strong>周围人不可见，<strong>无时间设定</strong>。用户发起拼单，产生拼单的分享链接，然后发给自己认识的朋友，这样做法目的是只允许自己的朋友去加入这次拼单。</p>
+</blockquote>
+
+            </div>
+             
+            <div class="post-footer__meta">
+    <p>
+        updated at 2020-08-29
+    </p>
+</div> 
+            <div class="post-meta__cats">
+    
+        <a href="/testblog/categories/%E8%AE%BE%E8%AE%A1/" class="post-cats__link button">设计</a>
+    
+    
+        <a href="/testblog/tags/%E8%AE%BE%E8%AE%A1/" class="post-tags__link button"># 设计</a>
+    
+        <a href="/testblog/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/" class="post-tags__link button"># 人机交互</a>
+    
+</div> 
+        </article>
+        
+    </div>
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright&nbsp;©&nbsp;2019&nbsp;-&nbsp;2020&nbsp;<a href="/testblog/">AlertNote</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+
+
+ 
+
+ 
+    <script defer src="/testblog/js/b2t.js"></script>
+
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+
+
+
+
+
+    </body>
+</html>
