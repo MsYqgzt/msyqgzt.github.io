@@ -141,22 +141,22 @@ Math 对象方法：
 
 ### 数组对象
 
-|      方法       |                            描述                            |                     语法                     | 示例                                                         | 示例结果                              |
-| :-------------: | :--------------------------------------------------------: | :------------------------------------------: | :----------------------------------------------------------- | :------------------------------------ |
-|    concat()     |              连接两个或更多的数组，并返回结果              | arrayObject.concat(array1,array2,...,arrayN) | var myarr1 = new Array(“1”);<br>var myarr2 = new Array(“2”,”3”);<br>document.write(myarr1.concat(myarr2)) | 1,2,3                                 |
-|     join()      | 把数组的所有元素放入一个字符串元素通过指定的分隔符进行分隔 |           arrayObject.join(分隔符)           | var myarr1 = new Array(“1”);<br/>var myarr2 = new Array(“2”,”3”);<br/>var myarr3 = myarr1.concat(myarr2);<br/>document.write(myarr3.join(“-”)); | 1-2-3                                 |
-|      pop()      |                刪除并返回数组的最后一个元素                |                                              |                                                              |                                       |
-|     push()      |       向数组的末尾添加一个或更多元素，并返回新的长度       |                                              |                                                              |                                       |
-|    reserve()    |                    颠倒数组中元素的顺序                    |            arrayObject.reverse()             | var myarr1 = new Array(“我”,”爱”,”你”);<br/>document.write(myarr1.reverse()); | 你,爱,我                              |
-|     shift()     |                  删除并返回组的第一个元素                  |                                              |                                                              |                                       |
-|     slice()     |               从某个已有的数组返回选定的元素               |         arrayObject.slice(start,end)         | var myarr1 = new Array(“我”,”爱”,”你”);<br/>document.write(myarr1.slice(2)); | 爱,你                                 |
-|     sort()      |                    对数组的元素进行排序                    |          arrayObject.sort(方法函数)          | function sortNum(a,b) {  return a - b;  }<br/>//升序，如降序，把“a - b”该成“b - a” <br/>var myarr = new Array("80","16","50","6","100","1");<br/>document.write(myarr.sort()+“\\<br\\>”); <br/>document.write(myarr.sort(sortNum)); | 1,100,16,50,6,80<br/>1,6,16,50,80,100 |
-|    splice()     |                删除元素，并向数组添加新元素                |                                              |                                                              |                                       |
-|   toSource()    |                     返回该对象的源代码                     |                                              |                                                              |                                       |
-|   toString()    |               把数组转换为字符串，并返回结果               |                                              |                                                              |                                       |
-| toLocalString() |              把数组转换为本地数组，并返回结果              |                                              |                                                              |                                       |
-|    unshift()    |       向数组的开头添加一个或更多元素，并返回新的长度       |                                              |                                                              |                                       |
-|    valueOf()    |                    返回数组对象的原始值                    |                                              |                                                              |                                       |
+|      方法       |                            描述                            | 示例                                                         | 示例结果                              |
+| :-------------: | :--------------------------------------------------------: | :----------------------------------------------------------- | :------------------------------------ |
+|    concat()     |              连接两个或更多的数组，并返回结果              | var myarr1 = new Array(“1”);<br>var myarr2 = new Array(“2”,”3”);<br>document.write(myarr1.concat(myarr2)) | 1,2,3                                 |
+|     join()      | 把数组的所有元素放入一个字符串元素通过指定的分隔符进行分隔 | var myarr1 = new Array(“1”);<br/>var myarr2 = new Array(“2”,”3”);<br/>var myarr3 = myarr1.concat(myarr2);<br/>document.write(myarr3.join(“-”)); | 1-2-3                                 |
+|      pop()      |                刪除并返回数组的最后一个元素                |                                                              |                                       |
+|     push()      |       向数组的末尾添加一个或更多元素，并返回新的长度       |                                                              |                                       |
+|    reserve()    |                    颠倒数组中元素的顺序                    | var myarr1 = new Array(“我”,”爱”,”你”);<br/>document.write(myarr1.reverse()); | 你,爱,我                              |
+|     shift()     |                  删除并返回组的第一个元素                  |                                                              |                                       |
+|     slice()     |               从某个已有的数组返回选定的元素               | var myarr1 = new Array(“我”,”爱”,”你”);<br/>document.write(myarr1.slice(2)); | 爱,你                                 |
+|     sort()      |                    对数组的元素进行排序                    | function sortNum(a,b) {  return a - b;  }<br/>//升序，如降序，把“a - b”该成“b - a” <br/>var myarr = new Array("80","16","50","6","100","1");<br/>document.write(myarr.sort()+“\\<br\\>”); <br/>document.write(myarr.sort(sortNum)); | 1,100,16,50,6,80<br/>1,6,16,50,80,100 |
+|    splice()     |                删除元素，并向数组添加新元素                |                                                              |                                       |
+|   toSource()    |                     返回该对象的源代码                     |                                                              |                                       |
+|   toString()    |               把数组转换为字符串，并返回结果               |                                                              |                                       |
+| toLocalString() |              把数组转换为本地数组，并返回结果              |                                                              |                                       |
+|    unshift()    |       向数组的开头添加一个或更多元素，并返回新的长度       |                                                              |                                       |
+|    valueOf()    |                    返回数组对象的原始值                    |                                                              |                                       |
 
 ### window对象
 
