@@ -34,12 +34,12 @@
     <meta name="description" content="数组二维数组定义方法： 12345678910var myarr &#x3D; new Array();&#x2F;&#x2F;先声明一维for (let i &#x3D; 0; i &lt; 2; i++)&#x2F;&#x2F;一维长度为2&amp;#123;    &#x2F;&#x2F;再声明二维    myarr[i] &#x3D; new Array();    for (let j &#x3D; 0; j &lt; 3; j++)&#x2F;&#x2F;二维长度为3    &amp;#123;         mya">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS从入门到入土">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/06/JavaScript/index.html">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/09/JavaScript/index.html">
 <meta property="og:site_name" content="AlertNote">
 <meta property="og:description" content="数组二维数组定义方法： 12345678910var myarr &#x3D; new Array();&#x2F;&#x2F;先声明一维for (let i &#x3D; 0; i &lt; 2; i++)&#x2F;&#x2F;一维长度为2&amp;#123;    &#x2F;&#x2F;再声明二维    myarr[i] &#x3D; new Array();    for (let j &#x3D; 0; j &lt; 3; j++)&#x2F;&#x2F;二维长度为3    &amp;#123;         mya">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-09-06T12:20:29.686Z">
-<meta property="article:modified_time" content="2020-09-07T01:27:33.701Z">
+<meta property="article:published_time" content="2020-09-09T10:24:15.333Z">
+<meta property="article:modified_time" content="2020-09-09T10:24:47.340Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="IT">
 <meta property="article:tag" content="JavaScript">
@@ -211,7 +211,7 @@
     </h1>
     <div class="post-title__meta">
         <a href="/blogs/archives/2020/09/" class="post-meta__date button">
-    2020-09-06
+    2020-09-09
 </a>
         
     <span class="separate-dot"></span><a href="/blogs/categories/%E7%BC%96%E7%A8%8B/" class="button">编程</a>
@@ -234,7 +234,7 @@
     <div class="post__with-side">
         <aside class="post-side">
             <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">日期对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">字符串对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.3.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.4.</span> <span class="toc-text">数组对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.5.</span> <span class="toc-text">window对象</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">日期对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">字符串对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Math%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.3.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.4.</span> <span class="toc-text">数组对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.5.</span> <span class="toc-text">window对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="toc-number">3.5.1.</span> <span class="toc-text">计时器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.6.</span> <span class="toc-text">history 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.7.</span> <span class="toc-text">location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#navigator%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.8.</span> <span class="toc-text">navigator对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84user-agent"><span class="toc-number">3.8.1.</span> <span class="toc-text">几种浏览器的user_agent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#screen%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.9.</span> <span class="toc-text">screen对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.10.</span> <span class="toc-text">DOM对象</span></a></li></ol></li></ol>
             </div>
         </aside>
         <article class="post content-card">
@@ -693,12 +693,314 @@
 <td align="center">取消setTimeout()的设置</td>
 </tr>
 </tbody></table>
+<h4 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h4><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">setTimeout()</td>
+<td align="center">指定的延迟时间之后来执行代码</td>
+</tr>
+<tr>
+<td align="center">clearTimeout()</td>
+<td align="center">取消setTimeout()设置</td>
+</tr>
+<tr>
+<td align="center">setInterval()</td>
+<td align="center">每隔指定的时间执行代码</td>
+</tr>
+<tr>
+<td align="center">clearInterval()</td>
+<td align="center">取消setInterval()设置</td>
+</tr>
+</tbody></table>
+<h3 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h3><p>history对象记录了用户曾经浏览过的页面(URL)，并可以实现浏览器前进与后退相似导航的功能。</p>
+<p><strong>注意:从窗口被打开的那一刻开始记录，每个浏览器窗口、每个标签页乃至每个框架，都有自己的history对象与特定的window对象关联。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.[属性|方法]</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">length</td>
+<td align="center">返回浏览器历史列表中的URL数量</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">back()</td>
+<td align="center">加载history列表中的前-一个URL</td>
+</tr>
+<tr>
+<td align="center">forward()</td>
+<td align="center">加载history列表中的下一个URL</td>
+</tr>
+<tr>
+<td align="center">go(number)</td>
+<td align="center">加载history列表中的某个具体的页面</td>
+</tr>
+</tbody></table>
+<h3 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h3><table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">hash</td>
+<td align="center">设置或返回从井号(#)开始的URL (锚)</td>
+</tr>
+<tr>
+<td align="center">host</td>
+<td align="center">设置或返回主机名和当前URL的端口号</td>
+</tr>
+<tr>
+<td align="center">hostname</td>
+<td align="center">设置或返回当前URL的主机名</td>
+</tr>
+<tr>
+<td align="center">href</td>
+<td align="center">设置或返回完整的URL</td>
+</tr>
+<tr>
+<td align="center">pathname</td>
+<td align="center">设置或返回当前URL的路径部分</td>
+</tr>
+<tr>
+<td align="center">port</td>
+<td align="center">设置或返回当前URL的端口号</td>
+</tr>
+<tr>
+<td align="center">protocol</td>
+<td align="center">设置或返回当前URL的协议</td>
+</tr>
+<tr>
+<td align="center">search</td>
+<td align="center">设置或返回从问号(?)开始的URL (查询部分)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">assign()</td>
+<td align="center">加载新的文档</td>
+</tr>
+<tr>
+<td align="center">reload()</td>
+<td align="center">重新加载当前文档</td>
+</tr>
+<tr>
+<td align="center">replace()</td>
+<td align="center">用新的文档替换当前文档</td>
+</tr>
+</tbody></table>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">appCodeName</td>
+<td align="center">浏览器代码名的字符串表示</td>
+</tr>
+<tr>
+<td align="center">appName</td>
+<td align="center">返回浏览器的名称</td>
+</tr>
+<tr>
+<td align="center">appVersion</td>
+<td align="center">返回浏览器的平台和版本信息</td>
+</tr>
+<tr>
+<td align="center">platform</td>
+<td align="center">返回运行浏览器的操作系统平台</td>
+</tr>
+<tr>
+<td align="center">userAgent</td>
+<td align="center">返回由客户机发送服务器的user-agent头部的值</td>
+</tr>
+</tbody></table>
+<h4 id="几种浏览器的user-agent"><a href="#几种浏览器的user-agent" class="headerlink" title="几种浏览器的user_agent"></a>几种浏览器的user_agent</h4><table>
+<thead>
+<tr>
+<th align="center">浏览器</th>
+<th align="center">userAgent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">chrome</td>
+<td align="center">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/34.0.1847.116 Safari/537.36p</td>
+</tr>
+<tr>
+<td align="center">firefox</td>
+<td align="center">Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0</td>
+</tr>
+<tr>
+<td align="center">IE 8</td>
+<td align="center">Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0;SLCC2; .NETCLR2.0.50727;.NET CLR3.5.30729;.NET CLR3.0.30729; .NET4.0C)</td>
+</tr>
+</tbody></table>
+<h3 id="screen对象"><a href="#screen对象" class="headerlink" title="screen对象"></a>screen对象</h3><p>screen对象用于获取用户的屏幕信息。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.screen.属性</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">availHeight</td>
+<td align="center">窗口可以使用的屏幕高度，单位像素</td>
+</tr>
+<tr>
+<td align="center">availWidthe</td>
+<td align="center">窗口可以使用的屏幕宽度，单位像素</td>
+</tr>
+<tr>
+<td align="center">colorDepth</td>
+<td align="center">用户浏览器表示的颜色位数，通常为32位(每像素的位数)</td>
+</tr>
+<tr>
+<td align="center">pixelDepth</td>
+<td align="center">用户浏览器表示的颜色位数，通常为32位(每像素的位数)(IE不支持此属性)</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center">屏幕的高度，单位像素</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td align="center">屏幕的宽度，单位像素</td>
+</tr>
+</tbody></table>
+<h3 id="DOM对象"><a href="#DOM对象" class="headerlink" title="DOM对象"></a>DOM对象</h3><p><strong>DOM节点有:</strong></p>
+<ol>
+<li><p><strong>元素节点：</strong>上图中<html>、<body>、<p>等都是元素节点，即标签。</p>
+</li>
+<li><p>**文本节点:**向用户展示的内容，如<li>…</li>中的JavaScript、DOM、CSS等文本。</p>
+</li>
+<li><p>**属性节点:**元素属性，如<a>标签的链接属性<code>href=&quot;http://www.imooc.com&quot;</code>。</p>
+</li>
+</ol>
+<p><strong>节点属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodeName</td>
+<td align="center">返回一个字符串，其内容是给定节点的名字</td>
+</tr>
+<tr>
+<td align="center">nodeType</td>
+<td align="center">返回一个整数，这个数值代表给定节点的类型</td>
+</tr>
+<tr>
+<td align="center">nodeValue</td>
+<td align="center">返回给定节点的当前值</td>
+</tr>
+</tbody></table>
+<br/>
+
+<p><strong>遍历节点树:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">childNodes</td>
+<td align="center">返回一个数组,这个数组由给定元素节点的子节点构成</td>
+</tr>
+<tr>
+<td align="center">firstChild</td>
+<td align="center">返回第一个子节点</td>
+</tr>
+<tr>
+<td align="center">lastChild</td>
+<td align="center">返回最后一个子节点</td>
+</tr>
+<tr>
+<td align="center">parentNode</td>
+<td align="center">返回一个给定节点的父节点</td>
+</tr>
+<tr>
+<td align="center">nextSibling</td>
+<td align="center">返回给定节点的下一个子节点</td>
+</tr>
+<tr>
+<td align="center">previousSibling</td>
+<td align="center">返回给定节点的上一个子节点</td>
+</tr>
+</tbody></table>
+<p><strong>DOM操作:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">createElement(element)</td>
+<td align="center">创建一个新的元素节点</td>
+</tr>
+<tr>
+<td align="center">createTextNode()</td>
+<td align="center">创建-一个包含着给定文本的新文本节点</td>
+</tr>
+<tr>
+<td align="center">appendChild()</td>
+<td align="center">指定节点的最后一个子节点列表之后添加一个新的子节点</td>
+</tr>
+<tr>
+<td align="center">insertBefore()</td>
+<td align="center">将一个给定节点插入到一个给定元素节点的给定子节点的前面</td>
+</tr>
+<tr>
+<td align="center">removeChild()</td>
+<td align="center">从一个给定元素中删除一个子节点</td>
+</tr>
+<tr>
+<td align="center">replaceChild()</td>
+<td align="center">把一个给定父元素里的一个子节点替换为另外一个节点</td>
+</tr>
+</tbody></table>
 
             </div>
              
             <div class="post-footer__meta">
     <p>
-        updated at 2020-09-07
+        updated at 2020-09-09
     </p>
 </div> 
             <div class="post-meta__cats">
