@@ -39,7 +39,7 @@
 <meta property="og:description" content="数组二维数组定义方法： 12345678910var myarr &#x3D; new Array();&#x2F;&#x2F;先声明一维for (let i &#x3D; 0; i &lt; 2; i++)&#x2F;&#x2F;一维长度为2&amp;#123;    &#x2F;&#x2F;再声明二维    myarr[i] &#x3D; new Array();    for (let j &#x3D; 0; j &lt; 3; j++)&#x2F;&#x2F;二维长度为3    &amp;#123;         mya">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-09T10:24:15.333Z">
-<meta property="article:modified_time" content="2020-09-09T10:24:47.340Z">
+<meta property="article:modified_time" content="2020-09-09T10:36:39.255Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="IT">
 <meta property="article:tag" content="JavaScript">
@@ -52,7 +52,7 @@
 
 
     
-<link rel="stylesheet" href="/blogs/css/style/dark.css">
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
 
     
 <script src="/blogs/js/darkmode.js"></script>
@@ -75,6 +75,8 @@
 
 
      
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
     <!-- custom head -->
 
@@ -221,7 +223,14 @@
  
         
     
-    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
 
 
  
@@ -899,11 +908,11 @@
 </tbody></table>
 <h3 id="DOM对象"><a href="#DOM对象" class="headerlink" title="DOM对象"></a>DOM对象</h3><p><strong>DOM节点有:</strong></p>
 <ol>
-<li><p><strong>元素节点：</strong>上图中<html>、<body>、<p>等都是元素节点，即标签。</p>
+<li><p><strong>元素节点：</strong>上图中<code>&lt;html&gt;</code>、<code>&lt;body&gt;</code>、<code>&lt;p&gt;</code>等都是元素节点，即标签。</p>
 </li>
-<li><p>**文本节点:**向用户展示的内容，如<li>…</li>中的JavaScript、DOM、CSS等文本。</p>
+<li><p>**文本节点:**向用户展示的内容，如<code>&lt;li&gt;...&lt;/li&gt;</code>中的JavaScript、DOM、CSS等文本。</p>
 </li>
-<li><p>**属性节点:**元素属性，如<a>标签的链接属性<code>href=&quot;http://www.imooc.com&quot;</code>。</p>
+<li><p>**属性节点:**元素属性，如<code>&lt;a&gt;</code>标签的链接属性<code>href=&quot;http://www.imooc.com&quot;</code>。</p>
 </li>
 </ol>
 <p><strong>节点属性：</strong></p>
@@ -1027,7 +1036,26 @@
 
 
     
-     
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>&nbsp;&nbsp;&nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
  
 
  
@@ -1038,11 +1066,24 @@
         </p>
     
     
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
 
         </div>
-         
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazyload",
+            threshold: 0
+        };
+    </script>
+ 
 
  
 
@@ -1060,6 +1101,41 @@
     
 
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('[object Object]'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  

@@ -58,7 +58,7 @@ navbar:
 cover: 
 
   # 显示在最上方 cover 处的站点名称
-  sitename: 
+  sitename: AlertNote
 
   # 若设置 logo，则优先使用 logo 代替 sitename
   logo: /favicon.png
@@ -80,11 +80,11 @@ style:
 
   # 弧度设置
   radius: 
-    main_radius: 5px
+    main_radius: 4px
     
   # 间距设置
   space: 
-    main_space: 3.5rem
+    main_space: 2.8rem
     sm_space: 1.5rem  # 当屏幕宽度小于 650px 时候启用
 
   # 默认代码高亮
@@ -153,7 +153,7 @@ meta:
   # 文章自动摘要
   auto_excerpt: 
     enable: false
-    length: 150
+    length: 100
 
   # 文章目录
   toc: 
@@ -300,7 +300,7 @@ footer:
   statistics: 
 
     # 选择 LeanCloud/busuanzi 为网站计数。如果你完全不想启用，将 `use` 项留空即可
-    use:   # leancloud | busuanzi
+    use: busuanzi   # leancloud | busuanzi
 
     # 如果选择使用 LeanCloud，则需完善下面的配置项
     leancloud: 
@@ -312,25 +312,25 @@ footer:
     site_uv:
       enable: true
       before_text: '' # 展示在数据前的内容，支持 HTML
-      after_text: Viewers  # 展示在数据后的内容，支持 HTML
+      after_text: 名访客  # 展示在数据后的内容，支持 HTML
       divider: '&nbsp;&nbsp;&nbsp;|' # 分隔符，HTML 语法支持
     
     # 全站 PV（Page Views）
     site_pv:
       enable: true
       before_text: ''  # 展示在数据前的内容，支持 HTML
-      after_text: Views  # 展示在数据后的内容，支持 HTML
+      after_text: 次访问  # 展示在数据后的内容，支持 HTML
       divider: ''  # 分隔符，HTML 语法支持
     
     # 页面 PV
     page_pv:
       enable: true
       before_text: ''
-      after_text: Views 
+      after_text: 次访问 
 
   # 自定义页脚，支持 markdown
   custom_text: 
-    # - ''
+     - '<创作不易，且行且珍惜>'
     # - ''
 
 
@@ -357,15 +357,14 @@ note: true
 
 # 图片点击放大插件
 fancybox: 
-  enable: false
-  auto: false
+  enable: true
+  auto: true
   
 # 返回顶部
 back_to_top: true
 
 # 深色模式
 darkmode: true
-
 
 
 # ---------------------------------------------------------------
@@ -387,7 +386,7 @@ vendors:
   # https://cdn.jsdelivr.net/npm/hexo-theme-cards@1.0/dist/js/darkmode.min.js
   # Version 1.0
   darkmode: 
-    css: 
+    css: css/darkmode.css
     js: 
   
   # code highlight css

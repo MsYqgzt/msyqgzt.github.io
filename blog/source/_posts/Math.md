@@ -23,7 +23,7 @@ $$
 \begin{cases}
 1112=139×2×2×2\\\\
 695=139×5
-\end{cases}\space\space 139···GCD
+\end{cases}\space\space ,139···GCD
 $$
 但是这种方法，两个数字如果越大，素数分解就越困难。因此用辗转相除法，可以更有效地找到最大公约数。
 
@@ -33,10 +33,12 @@ $$
 
 > 例如：
 > $$
+> \begin{split}
 > 6\space mod\space 3=0\\\\
 > 7\space mod\space 3=1\\\\
 > 8\space mod\space 3=2\\\\
 > 9\space mod\space 3=0
+> \end{split}
 > $$
 
 ### 算法实现
@@ -51,18 +53,22 @@ $$
 
 2. 下一轮，我们用之前较小的数除以得到的余数，得到新的余数
 $$
+\begin{split}
 1112\space mod\space 695=417\\\\
 695\space mod\space 417=278
+\end{split}
 $$
 
 
 3. 重复同样的操作，直到余数取得为0
 
 $$
-1112\space mod\space 695=417\\\\
-695\space mod\space 417=278\\\\
-417\space mod\space 278=139\\\\
-278\space mod\space 139=0
+\begin{split}
+1112\space mod\space 695&=417\\\\
+695\space mod\space 417&=278\\\\
+417\space mod\space 278&=139\\\\
+278\space mod\space 139&=0
+\end{split}
 $$
 
 4. 当余数为0时，最后一个操作的除数139就是1112和695的最大公约数。

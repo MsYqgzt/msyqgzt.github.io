@@ -39,7 +39,7 @@
 <meta property="og:description" content="辗转相除法 辗转相除法，是找到两个数字的最大公约数的算法。 它在公元前300年由欧几里得发现，被称为世界上最古老的算法。  实例引入 举一个例子，我们来考虑一下，1112和695的最大公约数。  用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。$$\begin{cases}1112&#x3D;139×2×2×2\\695&#x3D;139×5\end{cases}\sp">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-08-29T10:07:29.163Z">
-<meta property="article:modified_time" content="2020-08-29T10:12:46.763Z">
+<meta property="article:modified_time" content="2020-09-10T13:57:00.252Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="算法">
@@ -52,7 +52,7 @@
 
 
     
-<link rel="stylesheet" href="/blogs/css/style/dark.css">
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
 
     
 <script src="/blogs/js/darkmode.js"></script>
@@ -75,6 +75,8 @@
 
 
      
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
     <!-- custom head -->
 
@@ -219,7 +221,14 @@
  
         
     
-    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
 
 
  
@@ -245,12 +254,12 @@
 <h3 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h3><blockquote>
 <p>举一个例子，我们来考虑一下，1112和695的最大公约数。</p>
 </blockquote>
-<p>用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。<br>$$<br>\begin{cases}<br>1112=139×2×2×2\\<br>695=139×5<br>\end{cases}\space\space 139···GCD<br>$$<br>但是这种方法，两个数字如果越大，素数分解就越困难。因此用辗转相除法，可以更有效地找到最大公约数。</p>
+<p>用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。<br>$$<br>\begin{cases}<br>1112=139×2×2×2\\<br>695=139×5<br>\end{cases}\space\space ,139···GCD<br>$$<br>但是这种方法，两个数字如果越大，素数分解就越困难。因此用辗转相除法，可以更有效地找到最大公约数。</p>
 <br/>
 
 <p>在解释辗转相除法之前，先解释一下mod操作。此操作是获得除法余数的操作，$A<del>mod</del>B=C$，C就是A除以B后的<strong>余数</strong></p>
 <blockquote>
-<p>例如：<br>$$<br>6\space mod\space 3=0\\<br>7\space mod\space 3=1\\<br>8\space mod\space 3=2\\<br>9\space mod\space 3=0<br>$$</p>
+<p>例如：<br>$$<br>\begin{split}<br>6\space mod\space 3=0\\<br>7\space mod\space 3=1\\<br>8\space mod\space 3=2\\<br>9\space mod\space 3=0<br>\end{split}<br>$$</p>
 </blockquote>
 <h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>在上面的例子中，用辗转相除法找到1112和695的最大公约数的步骤为：</p>
 <ol>
@@ -258,12 +267,12 @@
 </ol>
 <p>$$<br>1112\space mod\space 695=417<br>$$</p>
 <ol start="2">
-<li>下一轮，我们用之前较小的数除以得到的余数，得到新的余数<br>$$<br>1112\space mod\space 695=417\\<br>695\space mod\space 417=278<br>$$</li>
+<li>下一轮，我们用之前较小的数除以得到的余数，得到新的余数<br>$$<br>\begin{split}<br>1112\space mod\space 695=417\\<br>695\space mod\space 417=278<br>\end{split}<br>$$</li>
 </ol>
 <ol start="3">
 <li>重复同样的操作，直到余数取得为0</li>
 </ol>
-<p>$$<br>1112\space mod\space 695=417\\<br>695\space mod\space 417=278\\<br>417\space mod\space 278=139\\<br>278\space mod\space 139=0<br>$$</p>
+<p>$$<br>\begin{split}<br>1112\space mod\space 695&amp;=417\\<br>695\space mod\space 417&amp;=278\\<br>417\space mod\space 278&amp;=139\\<br>278\space mod\space 139&amp;=0<br>\end{split}<br>$$</p>
 <ol start="4">
 <li>当余数为0时，最后一个操作的除数139就是1112和695的最大公约数。</li>
 </ol>
@@ -275,7 +284,7 @@
              
             <div class="post-footer__meta">
     <p>
-        updated at 2020-08-29
+        updated at 2020-09-10
     </p>
 </div> 
             <div class="post-meta__cats">
@@ -300,7 +309,26 @@
 
 
     
-     
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>&nbsp;&nbsp;&nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
  
 
  
@@ -311,11 +339,24 @@
         </p>
     
     
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
 
         </div>
-         
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazyload",
+            threshold: 0
+        };
+    </script>
+ 
 
  
 
@@ -333,6 +374,41 @@
     
 
 
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('[object Object]'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
  
 
  
