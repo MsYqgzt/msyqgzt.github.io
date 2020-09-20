@@ -270,20 +270,30 @@ window.screen.属性
 
 
 
+
+
 ### DOM对象
 
-**DOM节点有:**
+#### 基础元素获取
+
+|         方法         |             说明             | 获得 |
+| :------------------: | :--------------------------: | :--: |
+|    getElementByld    |      通过指定id获得元素      | 一个 |
+|  getElementsByName   | 通过元素名称name属性获得元素 | 一组 |
+| getElementsByTagName |     通过标签名称获得元素     | 一组 |
+
+#### DOM节点
 
 1. **元素节点：**上图中`<html>`、`<body>`、`<p>`等都是元素节点，即标签。
 
-2. **文本节点:**向用户展示的内容，如`<li>...</li>`中的JavaScript、DOM、CSS等文本。
-
-3. **属性节点:**元素属性，如`<a>`标签的链接属性`href="http://www.imooc.com"`。
+2. **文本节点：**向用户展示的内容，如`<li>...</li>`中的JavaScript、DOM、CSS等文本。
+3. **属性节点：**元素属性，如`<a>`标签的链接属性`href="http://www.imooc.com"`。
 
 **节点属性：**
 
 |   方法    |                   说明                   |
 | :-------: | :--------------------------------------: |
+| innerHTML |               返回节点内容               |
 | nodeName  |  返回一个字符串，其内容是给定节点的名字  |
 | nodeType  | 返回一个整数，这个数值代表给定节点的类型 |
 | nodeValue |           返回给定节点的当前值           |
@@ -312,3 +322,7 @@ window.screen.属性
 |     removeChild()      |             从一个给定元素中删除一个子节点             |
 |     replaceChild()     |    把一个给定父元素里的一个子节点替换为另外一个节点    |
 
+
+
+#### 网页卷曲距离与偏移量
+{% asset_img Scroll-Offset.jpg Scroll-Offset %}
