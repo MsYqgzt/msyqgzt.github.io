@@ -2,7 +2,6 @@
 title: 'RPG游戏/特效制作-硬核笔记'
 tags: [IT,游戏]
 categories:
-- [游戏] 
 - [编程]
 mathjax: true
 ---

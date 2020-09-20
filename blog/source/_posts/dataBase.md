@@ -2,7 +2,6 @@
 title: '数据库概述'
 tags: [IT,SQL]
 categories: 
-- [IT]
 - [数据库]
 mathjax: true
 ---

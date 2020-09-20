@@ -1,9 +1,8 @@
 ---
-title: 'JS从入门到入土'
+title: 'JavaScript从入门到入土'
 tags: [IT,JavaScript]
 categories: 
 - [编程]
-- [IT]
 mathjax: true
 ---
 
