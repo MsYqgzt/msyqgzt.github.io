@@ -1,1 +1,0 @@
-git clone https://github.com/ChrAlpha/hexo-theme-cards.git themes/cards
