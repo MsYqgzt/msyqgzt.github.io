@@ -21,28 +21,24 @@
     <!-- meta -->
 
 
-<title>Node.JS大峡谷 | AlertNote</title>
+<title>暂无标题 | AlertNote</title>
 
-
-    <meta name="keywords" content="IT, JavaScript">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过var申明的变量并非全局，而是该模块作用域下的    模块调用(require)1require(&amp;#x27;模块名称&amp;#x27;);   模块路径">
+    <meta name="description" content="title： ‘Node.JS’tags： [IT,JavaScript]categories：   [编程]mathjax： true   NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过va">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.JS大峡谷">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/23/NodeJS/index.html">
+<meta property="og:title" content="AlertNote">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/24/NodeJS/index.html">
 <meta property="og:site_name" content="AlertNote">
-<meta property="og:description" content="NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过var申明的变量并非全局，而是该模块作用域下的    模块调用(require)1require(&amp;#x27;模块名称&amp;#x27;);   模块路径">
+<meta property="og:description" content="title： ‘Node.JS’tags： [IT,JavaScript]categories：   [编程]mathjax： true   NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过va">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-09-23T07:45:18.028Z">
-<meta property="article:modified_time" content="2020-09-23T14:54:34.948Z">
+<meta property="article:published_time" content="2020-09-24T10:35:18.210Z">
+<meta property="article:modified_time" content="2020-09-24T12:55:23.842Z">
 <meta property="article:author" content="Alert">
-<meta property="article:tag" content="IT">
-<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -137,7 +133,7 @@
 
 
          
-    <a href="javaScript:void(0);" id="b2t" aria-label="Back to Top" title="Back to Top">
+    <a href="javaScript:void(0);" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='32' height='32' fill="currentColor" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M13.889,11.611c-0.17,0.17-0.443,0.17-0.612,0l-3.189-3.187l-3.363,3.36c-0.171,0.171-0.441,0.171-0.612,0c-0.172-0.169-0.172-0.443,0-0.611l3.667-3.669c0.17-0.17,0.445-0.172,0.614,0l3.496,3.493C14.058,11.167,14.061,11.443,13.889,11.611 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.692-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.383,10c0-4.07-3.312-7.382-7.383-7.382S2.618,5.93,2.618,10S5.93,17.381,10,17.381S17.383,14.07,17.383,10"></path>
         </svg>
@@ -209,15 +205,13 @@
     
 <div class="post-title">
     <h1 class="post-title__text">
-        Node.JS大峡谷
+        暂无标题
     </h1>
     <div class="post-title__meta">
         <a href="/blogs/archives/2020/09/" class="post-meta__date button">
-    2020-09-23
+    2020-09-24
 </a>
         
-    <span class="separate-dot"></span><a href="/blogs/categories/%E7%BC%96%E7%A8%8B/" class="button">编程</a>
-
  
         
     
@@ -241,13 +235,19 @@
     <div class="post__with-side">
         <aside class="post-side">
             <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS%E4%B8%8EJavaScript%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">NodeJS与JavaScript的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97-modules"><span class="toc-number">2.</span> <span class="toc-text">模块(modules)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8-require"><span class="toc-number">2.0.1.</span> <span class="toc-text">模块调用(require)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE-exports"><span class="toc-number">2.0.2.</span> <span class="toc-text">模块数据(exports)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">global对象</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS%E4%B8%8EJavaScript%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">NodeJS与JavaScript的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97-modules"><span class="toc-number">2.</span> <span class="toc-text">模块(modules)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8-require"><span class="toc-number">2.0.1.</span> <span class="toc-text">模块调用(require)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE-exports"><span class="toc-number">2.0.2.</span> <span class="toc-text">模块数据(exports)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">global对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text">http模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url%E6%A8%A1%E5%9D%97"><span class="toc-number">5.</span> <span class="toc-text">url模块</span></a></li></ol>
             </div>
         </aside>
         <article class="post content-card">
             <div class="post__header"></div>
             <div class="post__content">
-                <h2 id="NodeJS与JavaScript的区别"><a href="#NodeJS与JavaScript的区别" class="headerlink" title="NodeJS与JavaScript的区别"></a>NodeJS与JavaScript的区别</h2><ul>
+                <hr>
+<p>title： ‘Node.JS’<br>tags： [IT,JavaScript]<br>categories： </p>
+<ul>
+<li>[编程]<br>mathjax： true</li>
+</ul>
+<hr>
+<h2 id="NodeJS与JavaScript的区别"><a href="#NodeJS与JavaScript的区别" class="headerlink" title="NodeJS与JavaScript的区别"></a>NodeJS与JavaScript的区别</h2><ul>
 <li>顶层对象<ul>
 <li>JavaScript：window</li>
 <li>NodeJS：global</li>
@@ -294,16 +294,18 @@
 <li>外部模块通过<code>require()</code>方法加载模块，该函数返回的就是被加载模块的<code>module.exports</code>对象</li>
 <li>我们可以通过<code>module.exports</code>或者<code>exports</code>对外提供模块内部变量的访问</li>
 </ul>
-<p>注意的是最好不要直接覆盖<code>exports</code>或者<code>module.exports</code>，比如<code>exports=1</code> ,<code>module.exports=1</code>，这样做会破坏<code>exports</code>和<code>module .exports</code>的引用关系</p>
+<blockquote>
+<p>注意的是最好不要直接覆盖<code>exports</code>或者<code>module.exports</code>，比如<code>exports=1</code> ,<code>module.exports=1</code>，这样做会破坏<code>exports</code>和<code>module .exports</code>的引用关系。</p>
+</blockquote>
 <h2 id="global对象"><a href="#global对象" class="headerlink" title="global对象"></a>global对象</h2><ul>
 <li><p><code>_filename</code>属性</p>
 <ul>
-<li>返回当前执行的文件的文件路径，该路径是经过解<br>析后的<em>绝对路径</em>，在模块中，该路径是模块文件的<br>路径，此属性并非全局属性，而是模块的</li>
+<li>返回当前执行的文件的文件路径，该路径是经过解析后的<em>绝对路径</em>，在模块中，该路径是模块文件的路径，此属性并非全局属性，而是模块的</li>
 </ul>
 </li>
 <li><p><code>_dirname</code>属性</p>
 <ul>
-<li>返回当前执行脚本文件所在目录的路径，该属性也<br>是模块的，而非全局</li>
+<li>返回当前执行脚本文件所在目录的路径，该属性也是模块的，而非全局</li>
 </ul>
 </li>
 <li><p><code>setTimeout(cb, ms)</code></p>
@@ -399,74 +401,248 @@
 </li>
 <li><pre><code>new Buffer(size);
 new Buffer(array);
-new Buffer(string,[encoding]);</code></pre>
+new Buffer(string,[encoding]);
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">    - |                             属性                             |                             描述                             |</span><br><span class="line">      | <span class="symbol">:----------------------------------------------------------</span>: | <span class="symbol">:----------------------------------------------------------</span>: |</span><br><span class="line">      |                          buf.length                          |                      buffer的bytes大小                       |</span><br><span class="line">      |                          buf[index]                          |         获取或者设置在指定index索引位置的<span class="number">8</span>位字节内容         |</span><br><span class="line">      |      buf.write(string, [offset]; [length], [encoding])       | 根据参数offset偏移量和指定的encoding编码方式，将参数string数据写入buffer |</span><br><span class="line">      |           buf.toString([encoding], [start], [<span class="keyword">end</span>])           |    根据encoding参数(默认是<span class="string">&#x27;utf8&#x27;</span>)返回一个解码的string类型    |</span><br><span class="line">      |                         buf.toJSON()                         | 返回一个JSON表示的Buffer实例。JSON.stringify将会默认调用来字符串序列化这个Buffer实例 |</span><br><span class="line">      |                  buf.slice([start], [<span class="keyword">end</span>])                   | 返回一个新的buffer,这个buffer将会和老的buffer引用相同的内存地址，注意<span class="symbol">:</span>修改这个新的buffer实例slice切片，也会改变原来的buffer |</span><br><span class="line">      | buf.copy(targetBuffer, [targetStart], [sourceStart],[sourceEnd]) |                       进行buffer的拷贝                       |</span><br><span class="line">      |                 Buffer.isEncoding(encoding)                  |   如果给定的编码encoding是有效的，返回<span class="keyword">true</span>，否则返回<span class="keyword">false</span>    |</span><br><span class="line">      |                     Buffer.isBuffer(obj)                     |                 测试这个obj是否是一个Buffer                  |</span><br><span class="line">    |            Buffer.byteLength(string, [encoding])             |  将会返回这个字符串真实byte长度。encoding编码默认是: <span class="string">&#x27;utf8&#x27;</span>  |</span><br><span class="line">      |              Buffer.concat(list, [totalLength])              | 返回一个保存着将传入buffer数组中所有buffer对象拼接在一起的buffer对象 |</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 文件系统(File System)</span></span><br><span class="line"></span><br><span class="line">该模块是核心模块，需要使用<span class="keyword">require</span>导入后使用</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line"><span class="keyword">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</code></pre>
 </li>
-<li><table>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>该模块提供了操作文件的一些API</p>
+<table>
 <thead>
 <tr>
-<th align="center">属性</th>
+<th align="center">方法</th>
 <th align="center">描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">fs.open(path, flags, [mode], callback)</td>
+<td align="center">异步版的打开一个文件</td>
+</tr>
+<tr>
+<td align="center">fs.openSync(path, flags, [mode])</td>
+<td align="center">fs.open()的同步版</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">fs.read(fd, buffer, offset, length, position, callback)</td>
+<td align="center">从指定的文档标识符fd读取文件数据</td>
+</tr>
+<tr>
+<td align="center">fs.readSync(fd, buffer, offset, length, position)</td>
+<td align="center">fs.read函数的同步版本，返回bytesRead的个数</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">fs.write(fd, buffer, offset, length[, position], callback)</td>
+<td align="center">通过文件标识fd，向指定的文件中写入buffer</td>
+</tr>
+<tr>
+<td align="center">fs.write(fd, data[, position[, encoding]], callback)</td>
+<td align="center">把data写 入到文档中通过指定的fd,如果data不是buffer对象的实例，则会把值强制转化成一个字符串。</td>
+</tr>
+<tr>
+<td align="center">fs.writeSync(fd, buffer, offset, length[, position])</td>
+<td align="center">fs.write()的同步版本</td>
+</tr>
+<tr>
+<td align="center">fs.writeSync(fd, data[, position[, encoding])</td>
+<td align="center">fs.write()的同步版</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">fs.close(fd, callback)</td>
+<td align="center">关闭一个打开的文件</td>
+</tr>
+<tr>
+<td align="center">fs.closeSync(fd)</td>
+<td align="center">fs.close()的同步版本</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.writeFlie(ilename, data, [options], callback)</td>
+<td align="center">异步的将数据写入一个文件,如果文件不存在则新建,如果文件原先存在，会被替换。data可以是一个string，也可以是一个原生buffer。</td>
+</tr>
+<tr>
+<td align="center">fs.writeFileSync(filename, data, [options])</td>
+<td align="center">fs.writeFile的同步版本。注意：没有callback，也不需要</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.appendFile(filename, data, [options], callback)</td>
+<td align="center">异步的将数据添加到一个文件的尾部，如果文件不存在，会创建一个新的文件。data可以是一个string，也可以是原生buffer。</td>
+</tr>
+<tr>
+<td align="center">fs.appendFileSync(filename, data, [options])</td>
+<td align="center">fs.appendFile的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.readFile(ilename, [options], callback)</td>
+<td align="center">异步读取一个文件的全部内容</td>
+</tr>
+<tr>
+<td align="center">fs.readFileSync(filename, [options])</td>
+<td align="center">fs.readFile的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.exists(path, calback)</td>
+<td align="center">检查指定路径的文件或者目录是否存在</td>
+</tr>
+<tr>
+<td align="center">fs.existsSync(path)</td>
+<td align="center">fs.exists的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.unlink(path, callback)</td>
+<td align="center">删除一个文件</td>
+</tr>
+<tr>
+<td align="center">fs.unlinkSync(path)</td>
+<td align="center">fs.unlink的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.rename(oldPath, newPath, callback)</td>
+<td align="center">重命名</td>
+</tr>
+<tr>
+<td align="center">fs.renameSync(oldPath, newPath)</td>
+<td align="center">fs.rename()的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.stat(path, callback)</td>
+<td align="center">读取文件信息</td>
+</tr>
+<tr>
+<td align="center">fs.statSync(path, callback)</td>
+<td align="center">fs.statSync(path, callback)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.watch(filename, [options], [listener])</td>
+<td align="center">观察指定路径的改变，filename 路径可以是文件或者目录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.mkdir(path, [mode], callback)</td>
+<td align="center">创建文件夹</td>
+</tr>
+<tr>
+<td align="center">fs.mkdirSync(path, [mode])</td>
+<td align="center">fs.mkdir的同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.readdir(path, callback)</td>
+<td align="center">读取文件夹</td>
+</tr>
+<tr>
+<td align="center">fs.readdirSync(path)</td>
+<td align="center">fs.readdir同步版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">fs.rmdir(path, callback)</td>
+<td align="center">删除文件夹</td>
+</tr>
+<tr>
+<td align="center">fs.rmdirSync(path)</td>
+<td align="center">fs.rmdir的同步版本.</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建并返回一个HTTP服务器对象</span></span><br><span class="line"><span class="comment">//requestListener：监听到客户端连接的回调函数</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer([requestListener]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听客户端连接请求，只有当调用了listen方法以后，服务器才开始工作</span></span><br><span class="line"><span class="comment">//port：监听的端口</span></span><br><span class="line"><span class="comment">//hostname：主机名(IP/域名)</span></span><br><span class="line"><span class="comment">//backlog：连接等待队列的最大长度</span></span><br><span class="line"><span class="comment">//callback：调用listen方法并成功开启监听以后，会触发一个listening事件，callback将 作为该事件的执行函数</span></span><br><span class="line">server.listen(port, [hostname], [backlog], [callback]);</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>listening事件：当server调用listen方法并成功开始监听以后触发的事件</li>
+<li>error事件：当服务开启失败的时候触发的事件<ul>
+<li>参数err：具体的错误对象</li>
+</ul>
+</li>
+<li>request事件：当有客户端发送请求到该主机和端口的请求的时候触发<ul>
+<li>参数request对象：<code>http.IncomingMessage</code>的一个实例， 通过它我们可以获取到这次请求的一些信息，比如头信息，数据等.<ul>
+<li>httpVersion：使用的http协议的版本</li>
+<li>headers：请求头信息中的数据</li>
+<li>url：请求的地址</li>
+<li>method：请求方式</li>
+</ul>
+</li>
+<li>参数response对象：<code>http.ServerResponse</code>的一个实例，通过它我们可以向该次请求的客户端输出返回响应<ul>
+<li>write(chunk, [encoding])：发送一个数据块到响应正文中</li>
+<li>end([chunk], [encoding])：当所有的正文和头信息发送完成以后调用该方法告诉服务器数据已经全部发送完成了，这个方法在每次完成信息发送以后必须调用，并且是最后调用</li>
+<li>statusCode：该属性用来设置返回的状态码</li>
+<li>setHeader(name, value)：设置返回头信息</li>
+<li>writeHead(statusCode, [reasonPhrase], [headers])<ul>
+<li>这个方法只能在当前请求中使用一次，并且必须在response.end()之前调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h2>
             </div>
              
             <div class="post-footer__meta">
     <p>
-        updated at 2020-09-23
+        更新于 2020-09-24
     </p>
 </div> 
             <div class="post-meta__cats">
     
-        <a href="/blogs/categories/%E7%BC%96%E7%A8%8B/" class="post-cats__link button">编程</a>
-    
-    
-        <a href="/blogs/tags/IT/" class="post-tags__link button"># IT</a>
-    
-        <a href="/blogs/tags/JavaScript/" class="post-tags__link button"># JavaScript</a>
     
 </div> 
         </article>
@@ -587,56 +763,6 @@ new Buffer(string,[encoding]);</code></pre>
     <script defer src="/blogs/js/b2t.js"></script>
 
 
-
-    <script>
-        if (typeof MathJax === 'undefined') {
-            window.MathJax = {
-                loader: {
-                    source: {
-                        '[tex]/amsCd': '[tex]/amscd',
-                        '[tex]/AMScd': '[tex]/amscd'
-                    }
-                },
-                tex: {
-                    inlineMath: {'[+]': [['$', '$']]},
-                    tags: 'ams'
-                },
-                options: {
-                    renderActions: {
-                        findScript: [10, doc => {
-                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                                const display = !!node.type.match(/; *mode=display/);
-                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                                const text = document.createTextNode('');
-                                node.parentNode.replaceChild(text, node);
-                                math.start = {node: text, delim: '', n: 0};
-                                math.end = {node: text, delim: '', n: 0};
-                                doc.math.push(math);
-                            });
-                        }, '', false],
-                        insertedScript: [200, () => {
-                            document.querySelectorAll('mjx-container').forEach(node => {
-                                let target = node.parentNode;
-                                if (target.nodeName.toLowerCase() === 'li') {
-                                    target.parentNode.classList.add('has-jax');
-                                }
-                            });
-                        }, '', false]
-                    }
-                }
-            };
-            (function () {
-                var script = document.createElement('script');
-                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-                script.defer = true;
-                document.head.appendChild(script);
-            })();
-        } else {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-        }
-    </script>
 
 
 
