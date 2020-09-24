@@ -21,24 +21,28 @@
     <!-- meta -->
 
 
-<title>暂无标题 | AlertNote</title>
+<title>Node.JS大峡谷 | AlertNote</title>
 
+
+    <meta name="keywords" content="IT, JavaScript">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="title： ‘Node.JS’tags： [IT,JavaScript]categories：   [编程]mathjax： true   NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过va">
+    <meta name="description" content="NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过var申明的变量并非全局，而是该模块作用域下的    模块调用(require)1require(&amp;#x27;模块名称&amp;#x27;);   模块路径">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AlertNote">
+<meta property="og:title" content="Node.JS大峡谷">
 <meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/24/NodeJS/index.html">
 <meta property="og:site_name" content="AlertNote">
-<meta property="og:description" content="title： ‘Node.JS’tags： [IT,JavaScript]categories：   [编程]mathjax： true   NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过va">
+<meta property="og:description" content="NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过var申明的变量并非全局，而是该模块作用域下的    模块调用(require)1require(&amp;#x27;模块名称&amp;#x27;);   模块路径">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-24T10:35:18.210Z">
-<meta property="article:modified_time" content="2020-09-24T12:55:23.842Z">
+<meta property="article:modified_time" content="2020-09-24T13:08:34.648Z">
 <meta property="article:author" content="Alert">
+<meta property="article:tag" content="IT">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -205,13 +209,15 @@
     
 <div class="post-title">
     <h1 class="post-title__text">
-        暂无标题
+        Node.JS大峡谷
     </h1>
     <div class="post-title__meta">
         <a href="/blogs/archives/2020/09/" class="post-meta__date button">
     2020-09-24
 </a>
         
+    <span class="separate-dot"></span><a href="/blogs/categories/%E7%BC%96%E7%A8%8B/" class="button">编程</a>
+
  
         
     
@@ -241,13 +247,7 @@
         <article class="post content-card">
             <div class="post__header"></div>
             <div class="post__content">
-                <hr>
-<p>title： ‘Node.JS’<br>tags： [IT,JavaScript]<br>categories： </p>
-<ul>
-<li>[编程]<br>mathjax： true</li>
-</ul>
-<hr>
-<h2 id="NodeJS与JavaScript的区别"><a href="#NodeJS与JavaScript的区别" class="headerlink" title="NodeJS与JavaScript的区别"></a>NodeJS与JavaScript的区别</h2><ul>
+                <h2 id="NodeJS与JavaScript的区别"><a href="#NodeJS与JavaScript的区别" class="headerlink" title="NodeJS与JavaScript的区别"></a>NodeJS与JavaScript的区别</h2><ul>
 <li>顶层对象<ul>
 <li>JavaScript：window</li>
 <li>NodeJS：global</li>
@@ -643,6 +643,12 @@ new Buffer(string,[encoding]);
 </div> 
             <div class="post-meta__cats">
     
+        <a href="/blogs/categories/%E7%BC%96%E7%A8%8B/" class="post-cats__link button">编程</a>
+    
+    
+        <a href="/blogs/tags/IT/" class="post-tags__link button"># IT</a>
+    
+        <a href="/blogs/tags/JavaScript/" class="post-tags__link button"># JavaScript</a>
     
 </div> 
         </article>
@@ -763,6 +769,56 @@ new Buffer(string,[encoding]);
     <script defer src="/blogs/js/b2t.js"></script>
 
 
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
 
 
 
