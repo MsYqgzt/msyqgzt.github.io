@@ -39,7 +39,7 @@
 <meta property="og:description" content="NodeJS与JavaScript的区别 顶层对象 JavaScript：window NodeJS：global    模块(modules)  在node中，文件和模块是一一对应的，也就是一个文件就是一个模块  每个模块都有自己的作用域  我们通过var申明的变量并非全局，而是该模块作用域下的    模块调用(require)1require(&amp;#x27;模块名称&amp;#x27;);   模块路径">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-24T10:35:18.210Z">
-<meta property="article:modified_time" content="2020-09-24T15:15:21.209Z">
+<meta property="article:modified_time" content="2020-10-02T04:03:29.392Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="IT">
 <meta property="article:tag" content="JavaScript">
@@ -241,7 +241,7 @@
     <div class="post__with-side">
         <aside class="post-side">
             <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS%E4%B8%8EJavaScript%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">NodeJS与JavaScript的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97-modules"><span class="toc-number">2.</span> <span class="toc-text">模块(modules)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8-require"><span class="toc-number">2.1.</span> <span class="toc-text">模块调用(require)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE-exports"><span class="toc-number">2.2.</span> <span class="toc-text">模块数据(exports)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">global对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-File-System"><span class="toc-number">4.</span> <span class="toc-text">文件系统(File System)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">5.</span> <span class="toc-text">http模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">url模块</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS%E4%B8%8EJavaScript%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">NodeJS与JavaScript的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97-modules"><span class="toc-number">2.</span> <span class="toc-text">模块(modules)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8-require"><span class="toc-number">2.1.</span> <span class="toc-text">模块调用(require)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE-exports"><span class="toc-number">2.2.</span> <span class="toc-text">模块数据(exports)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">global对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arguments%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">arguments对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%8F%82%E6%95%B0%E6%B1%82%E5%92%8C"><span class="toc-number">4.1.1.</span> <span class="toc-text">遍历参数求和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%BF%9E%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.2.</span> <span class="toc-text">定义连接字符串的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BAHTML%E5%88%97%E8%A1%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.3.</span> <span class="toc-text">定义创建HTML列表的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-File-System"><span class="toc-number">5.</span> <span class="toc-text">文件系统(File System)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">http模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url%E6%A8%A1%E5%9D%97"><span class="toc-number">7.</span> <span class="toc-text">url模块</span></a></li></ol>
             </div>
         </aside>
         <article class="post content-card">
@@ -456,6 +456,31 @@
 <td align="center">返回一个保存着将传入buffer数组中所有buffer对象拼接在一起的buffer对象</td>
 </tr>
 </tbody></table>
+<h2 id="arguments对象"><a href="#arguments对象" class="headerlink" title="arguments对象"></a>arguments对象</h2><p><strong><code>arguments</code></strong> 是一个对应于<strong>传递给函数中参数</strong>的类数组对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="comment">// expected output: 1</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">  <span class="comment">// expected output: 2</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">2</span>]);</span><br><span class="line">  <span class="comment">// expected output: 3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h3><h4 id="遍历参数求和"><a href="#遍历参数求和" class="headerlink" title="遍历参数求和"></a>遍历参数求和</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum =<span class="number">0</span>,</span><br><span class="line">        len = <span class="built_in">arguments</span>.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        sum += <span class="built_in">arguments</span>[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">add()                           <span class="comment">// 0</span></span><br><span class="line">add(<span class="number">1</span>)                          <span class="comment">// 1</span></span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);                   <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="定义连接字符串的函数"><a href="#定义连接字符串的函数" class="headerlink" title="定义连接字符串的函数"></a>定义连接字符串的函数</h4><p>这个例子定义了一个函数来连接字符串。</p>
+<p>这个函数唯一正式声明了的参数是一个字符串，该参数指定一个字符作为衔接点来连接字符串。</p>
+<p>该函数定义如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> args.join(separator);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以传递任意数量的参数到该函数，并使用每个参数作为列表中的项创建列表。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// returns &quot;red, orange, blue&quot;</span></span><br><span class="line">myConcat(<span class="string">&quot;, &quot;</span>, <span class="string">&quot;red&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;blue&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// returns &quot;elephant; giraffe; lion; cheetah&quot;</span></span><br><span class="line">myConcat(<span class="string">&quot;; &quot;</span>, <span class="string">&quot;elephant&quot;</span>, <span class="string">&quot;giraffe&quot;</span>, <span class="string">&quot;lion&quot;</span>, <span class="string">&quot;cheetah&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// returns &quot;sage. basil. oregano. pepper. parsley&quot;</span></span><br><span class="line">myConcat(<span class="string">&quot;. &quot;</span>, <span class="string">&quot;sage&quot;</span>, <span class="string">&quot;basil&quot;</span>, <span class="string">&quot;oregano&quot;</span>, <span class="string">&quot;pepper&quot;</span>, <span class="string">&quot;parsley&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="定义创建HTML列表的方法"><a href="#定义创建HTML列表的方法" class="headerlink" title="定义创建HTML列表的方法"></a>定义创建HTML列表的方法</h4><p>这个例子定义了一个函数通过一个字符串来创建HTML列表。这个函数唯一正式声明了的参数是一个字符。当该参数为 “<code>u</code>“ 时，创建一个无序列表 (项目列表)；当该参数为 “<code>o</code>“ 时，则创建一个有序列表 (编号列表)。</p>
+<p>该函数定义如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="string">&quot;&lt;&quot;</span> + type + <span class="string">&quot;l&gt;&lt;li&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  result += args.join(<span class="string">&quot;&lt;/li&gt;&lt;li&gt;&quot;</span>);</span><br><span class="line">  result += <span class="string">&quot;&lt;/li&gt;&lt;/&quot;</span> + type + <span class="string">&quot;l&gt;&quot;</span>; <span class="comment">// end list</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以传递任意数量的参数到该函数，并将每个参数作为一个项添加到指定类型的列表中。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> listHTML = list(<span class="string">&quot;u&quot;</span>, <span class="string">&quot;One&quot;</span>, <span class="string">&quot;Two&quot;</span>, <span class="string">&quot;Three&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* listHTML is:</span></span><br><span class="line"><span class="comment">&quot;&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;li&gt;Three&lt;/li&gt;&lt;/ul&gt;&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="文件系统-File-System"><a href="#文件系统-File-System" class="headerlink" title="文件系统(File System)"></a>文件系统(File System)</h2><p>该模块是核心模块，需要使用<code>require</code>导入后使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
@@ -469,7 +494,7 @@
 </thead>
 <tbody><tr>
 <td align="center">fs.open(path, flags, [mode], callback)</td>
-<td align="center">异步版的打开一个文件</td>
+<td align="center">异步地打开一个文件</td>
 </tr>
 <tr>
 <td align="center">fs.openSync(path, flags, [mode])</td>
@@ -622,12 +647,28 @@
 </ul>
 </li>
 </ul>
-<h2 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h2>
+<h2 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h2><p>使用fs模块实现nodejs代码和html的分离</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>根据不同的url进行处理，返回不一样的数据：</p>
+<ul>
+<li>url.parse(request.url) ：对url格式的字符串进行解析，返回一个对象</li>
+<li>get请求的数据处理</li>
+<li>post请求的数据处理<ul>
+<li>post发送的数据会被写入缓冲区中，需要通过resquest的data事件和end事件来进行数据拼接处理</li>
+</ul>
+</li>
+<li>querystring模块<ul>
+<li>parse()：将一个query string反序列化为一个对象</li>
+</ul>
+</li>
+</ul>
+
             </div>
              
             <div class="post-footer__meta">
     <p>
-        更新于 2020-09-24
+        更新于 2020-10-02
     </p>
 </div> 
             <div class="post-meta__cats">

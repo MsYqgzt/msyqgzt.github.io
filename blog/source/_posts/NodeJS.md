@@ -124,6 +124,101 @@ new Buffer(string,[encoding]);
 |            Buffer.byteLength(string, [encoding])             |  将会返回这个字符串真实byte长度。encoding编码默认是: 'utf8'  |
 |              Buffer.concat(list, [totalLength])              | 返回一个保存着将传入buffer数组中所有buffer对象拼接在一起的buffer对象 |
 
+## arguments对象
+
+**`arguments`** 是一个对应于**传递给函数中参数**的类数组对象。
+
+```js
+function func1(a, b, c) {
+  console.log(arguments[0]);
+  // expected output: 1
+
+  console.log(arguments[1]);
+  // expected output: 2
+
+  console.log(arguments[2]);
+  // expected output: 3
+}
+
+func1(1, 2, 3);
+```
+
+### 举个🌰
+
+#### 遍历参数求和
+
+```js
+function add() {
+    var sum =0,
+        len = arguments.length;
+    for(var i=0; i<len; i++){
+        sum += arguments[i];
+    }
+    return sum;
+}
+add()                           // 0
+add(1)                          // 1
+add(1,2,3,4);                   // 10
+```
+
+#### 定义连接字符串的函数
+
+这个例子定义了一个函数来连接字符串。
+
+这个函数唯一正式声明了的参数是一个字符串，该参数指定一个字符作为衔接点来连接字符串。
+
+该函数定义如下：
+
+```js
+function myConcat(separator) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return args.join(separator);
+}
+```
+
+你可以传递任意数量的参数到该函数，并使用每个参数作为列表中的项创建列表。
+
+```js
+// returns "red, orange, blue"
+myConcat(", ", "red", "orange", "blue");
+
+// returns "elephant; giraffe; lion; cheetah"
+myConcat("; ", "elephant", "giraffe", "lion", "cheetah");
+
+// returns "sage. basil. oregano. pepper. parsley"
+myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley");
+```
+
+#### 定义创建HTML列表的方法
+
+这个例子定义了一个函数通过一个字符串来创建HTML列表。这个函数唯一正式声明了的参数是一个字符。当该参数为 "`u`" 时，创建一个无序列表 (项目列表)；当该参数为 "`o`" 时，则创建一个有序列表 (编号列表)。
+
+该函数定义如下：
+
+```js
+function list(type) {
+  var result = "<" + type + "l><li>";
+  var args = Array.prototype.slice.call(arguments, 1);
+  result += args.join("</li><li>");
+  result += "</li></" + type + "l>"; // end list
+
+  return result;
+}
+```
+
+你可以传递任意数量的参数到该函数，并将每个参数作为一个项添加到指定类型的列表中。
+
+例如：
+
+```js
+var listHTML = list("u", "One", "Two", "Three");
+
+/* listHTML is:
+"<ul><li>One</li><li>Two</li><li>Three</li></ul>"
+*/
+```
+
+
 
 
 
@@ -139,7 +234,7 @@ require('fs');
 
 |                            方法                            |                             描述                             |
 | :--------------------------------------------------------: | :----------------------------------------------------------: |
-|           fs.open(path, flags, [mode], callback)           |                     异步版的打开一个文件                     |
+|           fs.open(path, flags, [mode], callback)           |                      异步地打开一个文件                      |
 |              fs.openSync(path, flags, [mode])              |                      fs.open()的同步版                       |
 |  fs.read(fd, buffer, offset, length, position, callback)   |               从指定的文档标识符fd读取文件数据               |
 |     fs.readSync(fd, buffer, offset, length, position)      |          fs.read函数的同步版本，返回bytesRead的个数          |
@@ -208,3 +303,18 @@ server.listen(port, [hostname], [backlog], [callback]);
 
 ## url模块
 
+
+使用fs模块实现nodejs代码和html的分离
+
+```js
+var url = require('url');
+```
+
+根据不同的url进行处理，返回不一样的数据：
+
+- url.parse(request.url) ：对url格式的字符串进行解析，返回一个对象
+- get请求的数据处理
+- post请求的数据处理
+  - post发送的数据会被写入缓冲区中，需要通过resquest的data事件和end事件来进行数据拼接处理
+- querystring模块
+  - parse()：将一个query string反序列化为一个对象
