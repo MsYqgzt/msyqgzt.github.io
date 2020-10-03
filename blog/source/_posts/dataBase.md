@@ -1,8 +1,8 @@
 ---
 title: '数据库概述'
-tags: [IT,SQL]
+tags: [大数据]
 categories: 
-- [数据库]
+- [SQL]
 mathjax: true
 ---
 

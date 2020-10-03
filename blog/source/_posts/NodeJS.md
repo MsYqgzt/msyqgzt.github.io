@@ -1,8 +1,9 @@
 ---
 title: 'Node.JS大峡谷'
-tags: [IT,JavaScript]
+tags: [编程]
 categories: 
-- [编程]
+- [JavaScript]
+- [Node]
 mathjax: true
 ---
 

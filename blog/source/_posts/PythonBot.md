@@ -1,8 +1,9 @@
 ---
 title: 'Python爬虫'
-tags: [IT,Python]
+tags: [编程]
 categories: 
-- [编程]
+- [Python]
+- [爬虫]
 ---
 
 ## Python基础知识

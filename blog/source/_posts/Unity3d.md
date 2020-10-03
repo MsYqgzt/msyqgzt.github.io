@@ -1,8 +1,7 @@
 ---
 title: 'Unity3d中的"常规操作"'
-tags: [IT,C#]
+tags: [游戏编程,游戏引擎]
 categories: 
-- [编程]
 - [Unity3d]
 mathjax: true
 ---

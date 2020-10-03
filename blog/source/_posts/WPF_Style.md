@@ -1,8 +1,8 @@
 ---
 title: 'WPF样式(Style)'
-tags: [C#]
+tags: [编程]
 categories: 
-- [编程]
+- [C#]
 ---
 
 ## 基础样式

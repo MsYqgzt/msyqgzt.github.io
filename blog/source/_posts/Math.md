@@ -1,8 +1,8 @@
 ---
 title: '与数学的中门对（被）狙'
-tags: [数学,算法]
+tags: [算法]
 categories: 
-- [算法]
+- [数学]
 mathjax: true
 ---
 
