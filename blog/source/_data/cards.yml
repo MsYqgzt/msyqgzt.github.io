@@ -2,24 +2,24 @@
 # <head> 标签配置
 # ---------------------------------------------------------------
 
-head: 
-  
+head:
+
   # 网站图标
   favicon: /favicon.svg
-  
+
   # 社交分享链接
-  opengraph: 
+  opengraph:
     enable: true
-    type: 
+    type:
     twitter_card: summary_large_image
-    twitter_id: 
-    twitter_site: 
+    twitter_id:
+    twitter_site:
     image: page.thumbnail
-    fb_admins: 
-    fb_app_id: 
+    fb_admins:
+    fb_app_id:
 
   # 自定义 head
-  custom_head: 
+  custom_head:
     # - ''
     # - ''
 
@@ -30,13 +30,13 @@ head:
 # ---------------------------------------------------------------
 
 # 顶部导航栏设置
-navbar: 
+navbar:
 
   # 左侧名称显示
   sitename: AlertNote
-  
+
   # 右侧站内导航链接
-  menu: 
+  menu:
     - name: 首页
       url: /
     - name: 分类
@@ -55,14 +55,14 @@ navbar:
   sticky: true
 
 # 封面 cover 设置
-cover: 
+cover:
 
   # 显示在最上方 cover 处的站点名称
   sitename: AlertNote
 
   # 若设置 logo，则优先使用 logo 代替 sitename
   logo: /favicon.png
-  
+
   # logo 下方的一句话介绍
   description: 有趣有盼，无灾无难。
 
@@ -72,47 +72,47 @@ cover:
 # 样式自定义
 # ---------------------------------------------------------------
 
-style: 
+style:
 
   # 颜色配置
-  color: 
+  color:
     main_color: '#eb5757'
 
   # 弧度设置
-  radius: 
+  radius:
     main_radius: 4px
-    
+
   # 间距设置
-  space: 
+  space:
     main_space: 2.8rem
     sm_space: 1.5rem  # 当屏幕宽度小于 650px 时候启用
 
   # 默认代码高亮
-  highlight: 
+  highlight:
 
     # 默认代码高亮主题
-    default: 
+    default:
 
     # 暗色代码高亮主题
-    darkmode: 
+    darkmode:
 
   # highlight.js 代码高亮
-  hljs: 
+  hljs:
 
     # 默认代码高亮主题
-    default: 
+    default:
 
     # 暗色代码高亮主题
-    darkmode: 
+    darkmode:
 
   # prismjs 代码高亮
-  prismjs: 
+  prismjs:
 
     # 默认代码高亮主题
-    default: 
+    default:
 
     # 暗色代码高亮主题
-    darkmode: 
+    darkmode:
 
 
 
