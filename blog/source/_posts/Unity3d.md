@@ -1,8 +1,9 @@
 ---
 title: 'Unity3d中的"常规操作"'
-tags: [游戏编程,游戏引擎]
+tags: [IT,C#]
 categories: 
-- [Unity3d]
+- [编程]
+- [游戏]
 mathjax: true
 ---
 
@@ -64,7 +65,6 @@ void Start()
         gameObject.GetComponent<Rigidbody>().freezeRotation = true;
     }
     //Debug.Log (this.transform == this.gameObject.transform);
-
 }
 
 void LateUpdate()
@@ -114,73 +114,79 @@ void Update()
 
 
 
-#### QE键控制环绕视角
+#### QE控制环绕视角
 
 ```c#
-//摄像机参照的模型
-public GameObject target;
-//摄像机距离模型的默认距离
-public float distance = 10.0f;
-//鼠标在x轴和y轴方向移动的速度
-float RotX;
-float RotY;
-//鼠标在x和y轴方向移动的速度
-float xSpeed = 0f;
-// Use this for initialization
+using UnityEngine;
 
-// Start is called before the first frame update
-void Start()
+public class QERotation : MonoBehaviour
 {
-    //初始化x和y轴角度，使其等于参照模型的角度
-    Vector2 Angles = transform.eulerAngles;
-    RotX = Angles.y;
+    //摄像机参照的模型
+    public GameObject target;
+    //摄像机距离模型的默认距离
+    public float distance = 10.0f;
+    //鼠标在x轴和y轴方向移动的速度
+    float RotX;
+    float RotY;
+    //鼠标在x和y轴方向移动的速度
+    float xSpeed = 0f;
+    //旋转速度
+    public float rotValue = 60f;
 
-    if (gameObject.GetComponent<Rigidbody>() != null)
+    // Start is called before the first frame update
+    void Start()
     {
-        gameObject.GetComponent<Rigidbody>().freezeRotation = true;
+        //初始化x和y轴角度，使其等于参照模型的角度
+        Vector2 Angles = transform.eulerAngles;
+        RotX = Angles.y;
+
+        if (gameObject.GetComponent<Rigidbody>() != null)
+        {
+            gameObject.GetComponent<Rigidbody>().freezeRotation = true;
+        }
+        //Debug.Log (this.transform == this.gameObject.transform);
     }
-    //Debug.Log (this.transform == this.gameObject.transform);
-}
 
-void LateUpdate()
-{
-    if (target)
+    void LateUpdate()
     {
-        //根据垂直方向的增减量修改摄像机距离参照物的距离
-        distance += Input.GetAxis("Mouse ScrollWheel") * -2f;
+        if (target)
+        {
+            //根据垂直方向的增减量修改摄像机距离参照物的距离
+            distance += Input.GetAxis("Mouse ScrollWheel") * -2f;
 
-        //根据鼠标移动修改摄像机的角度
-        RotX += xSpeed * 0.02f;
-        RotY = 30;
+            //根据鼠标移动修改摄像机的角度
+            RotX += xSpeed * Time.deltaTime;
+            RotY = 30;
 
-        Quaternion rotation = Quaternion.Euler(RotY, RotX, 0);
+            Quaternion rotation = Quaternion.Euler(RotY, RotX, 0);
 
-        //根据模型碰撞箱高度 获取偏移量
-        float Offset = target.GetComponent<Collider>().bounds.size.y / 2;
+            //根据模型碰撞箱高度 获取偏移量
+            float Offset = target.GetComponent<Collider>().bounds.size.y / 2;
 
-        Vector3 position = rotation * new Vector3(0.0f, Offset, -distance) + target.transform.position;
-        //Debug.Log(position.ToString());
+            Vector3 position = rotation * new Vector3(0.0f, Offset, -distance) + target.transform.position;
+            //Debug.Log(position.ToString());
 
-        //设置摄像机的位置与旋转
-        transform.rotation = rotation;
-        transform.position = position;
+            //设置摄像机的位置与旋转
+            transform.rotation = rotation;
+            transform.position = position;
+        }
     }
-}
 
-// Update is called once per frame
-void Update()
-{
-    if (Input.GetKey(KeyCode.Q))
+    // Update is called once per frame
+    void Update()
     {
-        xSpeed = -20f;
-    }
-    else if (Input.GetKey(KeyCode.E))
-    {
-        xSpeed = 20f;
-    }
-    else
-    {
-        xSpeed = 0;
+        if (Input.GetKey(KeyCode.Q))
+        {
+            xSpeed = -rotValue;
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            xSpeed = rotValue;
+        }
+        else
+        {
+            xSpeed = 0;
+        }
     }
 }
 ```
