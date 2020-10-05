@@ -32,83 +32,134 @@ Destroy(gameObject);
 
 
 
-### 3D游戏中的角色视角
+### 3D游戏中的角色
+
+#### 简单跳跃模块
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    public float jumpHeight = 2f;
+    public bool is_landing = false;//着陆标记
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        is_landing = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (is_landing)//着陆后触发
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                is_landing = false;
+                float jump_speed = Mathf.Sqrt(2f * Mathf.Abs(Physics.gravity.y) * jumpHeight);//v=√2gh
+                GetComponent<Rigidbody>().velocity = Vector3.up * jump_speed;
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //着陆判定
+        if (collision.gameObject.tag == "Floor")
+            is_landing = true;
+    }
+}
+```
+
+
 
 #### 鼠标自由视角
 
 ```c#
-//摄像机参照的模型
-public Transform target;
-//摄像机距离模型的默认距离
-public float distance = 10.0f;
-//鼠标在x轴和y轴方向移动的速度
-float x;
-float y;
-//限制旋转角度的最小值与最大值
-float yMinLimit = -20.0f;
-float yMaxLimit = 80.0f;
-//鼠标在x和y轴方向移动的速度
-float xSpeed = 250.0f;
-float ySpeed = 120.0f;
-// Use this for initialization
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// Start is called before the first frame update
-void Start()
+public class freeView : MonoBehaviour
 {
-    //初始化x和y轴角度，使其等于参照模型的角度
-    Vector2 Angles = transform.eulerAngles;
-    x = Angles.y;
-    y = Angles.x;
+    //摄像机参照的模型
+    public Transform target;
+    //摄像机距离模型的默认距离
+    public float distance = 10.0f;
+    //鼠标在x轴和y轴方向移动的速度
+    float x;
+    float y;
+    //限制旋转角度的最小值与最大值
+    float yMinLimit = -20.0f;
+    float yMaxLimit = 80.0f;
+    //鼠标在x和y轴方向移动的速度
+    float xSpeed = 250.0f;
+    float ySpeed = 120.0f;
+    // Use this for initialization
 
-    if (gameObject.GetComponent<Rigidbody>() != null)
+    // Start is called before the first frame update
+    void Start()
     {
-        gameObject.GetComponent<Rigidbody>().freezeRotation = true;
-    }
-    //Debug.Log (this.transform == this.gameObject.transform);
-}
+        //初始化x和y轴角度，使其等于参照模型的角度
+        Vector2 Angles = transform.eulerAngles;
+        x = Angles.y;
+        y = Angles.x;
 
-void LateUpdate()
-{
-    if (target)
+        if (gameObject.GetComponent<Rigidbody>() != null)
+        {
+            gameObject.GetComponent<Rigidbody>().freezeRotation = true;
+        }
+        //Debug.Log (this.transform == this.gameObject.transform);
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        //根据垂直方向的增减量修改摄像机距离参照物的距离
-        distance += Input.GetAxis("Mouse ScrollWheel") * -2f;
 
-        //根据鼠标移动修改摄像机的角度
-        x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-        y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-        //限制了摄像机在X轴方向上的视觉范围
-        y = ClampAngle(y, yMinLimit, yMaxLimit);
-
-        Quaternion rotation = Quaternion.Euler(y, x, 0);
-
-        Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
-        //Debug.Log(position.ToString());
-
-        //设置摄像机的位置与旋转
-        transform.rotation = rotation;
-        transform.position = position;
     }
-}
-
-float ClampAngle(float angle, float min, float max)
-{
-    //这里之所以要加360，因为比如-380,与-20是等价的
-    if (angle < -360)
+    
+    void LateUpdate()
     {
-        angle += 360;
+        if (target)
+        {
+            //根据垂直方向的增减量修改摄像机距离参照物的距离
+            distance += Input.GetAxis("Mouse ScrollWheel") * -2f;
+
+            //根据鼠标移动修改摄像机的角度
+            x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+            y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+            //限制了摄像机在X轴方向上的视觉范围
+            y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+            Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+            Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
+            //Debug.Log(position.ToString());
+
+            //设置摄像机的位置与旋转
+            transform.rotation = rotation;
+            transform.position = position;
+        }
     }
-    if (angle > 360)
+
+    float ClampAngle(float angle, float min, float max)
     {
-        angle -= 360;
+        //这里之所以要加360，因为比如-380,与-20是等价的
+        if (angle < -360)
+        {
+            angle += 360;
+        }
+        if (angle > 360)
+        {
+            angle -= 360;
+        }
+        return Mathf.Clamp(angle, min, max);
     }
-    return Mathf.Clamp(angle, min, max);
-}
-
-// Update is called once per frame
-void Update()
-{
-
 }
 ```
 
