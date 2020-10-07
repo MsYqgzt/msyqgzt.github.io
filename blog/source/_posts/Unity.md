@@ -1,8 +1,8 @@
 ---
 title: 'Unity中的"常规操作"'
-tags: [IT,C#]
+tags: [游戏编程,游戏引擎,C#]
 categories: 
-- [编程]
+- [Unity]
 - [游戏]
 mathjax: true
 ---
