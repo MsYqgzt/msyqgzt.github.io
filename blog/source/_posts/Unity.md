@@ -242,3 +242,39 @@ public class QERotation : MonoBehaviour
 }
 ```
 
+
+
+## 学以致用
+
+### 逆透视变换
+
+> 将鼠标的屏幕二维坐标转换成三维投射坐标
+
+```c#
+public bool unproject_mouse_position(out Vector3 word_position, Vector3 mouse_position)
+{
+	bool ret;
+	float depth;
+	
+	//用于检测和地面相交的平面
+	Plane plane = new Plane(Vector3.up, Vector3.zero);
+	
+	//穿过摄像机位置和鼠标光标位置的直线
+	Ray ray = this.main_camera.GetComponent<Camera>().ScreenPosintToRay(mouse_position);
+	
+	//求出直线和地面的交点
+	if(plane.Raycast(ray,out depth))
+	{
+		//根据Raycast方法的结果计算交点的坐标
+		word_position = ray.origin + ray.direction * depth;
+		ret = true;
+	}
+	else
+	{
+		world_position = Vector3.zero;
+		ret = false;
+	}
+	
+	return(ret);
+}
+```
