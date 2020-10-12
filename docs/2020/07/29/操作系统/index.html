@@ -34,63 +34,63 @@
     <meta name="description" content="作业调度的时间计算批处理作业调度算法 先来先服务（FCFS - First Come First Served）调度算法 选择最先进入后备队列的作业装入内存。 优点：比较容易实现。 缺点：不区分作业长短，对短小作业十分不利；不顾及轻重缓急；对时间要求紧迫的作业不能做到急事急办。      最短作业优先（SJF - Shortest Job First）调度算法 从后备作业中选择运行时间最短的作业装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="AlertNote">
 <meta property="og:description" content="作业调度的时间计算批处理作业调度算法 先来先服务（FCFS - First Come First Served）调度算法 选择最先进入后备队列的作业装入内存。 优点：比较容易实现。 缺点：不区分作业长短，对短小作业十分不利；不顾及轻重缓急；对时间要求紧迫的作业不能做到急事急办。      最短作业优先（SJF - Shortest Job First）调度算法 从后备作业中选择运行时间最短的作业装">
 <meta property="og:locale">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png">
-<meta property="article:published_time" content="2020-08-29T03:13:41.784Z">
-<meta property="article:modified_time" content="2020-10-03T10:05:46.982Z">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png">
+<meta property="article:published_time" content="2020-07-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-12T08:35:36.750Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png">
+<meta name="twitter:image" content="http://msyqgzt.gitee.io/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png">
 
 
     
@@ -180,7 +180,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -233,8 +233,8 @@
         操作系统
     </h1>
     <div class="post-title__meta">
-        <a href="/blogs/archives/2020/08/" class="post-meta__date button">
-    2020-08-29
+        <a href="/blogs/archives/2020/07/" class="post-meta__date button">
+    2020-07-29
 </a>
         
     <span class="separate-dot"></span><a href="/blogs/categories/OS/" class="button">OS</a>
@@ -270,7 +270,7 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
+        <div class="toc-title">文章目录</div>
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">作业调度的时间计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">批处理作业调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E6%80%A7%E8%83%BD%E7%9A%84%E8%A1%A1%E9%87%8F%E6%A0%87%E5%87%86"><span class="toc-number">1.2.</span> <span class="toc-text">作业调度性能的衡量标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E6%97%B6%E9%97%B4%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">作业调度时间算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%A1%88%E4%BE%8B"><span class="toc-number">1.4.</span> <span class="toc-text">算法案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E4%B8%8E%E8%B0%83%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">进程管理与调度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%B8%85%E4%BD%9C%E4%B8%9A%E3%80%81%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.1.</span> <span class="toc-text">分清作业、进程与程序的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">进程与进程管理模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">2.2.1.</span> <span class="toc-text">进程的特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97PCB"><span class="toc-number">2.2.2.</span> <span class="toc-text">进程控制块PCB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.2.3.</span> <span class="toc-text">进程的状态转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%8A%B6%E6%80%81%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">两状态进程模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E7%8A%B6%E6%80%81%E8%BF%9B%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">三状态进程模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%89%A9%E5%B1%95%E7%9A%84%E6%8C%82%E8%B5%B7%E7%8A%B6%E6%80%81"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">两种扩展的挂起状态</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E6%92%A4%E9%94%80"><span class="toc-number">2.2.4.</span> <span class="toc-text">进程的创建与撤销</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%8E%9F%E8%AF%AD"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">进程创建原语</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%92%A4%E9%94%80%E5%8E%9F%E8%AF%AD"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">进程撤销原语</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%98%BB%E5%A1%9E%E5%8E%9F%E8%AF%ADBlock"><span class="toc-number">2.2.4.3.</span> <span class="toc-text">进程阻塞原语Block()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%94%A4%E9%86%92%E5%8E%9F%E8%AF%ADWake-up"><span class="toc-number">2.2.4.4.</span> <span class="toc-text">唤醒原语Wake_up()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%82%E8%B5%B7%E5%8E%9F%E8%AF%AD-Suspend"><span class="toc-number">2.2.4.5.</span> <span class="toc-text">挂起原语 Suspend()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%8E%9F%E8%AF%ADActive"><span class="toc-number">2.2.4.6.</span> <span class="toc-text">激活原语Active()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">进程调度方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E6%8A%A2%E5%8D%A0%E5%BC%8F%E8%B0%83%E5%BA%A6"><span class="toc-number">2.3.1.</span> <span class="toc-text">非抢占式调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%A2%E5%8D%A0%E5%BC%8F%E8%B0%83%E5%BA%A6"><span class="toc-number">2.3.2.</span> <span class="toc-text">抢占式调度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">进程调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%89%87%E8%BD%AE%E8%BD%ACRR%EF%BC%88-Round-robin%EF%BC%89%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.1.</span> <span class="toc-text">时间片轮转RR（ Round robin）算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%98%9F%E5%88%97%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.2.</span> <span class="toc-text">多队列调度算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E9%98%9F%E5%88%97%E5%8F%8D%E9%A6%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.3.</span> <span class="toc-text">多级队列反馈调度算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="toc-number">2.5.</span> <span class="toc-text">实时任务调度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%91%A8%E6%9C%9F%E5%AE%9E%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E5%85%B6%E8%B0%83%E5%BA%A6%E6%96%B9%E6%B3%95"><span class="toc-number">2.5.1.</span> <span class="toc-text">非周期实时任务的分类及其调度方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">线程的引入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.6.1.</span> <span class="toc-text">进程与线程的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E7%9A%84%E8%B0%83%E5%BA%A6%E5%B1%82%E6%AC%A1"><span class="toc-number">2.7.</span> <span class="toc-text">处理机的调度层次</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E7%9A%84%E4%B8%89%E7%BA%A7%E8%B0%83%E5%BA%A6"><span class="toc-number">2.7.1.</span> <span class="toc-text">典型的三级调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-number">2.7.2.</span> <span class="toc-text">线程调度</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BA%A7%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="toc-number">2.7.2.1.</span> <span class="toc-text">用户级线程的调度</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%AD%90%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.7.3.</span> <span class="toc-text">线程调度与子进程调度的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">进程的并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E3%80%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.1.</span> <span class="toc-text">互斥、同步与并发的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%92%E6%96%A5"><span class="toc-number">3.1.1.</span> <span class="toc-text">互斥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5"><span class="toc-number">3.1.2.</span> <span class="toc-text">同步</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91-Concurrency"><span class="toc-number">3.2.</span> <span class="toc-text">并发(Concurrency)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.2.1.</span> <span class="toc-text">并发的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.2.</span> <span class="toc-text">并发带来的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%9B%B8%E5%85%B3%E7%9A%84%E5%85%B3%E9%94%AE%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.2.3.</span> <span class="toc-text">与并发相关的关键术语</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E5%92%8C%E4%BA%92%E6%96%A5%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">解决进程同步和互斥的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.1.</span> <span class="toc-text">软件方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">硬件方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E6%9C%BA%E5%88%B6"><span class="toc-number">3.3.3.</span> <span class="toc-text">信号量机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B%E6%9C%BA%E5%88%B6"><span class="toc-number">3.3.4.</span> <span class="toc-text">管程机制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-number">3.4.</span> <span class="toc-text">生产者-消费者问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B1"><span class="toc-number">3.4.1.</span> <span class="toc-text">例1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B2"><span class="toc-number">3.4.2.</span> <span class="toc-text">例2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.4.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">读者-写者问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">3.5.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">3.5.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E5%8F%91%E5%B8%88%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">理发师问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-1"><span class="toc-number">3.6.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">3.6.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98"><span class="toc-number">3.7.</span> <span class="toc-text">哲学家就餐问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-2"><span class="toc-number">3.7.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.7.2.</span> <span class="toc-text">算法存在的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B%E6%9C%BA%E5%88%B6%E8%A7%A3%E5%86%B3%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-number">3.8.</span> <span class="toc-text">管程机制解决生产者-消费者问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B-Monitor"><span class="toc-number">3.8.1.</span> <span class="toc-text">管程(Monitor)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%A1%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BA%94%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.8.2.</span> <span class="toc-text">管程设计与应用示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%8F%91%E7%94%9F%E4%B8%8E%E6%8F%8F%E8%BF%B0"><span class="toc-number">3.9.</span> <span class="toc-text">死锁的发生与描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%8D%B1%E5%AE%B3"><span class="toc-number">3.9.1.</span> <span class="toc-text">死锁的危害</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90-3"><span class="toc-number">3.9.2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">3.9.3.</span> <span class="toc-text">死锁的解决方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2%E4%B8%8E%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.9.4.</span> <span class="toc-text">死锁预防与死锁避免的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E9%A2%84%E9%98%B2"><span class="toc-number">3.9.4.1.</span> <span class="toc-text">死锁的预防</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%83%BD%E5%90%A6%E7%A0%B4%E5%9D%8F-%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%844%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.9.4.1.1.</span> <span class="toc-text">能否破坏 死锁产生的4个必要条件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E9%81%BF%E5%85%8D"><span class="toc-number">3.9.4.2.</span> <span class="toc-text">死锁的避免</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">存储管理方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">连续存储管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">非连续存储管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%EF%BC%88%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">地址重定位（地址转换）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">4.2.1.</span> <span class="toc-text">程序的编译、链接、装载和执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">数据结构与主存分配算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">4.3.1.</span> <span class="toc-text">常用的数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%88%86%E9%85%8D%E8%A1%A8MAT-Memory-Allocation-Table"><span class="toc-number">4.3.1.1.</span> <span class="toc-text">主存分配表MAT(Memory Allocation Table)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A9%BA%E9%97%B2%E5%8C%BA%E8%A1%A8-%E9%93%BE"><span class="toc-number">4.3.1.2.</span> <span class="toc-text">空闲区表&#x2F;链</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">4.3.2.</span> <span class="toc-text">主存分配算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95-First-Fit"><span class="toc-number">4.3.2.1.</span> <span class="toc-text">首次适应算法(First_Fit)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95-Circle-First-Fit"><span class="toc-number">4.3.2.2.</span> <span class="toc-text">循环首次适应算法(Circle_First_Fit)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95-Best-Fit"><span class="toc-number">4.3.2.3.</span> <span class="toc-text">最佳适应算法(Best_Fit)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%80%E5%9D%8F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95-Worst-Fit"><span class="toc-number">4.3.2.4.</span> <span class="toc-text">最坏适应算法(Worst_Fit)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">连续分区存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.4.1.</span> <span class="toc-text">单分区存储管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%A4%9A%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.4.2.</span> <span class="toc-text">固定多分区存储管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%A4%9A%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.4.3.</span> <span class="toc-text">动态多分区存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">动态分区分配示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.5.</span> <span class="toc-text">基本分页存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%95%BF%E5%BA%A6"><span class="toc-number">4.5.1.</span> <span class="toc-text">页面长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.2.</span> <span class="toc-text">记录内存使用情况的数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">4.5.3.</span> <span class="toc-text">页面分配算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%88%92%E5%88%86"><span class="toc-number">4.5.4.</span> <span class="toc-text">地址划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="toc-number">4.5.5.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E4%BF%9D%E6%8A%A4"><span class="toc-number">4.5.6.</span> <span class="toc-text">地址保护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">4.5.7.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E6%AE%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.6.</span> <span class="toc-text">基本分段存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8C%89%E9%80%BB%E8%BE%91%E5%88%86%E6%AE%B5"><span class="toc-number">4.6.1.</span> <span class="toc-text">进程按逻辑分段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%85%E5%90%AB3%E4%B8%AA%E6%AE%B5%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.6.2.</span> <span class="toc-text">包含3个段的进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-1"><span class="toc-number">4.6.3.</span> <span class="toc-text">记录内存使用情况的数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E5%90%84%E4%B8%AA%E8%BF%9B%E7%A8%8B%E5%88%86%E6%AE%B5%E6%83%85%E5%86%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.4.</span> <span class="toc-text">记录各个进程分段情况的数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D-1"><span class="toc-number">4.6.5.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%AE%B5%E4%BF%9D%E6%8A%A4"><span class="toc-number">4.6.6.</span> <span class="toc-text">分段保护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%AE%B5%E5%85%B1%E4%BA%AB"><span class="toc-number">4.6.7.</span> <span class="toc-text">分段共享</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-4"><span class="toc-number">4.6.8.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.7.</span> <span class="toc-text">基本段页式存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E4%B8%8E%E5%88%86%E6%AE%B5"><span class="toc-number">4.7.1.</span> <span class="toc-text">分页与分段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">4.7.2.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.7.3.</span> <span class="toc-text">地址形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="toc-number">4.7.4.</span> <span class="toc-text">段页式地址重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%9C%B0%E5%9D%80%E4%BF%9D%E6%8A%A4"><span class="toc-number">4.7.5.</span> <span class="toc-text">段页式地址保护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%9C%B0%E5%9D%80%E5%AD%97%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.7.6.</span> <span class="toc-text">段页式地址字结构的计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8%E5%8F%8A%E7%9B%B8%E5%85%B3%E8%AE%A1%E7%AE%97"><span class="toc-number">4.8.</span> <span class="toc-text">多级页表及相关计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">4.8.1.</span> <span class="toc-text">一级页表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">4.8.2.</span> <span class="toc-text">二级页表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">4.8.3.</span> <span class="toc-text">多级页表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E8%AE%A1%E7%AE%97"><span class="toc-number">4.8.4.</span> <span class="toc-text">相关计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6%E7%9A%84%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E8%BF%87%E7%A8%8B"><span class="toc-number">4.8.5.</span> <span class="toc-text">多级页表机制的地址重定位过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%BF%AB%E8%A1%A8%E6%9C%89%E5%85%B3%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.9.</span> <span class="toc-text">与快表有关的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E9%80%9F%E5%BA%A6%E4%B8%80%E5%BF%AB%E8%A1%A8"><span class="toc-number">4.9.1.</span> <span class="toc-text">提高地址转换速度一快表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%BF%AB%E8%A1%A8%E4%B9%8B%E5%90%8E%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">4.9.1.1.</span> <span class="toc-text">引入快表之后的地址变换过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E6%95%88%E8%AE%BF%E5%AD%98%E6%97%B6%E9%97%B4%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.9.1.2.</span> <span class="toc-text">有效访存时间的计算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%85%A5%E5%BF%AB%E8%A1%A8%E4%B9%8B%E5%90%8E%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">4.9.1.3.</span> <span class="toc-text">实际系统引入快表之后的地址变换示意图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">虚拟存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="toc-number">5.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E6%89%A9%E5%85%85%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B4%A8"><span class="toc-number">5.1.1.</span> <span class="toc-text">主存扩充技术实质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.2.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A6%86%E7%9B%96%E6%8A%80%E6%9C%AF"><span class="toc-number">5.1.3.</span> <span class="toc-text">覆盖技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2-Swap-%E6%8A%80%E6%9C%AF"><span class="toc-number">5.1.4.</span> <span class="toc-text">交换(Swap)技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E8%A6%81%E7%82%B9"><span class="toc-number">5.1.4.1.</span> <span class="toc-text">交换技术实现要点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%BA%E5%92%8C%E4%BA%A4%E6%8D%A2%E5%8C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.1.4.2.</span> <span class="toc-text">文件区和交换区的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.1.4.3.</span> <span class="toc-text">交换技术的应用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">5.1.5.</span> <span class="toc-text">虚拟存储技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%AE%9E%E7%8E%B0%E6%8A%80%E6%9C%AF"><span class="toc-number">5.1.5.1.</span> <span class="toc-text">虚拟存储实现技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">5.2.</span> <span class="toc-text">请求分页存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E8%A6%81%E7%82%B9"><span class="toc-number">5.2.1.</span> <span class="toc-text">基本原理要点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-1"><span class="toc-number">5.2.2.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D%E6%9C%BA%E5%88%B6"><span class="toc-number">5.2.3.</span> <span class="toc-text">地址重定位机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.4.</span> <span class="toc-text">缺页中断与缺页中断处理过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E6%96%AD%E7%82%B9"><span class="toc-number">5.2.4.1.</span> <span class="toc-text">缺页中断的断点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E7%9A%84%E6%96%AD%E7%82%B9%E5%8E%8B%E5%85%A5"><span class="toc-number">5.2.4.2.</span> <span class="toc-text">缺页中断的断点压入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.4.3.</span> <span class="toc-text">缺页中断处理过程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95%E4%B8%8E%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-number">5.2.5.</span> <span class="toc-text">页面分配算法与分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%9B%B8%E5%85%B3%E8%AE%A8%E8%AE%BA"><span class="toc-number">5.2.5.1.</span> <span class="toc-text">页面分配相关讨论</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%99%E7%89%B9%E5%AE%9A%E8%BF%9B%E7%A8%8B%E5%88%86%E9%85%8D%E5%90%88%E7%90%86%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%A7%E6%95%B0"><span class="toc-number">5.2.5.2.</span> <span class="toc-text">给特定进程分配合理的内存帧数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">5.2.5.3.</span> <span class="toc-text">常用页面分配算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-number">5.2.5.4.</span> <span class="toc-text">页面分配策略</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0%E4%B8%8EOPT"><span class="toc-number">5.2.6.</span> <span class="toc-text">页面置换算法概述与OPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5-%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-number">5.2.6.1.</span> <span class="toc-text">页面分配策略+页面置换策略</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E8%A6%81%E7%82%B9"><span class="toc-number">5.2.6.2.</span> <span class="toc-text">页面置换要点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">5.2.6.3.</span> <span class="toc-text">常用的页面置换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#OPT-%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2"><span class="toc-number">5.2.6.3.1.</span> <span class="toc-text">OPT-最佳置换</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#FIFO-%E5%85%88%E5%85%A5%E5%85%88%E5%87%BA"><span class="toc-number">5.2.6.3.2.</span> <span class="toc-text">FIFO-先入先出</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#LRU-%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.6.3.3.</span> <span class="toc-text">LRU-最近最久未使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CLOCK"><span class="toc-number">5.2.6.3.4.</span> <span class="toc-text">CLOCK</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%94%B9%E8%BF%9B%E7%9A%84CLOCK"><span class="toc-number">5.2.6.3.5.</span> <span class="toc-text">改进的CLOCK</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E9%A1%B5%E9%9D%A2%E8%B0%83%E5%85%A5%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%AE%A8%E8%AE%BA"><span class="toc-number">5.2.6.4.</span> <span class="toc-text">关于页面调入的进一步讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Q1%EF%BC%9A%E9%A1%B5%E9%9D%A2%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%B0%83%E5%85%A5%EF%BC%9F"><span class="toc-number">5.2.6.4.1.</span> <span class="toc-text">Q1：页面什么时候调入？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Q2%EF%BC%9A%E7%BC%BA%E9%A1%B5%E4%BB%8E%E5%93%AA%E5%84%BF%E8%B0%83%E5%85%A5%EF%BC%9F"><span class="toc-number">5.2.6.4.2.</span> <span class="toc-text">Q2：缺页从哪儿调入？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Q3%EF%BC%9A%E7%BC%BA%E9%A1%B5%E8%B0%83%E5%85%A5%E9%9C%80%E8%A6%81%E5%A4%9A%E9%95%BF%E6%97%B6%E9%97%B4%EF%BC%9F"><span class="toc-number">5.2.6.4.3.</span> <span class="toc-text">Q3：缺页调入需要多长时间？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84%E6%9C%89%E6%95%88%E8%AE%BF%E5%AD%98%E6%97%B6%E9%97%B4"><span class="toc-number">5.2.6.4.4.</span> <span class="toc-text">基本分页存储管理中的有效访存时间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%AE%A1%E7%90%86%E4%B8%AD%E4%B8%8D%E7%BC%BA%E9%A1%B5%E6%97%B6%E7%9A%84%E6%9C%89%E6%95%88%E8%AE%BF%E5%AD%98%E6%97%B6%E9%97%B4"><span class="toc-number">5.2.6.4.5.</span> <span class="toc-text">请求分页管理中不缺页时的有效访存时间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%BB%BC%E5%90%88%E6%9C%89%E6%95%88%E8%AE%BF%E5%AD%98%E6%97%B6%E9%97%B4T%E7%9A%84%E4%BC%B0%E7%AE%97"><span class="toc-number">5.2.6.4.6.</span> <span class="toc-text">请求分页综合有效访存时间T的估算</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.2.6.4.7.</span> <span class="toc-text">实例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A9%BB%E7%95%99%E9%9B%86%E3%80%81%E5%B7%A5%E4%BD%9C%E9%9B%86%E4%B8%8E%E6%8A%96%E5%8A%A8%E7%9A%84%E9%A2%84%E9%98%B2"><span class="toc-number">5.2.7.</span> <span class="toc-text">驻留集、工作集与抖动的预防</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A9%BB%E7%95%99%E9%9B%86"><span class="toc-number">5.2.7.1.</span> <span class="toc-text">驻留集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="toc-number">5.2.7.2.</span> <span class="toc-text">工作集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%96%E5%8A%A8"><span class="toc-number">5.2.7.3.</span> <span class="toc-text">抖动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E6%AE%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">5.3.</span> <span class="toc-text">请求分段式存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">5.3.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D-2"><span class="toc-number">5.3.2.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-2"><span class="toc-number">5.3.3.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E6%AE%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6"><span class="toc-number">5.3.4.</span> <span class="toc-text">缺段中断机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E6%AE%B5%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">5.3.5.</span> <span class="toc-text">缺段中断处理程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">5.4.</span> <span class="toc-text">请求段页式存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-1"><span class="toc-number">5.4.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E9%87%8D%E5%AE%9A%E4%BD%8D-3"><span class="toc-number">5.4.2.</span> <span class="toc-text">地址重定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%9C%B0%E5%9D%80%E6%9C%89%E5%85%B3%E7%9A%84%E8%AE%A1%E7%AE%97%E4%B8%93%E9%A2%98"><span class="toc-number">5.5.</span> <span class="toc-text">与地址有关的计算专题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-number">6.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%9A%84%E5%88%86%E9%85%8D"><span class="toc-number">6.2.</span> <span class="toc-text">设备的分配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B"><span class="toc-number">6.2.1.</span> <span class="toc-text">设备分配过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="toc-number">6.3.</span> <span class="toc-text">缓冲区的设置与管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E9%80%9F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">6.4.</span> <span class="toc-text">磁盘读写速度分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">6.5.</span> <span class="toc-text">磁盘调度算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%81%93%E6%8E%A7%E5%88%B6%E4%B8%8B%E7%9A%84I-O"><span class="toc-number">6.6.</span> <span class="toc-text">通道控制下的I&#x2F;O</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O%E8%BF%87%E7%A8%8B%E7%9A%84%E7%BB%93%E6%9D%9F"><span class="toc-number">6.6.1.</span> <span class="toc-text">I&#x2F;O过程的结束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E9%81%93"><span class="toc-number">6.6.2.</span> <span class="toc-text">通道</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E8%AE%BE%E5%A4%87"><span class="toc-number">6.7.</span> <span class="toc-text">虚拟设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%8F%B0%E8%AE%BE%E5%A4%87%E8%99%9A%E6%8B%9F%E6%88%90%E5%A4%9A%E5%8F%B0%E8%AE%BE%E5%A4%87"><span class="toc-number">6.7.1.</span> <span class="toc-text">一台设备虚拟成多台设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E4%B8%AA%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B"><span class="toc-number">6.7.2.</span> <span class="toc-text">四个系统进程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-number">7.1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%9C%A8%E5%BD%A2%E5%BC%8F-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">7.1.1.</span> <span class="toc-text">内在形式-文件的组成和操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95"><span class="toc-number">7.2.</span> <span class="toc-text">文件与目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-number">7.2.1.</span> <span class="toc-text">目录文件与文件目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="toc-number">7.3.</span> <span class="toc-text">文件的组织结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">7.3.1.</span> <span class="toc-text">文件的顺序存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E5%92%8C%E7%B4%A2%E5%BC%95%E5%AD%98%E5%82%A8"><span class="toc-number">7.4.</span> <span class="toc-text">文件的链式存储和索引存储</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E9%93%BE%E6%8E%A5%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">7.4.1.</span> <span class="toc-text">隐式链接存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F%E9%93%BE%E6%8E%A5%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">7.4.2.</span> <span class="toc-text">显式链接存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">7.4.3.</span> <span class="toc-text">索引存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E5%8F%8A%E7%9B%B8%E5%85%B3%E8%AE%A1%E7%AE%97"><span class="toc-number">7.5.</span> <span class="toc-text">多级索引存储结构及相关计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E6%9C%89%E5%85%B3%E8%AE%A1%E7%AE%97"><span class="toc-number">7.5.1.</span> <span class="toc-text">索引存储结构有关计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UNIX%E6%B7%B7%E5%90%88%E7%B4%A2%E5%BC%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">7.5.2.</span> <span class="toc-text">UNIX混合索引存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%9A%84%E7%AE%A1%E7%90%86%E4%B8%8E%E6%9F%A5%E8%AF%A2"><span class="toc-number">7.6.</span> <span class="toc-text">文件目录的管理与查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">7.7.</span> <span class="toc-text">文件存储空间的管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6"><span class="toc-number">7.7.1.</span> <span class="toc-text">分配和回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E4%B8%8E%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4%E3%80%81%E4%BF%9D%E5%AF%86"><span class="toc-number">7.8.</span> <span class="toc-text">文件共享与文件保护、保密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB"><span class="toc-number">7.8.1.</span> <span class="toc-text">文件共享</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4"><span class="toc-number">7.8.2.</span> <span class="toc-text">文件保护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AF%86"><span class="toc-number">7.8.3.</span> <span class="toc-text">文件保密</span></a></li></ol></li></ol></li></ol>
     </div>
 
@@ -470,7 +470,7 @@
 <li>结构特征：PCB（进程控制块）+进程体</li>
 </ol>
 <hr>
-<h4 id="进程控制块PCB"><a href="#进程控制块PCB" class="headerlink" title="进程控制块PCB"></a>进程控制块PCB</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.2.1">
+<h4 id="进程控制块PCB"><a href="#进程控制块PCB" class="headerlink" title="进程控制块PCB"></a>进程控制块PCB</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.2.1">
 
 <ul>
 <li><p>进程控制块PCB的数据内容包括：</p>
@@ -516,8 +516,8 @@
 </li>
 </ul>
 <hr>
-<h4 id="进程的状态转换"><a href="#进程的状态转换" class="headerlink" title="进程的状态转换"></a>进程的状态转换</h4><h5 id="两状态进程模型"><a href="#两状态进程模型" class="headerlink" title="两状态进程模型"></a>两状态进程模型</h5><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.1">
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.2">
+<h4 id="进程的状态转换"><a href="#进程的状态转换" class="headerlink" title="进程的状态转换"></a>进程的状态转换</h4><h5 id="两状态进程模型"><a href="#两状态进程模型" class="headerlink" title="两状态进程模型"></a>两状态进程模型</h5><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.2">
 
 <ul>
 <li><p>进程的三种基本状态</p>
@@ -543,7 +543,7 @@
 </li>
 </ul>
 <hr>
-<h5 id="三状态进程模型"><a href="#三状态进程模型" class="headerlink" title="三状态进程模型"></a>三状态进程模型</h5><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.3">
+<h5 id="三状态进程模型"><a href="#三状态进程模型" class="headerlink" title="三状态进程模型"></a>三状态进程模型</h5><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.3">
 
 <hr>
 <h5 id="两种扩展的挂起状态"><a href="#两种扩展的挂起状态" class="headerlink" title="两种扩展的挂起状态"></a>两种扩展的挂起状态</h5><ul>
@@ -553,7 +553,7 @@
 <blockquote>
 <p>挂起某些暂时不能运行的进程，目的是腾出内存装入更多进程，使CPU忙碌起来。</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.4">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.3.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3.4">
 
 <h4 id="进程的创建与撤销"><a href="#进程的创建与撤销" class="headerlink" title="进程的创建与撤销"></a>进程的创建与撤销</h4><blockquote>
 <p><strong>原语：</strong>机器指令构成的一种实现特定功能的小程序，它的运行具有不可分割性。</p>
@@ -722,7 +722,7 @@
 <p>进程调度每次将处理机分配给具有最高优先级的就绪进程。</p>
 <p>最高优先级算法可与不同的CPU方式结合形成可抢占式最高优先级算法和不可抢占式最高优先级算法</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.1">
 
 <ul>
 <li>普通型的实时任务调度</li>
@@ -731,7 +731,7 @@
 <p>目前，大多数自动控制系统对响应时间的要求都不是太高，一般是毫秒量级的。由于它允许的响应时间长度与时钟中断的周期基本吻合。</p>
 </blockquote>
 <p>采用“基于时钟中断抢占的高优先级调度”算法。</p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.2">
 
 
 
@@ -742,12 +742,12 @@
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5..3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5..3">
 
 <ul>
 <li>RR算法</li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.4">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5.4">
 
 <ul>
 <li>特殊的—周期性实时任务</li>
@@ -768,7 +768,7 @@
 </blockquote>
 <p>一个进程运行过程中可创建多个线程，线程共享所属进程的资源，自己只有TCB和很少的栈区</p>
 <p>线程分<strong>内核级线程KLT</strong>和<strong>应用级线程ULT</strong></p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.6.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.6.1">
 
 <h4 id="进程与线程的区别"><a href="#进程与线程的区别" class="headerlink" title="进程与线程的区别"></a>进程与线程的区别</h4><blockquote>
 <p>进程是个独立的实体单位：</p>
@@ -822,7 +822,7 @@
 <li>内核级线程：操作系统直接进行线程调度</li>
 </ul>
 <h4 id="线程调度与子进程调度的区别"><a href="#线程调度与子进程调度的区别" class="headerlink" title="线程调度与子进程调度的区别"></a>线程调度与子进程调度的区别</h4><p>图示以用户级线程调度为例</p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.7.3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.7.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.7.3">
 
 <p>采用线程调度：CPU切换时开销较少</p>
 <h2 id="进程的并发控制"><a href="#进程的并发控制" class="headerlink" title="进程的并发控制"></a>进程的并发控制</h2><h3 id="互斥、同步与并发的区别"><a href="#互斥、同步与并发的区别" class="headerlink" title="互斥、同步与并发的区别"></a>互斥、同步与并发的区别</h3><h4 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h4><blockquote>
@@ -975,7 +975,7 @@
 <p><strong>假定使用的约束条件是：</strong></p>
 <p>当环中有空闲缓冲块时，允许任一生产者进程把它的产品存入。<br>当环中无空闲缓冲块时，则试图将产品存入缓冲区环的任何生产者进程必须阻塞等待。<br>当环中尚有未取出的产品时，允许任一个消费者进程把其中的一个产品取出。<br>当环中没有未取出的产品时，试图从该环内取出产品的任何消费者进程必须阻塞等待。</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.4.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.4.1">
 
 <p>环上设有存入指针和读取指针，都按顺时针方向移动。</p>
 <p>*当同步问题的临界区和互斥问题的临界区重合时，应该做到<strong>同步在外、互斥在内</strong>：消费者先判断buffer环是否可取，在可取的情况下再竞争buffer环的使用权；消费完后先释放buffer环，再向生产者发出可放入信号。</p>
@@ -983,7 +983,7 @@
 <p>三个进程：输入、计算、输出</p>
 <p>进程关系分析：P1与P2同步，P2与P3同步</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.4.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.4.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.4.2">
 
 <blockquote>
 <p>$B_1$可放入——Sin1，初值1</p>
@@ -1428,7 +1428,7 @@
 <h3 id="地址重定位（地址转换）"><a href="#地址重定位（地址转换）" class="headerlink" title="地址重定位（地址转换）"></a>地址重定位（地址转换）</h3><p>实现目标：将逻辑地址转换成物理地址</p>
 <p>物理地址：存储单元的实际物理单元地址</p>
 <p>逻辑地址：用户空间中使用的一种地址</p>
-<h4 id="程序的编译、链接、装载和执行"><a href="#程序的编译、链接、装载和执行" class="headerlink" title="程序的编译、链接、装载和执行"></a>程序的编译、链接、装载和执行</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.2.1">
+<h4 id="程序的编译、链接、装载和执行"><a href="#程序的编译、链接、装载和执行" class="headerlink" title="程序的编译、链接、装载和执行"></a>程序的编译、链接、装载和执行</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.2.1">
 
 <h3 id="数据结构与主存分配算法"><a href="#数据结构与主存分配算法" class="headerlink" title="数据结构与主存分配算法"></a>数据结构与主存分配算法</h3><h4 id="常用的数据结构"><a href="#常用的数据结构" class="headerlink" title="常用的数据结构"></a>常用的数据结构</h4><h5 id="主存分配表MAT-Memory-Allocation-Table"><a href="#主存分配表MAT-Memory-Allocation-Table" class="headerlink" title="主存分配表MAT(Memory Allocation Table)"></a>主存分配表MAT(Memory Allocation Table)</h5><ul>
 <li>分区号：每个分区都有一个编号，用以区别不同分区。</li>
@@ -1573,8 +1573,8 @@
 </ol>
 </li>
 </ul>
-<h5 id="动态分区分配示例"><a href="#动态分区分配示例" class="headerlink" title="动态分区分配示例"></a>动态分区分配示例</h5><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.4.1">
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.4.2">
+<h5 id="动态分区分配示例"><a href="#动态分区分配示例" class="headerlink" title="动态分区分配示例"></a>动态分区分配示例</h5><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.4.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.4.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.4.2">
 
 <blockquote>
 <p><strong>外碎片：</strong>指的是在使用动态多分区管理方法时，形成的的、因为太小不容易被分配利用的小的空闲区</p>
@@ -1714,9 +1714,9 @@
 <blockquote>
 <p>这样的地址结构，允许一个进程的页面总数达$2^6=64$页</p>
 </blockquote>
-<h4 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.5.1">
+<h4 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.5.1">
 
-<h4 id="地址保护"><a href="#地址保护" class="headerlink" title="地址保护"></a>地址保护</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.5.2">
+<h4 id="地址保护"><a href="#地址保护" class="headerlink" title="地址保护"></a>地址保护</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.5.2">
 
 <h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><ul>
 <li>离散存储，利于大进程装入</li>
@@ -1753,7 +1753,7 @@
 <p>甚至有专门的“共享段”</p>
 <p>图给出各个段之间的调用关系</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.1">
 
 <h4 id="记录内存使用情况的数据结构-1"><a href="#记录内存使用情况的数据结构-1" class="headerlink" title="记录内存使用情况的数据结构"></a>记录内存使用情况的数据结构</h4><ul>
 <li>MAT</li>
@@ -1775,7 +1775,7 @@
 <h4 id="记录各个进程分段情况的数据结构"><a href="#记录各个进程分段情况的数据结构" class="headerlink" title="记录各个进程分段情况的数据结构"></a>记录各个进程分段情况的数据结构</h4><p><strong>段表ST（ Segment Table）</strong>为每个进程设置一张段表，用来记录各个段地址映射的关系</p>
 <p>进程分了几段，段表就有几个表项。<br>个表项记录一个分段在内存空间中的存储地址和长度。</p>
 <p>段表示例：</p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.2">
 
 <h4 id="地址重定位-1"><a href="#地址重定位-1" class="headerlink" title="地址重定位"></a>地址重定位</h4><p>程序运行中的地址变换过程如下：</p>
 <ol>
@@ -1789,7 +1789,7 @@
 <p>第二级保护是阻止进程超出访问权限的读写。</p>
 </blockquote>
 <p>分段保护的具体保护分为以下三个步骤</p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.6.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.6.3">
 
 <h4 id="分段共享"><a href="#分段共享" class="headerlink" title="分段共享"></a>分段共享</h4><ul>
 <li><p>段面共享</p>
@@ -1837,7 +1837,7 @@
 </ul>
 <br/>
 
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.1">
 
 <p>$$<br>段表和段内页表<br>$$</p>
 <h4 id="地址形式"><a href="#地址形式" class="headerlink" title="地址形式"></a>地址形式</h4><p>系统的硬件支持是，在处理机内部设有<strong>段表控制寄存器</strong>及<strong>地址生成逻辑</strong></p>
@@ -1845,9 +1845,9 @@
 <li>程序中的逻辑地址仍然是二维地址：&lt;段号，偏移量&gt;</li>
 <li>每段装入时分页，地址部分被当作三维地址来处理：&lt;段号，页号，页内偏移&gt;</li>
 </ul>
-<h4 id="段页式地址重定位"><a href="#段页式地址重定位" class="headerlink" title="段页式地址重定位"></a>段页式地址重定位</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.2">
+<h4 id="段页式地址重定位"><a href="#段页式地址重定位" class="headerlink" title="段页式地址重定位"></a>段页式地址重定位</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.2">
 
-<h4 id="段页式地址保护"><a href="#段页式地址保护" class="headerlink" title="段页式地址保护"></a>段页式地址保护</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.3">
+<h4 id="段页式地址保护"><a href="#段页式地址保护" class="headerlink" title="段页式地址保护"></a>段页式地址保护</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.7.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.7.3">
 
 <h4 id="段页式地址字结构的计算"><a href="#段页式地址字结构的计算" class="headerlink" title="段页式地址字结构的计算"></a>段页式地址字结构的计算</h4><p>比如一个32位地址字，已知系统设定页面长度为4KB，段的长度为64KB</p>
 <p>则地址划分如下：</p>
@@ -1870,7 +1870,7 @@
 <p>于是，页内需12位，每段分16页，段内页号需4位，剩余16位为段号。</p>
 <h3 id="多级页表及相关计算"><a href="#多级页表及相关计算" class="headerlink" title="多级页表及相关计算"></a>多级页表及相关计算</h3><h4 id="一级页表结构"><a href="#一级页表结构" class="headerlink" title="一级页表结构"></a>一级页表结构</h4><p>若页面长度为4KB，每个页表项占用4B，则意味着:</p>
 <p>帧里最多能存放4KB÷4B=1K个页表项</p>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.8.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.8.1">
 
 <h4 id="二级页表结构"><a href="#二级页表结构" class="headerlink" title="二级页表结构"></a>二级页表结构</h4><p>二级页表地址形式</p>
 <table>
@@ -1903,7 +1903,7 @@
 <li><p>这就需要如果建立更高一级的页表，记录页表所占帧号，叫做“页表的页表”：两级页表</p>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.8.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.8.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="4.8.2">
 
 
 
@@ -2466,7 +2466,7 @@ exist--No---缺页中断-->rest
 <li>指针顺序搜索各页面，若页面访问位为1，则将之改为0；</li>
 <li>找到的第一个访问位为0的页面，淘汰；新换入的页面访问位置为1</li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.1">
 
 <p>应用分析：</p>
 <ul>
@@ -2492,9 +2492,9 @@ exist--No---缺页中断-->rest
 <li>若第二圈仍没有找到可置换的帧，则循环扫描第三圈，操作同第一圈。</li>
 <li>若第三圈仍没有找到可置换的帧，则循环扫描第四圈，操作同第二圈，必将能够找到一个可置换的帧</li>
 </ol>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.2">
 
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.2.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.2.3">
 
 <p>几种算法的性能比较</p>
 <ul>
@@ -2620,7 +2620,7 @@ exist--No---缺页中断-->rest
 <p>每个进程装入部分段面，就可以开始运行。</p>
 <p>运行过程中，发生缺段，进程阻塞，通过缺段中断动态调入所缺段，进程转入就绪可参与调度继续执行。</p>
 </blockquote>
-<h4 id="地址重定位-2"><a href="#地址重定位-2" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.3.1">
+<h4 id="地址重定位-2"><a href="#地址重定位-2" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.3.1">
 
 <h4 id="数据结构-2"><a href="#数据结构-2" class="headerlink" title="数据结构"></a>数据结构</h4><ul>
 <li><p>MAT表、空闲分区表——记录内存分区使用情况</p>
@@ -2708,7 +2708,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<h4 id="地址重定位-3"><a href="#地址重定位-3" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.3.2">
+<h4 id="地址重定位-3"><a href="#地址重定位-3" class="headerlink" title="地址重定位"></a>地址重定位</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.3.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.3.2">
 
 <ul>
 <li><p>优点：请求段页式管理具有虚拟存储器的功能，并保持了页式管理的优点：既体现段的独立性，又纳入了页的离散分配，使系统更加灵活。</p>
@@ -2727,12 +2727,12 @@ exist--No---缺页中断-->rest
 <ul>
 <li>例1.分页地址合成计算</li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.1">
 
 <ul>
 <li>例2.分段地址合成计算</li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.2">
 
 <ul>
 <li>例3.段页式地址合成计算</li>
@@ -2743,7 +2743,7 @@ exist--No---缺页中断-->rest
 <p>对应十进制地址为：&lt;2,1,836&gt;。</p>
 <p>当2#段的1#页的帧地址中存放的是11111001100（十进制的1996），则物理地址将是00000000000111110011001101000100</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.3">
 
 <ul>
 <li>例4.填空</li>
@@ -2758,7 +2758,7 @@ exist--No---缺页中断-->rest
 <blockquote>
 <p>说明：页大小为1024B，页表如图所示，将逻辑地址1011、2148、5012转换为相应物理地址。</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.4">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.4">
 
 <p>过程：</p>
 <p>1011/1024=0$<em>{(页号)}$…1011$</em>{(页内偏移)}$，2$<em>{(页号对应帧)}$×1024$</em>{(页大小)}$+1011$_{(页内偏移等同帧内偏移)}$=3059</p>
@@ -2768,7 +2768,7 @@ exist--No---缺页中断-->rest
 <ul>
 <li>例6.逻辑地址到物理地址转换例</li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.5">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.5.5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="5.5.5">
 
 
 
@@ -2884,7 +2884,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.2.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.2.1">
 
 <p>例：</p>
 <table>
@@ -2932,7 +2932,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.2.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.2.2">
 
 <p>例：</p>
 <table>
@@ -2999,7 +2999,7 @@ exist--No---缺页中断-->rest
 <h3 id="缓冲区的设置与管理"><a href="#缓冲区的设置与管理" class="headerlink" title="缓冲区的设置与管理"></a>缓冲区的设置与管理</h3><blockquote>
 <p>缓冲区，是位于内存中的一块临时存储区，作为内存和外部设备之间数据传送的桥梁。</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.3.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.3.1">
 
 <ul>
 <li>设置缓冲区的目的<ul>
@@ -3090,7 +3090,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.1">
 
 <p>​    </p>
 <ul>
@@ -3117,7 +3117,7 @@ exist--No---缺页中断-->rest
 <li><p>平均寻道长度为236/8=29.5</p>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.2">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.2">
 </li>
 <li><p><strong>扫描算法SCAN：</strong>又称电梯调度，沿磁臂当前移动方向由近及远依次满足磁盘访问请求，至当前方向再无请求时磁臂转向，继续由近及远依次满足访问请求。</p>
 <ul>
@@ -3132,7 +3132,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.3">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.3">
 
 <ul>
 <li><strong>循环扫描算法C-SCAN：</strong>SCAN调度的变种，在个移动方向上，随着移动不断处理请求。反向时空档返回，直到最远请求，然会转向移动时再处理请求处理请求。<ul>
@@ -3142,7 +3142,7 @@ exist--No---缺页中断-->rest
 </ul>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.4">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.5.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.5.4">
 
 <ul>
 <li>N-STEP-SCAN算法</li>
@@ -3198,7 +3198,7 @@ exist--No---缺页中断-->rest
 <ol start="5">
 <li>开中断</li>
 </ol>
-<h4 id="I-O过程的结束"><a href="#I-O过程的结束" class="headerlink" title="I/O过程的结束"></a>I/O过程的结束</h4><img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.7.1">
+<h4 id="I-O过程的结束"><a href="#I-O过程的结束" class="headerlink" title="I/O过程的结束"></a>I/O过程的结束</h4><img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.7.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="6.7.1">
 
 <h4 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h4><p><strong>通道：</strong>I/O处理机</p>
 <p><strong>通道指令：</strong></p>
@@ -3325,7 +3325,7 @@ exist--No---缺页中断-->rest
 </ol>
 </li>
 </ul>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.1.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.1.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.1.1">
 
 <ul>
 <li><p>公认一个好的FMS应具有以下特点</p>
@@ -3460,7 +3460,7 @@ exist--No---缺页中断-->rest
 <blockquote>
 <p>顺序存储的文件称为连续文件。这种文件不仅在逻辑上是连续的，在外存上存放的空间也是连续的。</p>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.3.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.3.1">
 
 <ul>
 <li>顺序存储结构的特点<ul>
@@ -3552,7 +3552,7 @@ exist--No---缺页中断-->rest
 <li>第12个登记项和第13个登记项分别实现二三级索引。</li>
 </ul>
 </blockquote>
-<img src="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png" class="lazy" data-srcset="/blogs/2020/08/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.6.1">
+<img src="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png" class="lazy" data-srcset="/blogs/2020/07/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.6.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="7.6.1">
 
 <p>若一个盘块号用4个字节表示，盘块尺寸为4KB，那么</p>
 <p>Q1：UNⅨ允许的文件的最大长度是：</p>
@@ -3712,7 +3712,7 @@ exist--No---缺页中断-->rest
      
     <div class="post-footer__meta">
     <p>
-        updated at 2020-10-03
+        更新于 2020-10-12
     </p>
 </div> 
     <div class="post-meta__cats">
@@ -3729,7 +3729,7 @@ exist--No---缺页中断-->rest
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/blogs/2020/08/29/WPF_Style/" class="nav__link">
+                <a href="/blogs/2020/07/29/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="nav__link">
                     <div>
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
                     </div>
@@ -3738,7 +3738,7 @@ exist--No---缺页中断-->rest
                             Previous Post
                         </div>
                         <div class="nav__title">
-                            WPF样式(Style)
+                            交互设计基础
                         </div>
                     </div>
                 </a>
@@ -3746,7 +3746,7 @@ exist--No---缺页中断-->rest
         </div>
         <div class="nav__next">
             
-                <a href="/blogs/2020/08/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="nav__link">
+                <a href="/blogs/2020/07/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
