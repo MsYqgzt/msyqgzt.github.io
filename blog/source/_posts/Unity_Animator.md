@@ -4,6 +4,7 @@ tags: [游戏编程,游戏引擎,C#]
 categories: 
 - [Unity]
 - [动画]
+- [游戏]
 mathjax: true
 date: 2020-10-06 00:00:00
 ---
