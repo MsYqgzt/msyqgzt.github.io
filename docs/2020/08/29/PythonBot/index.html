@@ -69,10 +69,6 @@
     
     
 
-    
-    <link rel="stylesheet" href="/blogs/css/style/note.css" media="none" onload="this.media='all'">
-
-
      
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
  
@@ -136,9 +132,9 @@
 
 
          
-    <a href="javaScript:void(0);" id="b2t" aria-label="Back to Top" title="Back to Top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='32' height='32' fill="currentColor" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M13.889,11.611c-0.17,0.17-0.443,0.17-0.612,0l-3.189-3.187l-3.363,3.36c-0.171,0.171-0.441,0.171-0.612,0c-0.172-0.169-0.172-0.443,0-0.611l3.667-3.669c0.17-0.17,0.445-0.172,0.614,0l3.496,3.493C14.058,11.167,14.061,11.443,13.889,11.611 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.692-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.383,10c0-4.07-3.312-7.382-7.383-7.382S2.618,5.93,2.618,10S5.93,17.381,10,17.381S17.383,14.07,17.383,10"></path>
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
     </a>
 
@@ -150,11 +146,6 @@
                 </svg>
             </a>
             <div class="dropdown-menus" id="dropdown-menus">
-                <a class="dropback-icon button" id="btn-dropback">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
-                        <path fill="currentColor" d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"></path>
-                    </svg>
-                </a>
                 
                     <a href="/blogs/" class="dropdown-menu button">
                         首页
@@ -181,24 +172,6 @@
                     </a>
                 
             </div>
-            <script>
-                document.getElementById('btn-dropdown').addEventListener('click', () => {
-                    const dd = document.getElementById('dropdown-menus');
-                    requestAnimationFrame(() => {
-                        dd.style.display = 'flex';
-                        requestAnimationFrame(() => {
-                            dd.style.transform = 'translateY(0)';
-                            dd.style.opacity = '1';
-                        });
-                    });
-                });
-                document.getElementById('btn-dropback').addEventListener('click', () => {
-                    const dd = document.getElementById('dropdown-menus');
-                    dd.style.transform = 'translateY(2.25rem)';                    
-                    dd.style.opacity = '0';
-                    setTimeout(() => {dd.style.display = 'none';}, 350);
-                });
-            </script>
         
     </div>
 </header>
@@ -206,6 +179,7 @@
 
             <main class="main">
     
+
 <div class="post-title">
     <h1 class="post-title__text">
         Python爬虫
@@ -239,16 +213,26 @@
 </div>
 
 
-    <div class="post__with-side">
-        <aside class="post-side">
-            <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">Python基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#print%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">print语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raw%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.5.</span> <span class="toc-text">raw字符串与多行字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">整数和浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-number">1.8.</span> <span class="toc-text">list</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAlist"><span class="toc-number">1.8.1.</span> <span class="toc-text">创建list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E7%B4%A2%E5%BC%95%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.2.</span> <span class="toc-text">按照索引访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%92%E5%BA%8F%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.3.</span> <span class="toc-text">倒序访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99list%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.4.</span> <span class="toc-text">给list添加新元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8Elist%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.5.</span> <span class="toc-text">从list删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.6.</span> <span class="toc-text">替换元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAtuple"><span class="toc-number">1.8.7.</span> <span class="toc-text">创建tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E7%B4%A0tuple"><span class="toc-number">1.8.8.</span> <span class="toc-text">单元素tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%9C%E5%8F%AF%E5%8F%98%E2%80%9D%E7%9A%84tuple"><span class="toc-number">1.8.9.</span> <span class="toc-text">“可变”的tuple</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">爬虫简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">爬虫是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%B7%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">爬虫的价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%8F%AF%E8%83%BD%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="toc-number">2.3.</span> <span class="toc-text">爬虫可能带来的风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%BF%E7%94%A8-%E7%BC%96%E5%86%99%E7%88%AC%E8%99%AB%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%81%BF%E5%85%8D%E8%BF%9B%E5%85%A5%E2%80%9D%E5%B1%80%E5%AD%90%E2%80%9D%E7%9A%84%E5%8E%84%E8%BF%90"><span class="toc-number">2.4.</span> <span class="toc-text">如何在使用&#x2F;编写爬虫的过程中，避免进入”局子”的厄运</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.5.</span> <span class="toc-text">爬虫在使用场景中的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E7%9F%9B%E4%B8%8E%E7%9B%BE"><span class="toc-number">2.6.</span> <span class="toc-text">爬虫的矛与盾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-amp-https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">http&amp;https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.1.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BD%A2%E5%BC%8F%E3%80%82"><span class="toc-number">3.1.1.</span> <span class="toc-text">概念：服务器和客户端进行数据交互的一种形式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%AE%89%E5%85%A8%E7%9A%84%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">概念：安全的超文本传输协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requests-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text">requests 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">开始使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.3.</span> <span class="toc-text">第一个爬虫程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B"><span class="toc-number">4.4.</span> <span class="toc-text">实战案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%88%AC%E5%8F%96%E6%90%9C%E7%8B%97%E6%8C%87%E5%AE%9A%E8%AF%8D%E6%9D%A1%E5%AF%B9%E5%BA%94%E7%9A%84%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AE%80%E6%98%93%E7%BD%91%E9%A1%B5%E9%87%87%E9%9B%86%E5%99%A8%EF%BC%89"><span class="toc-number">4.4.1.</span> <span class="toc-text">1. 爬取搜狗指定词条对应的搜索结果页面（简易网页采集器）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.4.1.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91"><span class="toc-number">4.4.2.</span> <span class="toc-text">2. 破解百度翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">4.4.2.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%88%86%E7%B1%BB%E6%8E%92%E8%A1%8C%E6%A6%9Chttps-movie-douban-com%E4%B8%AD%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AF%A6%E6%83%85%E6%95%B0%E6%8D%AE"><span class="toc-number">4.4.3.</span> <span class="toc-text">3. 爬取豆瓣电影分类排行榜https:&#x2F;&#x2F;movie.douban.com中的电影详情数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%88%AC%E5%8F%96%E8%82%AF%E5%BE%B7%E5%9F%BA%E9%A4%90%E5%8E%85%E6%9F%A5%E8%AF%A2http-www-kfc-com-cn-kfccda-index-aspx%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E7%82%B9%E7%9A%84%E9%A4%90%E5%8E%85%E6%95%B0"><span class="toc-number">4.4.4.</span> <span class="toc-text">4. 爬取肯德基餐厅查询http:&#x2F;&#x2F;www.kfc.com.cn&#x2F;kfccda&#x2F;index.aspx中指定地点的餐厅数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E3%80%90%E8%BF%9B%E9%98%B6%E3%80%91%E7%88%AC%E5%8F%96%E5%9B%BD%E5%AE%B6%E8%8D%AF%E5%93%81%E7%9B%91%E7%9D%A3%E7%AE%A1%E7%90%86%E6%80%BB%E5%B1%80%E4%B8%AD-%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8C%96%E5%A6%86%E5%93%81%E7%94%9F%E4%BA%A7%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AEhttp-125-35-6-84-81-xk"><span class="toc-number">4.4.5.</span> <span class="toc-text">5. 【进阶】爬取国家药品监督管理总局中 基于中华人民共和国化妆品生产许可证相关数据http:&#x2F;&#x2F;125.35.6.84:81&#x2F;xk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">4.4.6.</span> <span class="toc-text">案例分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="toc-number">4.4.7.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-number">4.4.8.</span> <span class="toc-text">代码优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%86%E7%B1%BB"><span class="toc-number">5.1.</span> <span class="toc-text">数据解析的方法&#x2F;分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-number">5.2.</span> <span class="toc-text">数据解析的原理概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">正则表达式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.3.1.</span> <span class="toc-text">常用的正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%BB%83%E4%B9%A0"><span class="toc-number">5.3.2.</span> <span class="toc-text">正则练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.3.3.</span> <span class="toc-text">实例</span></a></li></ol></li></ol></li></ol>
-            </div>
-        </aside>
-        <article class="post content-card">
-            <div class="post__header"></div>
-            <div class="post__content">
-                <h2 id="Python基础知识"><a href="#Python基础知识" class="headerlink" title="Python基础知识"></a>Python基础知识</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">Python基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#print%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">print语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raw%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.5.</span> <span class="toc-text">raw字符串与多行字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">整数和浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-number">1.8.</span> <span class="toc-text">list</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAlist"><span class="toc-number">1.8.1.</span> <span class="toc-text">创建list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E7%B4%A2%E5%BC%95%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.2.</span> <span class="toc-text">按照索引访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%92%E5%BA%8F%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.3.</span> <span class="toc-text">倒序访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99list%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.4.</span> <span class="toc-text">给list添加新元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8Elist%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.5.</span> <span class="toc-text">从list删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.6.</span> <span class="toc-text">替换元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAtuple"><span class="toc-number">1.8.7.</span> <span class="toc-text">创建tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E7%B4%A0tuple"><span class="toc-number">1.8.8.</span> <span class="toc-text">单元素tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%9C%E5%8F%AF%E5%8F%98%E2%80%9D%E7%9A%84tuple"><span class="toc-number">1.8.9.</span> <span class="toc-text">“可变”的tuple</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">爬虫简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">爬虫是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%B7%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">爬虫的价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%8F%AF%E8%83%BD%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="toc-number">2.3.</span> <span class="toc-text">爬虫可能带来的风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%BF%E7%94%A8-%E7%BC%96%E5%86%99%E7%88%AC%E8%99%AB%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%81%BF%E5%85%8D%E8%BF%9B%E5%85%A5%E2%80%9D%E5%B1%80%E5%AD%90%E2%80%9D%E7%9A%84%E5%8E%84%E8%BF%90"><span class="toc-number">2.4.</span> <span class="toc-text">如何在使用&#x2F;编写爬虫的过程中，避免进入”局子”的厄运</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.5.</span> <span class="toc-text">爬虫在使用场景中的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E7%9F%9B%E4%B8%8E%E7%9B%BE"><span class="toc-number">2.6.</span> <span class="toc-text">爬虫的矛与盾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-amp-https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">http&amp;https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.1.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BD%A2%E5%BC%8F%E3%80%82"><span class="toc-number">3.1.1.</span> <span class="toc-text">概念：服务器和客户端进行数据交互的一种形式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%AE%89%E5%85%A8%E7%9A%84%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">概念：安全的超文本传输协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requests-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text">requests 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">开始使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.3.</span> <span class="toc-text">第一个爬虫程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B"><span class="toc-number">4.4.</span> <span class="toc-text">实战案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%88%AC%E5%8F%96%E6%90%9C%E7%8B%97%E6%8C%87%E5%AE%9A%E8%AF%8D%E6%9D%A1%E5%AF%B9%E5%BA%94%E7%9A%84%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AE%80%E6%98%93%E7%BD%91%E9%A1%B5%E9%87%87%E9%9B%86%E5%99%A8%EF%BC%89"><span class="toc-number">4.4.1.</span> <span class="toc-text">1. 爬取搜狗指定词条对应的搜索结果页面（简易网页采集器）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.4.1.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91"><span class="toc-number">4.4.2.</span> <span class="toc-text">2. 破解百度翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">4.4.2.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%88%86%E7%B1%BB%E6%8E%92%E8%A1%8C%E6%A6%9Chttps-movie-douban-com%E4%B8%AD%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AF%A6%E6%83%85%E6%95%B0%E6%8D%AE"><span class="toc-number">4.4.3.</span> <span class="toc-text">3. 爬取豆瓣电影分类排行榜https:&#x2F;&#x2F;movie.douban.com中的电影详情数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%88%AC%E5%8F%96%E8%82%AF%E5%BE%B7%E5%9F%BA%E9%A4%90%E5%8E%85%E6%9F%A5%E8%AF%A2http-www-kfc-com-cn-kfccda-index-aspx%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E7%82%B9%E7%9A%84%E9%A4%90%E5%8E%85%E6%95%B0"><span class="toc-number">4.4.4.</span> <span class="toc-text">4. 爬取肯德基餐厅查询http:&#x2F;&#x2F;www.kfc.com.cn&#x2F;kfccda&#x2F;index.aspx中指定地点的餐厅数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E3%80%90%E8%BF%9B%E9%98%B6%E3%80%91%E7%88%AC%E5%8F%96%E5%9B%BD%E5%AE%B6%E8%8D%AF%E5%93%81%E7%9B%91%E7%9D%A3%E7%AE%A1%E7%90%86%E6%80%BB%E5%B1%80%E4%B8%AD-%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8C%96%E5%A6%86%E5%93%81%E7%94%9F%E4%BA%A7%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AEhttp-125-35-6-84-81-xk"><span class="toc-number">4.4.5.</span> <span class="toc-text">5. 【进阶】爬取国家药品监督管理总局中 基于中华人民共和国化妆品生产许可证相关数据http:&#x2F;&#x2F;125.35.6.84:81&#x2F;xk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">4.4.6.</span> <span class="toc-text">案例分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="toc-number">4.4.7.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-number">4.4.8.</span> <span class="toc-text">代码优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%86%E7%B1%BB"><span class="toc-number">5.1.</span> <span class="toc-text">数据解析的方法&#x2F;分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-number">5.2.</span> <span class="toc-text">数据解析的原理概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">正则表达式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.3.1.</span> <span class="toc-text">常用的正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%BB%83%E4%B9%A0"><span class="toc-number">5.3.2.</span> <span class="toc-text">正则练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.3.3.</span> <span class="toc-text">实例</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">Python基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#print%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">print语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raw%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.5.</span> <span class="toc-text">raw字符串与多行字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">整数和浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-number">1.8.</span> <span class="toc-text">list</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAlist"><span class="toc-number">1.8.1.</span> <span class="toc-text">创建list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E7%B4%A2%E5%BC%95%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.2.</span> <span class="toc-text">按照索引访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%92%E5%BA%8F%E8%AE%BF%E9%97%AElist"><span class="toc-number">1.8.3.</span> <span class="toc-text">倒序访问list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99list%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.4.</span> <span class="toc-text">给list添加新元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8Elist%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.5.</span> <span class="toc-text">从list删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0"><span class="toc-number">1.8.6.</span> <span class="toc-text">替换元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAtuple"><span class="toc-number">1.8.7.</span> <span class="toc-text">创建tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E7%B4%A0tuple"><span class="toc-number">1.8.8.</span> <span class="toc-text">单元素tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%9C%E5%8F%AF%E5%8F%98%E2%80%9D%E7%9A%84tuple"><span class="toc-number">1.8.9.</span> <span class="toc-text">“可变”的tuple</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">爬虫简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">爬虫是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E4%BB%B7%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">爬虫的价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%8F%AF%E8%83%BD%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="toc-number">2.3.</span> <span class="toc-text">爬虫可能带来的风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%BF%E7%94%A8-%E7%BC%96%E5%86%99%E7%88%AC%E8%99%AB%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%81%BF%E5%85%8D%E8%BF%9B%E5%85%A5%E2%80%9D%E5%B1%80%E5%AD%90%E2%80%9D%E7%9A%84%E5%8E%84%E8%BF%90"><span class="toc-number">2.4.</span> <span class="toc-text">如何在使用&#x2F;编写爬虫的过程中，避免进入”局子”的厄运</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.5.</span> <span class="toc-text">爬虫在使用场景中的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E7%9A%84%E7%9F%9B%E4%B8%8E%E7%9B%BE"><span class="toc-number">2.6.</span> <span class="toc-text">爬虫的矛与盾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-amp-https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">http&amp;https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.1.</span> <span class="toc-text">http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BD%A2%E5%BC%8F%E3%80%82"><span class="toc-number">3.1.1.</span> <span class="toc-text">概念：服务器和客户端进行数据交互的一种形式。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">https协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%AE%89%E5%85%A8%E7%9A%84%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.1.</span> <span class="toc-text">概念：安全的超文本传输协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requests-%E6%A8%A1%E5%9D%97"><span class="toc-number">4.</span> <span class="toc-text">requests 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">开始使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.3.</span> <span class="toc-text">第一个爬虫程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B"><span class="toc-number">4.4.</span> <span class="toc-text">实战案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%88%AC%E5%8F%96%E6%90%9C%E7%8B%97%E6%8C%87%E5%AE%9A%E8%AF%8D%E6%9D%A1%E5%AF%B9%E5%BA%94%E7%9A%84%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AE%80%E6%98%93%E7%BD%91%E9%A1%B5%E9%87%87%E9%9B%86%E5%99%A8%EF%BC%89"><span class="toc-number">4.4.1.</span> <span class="toc-text">1. 爬取搜狗指定词条对应的搜索结果页面（简易网页采集器）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.4.1.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A0%B4%E8%A7%A3%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91"><span class="toc-number">4.4.2.</span> <span class="toc-text">2. 破解百度翻译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-number">4.4.2.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%88%86%E7%B1%BB%E6%8E%92%E8%A1%8C%E6%A6%9Chttps-movie-douban-com%E4%B8%AD%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AF%A6%E6%83%85%E6%95%B0%E6%8D%AE"><span class="toc-number">4.4.3.</span> <span class="toc-text">3. 爬取豆瓣电影分类排行榜https:&#x2F;&#x2F;movie.douban.com中的电影详情数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%88%AC%E5%8F%96%E8%82%AF%E5%BE%B7%E5%9F%BA%E9%A4%90%E5%8E%85%E6%9F%A5%E8%AF%A2http-www-kfc-com-cn-kfccda-index-aspx%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E7%82%B9%E7%9A%84%E9%A4%90%E5%8E%85%E6%95%B0"><span class="toc-number">4.4.4.</span> <span class="toc-text">4. 爬取肯德基餐厅查询http:&#x2F;&#x2F;www.kfc.com.cn&#x2F;kfccda&#x2F;index.aspx中指定地点的餐厅数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E3%80%90%E8%BF%9B%E9%98%B6%E3%80%91%E7%88%AC%E5%8F%96%E5%9B%BD%E5%AE%B6%E8%8D%AF%E5%93%81%E7%9B%91%E7%9D%A3%E7%AE%A1%E7%90%86%E6%80%BB%E5%B1%80%E4%B8%AD-%E5%9F%BA%E4%BA%8E%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8C%96%E5%A6%86%E5%93%81%E7%94%9F%E4%BA%A7%E8%AE%B8%E5%8F%AF%E8%AF%81%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AEhttp-125-35-6-84-81-xk"><span class="toc-number">4.4.5.</span> <span class="toc-text">5. 【进阶】爬取国家药品监督管理总局中 基于中华人民共和国化妆品生产许可证相关数据http:&#x2F;&#x2F;125.35.6.84:81&#x2F;xk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">4.4.6.</span> <span class="toc-text">案例分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="toc-number">4.4.7.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-number">4.4.8.</span> <span class="toc-text">代码优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E6%96%B9%E6%B3%95-%E5%88%86%E7%B1%BB"><span class="toc-number">5.1.</span> <span class="toc-text">数据解析的方法&#x2F;分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%9A%84%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-number">5.2.</span> <span class="toc-text">数据解析的原理概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">正则表达式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.3.1.</span> <span class="toc-text">常用的正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E7%BB%83%E4%B9%A0"><span class="toc-number">5.3.2.</span> <span class="toc-text">正则练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.3.3.</span> <span class="toc-text">实例</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Python基础知识"><a href="#Python基础知识" class="headerlink" title="Python基础知识"></a>Python基础知识</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
 <li><p>整数</p>
 <ul>
 <li>Python可以处理任意大小的整数，当然包括负整数，在Python程序中，整数的表示方法和数学上的写法一模一样，例如：<code>1</code>，<code>100</code>，<code>-8080</code>，<code>0</code>，等等。</li>
@@ -862,14 +846,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment">## 爬取图片数据</span></span><br><span class="line">url = <span class="string">&#x27;https://pic.qiushibaike.com/system/pictures/12172/121721055/medium/9OSVY4ZSU4NN6T7V.jpg&#x27;</span></span><br><span class="line"><span class="comment">## text(字符串数据)、content(二进制数据)、json()</span></span><br><span class="line">img_data = requests.get(url=url).content</span><br><span class="line"></span><br><span class="line"><span class="comment">## 持久化存储</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;./qiutu.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(img_data)</span><br></pre></td></tr></table></figure>
 
 
-            </div>
-             
-            <div class="post-footer__meta">
+    </div>
+     
+    <div class="post-footer__meta">
     <p>
         updated at 2020-10-03
     </p>
 </div> 
-            <div class="post-meta__cats">
+    <div class="post-meta__cats">
     
         <a href="/blogs/categories/Python/" class="post-cats__link button">Python</a>
     
@@ -879,9 +863,48 @@
         <a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a>
     
 </div> 
-        </article>
-        
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/blogs/2020/08/29/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%BC%8F/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            游戏编程模式
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2020/08/29/%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            经典排序算法
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
     </div>
+
+
+
 
 
 </main>
@@ -898,7 +921,7 @@
             <span id="busuanzi_value_site_uv"></span>
             <span>名访客</span>
             
-                <span>&nbsp;&nbsp;&nbsp;|</span>
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
             
         </span>
     
@@ -917,7 +940,7 @@
     
         
         <p class="footer-copyright">
-            Copyright&nbsp;©&nbsp;2019&nbsp;-&nbsp;2020&nbsp;<a href="/blogs/">AlertNote</a>
+            Copyright © 2019&nbsp;-&nbsp;2020 <a href="/blogs/">AlertNote</a>
         </p>
     
     
@@ -934,7 +957,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
         window.lazyLoadOptions = {
-            elements_selector: ".lazyload",
+            elements_selector: ".lazy",
             threshold: 0
         };
     </script>
@@ -954,7 +977,7 @@
 
 
     
-
+ 
 
 
     
@@ -967,7 +990,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
 
     <script>
-        let lazyloadT = Boolean('[object Object]'),
+        let lazyloadT = Boolean('true'),
             auto_fancybox = Boolean('true')
         if (auto_fancybox) {
             $(".post__content").find('img').each(function () {
@@ -994,10 +1017,8 @@
  
 
  
-    <script defer src="/blogs/js/b2t.js"></script>
 
-
-
+ 
 
 
 

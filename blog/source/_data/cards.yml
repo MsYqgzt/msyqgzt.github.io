@@ -60,8 +60,8 @@ cover:
   # 显示在最上方 cover 处的站点名称
   sitename: AlertNote
 
-  # 若设置 logo，则优先使用 logo 代替 sitename
-  logo: /favicon.png
+  # 若 avatar 配置不为空，则优先使用 avatar 覆盖 sitename
+  avatar: /favicon.png
 
   # logo 下方的一句话介绍
   description: 有趣有盼，无灾无难。
@@ -123,7 +123,7 @@ style:
 meta:
 
   # 默认文章标题
-  title: '暂无标题'
+  title: '无标题'
   
   # 默认文章作者（可在front-matter中覆盖）
   author:
@@ -342,7 +342,6 @@ footer:
 # 你需要将 `lazyload` 配置项移至 站点配置文件 才能使相关配置生效！！！
 lazyload:
   enable: true
-  onlypost: false
   loadingImage: 
 
 # 站内搜索插件
@@ -354,6 +353,12 @@ search:
 
 # note 标签插件
 note: true
+
+# fold 内容折叠插件
+fold: 
+  enable: true
+  summary:   # 默认摘要
+  motion: 
 
 # 图片点击放大插件
 fancybox: 
