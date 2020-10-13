@@ -357,8 +357,8 @@ note: true
 # fold 内容折叠插件
 fold: 
   enable: true
-  summary:   # 默认摘要
-  motion: 
+  summary: '折叠内容'  # 默认摘要
+  motion: false
 
 # 图片点击放大插件
 fancybox: 
