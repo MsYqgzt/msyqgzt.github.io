@@ -1,5 +1,5 @@
 ---
-title: 'Adobe Audition 录音室后期技巧'
+title: Adobe Audition 录音后期技巧
 tags: [影视]
 categories: 
 - [音频后期]

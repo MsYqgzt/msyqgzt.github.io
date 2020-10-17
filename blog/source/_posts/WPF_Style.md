@@ -1,5 +1,5 @@
 ---
-title: 'WPF样式(Style)'
+title: WPF样式(Style)
 tags: [编程]
 categories: 
 - [C#]

@@ -1,6 +1,6 @@
 ---
-title: 'Node.JS大峡谷'
-tags: [编程]
+title: Node.JS大峡谷
+tags: [编程,前端]
 categories: 
 - [JavaScript]
 - [Node]
@@ -150,23 +150,23 @@ console.log(config.server.port);
   - 
   
   |        属性        |                  描述                  |
-    | :----------------: | :------------------------------------: |
-    |       `argv`       |    Array，一组包含命令行参数的数组     |
-    |     `execPath`     |         开启当前进程的绝对路径         |
-    |       `env`        |            返回用户环境信息            |
-    |     `version`      |            返回node版本信息            |
-    |     `versions`     |     返回node以及node依赖包版本信息     |
-    |       `pid`        |            当前进程的`pid`             |
-    |      `title`       |   当前进程的显示名称(Getter/Setter)    |
-    |       `arch`       |  返回当前CPU处理器架构(arm/ia32/x64)   |
-    |     `platform`     |          返回当前操作系统平台          |
-    |      `cwd()`       |         返回当前进程的工作目录         |
-    | `chdir(directory)` |         改变当前进程的工作目录         |
-    |  `memoryUsage()`   | 返回node进程的内存使用情况，单位是byte |
-    |    `exit(code)`    |                  退出                  |
-    |     `kil(pid)`     |             向进程发送信息             |
-    |      `stdin`       |               标准输入流               |
-    |      `stdout`      |               标准输出流               |
+  | :----------------: | :------------------------------------: |
+  |       `argv`       |    Array，一组包含命令行参数的数组     |
+  |     `execPath`     |         开启当前进程的绝对路径         |
+  |       `env`        |            返回用户环境信息            |
+  |     `version`      |            返回node版本信息            |
+  |     `versions`     |     返回node以及node依赖包版本信息     |
+  |       `pid`        |            当前进程的`pid`             |
+  |      `title`       |   当前进程的显示名称(Getter/Setter)    |
+  |       `arch`       |  返回当前CPU处理器架构(arm/ia32/x64)   |
+  |     `platform`     |          返回当前操作系统平台          |
+  |      `cwd()`       |         返回当前进程的工作目录         |
+  | `chdir(directory)` |         改变当前进程的工作目录         |
+  |  `memoryUsage()`   | 返回node进程的内存使用情况，单位是byte |
+  |    `exit(code)`    |                  退出                  |
+  |     `kil(pid)`     |             向进程发送信息             |
+  |      `stdin`       |               标准输入流               |
+  |      `stdout`      |               标准输出流               |
   
 - Buffer类
     - 一个用于更好的操作二进制数据的类

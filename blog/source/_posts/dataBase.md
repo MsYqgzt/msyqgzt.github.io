@@ -1,5 +1,5 @@
 ---
-title: '数据库概述'
+title: 数据库概述
 tags: [大数据]
 categories: 
 - [SQL]

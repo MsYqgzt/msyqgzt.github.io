@@ -1,5 +1,5 @@
 ---
-title: '与数学的中门对（被）狙'
+title: 与数学的中门对（被）狙
 tags: [算法]
 categories: 
 - [数学]

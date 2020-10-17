@@ -1,5 +1,5 @@
 ---
-title: 'JavaScript从入门到入土'
+title: JavaScript从入门到入土
 tags: [编程]
 categories: 
 - [JavaScript]
