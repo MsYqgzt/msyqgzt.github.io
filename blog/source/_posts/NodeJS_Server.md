@@ -42,7 +42,6 @@ const http = require("http"),//创建服务器需要http模块
 
   这里`index.html`和`index.js`都放在一个目录(`项目名/html`)下的，属于同级。
 
-
 ## 创建服务器
 
 1. 先来个简单版本
@@ -66,7 +65,7 @@ server.on("request", function (req, res) {
         'Content-Type': 'text/html'//将数据作为html对象进行编码
     });
 
-    //读取html文件，并
+    //读取html文件，并反馈到客户端
     fs.readFile('./html/index.html', 'utf8', function (err, data) {
         if (err) throw err;
         res.end(data);
@@ -85,36 +84,36 @@ server.listen(4000, 'localhost');//监听地址-localhost:4000
 
 2. 比较常用的版本
   
-     `createServer`方法创建一个`sever`，每次请求从`request`拿到`url`，解析后找到文件，获取成功后写入`response`；失败则发送404.
+     `createServer`方法创建一个`sever`，每次请求从`request`拿到`url`，解析后找到对应文件，获取成功后写入`response`；失败则发送404.
 
   ```js
 const http = require("http"),//创建服务器需要http模块
-      fs = require("fs"),    //fs模块用来读写html
-      url = require("url");  //url模块用来解析输入的url
+    fs = require("fs"),    //fs模块用来读写html
+    url = require("url");  //url模块用来解析输入的url
 
 //将createServer与server.on合并(req = request, res = response)
-var server = http.createServer(function (request, response) {
+var server = http.createServer(function (req, res) {
     //将被请求的url解析为Json信息
-    const urlJson = url.parse(request.url);
+    const urlJson = url.parse(req.url);
 
     //根据不同的请求地址显示不同的网页
     switch (urlJson.pathname) {
         case '/':
-            response.writeHead(200, "OK", {
+            res.writeHead(200, "OK", {
                 'Content-Type': 'text/html'
             });
             readHtml(res, './html/index.html');
             break;
 
         case '/user':
-            response.writeHead(200, "userPage", {
+            res.writeHead(200, "userPage", {
                 'Content-Type': 'text/html'
             });
             readHtml(res, './html/userList.html');
             break;
 
         default:
-            response.writeHead(404, "Err", {
+            res.writeHead(404, "Err", {
                 'Content-Type': 'text/html'
             });
             res.end("<h1>404 Error!</h1>");
