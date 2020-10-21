@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    <link rel="shortcut icon" type='image/x-icon' href="/blogs/favicon.svg">
+
+
+    <!-- meta -->
+
+
+<title>Unity StartCoroutine 与 yield return 深入研究 | AlertNote</title>
+
+
+    <meta name="keywords" content="游戏编程, 游戏引擎, C#">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="初次见面字面意思很好理解，StartCoroutine就是开启一个协程，yield return是迭代器块返回调用迭代的地方。 先看一下Unity官方的解释  MonoBehaviour.StartCoroutine Coroutine StartCoroutine(lEnumerator routine); Starts a coroutine. The execution of a corou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity StartCoroutine 与 yield return 深入研究">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/10/19/Unity%20StartCoroutine/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="初次见面字面意思很好理解，StartCoroutine就是开启一个协程，yield return是迭代器块返回调用迭代的地方。 先看一下Unity官方的解释  MonoBehaviour.StartCoroutine Coroutine StartCoroutine(lEnumerator routine); Starts a coroutine. The execution of a corou">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-21T14:02:49.388Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="游戏编程">
+<meta property="article:tag" content="游戏引擎">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">
+                AlertNote
+            </span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">
+                        首页
+                    </a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">
+                        分类
+                    </a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">
+                        标签
+                    </a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">
+                        归档
+                    </a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">
+                        友链
+                    </a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">
+                        关于我
+                    </a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
+                </svg>
+            </a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">
+                        首页
+                    </a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">
+                        分类
+                    </a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">
+                        标签
+                    </a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">
+                        归档
+                    </a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">
+                        友链
+                    </a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">
+                        关于我
+                    </a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Unity StartCoroutine 与 yield return 深入研究
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2020/10/" class="post-meta__date button">
+    2020-10-19
+</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/Unity/" class="button">Unity</a>
+
+    <span class="separate-dot"></span><a href="/blogs/categories/%E6%B8%B8%E6%88%8F/" class="button">游戏</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%AC%A1%E8%A7%81%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">初次见面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">食用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">启动协同程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">停止协同程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">协同程序的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.4.</span> <span class="toc-text">协同程序的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E7%A8%8B%E4%B8%AD%E6%96%AD%E6%8C%87%E4%BB%A4"><span class="toc-number">2.4.1.</span> <span class="toc-text">协程中断指令</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%AC%A1%E8%A7%81%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">初次见面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">食用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">启动协同程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">停止协同程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">协同程序的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.4.</span> <span class="toc-text">协同程序的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E7%A8%8B%E4%B8%AD%E6%96%AD%E6%8C%87%E4%BB%A4"><span class="toc-number">2.4.1.</span> <span class="toc-text">协程中断指令</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="初次见面"><a href="#初次见面" class="headerlink" title="初次见面"></a>初次见面</h2><p>字面意思很好理解，<code>StartCoroutine</code>就是开启一个协程，<code>yield return</code>是迭代器块返回调用迭代的地方。</p>
+<p>先看一下Unity官方的解释</p>
+<blockquote>
+<p><strong><span style="color:royalBlue">MonoBehaviour</span>.StartCoroutine</strong></p>
+<p>Coroutine StartCoroutine(<span style="color: LightSeaGreen">lEnumerator</span> routine);</p>
+<p>Starts a coroutine. The execution of a coroutine can be paused at any point using the yield statement. The yield return value specifies when the coroutine is resumed. Coroutines are excellent when modelling behaviour over several frames. Coroutines have virtually no performance overhead. StartCoroutine function always returns immediately, however you can yield the result. This will wait until the coroutine has finished execution.</p>
+<br/>
+
+<blockquote>
+<p>翻译:</p>
+<p>一个协程的执行可以在任何地方用<code>yield</code>语句来暂停，<code>yield return</code>的值决定了什么时候协程恢复执行。协程在协调在几帧中执行的操作时有极大的用处.协程几乎没有任何性能开销。<code>StartCoroutine</code>一般都会立即返回，然而你也可以获得返回结果的值。但是这一步会等到协程结束执行才能生效。</p>
+</blockquote>
+</blockquote>
+<br/>
+
+<p>根据这个意思，我们来举个🌰</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;start1&quot;</span>);</span><br><span class="line">        StartCoroutine(TestFunc());</span><br><span class="line">        Debug.Log(<span class="string">&quot;start2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">IEnumerator <span class="title">TestFunc</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;test1&quot;</span>);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        Debug.Log(<span class="string">&quot;test2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>运行结果：</p>
+<p>start1</p>
+<p>test1</p>
+<p>start2</p>
+<p>test2</p>
+</blockquote>
+<p>当<code>StartCoroutine</code>刚调用的时候，可以理解为正常的函数调用，然后接着看调用的函数里面。</p>
+<p>当被调用函数执行到<code>yield return null；</code>（暂停协程，等待下一帧继续执行）时，根据解释，协同程序会被暂停，先返回开始协程的地方，然后再暂停协程。也就是先通知调用处，“你先走吧，不用管我”，然后再暂停协程。</p>
+<p>再来个🌰验证一下。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;Start1&quot;</span>);</span><br><span class="line">        StartCoroutine(TestFunc());</span><br><span class="line">        Debug.Log(<span class="string">&quot;Start2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">IEnumerator <span class="title">TestFunc</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;Test1&quot;</span>);</span><br><span class="line">        <span class="function"><span class="keyword">yield</span> return new <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">3</span></span>)</span>;</span><br><span class="line">        Debug.Log(<span class="string">&quot;Test2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>运行结果：</p>
+<p>start1</p>
+<p>test1</p>
+<p>start2</p>
+<p>test2（三秒后显示）</p>
+</blockquote>
+<p>验证了 “<code>yield return</code>的值决定了什么时候协程恢复执行” 这个特点。</p>
+<h2 id="食用指南"><a href="#食用指南" class="headerlink" title="食用指南"></a>食用指南</h2><h3 id="启动协同程序"><a href="#启动协同程序" class="headerlink" title="启动协同程序"></a>启动协同程序</h3><p>协同程序有不同的启动方式：</p>
+<ol>
+<li><code>StartCoroutine(IEnumerator routine);</code></li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StartCoroutine(Example());<span class="comment">//注意方法名后加括号，参数可写在括号里</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：灵活，性能开销小。</li>
+<li>缺点：无法单独的停止这个协程，如果需要停止这个协程只能等待协同程序运行完毕或则使用<code>StopAllCoroutine();</code>方法。</li>
+</ul>
+<ol start="2">
+<li><code>StartCoroutine (methodName:string, value : object = null);</code></li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StartCoroutine(<span class="string">&quot;string methodName&quot;</span>,<span class="keyword">value</span>);<span class="comment">//注意双引号，value为想传递的参数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：可以直接通过传入协同程序的方法名来停止这个协程：<code>StopCoroutine(&quot;string methodName&quot;);</code>(注意双引号)</li>
+<li>缺点：性能的开销较大，只能传递一个参数。</li>
+</ul>
+<h3 id="停止协同程序"><a href="#停止协同程序" class="headerlink" title="停止协同程序"></a>停止协同程序</h3><p>1、<code>StopCoroutine(string methodName);</code></p>
+<p>2、<code>StopAllCoroutine();</code></p>
+<p>3、设置<code>gameObject</code>的<code>active</code>为<code>false</code>时可以终止协同程序，但是再次设置为true后协程不会再启动。</p>
+<h3 id="协同程序的执行顺序"><a href="#协同程序的执行顺序" class="headerlink" title="协同程序的执行顺序"></a>协同程序的执行顺序</h3><p>开始协同程序 -&gt; 执行协同程序 -&gt; 中断协同程序（中断指令）-&gt; 返回上层继续执行 -&gt; 中断指令结束后，继续执行协同程序剩下的内容</p>
+<h3 id="协同程序的注意事项"><a href="#协同程序的注意事项" class="headerlink" title="协同程序的注意事项"></a>协同程序的注意事项</h3><ol>
+<li><p><strong>不能在<code>Update()</code>或者<code>FixUpdate()</code>方法中使用协同程序</strong>，否则会报错。</p>
+</li>
+<li><p>关于中断指令：<code>YieldInstruction</code>，一个协程收到中断指令后暂停执行，返回上层执行同时等待这个指令达成后继续执行。</p>
+</li>
+</ol>
+<h4 id="协程中断指令"><a href="#协程中断指令" class="headerlink" title="协程中断指令"></a>协程中断指令</h4><table>
+<thead>
+<tr>
+<th align="center">指令</th>
+<th align="center">描述</th>
+<th align="center">实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">WaitForSeconds</td>
+<td align="center">等待指定秒数</td>
+<td align="center">yield return new WaitForSeconds(2);</td>
+</tr>
+<tr>
+<td align="center">WaitForFixedUpdate</td>
+<td align="center">等待一个固定帧</td>
+<td align="center">yield return new WaitForFixedUpdate();</td>
+</tr>
+<tr>
+<td align="center">WaitForEndOfFrame</td>
+<td align="center">等待帧结束</td>
+<td align="center">yield return new WaitForEndOfFrame();</td>
+</tr>
+<tr>
+<td align="center">StartCoroutine</td>
+<td align="center">等待一个新协程<strong>结束</strong></td>
+<td align="center">yield return StartCoroutine(other coroutine);</td>
+</tr>
+</tbody></table>
+
+    </div>
+     
+    <div class="post-footer__meta">
+    <p>
+        updated at 2020-10-21
+    </p>
+</div> 
+    <div class="post-meta__cats">
+    
+        <a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a>
+    
+        <a href="/blogs/categories/%E6%B8%B8%E6%88%8F/" class="post-cats__link button">游戏</a>
+    
+    
+        <a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a>
+    
+        <a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" class="post-tags__link button"># 游戏引擎</a>
+    
+        <a href="/blogs/tags/C/" class="post-tags__link button"># C#</a>
+    
+</div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/blogs/2020/10/21/Unity%20Mirror/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Unity 使用Mirror框架制作多人游戏
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2020/10/17/NodeJS_Server/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Node.JS 创建本地服务器并显示html页面
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2020 <a href="/blogs/">AlertNote</a>
+        </p>
+    
+    
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
