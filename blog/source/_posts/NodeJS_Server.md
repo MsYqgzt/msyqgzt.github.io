@@ -5,7 +5,7 @@ categories:
 - [JavaScript]
 - [Node]
 mathjax: true
-date: 2020-10-17 00:00:00
+date: 2020-10-17
 ---
 
 > 前瞻阅读：[Node.JS大峡谷](https://msyqgzt.gitee.io/blogs/2020/09/24/NodeJS/)

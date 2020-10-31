@@ -3,7 +3,7 @@ title: WPF样式(Style)
 tags: [编程]
 categories: 
 - [C#]
-date: 2020-08-29 00:00:00
+date: 2020-08-29
 ---
 
 ## 基础样式

@@ -5,7 +5,7 @@ categories:
 - [Unity]
 - [游戏]
 mathjax: true
-date: 2020-10-21 00:00:00
+date: 2020-10-21
 ---
 
 ## Mirror入门

@@ -52,7 +52,7 @@
 <meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity_Animator/3.4.png">
 <meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity_Animator/3.5.gif">
 <meta property="article:published_time" content="2020-10-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-17T08:38:44.130Z">
+<meta property="article:modified_time" content="2020-10-31T12:28:13.338Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="游戏编程">
 <meta property="article:tag" content="游戏引擎">
@@ -148,7 +148,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+    <a href="#" class="button" id="b2t" aria-label="回到頂部" title="回到頂部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -231,7 +231,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">整一个角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">角色状态的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">角色模型的绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">状态机的建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1"><span class="toc-number">3.</span> <span class="toc-text">动画过渡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A7%E5%88%B6Animator"><span class="toc-number">4.</span> <span class="toc-text">代码控制Animator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Any-State"><span class="toc-number">5.</span> <span class="toc-text">Any State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%86%B2%E7%AA%81"><span class="toc-number">5.1.</span> <span class="toc-text">二、状态设置与冲突</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">整一个角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">角色状态的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">角色模型的绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">状态机的建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1"><span class="toc-number">3.</span> <span class="toc-text">动画过渡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A7%E5%88%B6Animator"><span class="toc-number">4.</span> <span class="toc-text">代码控制Animator</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc">
@@ -240,8 +240,8 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">整一个角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">角色状态的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">角色模型的绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">状态机的建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1"><span class="toc-number">3.</span> <span class="toc-text">动画过渡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A7%E5%88%B6Animator"><span class="toc-number">4.</span> <span class="toc-text">代码控制Animator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Any-State"><span class="toc-number">5.</span> <span class="toc-text">Any State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%86%B2%E7%AA%81"><span class="toc-number">5.1.</span> <span class="toc-text">二、状态设置与冲突</span></a></li></ol></li></ol>
+        <div class="toc-title">文章目錄</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">整一个角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">角色状态的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">角色模型的绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">状态机的建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1"><span class="toc-number">3.</span> <span class="toc-text">动画过渡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A7%E5%88%B6Animator"><span class="toc-number">4.</span> <span class="toc-text">代码控制Animator</span></a></li></ol>
     </div>
 
 
@@ -255,7 +255,7 @@
 
 <blockquote>
 <p>左边的是控制器，拥有完整的移动等控制脚本，也有走路，奔跑，跳跃等基本的模型动画。</p>
-<p>右边的是更好看的萌萌哒人物，有走路，奔跑，跳跃、拿不同武器时的模型动画，但没有控制脚本。</p>
+<p>右边的是可爱的Unity娘，有走路，奔跑，跳跃、拿不同武器时的模型动画，但没有控制脚本。</p>
 </blockquote>
 <p>材料就绪，可以开始拼凑了，从这一步开始势必要破坏原来的模型结构，但有什么关系呢，反正还能再导入嘛。</p>
 <p><strong>在开始之前切记，要先重置模型的位置信息，让它们位置重合</strong>，这样替换后能省去调整位置的麻烦。</p>
@@ -279,7 +279,12 @@
 <p>在文件夹内右键新建<code>Animator Controller</code>组件，双击打开后是这个样子。</p>
 <img src="/blogs/2020/10/06/Unity_Animator/2.2.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity_Animator/2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.2">
 
-<p>我们在这里面来实现角色的状态以及动画混合，<code>Entry</code>表示角色刚启动时的状态，<code>Exit</code>表示退出后角色的状态，<code>Any State</code>就比较复杂了，也是比较重要的部分，后面会详细介绍它。</p>
+<p>我们在这里面来实现角色的状态以及动画混合</p>
+<ul>
+<li><code>Entry</code>表示角色刚启动时触发的状态</li>
+<li><code>Exit</code>表示状态机的结束状态，<strong>与<code>Entry</code>形成闭环，即结束状态后会立即进入<code>Entry</code>状态</strong></li>
+<li><code>Any State</code>表示任意状态下，即表示模型任意时刻下的状态。说白了，**<code>AnyState</code>相当于是动画池，不管你当前的状态，我要你现在干什么，你就立刻去干什么**</li>
+</ul>
 <p>先来个最简单的，为角色建立一个站立的状态。右键点击<code>Create State/Empty</code>，然后会发现<code>Entry</code>默认自动连接上了这个状态，这是因为Unity默认把第一个状态视为主要状态。我把它取个名字叫<code>Stand</code>，选中这个状态以后查看它的属性面板。</p>
 <img src="/blogs/2020/10/06/Unity_Animator/2.3.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity_Animator/2.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3">
 
@@ -346,34 +351,12 @@
 <p>大功告成，Enjoy！</p>
 <img src="/blogs/2020/10/06/Unity_Animator/3.5.gif" class="lazy" data-srcset="/blogs/2020/10/06/Unity_Animator/3.5.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.5">
 
-<h2 id="Any-State"><a href="#Any-State" class="headerlink" title="Any State"></a>Any State</h2><p>哪怕是最简单的角色，一般来讲都可能需要6-7个动画以上，例如一些最基本的：跑步、后退、受击、跳跃、攻击、死亡等等，这个时候，状态机的规模就已经不能算小了，而更主要的是假设有n个状态，它们之间连线可能有n²个这么之多，不但难以维护，每次光看就头皮发麻，状态机变成了蜘蛛网</p>
-<p>为了解决这种问题，往往有3种简单解决方法：</p>
-<p>①减少一些连线：例如从跳跃到跑步，它们之间可以没有连线，也就是从跳跃状态到跑步状态，中间必须要经过站立状态等等，优点的话当然就是线的数量变少了，但是缺点也很明显：代码实现变复杂、优化效果不明显需要死扣细节、容易出现BUG、动画过渡之间不够自然等等等等……</p>
-<p>②分层管理，也就是新建子状态，这个不想多说，看似管理的挺好，但是结构仍然复杂，会有种自己骗自己的感觉，当然也没什么人用就是了，往往用了也不是最终目的</p>
-<p>③AnyState大法：也就是本篇文章所讲的方法，一句话说就是一个AnyState向所有状态连线，一个例子如下：</p>
-<p>AnyState的用法前面其实已经讲过了，就是所有状态的代表，如果AnyState向状态B连线，条件为A，那么同等于所有状态都向B连了一条条件为A的线</p>
-<p>说白了，AnyState大法就相当于是动画池，不管你当前的状态，我要你现在干什么，你就立刻去干什么</p>
-<p>PS：其实在正常的大型游戏项目里，也就是一个角色甚至有50多种动画的情况，往往以上三种方法都仍然不适用，这个时候是另有更复杂解决方案的，当然这里就不提了。。</p>
-<h3 id="二、状态设置与冲突"><a href="#二、状态设置与冲突" class="headerlink" title="二、状态设置与冲突"></a>二、状态设置与冲突</h3><p>问题①：假设状态A向状态B和状态C各有一条连线，当两个连线条件同时满足时，会执行哪一个呢？</p>
-<p>解决方法：选择状态A，调整条件列表中的顺序即可，在前面的会先被判定</p>
-<p>问题②：选用了AnyState之后，我怎么调整任意两个状态之间的动画过渡？</p>
-<p>其实很简单，只不过这个问题还真的会有不少人问</p>
-<p>问题③：因为AnyState也包含了自己，所以当满足某个状态条件时，动画会不停的自己切换到自己，从而出现鬼畜的情况</p>
-<p>这也是实现AnyState大法的一个常规做法：</p>
-<ol>
-<li>定义一个枚举类代表当前角色的状态（这里可以参考前文的代码）</li>
-<li>所有条件全部设置为触发器触发</li>
-<li>如果必要的话可以编写一个状态转移矩阵，也就是一个二维数组，p[x][y] = true/false表示当前是x状态，是否可以转移到y状态，如果可以则SetTrigger，当然p[x][x] = false</li>
-<li>搞定，然后就是自己的代码功底了（非常建议使用状态设计模式），动画过渡也别忘了调整好</li>
-</ol>
-<p>问题④：运行测试的时候，状态机窗口看不到效果</p>
-<p>点下状态机所属的GameObject……</p>
 
     </div>
      
     <div class="post-footer__meta">
     <p>
-        updated at 2020-10-17
+        更新於 2020-10-31
     </p>
 </div> 
     <div class="post-meta__cats">

@@ -4,7 +4,7 @@ tags: [编程]
 categories: 
 - [JavaScript]
 mathjax: true
-date: 2020-09-09 00:00:00
+date: 2020-09-09
 ---
 
 ## 数组
