@@ -12,27 +12,6 @@ date: 2020-10-03
 
 ## 总觉得要屯点什么🌰才开心
 
-### 物体的生成、销毁、物理加力
-
-将代码挂载在需要继承方向等信息的物体上：
-
-```c#
-//生成物体函数(物体的变换信息，位置，旋转)
-Transform n = Instantiate(new Transform(), transform.position, transform.rotation);
-//获取被挂载物体的Z轴正方向
-Vector3 fwd = transform.TransformDirection(Vector3.forward);
-//给生成的物体n加上力fwd，前提是物体具备刚体组件
-n.GetComponent<Rigidbody>().AddForce(fwd * 5000);
-```
-
-挂在销毁函数在生成的物体：
-
-```c#
-Destroy(gameObject);
-```
-
-
-
 ### 3D游戏中的角色
 
 #### 简单跳跃模块
