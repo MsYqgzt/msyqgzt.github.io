@@ -46,7 +46,7 @@ date: 2020-10-21
 
 #### 先造个玩家吧
 
-作为入门的部分，我们以最简单的方式表达玩家。反手就是创建`Cube`，对其挂载一个简单的移动脚本，让它在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。
+作为入门的部分，我们以最简单的方式表达玩家。创建一个`Cube`，对其挂载一个简单的移动脚本，让它在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。
 
 ```c#
 void Start(){
@@ -59,7 +59,7 @@ void Start(){
 
 接着把挂载完成的游戏对象保存为预制体(`Prefabs`)
 
-将预制体赋予Network Manager脚本中的`Player Prefab`属性，并确保`Auto Create Player`选项处于勾选状态。
+将预制体赋予Network Manager脚本中的`Player Prefab`属性，并勾选`Auto Create Player`选项。
 
 > **脚本需要做的更改：**
 >
@@ -68,7 +68,9 @@ void Start(){
 
 玩家预制体内需要的脚本：
 
-- `NetworkIdentity`：网络物体必备的脚本
+- `NetworkIdentity`：该组件是网络的核心，由服务器Spwan(卵生)的物体都必须具备,该组件在卵生的时候会自动分配assetID和权限。
+  - `ServerOnly`勾选后物体只在服务器中存在
+  - `Local Player Authority`勾选后在客户端中存在
 
 
 
@@ -87,9 +89,7 @@ void Start(){
 
 
 
-## 多人游戏中玩家的移动控制
-
-### 改造一下脚本
+## 服务器内玩家的移动
 
 将预制物体挂载`Network Transform`组件
 
@@ -98,35 +98,107 @@ void Start(){
 - `Client Authority`：客户端玩家是否获得服务器授权。若要**在客户端控制角色并同步到服务器**，需要勾选此项。
 - `Network Sync Interval`：用于控制服务器的同步间隔
 
-记得最初的玩家脚本吗？当初我们让角色在进入服务器的时候产生在某个范围内的随机位置上，现在让它稍微复杂一点。
 
-我们要让它在服务器运行的时候，每隔一段时间就进行位置改变，范围同样是之前的随即范围。因此单独分一个函数进行随机，使用协程实现时间间隔，从而实现位置变换。
+
+## 多人游戏中玩家的移动控制
+
+### 举个🌰
+
+以下脚本实现了双人乒乓球的球拍移动，并同步至服务器
 
 ```c#
-void Start(){
-	StartCoroutine(__RandomizePosition());
-}
+using Miror;
 
-IEnumerator __RandomizePosition)()
+//复写NetworkManager类
+public class NetworkManagerOverride : NetworkManager
 {
-    WaitForSeconds wait = new WaitForSeconds(1f);
-    Vector3 startPosition = transform.position;
+    //从NetworkManager继承到playerPrefab属性
+	Gameobject player;
+    Gameobject ball;
     
-    while (true)
+    ///<summary> 与服务器连接时触发的事件 <summary>
+    public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        transform.position = startPosition + ReturnRandom();
-        yield return wait;
+        //判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板
+        if (numPlayers == 0)
+        {
+            player = Instantitate(playerPrefab, new Vector3(-10, 0, 0), transform.rotation);
+        }
+        else if (numPlayers == 1)
+        {
+            player = Instantitate(playerPrefab, new Vector3(10, 0, 0), transform.rotation);
+        }
+        
+        
+        NetworkServer.AddPlayerForConnection(conn, player);
+        
+        if (numPlayers == 2)
+        {
+            ball = Instantitate(spawnPrefabs.Find(prefab => ))
+        }
     }
-}
-
-Vector3 ReturnRandom()
-{
-    return new Vector3(
-		Random.Range(-4f,4f),
-		Random.Range(-4f,4f),
-		0f);
+    
+    ///<summary> 与服务器断开连接时触发的事件 </summary>
+    public override void OnServerDisconnect(NetworkConnection conn)
+    {
+        if (ball != null)
+        {
+            NetworkServer.Destroy(ball);
+        }
+        
+        base.ConServerDisconnect(conn);
+    }
 }
 ```
 
-在引擎菜单选择`建立并运行`(`Build And Run`)，点击`LAN Server Only`创建空服务器，同时在引擎中运行游戏。
-在引擎中选择`LAN Client`，此时游戏内出现了一个立方体，并且进行每秒一次的位置变换。
+
+
+## 角色变量同步
+
+在服务器中，每个玩家都有自己独特的外观，为了实现不同玩家不同颜色，通常会想到随机的材质颜色。
+
+```c#
+using UnityEngine;
+
+public class PlayerColor : MonoBehavior
+{
+    void Start()
+    {
+        Color color = new Color(Random.Range(0, 255) / 255f, Random.Range(0, 255) / 255f, Random.Range(0, 255) / 255f);
+        GetComponent<Renderer>().material.SetColor("_Color", color);
+    }
+}
+```
+
+但在服务器上，每个端口看到的随机颜色都是不一样的，这是因为随机的数据只在本机上计算，颜色数据与服务器没有产生关联。
+
+改造一下脚本，将颜色定义为同步变量，在加入服务器时进行随机：
+
+```c#
+using UnityEngine;
+using Mirror;
+
+public class PlayerColor : NetworkBehavior
+{
+    ///<summary> 定义同步变量，挂载SetColor函数，默认值为黑色 </summary>
+    [SuncVar(hook = nameof(SetColor))]
+    Color PlayerColor = Color.black;
+    
+    override void OnStartServer()
+    {
+        base.OnStartServer();
+        PlayerColor = new Color(Random.Range(0, 255) / 255f, Random.Range(0, 255) / 255f, Random.Range(0, 255) / 255f);
+    }
+    
+    ///<summary> 同步变量挂载函数，执行将颜色赋予角色部分的代码 </summary>
+    void SetColor(Color newColor)
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", newColor);
+    }
+}
+```
+
+以上可作为多数情况下使用同步变量的案例。
+
+
+
