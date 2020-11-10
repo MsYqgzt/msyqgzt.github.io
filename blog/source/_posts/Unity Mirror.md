@@ -155,6 +155,24 @@ public class NetworkManagerOverride : NetworkManager
 
 ## 角色变量同步
 
+> **常用特征：**
+>
+> [SyncVar] — 用于标识序列化变量,实现变量同步   例: (把Hp标识,就可以实现同步减血)
+>
+> [Client] — 表示只能在客户端调用
+>
+> [ClientCallBack] — 表示客户端执行的回调
+>
+> [Command] — 表示客户端向服务端发送的命令,在服务端执行
+>
+> [ClientPrc] — 表示服务端向客户端发送的命令,在客户端执行
+
+
+
+### 举些🌰
+
+#### 角色外观
+
 在服务器中，每个玩家都有自己独特的外观，为了实现不同玩家不同颜色，通常会想到随机的材质颜色。
 
 ```c#
@@ -198,7 +216,42 @@ public class PlayerColor : NetworkBehavior
 }
 ```
 
-以上可作为多数情况下使用同步变量的案例。
 
 
+#### 发射子弹
+
+```c#
+using UnityEngine;
+using Mirror;
+
+///<summary> 子弹预制体，同样需要注册在Network Manager中 </summary>
+public GameObject Bullet;
+
+public class PlayerBullet : NetworkBehavior
+{
+    
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+    }
+    
+    void Update()
+    {
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, 0));
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            CmdFire();
+        }
+    }
+    
+    ///<summary> 同步函数，发射子弹 </summary>
+    void CmdFire()
+    {
+        GameObject bullet = Instantitate(Bullet, transform.position + new Vector(0, 1, 0), transform.rotation);
+        
+        //这一句必写，服务器同步产生此对象
+        NetworkServer.Spawn(bullet);
+    }
+}
+```
 
