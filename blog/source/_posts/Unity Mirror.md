@@ -164,9 +164,9 @@ public class NetworkManagerOverride : NetworkManager
 >   - 方法直接在服务器执行
 > - **[ServerCallback]**
 >   - 表示服务器执行的回调，在服务端判断调用。
-> - 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
+>   - 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
 > - **[Client]**
->  - 表示只能在客户端调用
+>    - 表示只能在客户端调用
 > - **[ClientCallBack]**
 >   - 表示客户端执行的回调
 >- **[Command]**
@@ -176,8 +176,8 @@ public class NetworkManagerOverride : NetworkManager
 >   - 表示**服务端向客户端发送的命令，在客户端执行**
 >   - 比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。
 > - **[TargetRpc]**
->  - 表示**服务端向指定角色的客户端发送的命令，在符合条件的客户端执行**
->   - 比如玩家的得分条件，只有击杀敌人的玩家会获得积分。
+>    - 表示**服务端向指定角色的客户端发送的命令，在符合条件的客户端执行**
+>     - 比如玩家的得分条件，只有击杀敌人的玩家会获得积分。
 
 
 
@@ -257,6 +257,7 @@ public class PlayerBullet : NetworkBehavior
     }
     
     ///<summary> 同步函数，发射子弹 </summary>
+    [Command]
     void CmdFire()
     {
         GameObject bullet = Instantitate(Bullet, transform.position + new Vector(0, 1, 0), transform.rotation);
