@@ -8,13 +8,48 @@ mathjax: true
 date: 2020-10-03
 ---
 
-
-
 ## 总觉得要屯点什么🌰才开心
+
+### 逆透视变换
+
+> 将鼠标的屏幕二维坐标转换成三维投射坐标
+
+```c#
+public bool unproject_mouse_position(out Vector3 word_position, Vector3 mouse_position)
+{
+	bool ret;
+	float depth;
+	
+	//用于检测和地面相交的平面
+	Plane plane = new Plane(Vector3.up, Vector3.zero);
+	
+	//穿过摄像机位置和鼠标光标位置的直线
+	Ray ray = this.main_camera.GetComponent<Camera>().ScreenPosintToRay(mouse_position);
+	
+	//求出直线和地面的交点
+	if(plane.Raycast(ray,out depth))
+	{
+		//根据Raycast方法的结果计算交点的坐标
+		word_position = ray.origin + ray.direction * depth;
+		ret = true;
+	}
+	else
+	{
+		world_position = Vector3.zero;
+		ret = false;
+	}
+	
+	return(ret);
+}
+```
+
+## 学以致用
 
 ### 3D游戏中的角色
 
 #### 简单跳跃模块
+
+##### Player.cs
 
 ```c#
 using System.Collections;
@@ -57,7 +92,9 @@ public class Player : MonoBehaviour
 
 
 
-#### 鼠标自由视角
+#### 鼠标控制以物体为中心的自由视角
+
+##### freeView.cs
 
 ```c#
 using System.Collections;
@@ -145,7 +182,9 @@ public class freeView : MonoBehaviour
 
 
 
-#### QE控制环绕视角
+#### QE键控制以物体为中心的环绕视角
+
+##### QERotation.cs
 
 ```c#
 using UnityEngine;
@@ -222,39 +261,72 @@ public class QERotation : MonoBehaviour
 }
 ```
 
-
-
-## 学以致用
-
-### 逆透视变换
-
-> 将鼠标的屏幕二维坐标转换成三维投射坐标
+#### 查找最近的敌人
 
 ```c#
-public bool unproject_mouse_position(out Vector3 word_position, Vector3 mouse_position)
-{
-	bool ret;
-	float depth;
-	
-	//用于检测和地面相交的平面
-	Plane plane = new Plane(Vector3.up, Vector3.zero);
-	
-	//穿过摄像机位置和鼠标光标位置的直线
-	Ray ray = this.main_camera.GetComponent<Camera>().ScreenPosintToRay(mouse_position);
-	
-	//求出直线和地面的交点
-	if(plane.Raycast(ray,out depth))
-	{
-		//根据Raycast方法的结果计算交点的坐标
-		word_position = ray.origin + ray.direction * depth;
-		ret = true;
-	}
-	else
-	{
-		world_position = Vector3.zero;
-		ret = false;
-	}
-	
-	return(ret);
+//获取当前物体与敌人的距离
+float distance =Vector3.Distance("物体1的位置", "物体2的位置");
+```
+
+
+
+#### 查找hp最小的敌人
+
+##### Enemy.cs
+
+```c#
+using UnityEngine;
+using System.Collections;
+
+public class Enemy : MonoBehaviour {
+    public float HP;
 }
 ```
+
+
+
+##### FindEnemyDemo.cs
+
+```c#
+using UnityEngine;
+using System.Collections;
+
+public class FindEnemyDemo : MonoBehaviour {
+    //思路：
+    //得到所有的敌人获取他们的hp
+    //根据当前组件查找其他组件
+
+    //调用
+    private void OnGUI()
+    {
+        if (GUILayout.Button("获取血量最低的敌人"))
+        {
+            //查找场景中所有有Enemy的对象
+            Enemy[] AllEnemy= Object.FindObjectsOfType<Enemy>();
+            //获取血量最低的对象
+            Enemy min = FindEnemyByMinHP(AllEnemy);
+            print(min);
+            //根据Enemy类型的引用 获取 其他组件类型的引用
+            min.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+    }
+
+    //查找血量最低的敌人
+    public Enemy FindEnemyByMinHP(Enemy[] allEnemy) 
+    {
+        //假设 第一个敌人的血最少
+        Enemy min = allEnemy[0];
+        //第一个依次和兄弟元素进行比较，小于min的就替换掉
+        for (int i = 0; i < allEnemy.Length-1; i++)//两个比一次，
+        {
+            if (min.HP > allEnemy[i+1].HP)
+            {
+                min=allEnemy[i+1];
+            }
+        }
+
+        return min;
+    }
+}
+```
+
