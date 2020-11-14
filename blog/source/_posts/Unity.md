@@ -45,11 +45,185 @@ public bool unproject_mouse_position(out Vector3 word_position, Vector3 mouse_po
 
 ## 学以致用
 
-### 3D游戏中的角色
+### UI控制摇杆
 
-#### 简单跳跃模块
+> **UI的层级结构（对象名 - [类型]描述）：**
+>
+> - `Canvas` - [Canvas]UI根对象
+>   - `Joystick` - [Image]摇杆的可触控范围
+>     - `Background` - [Image]摇杆背景
+>       - `Handle` - [Image]摇杆对象
+>     - `DirectionArrow` - [Image]背景外围的方向箭头
 
-##### Player.cs
+- `EnumFlagsAttribute.cs`
+
+```c#
+using UnityEngine;
+public class EnumFlagsAttribute : PropertyAttribute { }
+```
+
+- `Joystick.cs`
+
+```c#
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+{
+    public float maxRadius = 100; //Handle 移动最大半径
+    [EnumFlags]
+    public Direction activatedAxis = (Direction)(-1); //选择激活的轴向
+    [SerializeField] bool dynamic = true; // 动态摇杆
+    [SerializeField] Transform handle; //摇杆
+    [SerializeField] Transform backGround; //背景
+    public JoystickEvent OnValueChanged = new JoystickEvent(); //事件 ： 摇杆被 拖拽时
+    public JoystickEvent OnPointerDown = new JoystickEvent(); // 事件： 摇杆被按下时
+    public JoystickEvent OnPointerUp = new JoystickEvent(); //事件 ： 摇杆上抬起时
+    public bool IsDraging { get { return fingerId != int.MinValue; } } //摇杆拖拽状态
+    public bool DynamicJoystick //运行时代码配置摇杆是否为动态摇杆
+    {
+        set
+        {
+            if (dynamic != value)
+            {
+                dynamic = value;
+                ConfigJoystick();
+            }
+        }
+        get
+        {
+            return dynamic;
+        }
+    }
+    #region MonoBehaviour functions
+    private void Awake() => backGroundOriginLocalPostion = backGround.localPosition;
+    void Update() => OnValueChanged.Invoke(handle.localPosition / maxRadius);
+    void OnDisable() => RestJoystick(); //意外被 Disable 各单位需要被重置
+    #endregion
+
+    #region The implement of pointer event Interface
+    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.pointerId < -1 || IsDraging) return; //适配 Touch：只响应一个Touch；适配鼠标：只响应左键
+        fingerId = eventData.pointerId;
+        pointerDownPosition = eventData.position;
+        if (dynamic)
+        {
+            pointerDownPosition[2] = eventData.pressEventCamera?.WorldToScreenPoint(backGround.position).z ?? backGround.position.z;
+            backGround.position = eventData.pressEventCamera?.ScreenToWorldPoint(pointerDownPosition) ?? pointerDownPosition; ;
+        }
+        OnPointerDown.Invoke(eventData.position);
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        if (fingerId != eventData.pointerId) return;
+        Vector2 direction = eventData.position - (Vector2)pointerDownPosition; //得到BackGround 指向 Handle 的向量
+        float radius = Mathf.Clamp(Vector3.Magnitude(direction), 0, maxRadius); //获取并锁定向量的长度 以控制 Handle 半径
+        Vector2 localPosition = new Vector2()
+        {
+            x = (0 != (activatedAxis & Direction.Horizontal)) ? (direction.normalized * radius).x : 0, //确认是否激活水平轴向
+            y = (0 != (activatedAxis & Direction.Vertical)) ? (direction.normalized * radius).y : 0       //确认是否激活垂直轴向，激活就搞事情
+        };
+        handle.localPosition = localPosition;      //更新 Handle 位置
+    }
+
+    void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
+    {
+        if (fingerId != eventData.pointerId) return;//正确的手指抬起时才会重置摇杆；
+        RestJoystick();
+        OnPointerUp.Invoke(eventData.position);
+    }
+    #endregion
+
+    #region Assistant functions / fields / structures
+    void RestJoystick()
+    {
+        backGround.localPosition = backGroundOriginLocalPostion;
+        handle.localPosition = Vector3.zero;
+        fingerId = int.MinValue;
+    }
+
+    void ConfigJoystick() //配置动态/静态摇杆
+    {
+        if (!dynamic) backGroundOriginLocalPostion = backGround.localPosition;
+        GetComponent<Image>().raycastTarget = dynamic;
+        handle.GetComponent<Image>().raycastTarget = !dynamic;
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (!handle) handle = transform.Find("BackGround/Handle");
+        if (!backGround) backGround = transform.Find("BackGround");
+        ConfigJoystick();
+    }
+#endif
+    private Vector3 backGroundOriginLocalPostion, pointerDownPosition;
+    private int fingerId = int.MinValue; //当前触发摇杆的 pointerId ，预设一个永远无法企及的值
+    [System.Serializable] public class JoystickEvent : UnityEvent<Vector2> { }
+    [System.Flags]
+    public enum Direction
+    {
+        Horizontal = 1 << 0,
+        Vertical = 1 << 1
+    }
+    #endregion
+}
+```
+
+- `DirectionArrow.cs`
+
+```c#
+using System;
+using UnityEngine;
+
+public class DirectionArrow : MonoBehaviour
+{
+    private Joystick joystick;
+    private void Start()
+    {
+        joystick = GetComponentInParent<Joystick>();
+        if (null == joystick)
+        {
+            throw new InvalidOperationException("The directional arrow is an optional part of the joystick and it relies on the instance of the joystick!");
+        }
+        joystick.OnPointerUp.AddListener(OnPointerUp);
+        joystick.OnValueChanged.AddListener(UpdateDirectionArrow);
+        gameObject.SetActive(false);
+    }
+
+    void OnDestroy()
+    {
+        joystick.OnPointerUp.RemoveListener(OnPointerUp);
+        joystick.OnValueChanged.RemoveListener(UpdateDirectionArrow);
+    }
+    // 更新指向器的朝向
+    private void UpdateDirectionArrow(Vector2 position)
+    {
+        if (position.magnitude != 0)
+        {
+            if (!gameObject.activeSelf)
+            {
+                gameObject.SetActive(true);
+            }
+            transform.localEulerAngles = new Vector3(0, 0, Vector2.Angle(Vector2.right, position) * (position.y > 0 ? 1 : -1));
+        }
+    }
+    void OnPointerUp(Vector2 pos)
+    {
+        gameObject.SetActive(false);
+    }
+}
+```
+
+
+
+### 简单跳跃模块
+
+- `Player.cs`
 
 ```c#
 using System.Collections;
@@ -92,9 +266,9 @@ public class Player : MonoBehaviour
 
 
 
-#### 鼠标控制以物体为中心的自由视角
+### 鼠标控制以物体为中心的自由视角
 
-##### freeView.cs
+- `freeView.cs`
 
 ```c#
 using System.Collections;
@@ -182,9 +356,9 @@ public class freeView : MonoBehaviour
 
 
 
-#### QE键控制以物体为中心的环绕视角
+### QE键控制以物体为中心的环绕视角
 
-##### QERotation.cs
+- `QERotation.cs`
 
 ```c#
 using UnityEngine;
@@ -261,7 +435,7 @@ public class QERotation : MonoBehaviour
 }
 ```
 
-#### 查找最近的敌人
+### 查找最近的敌人
 
 ```c#
 //获取当前物体与敌人的距离
@@ -270,9 +444,9 @@ float distance =Vector3.Distance("物体1的位置", "物体2的位置");
 
 
 
-#### 查找hp最小的敌人
+### 查找hp最小的敌人
 
-##### Enemy.cs
+- `Enemy.cs`
 
 ```c#
 using UnityEngine;
@@ -285,7 +459,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-##### FindEnemyDemo.cs
+- `FindEnemyDemo.cs`
 
 ```c#
 using UnityEngine;
