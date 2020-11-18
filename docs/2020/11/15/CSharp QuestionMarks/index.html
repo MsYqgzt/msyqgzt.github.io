@@ -21,7 +21,7 @@
     <!-- meta -->
 
 
-<title>C# 移位操作符&#34;&lt;&lt;&#34; &amp; &#34;&gt;&gt;&#34; | AlertNote</title>
+<title>C#中?、??与?:的使用 | AlertNote</title>
 
 
     <meta name="keywords" content="编程">
@@ -31,15 +31,15 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="移位操作符是将二进制数据进行的操作 左移操作符(&lt;&lt;)举个🌰，十进制数2转化成二进制数是10，若将2的二进制数左移1个操作符，即：$$\begin{split}2 &lt;&lt; 1 &amp;&#x3D;&gt; 10_{(2)} &lt;&lt; 1\\&amp;&#x3D;100_{(2)}\\&amp;&#x3D;4\end{split}$$ 将第一个操作数向左移动第二个操作数指定的位数，空出的位置补0">
+    <meta name="description" content="今天研究别人的轮子，遇到了很有趣的代码。 1backGround.position &#x3D; eventData.pressEventCamera?.ScreenToWorldPoint(pointerDownPosition) ?? pointerDownPosition;  研究了一下，决定记录并整理下类似符号的用法。 可空类型修饰符（?）被?修饰的变量类型可以是空值null 1int? a &#x3D; n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# 移位操作符&quot;&lt;&lt;&quot; &amp; &quot;&gt;&gt;&quot;">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/11/14/CSharp%20Operator/index.html">
+<meta property="og:title" content="C#中?、??与?:的使用">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/11/15/CSharp%20QuestionMarks/index.html">
 <meta property="og:site_name" content="AlertNote">
-<meta property="og:description" content="移位操作符是将二进制数据进行的操作 左移操作符(&lt;&lt;)举个🌰，十进制数2转化成二进制数是10，若将2的二进制数左移1个操作符，即：$$\begin{split}2 &lt;&lt; 1 &amp;&#x3D;&gt; 10_{(2)} &lt;&lt; 1\\&amp;&#x3D;100_{(2)}\\&amp;&#x3D;4\end{split}$$ 将第一个操作数向左移动第二个操作数指定的位数，空出的位置补0">
+<meta property="og:description" content="今天研究别人的轮子，遇到了很有趣的代码。 1backGround.position &#x3D; eventData.pressEventCamera?.ScreenToWorldPoint(pointerDownPosition) ?? pointerDownPosition;  研究了一下，决定记录并整理下类似符号的用法。 可空类型修饰符（?）被?修饰的变量类型可以是空值null 1int? a &#x3D; n">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-11-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-14T10:03:24.482Z">
+<meta property="article:published_time" content="2020-11-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-15T12:47:47.878Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary_large_image">
@@ -182,11 +182,11 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        C# 移位操作符&#34;&lt;&lt;&#34; &amp; &#34;&gt;&gt;&#34;
+        C#中?、??与?:的使用
     </h1>
     <div class="post-title__meta">
         <a href="/blogs/archives/2020/11/" class="post-meta__date button">
-    2020-11-14
+    2020-11-15
 </a>
         
     <span class="separate-dot"></span><a href="/blogs/categories/C/" class="button">C#</a>
@@ -213,7 +213,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E7%A7%BB%E6%93%8D%E4%BD%9C%E7%AC%A6-lt-lt"><span class="toc-number">1.</span> <span class="toc-text">左移操作符(&lt;&lt;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E6%93%8D%E4%BD%9C%E7%AC%A6-gt-gt"><span class="toc-number">2.</span> <span class="toc-text">右移操作符(&gt;&gt;)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%A9%BA%E7%B1%BB%E5%9E%8B%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">可空类型修饰符（?）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%90%88%E5%B9%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">空合并运算符(??)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%85%83%EF%BC%88%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88"><span class="toc-number">3.</span> <span class="toc-text">三元（运算符）表达式（?:)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.</span> <span class="toc-text">举个🌰</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc">
@@ -223,34 +223,44 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A6%E7%A7%BB%E6%93%8D%E4%BD%9C%E7%AC%A6-lt-lt"><span class="toc-number">1.</span> <span class="toc-text">左移操作符(&lt;&lt;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E6%93%8D%E4%BD%9C%E7%AC%A6-gt-gt"><span class="toc-number">2.</span> <span class="toc-text">右移操作符(&gt;&gt;)</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%A9%BA%E7%B1%BB%E5%9E%8B%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">可空类型修饰符（?）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%90%88%E5%B9%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">空合并运算符(??)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%85%83%EF%BC%88%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88"><span class="toc-number">3.</span> <span class="toc-text">三元（运算符）表达式（?:)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.</span> <span class="toc-text">举个🌰</span></a></li></ol>
     </div>
 
 
 <article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <p>移位操作符是将二进制数据进行的操作</p>
-<h2 id="左移操作符-lt-lt"><a href="#左移操作符-lt-lt" class="headerlink" title="左移操作符(&lt;&lt;)"></a>左移操作符(&lt;&lt;)</h2><p>举个🌰，十进制数2转化成二进制数是10，若将2的二进制数左移1个操作符，即：<br>$$<br>\begin{split}<br>2 &lt;&lt; 1 &amp;=&gt; 10_{(2)} &lt;&lt; 1\\<br>&amp;=100_{(2)}\\<br>&amp;=4<br>\end{split}<br>$$</p>
-<p>将第一个操作数向左移动第二个操作数指定的位数，空出的位置补0。<br><strong>左移相当于乘。</strong>左移1位相当于乘2；左移2位相当于乘4；左移3位相当于乘8……左移n位相当于乘$2^n$</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;&lt; <span class="number">1</span> = x * <span class="number">2</span>;</span><br><span class="line">x &lt;&lt; <span class="number">2</span> = x * <span class="number">4</span>;</span><br><span class="line">x &lt;&lt; <span class="number">3</span> = x * <span class="number">8</span>;</span><br><span class="line">x &lt;&lt; <span class="number">4</span> = x * <span class="number">16</span>;</span><br></pre></td></tr></table></figure>
+        <p>今天研究别人的轮子，遇到了很有趣的代码。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backGround.position = eventData.pressEventCamera?.ScreenToWorldPoint(pointerDownPosition) ?? pointerDownPosition;</span><br></pre></td></tr></table></figure>
+
+<p>研究了一下，决定记录并整理下类似符号的用法。</p>
+<h2 id="可空类型修饰符（-）"><a href="#可空类型修饰符（-）" class="headerlink" title="可空类型修饰符（?）"></a>可空类型修饰符（?）</h2><p>被<code>?</code>修饰的变量类型可以是空值<code>null</code></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>? a = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="右移操作符-gt-gt"><a href="#右移操作符-gt-gt" class="headerlink" title="右移操作符(&gt;&gt;)"></a>右移操作符(&gt;&gt;)</h2><p>右移位运算符（&gt;&gt;）是把数向右移位，所有的位都向右移动指定的次数<br>$$<br>\begin{split}<br>4 &gt;&gt; 1 &amp;=&gt; 100_{(2)} &gt;&gt; 1\\<br>&amp;=10_{(2)}\\<br>&amp;=2<br>\end{split}<br>$$<br><strong>右移相当于除</strong>。右移1位相当于除2；右移2位相当于除以4；右移3位相当于除以8……右移n位相当于除以$2^n$，然后<strong>取其整数</strong>。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &gt;&gt; <span class="number">1</span> = (<span class="keyword">int</span>)(x / <span class="number">2</span>);</span><br><span class="line">x &gt;&gt; <span class="number">2</span> = (<span class="keyword">int</span>)(x / <span class="number">4</span>);</span><br><span class="line">x &gt;&gt; <span class="number">3</span> = (<span class="keyword">int</span>)(x / <span class="number">8</span>);</span><br><span class="line">x &gt;&gt; <span class="number">4</span> = (<span class="keyword">int</span>)(x / <span class="number">16</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="空合并运算符"><a href="#空合并运算符" class="headerlink" title="空合并运算符(??)"></a>空合并运算符(??)</h2><p>用于定义可空类型和引用类型的默认值。</p>
+<p>如果此运算符的<strong>左操作数不为null</strong>，则此运算符将<strong>返回左操作数，否则返回右操作数</strong>。</p>
+<p>例如：a ?? b，当<code>a=null</code>时返回b，<code>a!=null</code>时则返回a本身。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">string</span> b = <span class="string">&quot;b&quot;</span>;</span><br><span class="line"><span class="keyword">string</span> c = <span class="string">&quot;c&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> d = a ?? b ?? c;  <span class="comment">//&quot;b&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>变量的赋值移位运算可简写：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = x &lt;&lt; <span class="number">1</span>;</span><br><span class="line">y = y &gt;&gt; <span class="number">2</span>;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line">x &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">y &gt;&gt;= <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="三元（运算符）表达式（"><a href="#三元（运算符）表达式（" class="headerlink" title="三元（运算符）表达式（?:)"></a>三元（运算符）表达式（?:)</h2><p><code>x?y:z</code>表示<strong>如果表达式x为true，则返回y；如果x为false，则返回z</strong>，是省略if{}else{}的简单形式。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x?y:z;<span class="comment">//等同于：</span></span><br><span class="line"><span class="keyword">if</span>(x) y</span><br><span class="line"><span class="keyword">else</span> z</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h2><p>一般这些符号的使用有助于提高代码的健壮性。</p>
+<p>比如：<em>在不报异常的情况下</em>，取为<code>null</code>的<code>List</code>集合的个数</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">string</span>&gt; list = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> a = list?.Count ?? <span class="number">0</span>;<span class="comment">//b = 0</span></span><br><span class="line"><span class="keyword">var</span> b = list == <span class="literal">null</span> ? <span class="number">0</span> : list.Count;<span class="comment">//b = 0</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
      
     <div class="post-footer__meta">
     <p>
-        updated at 2020-11-14
+        updated at 2020-11-15
     </p>
 </div> 
     <div class="post-meta__cats">
@@ -267,30 +277,16 @@
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/blogs/2020/11/15/CSharp%20QuestionMarks/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            C#中?、??与?:的使用
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/blogs/2020/10/21/Unity%20Mirror/" class="nav__link">
+                <a href="/blogs/2020/11/14/CSharp%20Operator/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            Unity 使用Mirror框架制作多人游戏
+                            C# 移位操作符&#34;&lt;&lt;&#34; &amp; &#34;&gt;&gt;&#34;
                         </div>
                     </div>
                     <div>
