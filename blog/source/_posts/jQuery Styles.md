@@ -37,9 +37,9 @@ date: 2020-11-22
 </html>
 ```
 
-> **为什么没有在 `<script>` 标签中使用 type="text/javascript" ？**
+> **为什么没有在 `<script>` 标签中使用`type="text/javascript"` ？**
 >
-> 在 HTML5 中，不必那样做了。JavaScript 是 HTML5 以及所有现代浏览器中的默认脚本语言！
+> 在 HTML5 中，不必那样做了。JavaScript 是 HTML5 以及所有现代浏览器中的默认脚本语言
 
 ### 老规矩 - HelloWorld
 
@@ -62,7 +62,7 @@ date: 2020-11-22
         }
     </style>
     
-    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("div").html("Hello World");

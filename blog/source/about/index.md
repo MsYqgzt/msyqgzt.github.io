@@ -16,6 +16,7 @@ layout: about
 - 平面设计：PhotoShop/Illustrator
 - 桌面开发：C#/WPF
 - Web开发：html/Javascript/Node
+- 游戏开发：Unity
 
 ## 再说点
 

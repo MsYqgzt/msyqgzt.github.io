@@ -5,7 +5,12 @@
 head:
 
   # 网站图标
-  favicon: /favicon.svg
+  favicon: 
+    ico: /favicon.svg
+    small: /favicon.svg
+    medium: /favicon.svg
+    apple_touch_icon: /appleTouch_favicon.png
+    safari_pinned_tab: /appleTouch_favicon.png
 
   # 社交分享链接
   opengraph:

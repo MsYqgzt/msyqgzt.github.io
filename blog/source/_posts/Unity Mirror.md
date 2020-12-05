@@ -21,7 +21,7 @@ date: 2020-10-21
 
 在游戏场景内添加空物体，名为`Network Manager`，挂载以下脚本
 
-- Network Manager - 游戏网络管理组件
+- `Network Manager` - 游戏网络管理组件
   - `Network Info`
     - `Network Address`：服务器的ip地址，主机上的运行默认为`localhost`。
     - `Max Connections`：连接到服务器的最大客户端数量，即最大玩家数。
@@ -29,7 +29,7 @@ date: 2020-10-21
     - `Player Prefab`：作为玩家代表的角色产生的预制体
     - `Auto Create Player`：玩家进入游戏场景时是否自动产生预制角色
     - `Registered Spawnable Prefabs`：可生成的预制体列表。在游戏场景中临时产生的物体，如子弹等模型，都需要作为预制体注册进这个列表
-- Network Manager HUD
+- `Network Manager HUD`- 网络调试基础面板
   - `LAN Host`：作为服务器，同时作为客户端登陆游戏场景。
   - `LAN Client IP`：仅作为客户端连接到指定IP地址的游戏场景。
   - `LAN Server Only`：仅作为服务器创建场景，不产生玩家。
@@ -71,8 +71,6 @@ void Start(){
 - `NetworkIdentity`：该组件是网络的核心，由服务器Spwan(卵生)的物体都必须具备,该组件在卵生的时候会自动分配assetID和权限。
   - `ServerOnly`勾选后物体只在服务器中存在
   - `Local Player Authority`勾选后在客户端中存在
-
-
 
 #### 运行游戏
 
@@ -116,7 +114,7 @@ public class NetworkManagerOverride : NetworkManager
 	Gameobject player;
     Gameobject ball;
     
-    ///<summary> 与服务器连接时触发的事件 <summary>
+    ///<summary> 玩家加入服务器时触发的事件 <summary>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         //判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板
@@ -129,16 +127,15 @@ public class NetworkManagerOverride : NetworkManager
             player = Instantitate(playerPrefab, new Vector3(10, 0, 0), transform.rotation);
         }
         
-        
         NetworkServer.AddPlayerForConnection(conn, player);
         
         if (numPlayers == 2)
         {
-            ball = Instantitate(spawnPrefabs.Find(prefab => ))
+            ball = Instantitate(spawnPrefabs.Find(prefab))
         }
     }
     
-    ///<summary> 与服务器断开连接时触发的事件 </summary>
+    ///<summary> 玩家离开服务器时触发的事件 </summary>
     public override void OnServerDisconnect(NetworkConnection conn)
     {
         if (ball != null)
@@ -157,28 +154,46 @@ public class NetworkManagerOverride : NetworkManager
 
 ### 常用特征
 
+> 官方原文：
+>
+> - **[Server]** / **[Client]** tags can be used for the server-only and client-only parts
+> - **[Command]**s are used for Client->Server communication
+> - **[ClientRpc]** / **[TargetRpc]** for Server->Client communication
+> - **[SyncVar]**s and SyncLists are used to automatically synchronize state.
+>
+> > 翻译：
+> >
+> > - **[Server]** / **[Client]** 标记可用于仅用于服务器的部分和仅用于客户端的部分。
+> > - **[Command]**s 用于Client->Server通信
+> > - **[ClientRpc]** / **[TargetRpc]** 用于服务器->客户端通信
+> > - **[SyncVar]**s 和SyncList用于自动同步状态。
+>
+> 
+
 > - **[SyncVar]**
->     - 用于标识序列化变量，实现同步数据   例: (把Hp标识,就可以实现同步减血)
->      - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要怎么修改呢？要通过有[ServerCallBack]，[Server]的方法
+>     - 用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）
+>      - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。
 > - **[Server]**
->   - 方法直接在服务器执行
-> - **[ServerCallback]**
->   - 表示服务器执行的回调，**在服务端做判断调用**。
->   - 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
+>   - 表示只在服务器执行
 > - **[Client]**
->    - 表示只能在客户端调用
+>    - 表示只在客户端执行
+> - **[ServerCallback]**
+>   - 表示服务器执行的**回调函数，在服务端做判断**。
+>   - 只影响服务端。
+>   - 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
 > - **[ClientCallBack]**
->   - 表示客户端执行的回调，**在客户端做判断调用**。
+>   - 表示客户端执行的**回调函数，在客户端做判断**。
+>   - 只影响当前客户端。
 > - **[Command]**
 >   - 函数名以`Cmd`开头
->   - 表示**客户端向服务端发送的命令，在服务端执行**
+>   - 表示**客户端向服务端发送的行为命令，在服务端执行**
 >   - 比如客户端角色想要发射子弹，发送命令到服务器，服务端内的玩家角色发射子弹。
 > - **[ClientPrc]**
 >   - 函数名以`Rpc`开头
->   - 表示**服务端向客户端发送的命令，在客户端执行**
+>   - 表示**服务端向客户端发送的命令，在服务端执行，使所有客户端生效**
 >   - 比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。
 > - **[TargetRpc]**
->    - 函数名以`Rpc`开头
+>    - 函数名以`Target`开头
 >    - 表示**服务端向符合条件的指定客户端发送的命令，在客户端执行**
 >     - 比如玩家的得分条件，玩家击杀敌人，服务器会给这些客户端发送一个“你该得分了”的信号。
 

@@ -15,7 +15,21 @@
 
     <!--icon-->
 
-    <link rel="shortcut icon" type='image/x-icon' href="/blogs/favicon.svg">
+    
+        <link rel="shortcut icon" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
 
 
     <!-- meta -->
@@ -39,7 +53,7 @@
 <meta property="og:description" content="初探jQuery jQuery 分 2 个系列版本 1.x 与 2.x，主要的区别在于2.x 不再兼容 IE6、7、8浏览器，这样做的目的是为了兼容移动端开发。由于减少了一些代码，使得该版本比 jQuery 1.x 更小、更快。 如果开发者比较在意老版本 IE 用户，只能使用 jQuery 1.9 及之前的版本了。这里为了兼容性问题，使用的是 1.9 以上版本。 jQuery 每一个系列版本分为：">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-11-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-24T07:33:46.447Z">
+<meta property="article:modified_time" content="2020-11-26T11:07:48.789Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="前端">
@@ -84,38 +98,24 @@
             <header class="header">
     <div class="header__left">
         <a href="/blogs/" class="button">
-            <span class="logo__text">
-                AlertNote
-            </span>
+            <span class="logo__text">AlertNote</span>
         </a>
     </div>
     <div class="header__right">
         
             <div class="navbar__menus">
                 
-                    <a href="/blogs/" class="navbar-menu button">
-                        首页
-                    </a>
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
                 
-                    <a href="/blogs/categories/" class="navbar-menu button">
-                        分类
-                    </a>
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
                 
-                    <a href="/blogs/tags/" class="navbar-menu button">
-                        标签
-                    </a>
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
                 
-                    <a href="/blogs/archives/" class="navbar-menu button">
-                        归档
-                    </a>
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
                 
-                    <a href="/blogs/friends/" class="navbar-menu button">
-                        友链
-                    </a>
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
                 
-                    <a href="/blogs/about/" class="navbar-menu button">
-                        关于我
-                    </a>
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
                 
             </div>
         
@@ -142,36 +142,20 @@
 
 
         
-            <a class="dropdown-icon button" id="btn-dropdown">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
-                    <path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
-                </svg>
-            </a>
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
             <div class="dropdown-menus" id="dropdown-menus">
                 
-                    <a href="/blogs/" class="dropdown-menu button">
-                        首页
-                    </a>
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
                 
-                    <a href="/blogs/categories/" class="dropdown-menu button">
-                        分类
-                    </a>
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
                 
-                    <a href="/blogs/tags/" class="dropdown-menu button">
-                        标签
-                    </a>
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
                 
-                    <a href="/blogs/archives/" class="dropdown-menu button">
-                        归档
-                    </a>
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
                 
-                    <a href="/blogs/friends/" class="dropdown-menu button">
-                        友链
-                    </a>
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
                 
-                    <a href="/blogs/about/" class="dropdown-menu button">
-                        关于我
-                    </a>
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
                 
             </div>
         
@@ -187,9 +171,7 @@
         jQuery 样式篇
     </h1>
     <div class="post-title__meta">
-        <a href="/blogs/archives/2020/11/" class="post-meta__date button">
-    2020-11-22
-</a>
+        <a href="/blogs/archives/2020/11/" class="post-meta__date button">2020-11-22</a>
         
     <span class="separate-dot"></span><a href="/blogs/categories/JavaScript/" class="button">JavaScript</a>
 
@@ -220,7 +202,7 @@
             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E6%8E%A2jQuery"><span class="toc-number">1.</span> <span class="toc-text">初探jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%81%E8%A7%84%E7%9F%A9-HelloWorld"><span class="toc-number">1.1.</span> <span class="toc-text">老规矩 - HelloWorld</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery%E5%AF%B9%E8%B1%A1%E4%B8%8EDOM%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">jQuery对象与DOM对象的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery%E5%AF%B9%E8%B1%A1%E4%B8%8EDOM%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">jQuery对象与DOM对象的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery%E8%BD%ACDOM"><span class="toc-number">1.3.1.</span> <span class="toc-text">jQuery转DOM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E8%BD%ACjQuery"><span class="toc-number">1.3.2.</span> <span class="toc-text">DOM转jQuery</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">jQuery选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">基本选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">层级选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">基本筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.4.</span> <span class="toc-text">内容筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%81%E6%80%A7%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">可见性筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">属性筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%85%83%E7%B4%A0%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.7.</span> <span class="toc-text">子元素筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.8.</span> <span class="toc-text">表单元素选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%AD%9B%E9%80%89%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.9.</span> <span class="toc-text">表单对象属性筛选选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E9%80%89%E6%8B%A9%E5%99%A8this"><span class="toc-number">2.10.</span> <span class="toc-text">特殊选择器this</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">jQuery的属性与样式</span></a></li></ol>
         </div>
     </aside>
-    <a class="btn-toc button" id="btn-toc">
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
         <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
             <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
         </svg>
@@ -247,13 +229,13 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>环境搭建<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span> alert($) <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>为什么没有在 <code>&lt;script&gt;</code> 标签中使用 type=”text/javascript” ？</strong></p>
-<p>在 HTML5 中，不必那样做了。JavaScript 是 HTML5 以及所有现代浏览器中的默认脚本语言！</p>
+<p><strong>为什么没有在 <code>&lt;script&gt;</code> 标签中使用<code>type=&quot;text/javascript&quot;</code> ？</strong></p>
+<p>在 HTML5 中，不必那样做了。JavaScript 是 HTML5 以及所有现代浏览器中的默认脚本语言</p>
 </blockquote>
 <h3 id="老规矩-HelloWorld"><a href="#老规矩-HelloWorld" class="headerlink" title="老规矩 - HelloWorld"></a>老规矩 - HelloWorld</h3><p>最简单的案例，<strong>当页面加载完成后</strong>，在页面中以居中的方式显示“Hello World”，效果如下：</p>
 <div style="padding:8px 0px;font-size:12px;text-align:center;border:1px solid #888;">Hello World</div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个简单的jQuery程序<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">        div&#123;</span><br><span class="line"><span class="css">            <span class="selector-tag">padding</span><span class="selector-pseudo">:8px</span> 0<span class="selector-tag">px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-size</span><span class="selector-pseudo">:12px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span><span class="selector-pseudo">:1px</span> <span class="selector-tag">solid</span> <span class="selector-id">#888</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">&quot;div&quot;</span>).html(<span class="string">&quot;Hello World&quot;</span>);</span></span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个简单的jQuery程序<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">        div&#123;</span><br><span class="line"><span class="css">            <span class="selector-tag">padding</span><span class="selector-pseudo">:8px</span> 0<span class="selector-tag">px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-size</span><span class="selector-pseudo">:12px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span><span class="selector-pseudo">:1px</span> <span class="selector-tag">solid</span> <span class="selector-id">#888</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">&quot;div&quot;</span>).html(<span class="string">&quot;Hello World&quot;</span>);</span></span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><code>$(document).ready</code>的作用是等页面的文档（document）中的<strong>节点都加载完毕后，</strong>再执行后续的代码，因为我们在执行代码的时候，可能会依赖页面的某一个元素，我们要确保这个元素真正的的被加载完毕后才能正确的使用。</p>
@@ -665,30 +647,27 @@
 <h2 id="jQuery的属性与样式"><a href="#jQuery的属性与样式" class="headerlink" title="jQuery的属性与样式"></a>jQuery的属性与样式</h2>
     </div>
      
-    <div class="post-footer__meta">
-    <p>
-        updated at 2020-11-24
-    </p>
-</div> 
-    <div class="post-meta__cats">
-    
-        <a href="/blogs/categories/JavaScript/" class="post-cats__link button">JavaScript</a>
-    
-        <a href="/blogs/categories/Node/" class="post-cats__link button">Node</a>
-    
-    
-        <a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a>
-    
-        <a href="/blogs/tags/%E5%89%8D%E7%AB%AF/" class="post-tags__link button"># 前端</a>
-    
-        <a href="/blogs/tags/Web%E6%A1%86%E6%9E%B6/" class="post-tags__link button"># Web框架</a>
-    
-</div> 
+    <div class="post-footer__meta"><p>updated at 2020-11-26</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/JavaScript/" class="post-cats__link button">JavaScript</a><a href="/blogs/categories/Node/" class="post-cats__link button">Node</a><a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a><a href="/blogs/tags/%E5%89%8D%E7%AB%AF/" class="post-tags__link button"># 前端</a><a href="/blogs/tags/Web%E6%A1%86%E6%9E%B6/" class="post-tags__link button"># Web框架</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
+            
+                <a href="/blogs/2020/12/02/WPF%20DispatcherFrame/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            WPF 实现阻塞窗体
+                        </div>
+                    </div>
+                </a>
             
         </div>
         <div class="nav__next">
@@ -873,6 +852,8 @@
             MathJax.typeset();
         }
     </script>
+ 
+
  
 
  
