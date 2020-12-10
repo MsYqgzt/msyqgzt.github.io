@@ -1,9 +1,9 @@
 ---
 title: UnityEvent 实现事件监听(Listener)
-tags: [游戏编程,C#]
+tags: [游戏编程]
 categories: 
 - [Unity]
-- [游戏]
+- [C#]
 mathjax: true
 date: 2020-12-02
 ---

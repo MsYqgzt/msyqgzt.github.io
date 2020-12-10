@@ -1,14 +1,36 @@
 ---
 title: Unity中的"常规操作"
-tags: [游戏编程,游戏引擎,C#]
+tags: [游戏编程]
 categories: 
 - [Unity]
-- [游戏]
+- [C#]
 mathjax: true
 date: 2020-10-03
 ---
 
 ## 总觉得要屯点什么🌰才开心
+
+### 世界坐标与屏幕坐标转换
+
+```c#
+public Transform target; //目标对象
+public Vector2 offsetPos;//偏移值
+RectTransform rectTrans; //UI对象
+
+void Update()
+{
+    if (target == null)
+        return;
+    //获取跟随目标的位置
+    Vector3 tarPos = target.transform.position;
+    //将目标的世界坐标转换为屏幕坐标
+    Vector2 pos = RectTransformUtility.WorldToScreenPoint(Camera.main, tarPos);
+    //将获取到的屏幕坐标赋给UI对象，并加上偏移值
+    rectTrans.position = pos + offsetPos;
+}
+```
+
+
 
 ### 逆透视变换
 

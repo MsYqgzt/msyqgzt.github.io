@@ -1,9 +1,9 @@
 ---
 title: Unity 使用Mirror框架制作多人游戏
-tags: [游戏编程,游戏引擎,C#]
+tags: [游戏编程,联机]
 categories: 
 - [Unity]
-- [游戏]
+- [C#]
 mathjax: true
 date: 2020-10-21
 ---
@@ -157,16 +157,16 @@ public class NetworkManagerOverride : NetworkManager
 > 官方原文：
 >
 > - **[Server]** / **[Client]** tags can be used for the server-only and client-only parts
-> - **[Command]**s are used for Client->Server communication
+> - **[Command]** s are used for Client->Server communication
 > - **[ClientRpc]** / **[TargetRpc]** for Server->Client communication
-> - **[SyncVar]**s and SyncLists are used to automatically synchronize state.
+> - **[SyncVar]** s and SyncLists are used to automatically synchronize state.
 >
 > > 翻译：
 > >
 > > - **[Server]** / **[Client]** 标记可用于仅用于服务器的部分和仅用于客户端的部分。
-> > - **[Command]**s 用于Client->Server通信
+> > - **[Command]** s 用于Client->Server通信
 > > - **[ClientRpc]** / **[TargetRpc]** 用于服务器->客户端通信
-> > - **[SyncVar]**s 和SyncList用于自动同步状态。
+> > - **[SyncVar]** s 和SyncList用于自动同步状态。
 >
 > 
 

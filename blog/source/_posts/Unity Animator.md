@@ -1,9 +1,9 @@
 ---
 title: Unity Animator-让角色躁起来
-tags: [游戏编程,游戏引擎,C#]
+tags: [游戏编程,游戏引擎]
 categories: 
 - [Unity]
-- [游戏]
+- [C#]
 mathjax: true
 date: 2020-10-06
 ---

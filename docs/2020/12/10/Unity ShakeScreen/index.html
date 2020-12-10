@@ -35,27 +35,27 @@
     <!-- meta -->
 
 
-<title>与数学的中门对（被）狙 | AlertNote</title>
+<title>Unity 屏幕震动效果 | AlertNote</title>
 
 
-    <meta name="keywords" content="算法">
+    <meta name="keywords" content="游戏编程">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="辗转相除法 辗转相除法，是找到两个数字的最大公约数的算法。 它在公元前300年由欧几里得发现，被称为世界上最古老的算法。  实例引入 举一个例子，我们来考虑一下，1112和695的最大公约数。  用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。$$\begin{cases}1112&#x3D;139×2×2×2\\695&#x3D;139×5\end{cases}\sp">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455using UnityEngine;public class ScreenShake : MonoBehaviour&amp;#123;    private float shakeTime &#x3D; 0.0f;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="与数学的中门对（被）狙">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/08/29/Math/index.html">
+<meta property="og:title" content="Unity 屏幕震动效果">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/12/10/Unity%20ShakeScreen/index.html">
 <meta property="og:site_name" content="AlertNote">
-<meta property="og:description" content="辗转相除法 辗转相除法，是找到两个数字的最大公约数的算法。 它在公元前300年由欧几里得发现，被称为世界上最古老的算法。  实例引入 举一个例子，我们来考虑一下，1112和695的最大公约数。  用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。$$\begin{cases}1112&#x3D;139×2×2×2\\695&#x3D;139×5\end{cases}\sp">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455using UnityEngine;public class ScreenShake : MonoBehaviour&amp;#123;    private float shakeTime &#x3D; 0.0f;">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-08-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-31T12:28:55.603Z">
+<meta property="article:published_time" content="2020-12-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-10T08:49:59.600Z">
 <meta property="article:author" content="Alert">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="游戏编程">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -166,12 +166,14 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        与数学的中门对（被）狙
+        Unity 屏幕震动效果
     </h1>
     <div class="post-title__meta">
-        <a href="/blogs/archives/2020/08/" class="post-meta__date button">2020-08-29</a>
+        <a href="/blogs/archives/2020/12/" class="post-meta__date button">2020-12-10</a>
         
-    <span class="separate-dot"></span><a href="/blogs/categories/%E6%95%B0%E5%AD%A6/" class="button">数学</a>
+    <span class="separate-dot"></span><a href="/blogs/categories/C/" class="button">C#</a>
+
+    <span class="separate-dot"></span><a href="/blogs/categories/Unity/" class="button">Unity</a>
 
  
         
@@ -195,7 +197,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">辗转相除法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">实例引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">算法实现</span></a></li></ol></li></ol>
+            
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -205,57 +207,27 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">辗转相除法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">实例引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">算法实现</span></a></li></ol></li></ol>
+        
     </div>
 
 
 <article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <h2 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法"></a>辗转相除法</h2><blockquote>
-<p>辗转相除法，是<strong>找到两个数字的最大公约数</strong>的算法。</p>
-<p>它在公元前300年由<em>欧几里得</em>发现，被称为世界上最古老的算法。</p>
-</blockquote>
-<h3 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h3><blockquote>
-<p>举一个例子，我们来考虑一下，1112和695的最大公约数。</p>
-</blockquote>
-<p>用通常的方法，我们会把2个数字分解成素数，找出共同素数的最大公约数（GCD），即是我们要的答案。<br>$$<br>\begin{cases}<br>1112=139×2×2×2\\<br>695=139×5<br>\end{cases}\space\space ,139···GCD<br>$$<br>但是这种方法，两个数字如果越大，素数分解就越困难。因此用辗转相除法，可以更有效地找到最大公约数。</p>
-<br/>
+        <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScreenShake</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> shakeTime = <span class="number">0.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> fps = <span class="number">20.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> frameTime = <span class="number">0.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">region</span> Inspector</span></span><br><span class="line">    <span class="keyword">public</span> Camera cam;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> isShakeCamera = <span class="literal">false</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Use this for initialization</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        shakeTime = <span class="number">2.0f</span>;</span><br><span class="line">        fps = <span class="number">20.0f</span>;</span><br><span class="line">        frameTime = <span class="number">0.03f</span>;</span><br><span class="line">        shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line">        <span class="comment">//isshakeCamera=true;//启动后查看一次效果</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isShakeCamera)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (shakeTime &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                shakeTime -= Time.deltaTime;</span><br><span class="line">                <span class="keyword">if</span> (shakeTime &lt;= <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    cam.rect = <span class="keyword">new</span> Rect(<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">                    isShakeCamera = <span class="literal">false</span>;</span><br><span class="line">                    shakeTime = <span class="number">1.0f</span>;</span><br><span class="line">                    fps = <span class="number">20.0f</span>;</span><br><span class="line">                    frameTime = <span class="number">0.03f</span>;</span><br><span class="line">                    shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    frameTime += Time.deltaTime;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (frameTime &gt; <span class="number">1.0</span> / fps)</span><br><span class="line">                    &#123;</span><br><span class="line">                        frameTime = <span class="number">0</span>;</span><br><span class="line">                        cam.rect = <span class="keyword">new</span> Rect(shakeDelta * (<span class="number">-1.0f</span> + <span class="number">2.0f</span> * Random.<span class="keyword">value</span>), shakeDelta * (<span class="number">-1.0f</span> + <span class="number">2.0f</span> * Random.<span class="keyword">value</span>), <span class="number">1.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在解释辗转相除法之前，先解释一下mod操作。此操作是获得除法余数的操作，$A\space mod\space B=C$，C就是A除以B后的<strong>余数</strong></p>
-<blockquote>
-<p>例如：<br>$$<br>\begin{split}<br>6\space mod\space 3=0\\<br>7\space mod\space 3=1\\<br>8\space mod\space 3=2\\<br>9\space mod\space 3=0<br>\end{split}<br>$$</p>
-</blockquote>
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>在上面的例子中，用辗转相除法找到1112和695的最大公约数的步骤为：</p>
-<ol>
-<li>找到较大的数字，除以较小的数字并得到余数417</li>
-</ol>
-<p>$$<br>1112\space mod\space 695=417<br>$$</p>
-<ol start="2">
-<li>下一轮，我们用之前较小的数除以得到的余数，得到新的余数<br>$$<br>\begin{split}<br>1112\space mod\space 695=417\\<br>695\space mod\space 417=278<br>\end{split}<br>$$</li>
-</ol>
-<ol start="3">
-<li>重复同样的操作，直到余数取得为0</li>
-</ol>
-<p>$$<br>\begin{split}<br>1112\space mod\space 695&amp;=417\\<br>695\space mod\space 417&amp;=278\\<br>417\space mod\space 278&amp;=139\\<br>278\space mod\space 139&amp;=0<br>\end{split}<br>$$</p>
-<ol start="4">
-<li>当余数为0时，最后一个操作的除数139就是1112和695的最大公约数。</li>
-</ol>
-<blockquote>
-<p>此算法的优点在于，即便目标是2个庞大的数字，也可以通过<strong>固定的顺序</strong>找到最大公约数。</p>
-</blockquote>
 
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2020-10-31</p></div> 
-    <div class="post-meta__cats"><a href="/blogs/categories/%E6%95%B0%E5%AD%A6/" class="post-cats__link button">数学</a><a href="/blogs/tags/%E7%AE%97%E6%B3%95/" class="post-tags__link button"># 算法</a></div> 
+    <div class="post-footer__meta"><p>updated at 2020-12-10</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/blogs/2020/09/09/JavaScript/" class="nav__link">
+                <a href="/blogs/2020/12/10/Unity%20LoadScene/" class="nav__link">
                     <div>
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
                     </div>
@@ -264,7 +236,7 @@
                             Previous Post
                         </div>
                         <div class="nav__title">
-                            JavaScript从入门到入土
+                            Unity 场景的淡出淡入切换
                         </div>
                     </div>
                 </a>
@@ -272,13 +244,13 @@
         </div>
         <div class="nav__next">
             
-                <a href="/blogs/2020/08/29/UE4-RPG_effect/" class="nav__link">
+                <a href="/blogs/2020/12/10/Unity%20UsefulFunc/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            RPG游戏/特效制作-硬核笔记
+                            Unity 重要的函数
                         </div>
                     </div>
                     <div>
