@@ -52,12 +52,26 @@
 <meta property="og:site_name" content="AlertNote">
 <meta property="og:description" content="整一个角色​        准备工作阶段要先明确，自己要什么样的角色，作为建模渣渣的我怎么满足自己的需求。我想我需要一个会唱跳Rap……会走路、奔跑、跳跃的角色，这样至少看起来是个活的东西，当然更希望长得好看一点。 ​        走路、奔跑、跳跃这些功能并不是难事，这些甚至不用自己实现，只需要导入Character Controller（角色控制器），里面就已经具备了角色所需的所有控制脚本了，">
 <meta property="og:locale">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/1.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/1.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/1.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/2.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/2.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/2.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/2.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/2.5.gif">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/3.1.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/3.2.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/3.3.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/3.4.png">
+<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/3.5.gif">
 <meta property="article:published_time" content="2020-10-05T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-12-10T08:30:14.479Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="游戏编程">
 <meta property="article:tag" content="游戏引擎">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://msyqgzt.gitee.io/blogs/2020/10/06/Unity%20Animator/1.1.png">
 
 
     
@@ -133,7 +147,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -207,7 +221,7 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
+        <div class="toc-title">Article Directory</div>
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%B8%80%E4%B8%AA%E8%A7%92%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">整一个角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">角色状态的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">2.1.</span> <span class="toc-text">角色模型的绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">状态机的建立</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%BF%87%E6%B8%A1"><span class="toc-number">3.</span> <span class="toc-text">动画过渡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A7%E5%88%B6Animator"><span class="toc-number">4.</span> <span class="toc-text">代码控制Animator</span></a></li></ol>
     </div>
 
@@ -218,7 +232,7 @@
         <h2 id="整一个角色"><a href="#整一个角色" class="headerlink" title="整一个角色"></a>整一个角色</h2><p>​        准备工作阶段要先明确，自己要什么样的角色，作为建模渣渣的我怎么满足自己的需求。我想我需要一个会<del>唱跳Rap</del>……会走路、奔跑、跳跃的角色，这样至少看起来是个活的东西，当然更希望长得好看一点。</p>
 <p>​        走路、奔跑、跳跃这些功能并不是难事，这些甚至不用自己实现，只需要导入<code>Character Controller</code>（角色控制器），里面就已经具备了角色所需的所有控制脚本了，关键是这个控制器原本的样子，要么是机器人果体，要么是个胶囊体。<del>丑八怪咿呀咿呀能否别把灯打开？</del></p>
 <p>​        好吧，我决定功能和外观我全都要。既然功能完善，换个皮不就好了？找一个控制器，再来个萌萌哒的Q版模型，先导入进来再说。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/1.1.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/1.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="1.1">
 
 <blockquote>
 <p>左边的是控制器，拥有完整的移动等控制脚本，也有走路，奔跑，跳跃等基本的模型动画。</p>
@@ -226,10 +240,10 @@
 </blockquote>
 <p>材料就绪，可以开始拼凑了，从这一步开始势必要破坏原来的模型结构，但有什么关系呢，反正还能再导入嘛。</p>
 <p><strong>在开始之前切记，要先重置模型的位置信息，让它们位置重合</strong>，这样替换后能省去调整位置的麻烦。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/1.2.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/1.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="1.2">
 
 <p>仔细看一下角色模型的结构，其实模型作者还是分得挺清楚的，看不明白的话也有个保险方法，点击物体列表左边的眼睛隐藏当前组件，看看外观是否变化。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/1.3.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/1.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="1.3">
 
 <p>把机器人模型显示的部分全部删掉就好了，再把Q版人物底下的零件拖到机器人底下，替换完成。</p>
 <p>但要注意，替换完模型要记得<strong>修改碰撞箱的大小</strong>，毕竟机器人要高出整整半个身子。最后养成好习惯，把修改后的结果保存为新的<code>Prefab</code>（预制体）。</p>
@@ -238,13 +252,13 @@
 <p>试着运行一下看看，不出意外的话我们就得到了一个没有动作但是可以操作的萌萌哒角色。我们实现了基本的控制效果，接下来要将它与动作产生关联。</p>
 <h2 id="角色状态的建立"><a href="#角色状态的建立" class="headerlink" title="角色状态的建立"></a>角色状态的建立</h2><p>大部分情况下，当游戏内玩家没有任何操作时，肯定都是站立不动的状态，但事实上，玩家不可能和木头人一样完全静止，这样显得非常不真实，给玩家带来的体验当然也会很差。所以基本上所有有角色的游戏（纯2D游戏除外），角色的站立状态也都是有专门的动画的。</p>
 <h3 id="角色模型的绑定"><a href="#角色模型的绑定" class="headerlink" title="角色模型的绑定"></a>角色模型的绑定</h3><p>首先角色在没有操作的状态下，应该有自己的站立姿势，把站立状态作为角色的默认动画也很合理。还记得我们的角色是建立在<em>合格的控制器</em>与<em>合格的外观</em>上的，控制器早已具备角色动画的属性，只不过原先的对象被我们删除了，只需要替换掉丢失的原件，找到模型原先的的预制体赋予<code>Animator/Avatar</code></p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/2.1.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/2.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.1">
 
 <p>每个模型都有量身定制的骨骼、体态等，这一步只是告诉动画组件，我要调教的是这个模型。</p>
 <p>或许你已经看到了，这个属性上面的<code>Controller</code>组件是空白或者丢失的状态，接下来的才是重点。</p>
 <h3 id="状态机的建立"><a href="#状态机的建立" class="headerlink" title="状态机的建立"></a>状态机的建立</h3><p>在自己的工程内新建一个文件夹，我的叫<code>Animator Controllers</code>，用来存放我需要的动画状态机。</p>
 <p>在文件夹内右键新建<code>Animator Controller</code>组件，双击打开后是这个样子。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/2.2.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/2.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.2">
 
 <p>我们在这里面来实现角色的状态以及动画混合</p>
 <ul>
@@ -253,35 +267,35 @@
 <li><code>Any State</code>表示任意状态下，即表示模型任意时刻下的状态。说白了，**<code>AnyState</code>相当于是动画池，不管你当前的状态，我要你现在干什么，你就立刻去干什么**</li>
 </ul>
 <p>先来个最简单的，为角色建立一个站立的状态。右键点击<code>Create State/Empty</code>，然后会发现<code>Entry</code>默认自动连接上了这个状态，这是因为Unity默认把第一个状态视为主要状态。我把它取个名字叫<code>Stand</code>，选中这个状态以后查看它的属性面板。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/2.3.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/2.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.3">
 
 <p>其中第一个<code>Motion</code>属性就是用来绑定我们的模型动画的，我选择一个站姿的动画。</p>
 <p>创建状态这一步也可以先找到想要的动画文件直接拖进状态面板（推荐）。</p>
 <p>记得回到之前的面板，把编辑好的<code>Animation Controller</code>组件赋予角色空缺的部分。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/2.4.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/2.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.4">
 
 
 
 <p>啊♂可爱，先开瓶养乐多庆祝一下，然后我们再继续加入其他状态。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/2.5.gif" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/2.5.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="2.5">
 
 
 
 <h2 id="动画过渡"><a href="#动画过渡" class="headerlink" title="动画过渡"></a>动画过渡</h2><p>我们继续制作<em>行走</em>和<em>奔跑</em>两个角色动画，流程也大同小异了。</p>
 <ol>
 <li><p><strong>新建两个状态，并设置好对应动画</strong></p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/3.1.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/3.1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.1">
 </li>
 <li><p><strong>将这三个状态相互连接起来，右键状态点击Make Transition创建出连线，可以看出这条线是有向的</strong></p>
 <p>这张图的含义就是：如果当前玩家在站立状态，当条件满足XXX时，就可以过渡到前进状态，只不过当前的<code>Conditions</code>（条件）是无，也就是站立动画会自动播放到行走。</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/3.2.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/3.2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.2">
 
 
 
 </li>
 </ol>
 <p>   我们在左侧面板来创建动画的切换条件</p>
-   
+   <img src="/blogs/2020/10/06/Unity%20Animator/3.3.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/3.3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.3">
 
 
 
@@ -294,7 +308,7 @@
 <ol start="3">
 <li><strong>设置触发条件，比如当玩家按下方向键进行移动时，动画由站立转为行走</strong></li>
 </ol>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/3.4.png" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/3.4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.4">
 
 <ol start="3">
 <li><strong>连线绑定条件</strong></li>
@@ -316,12 +330,12 @@
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerAction</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> Animator anim;<span class="comment">//animation controller 动画文件</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        anim = GetComponent&lt;Animator&gt;();<span class="comment">//初始化动画</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (anim)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//WASD按键捕获</span></span><br><span class="line">            <span class="keyword">if</span> (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (Input.GetKey(KeyCode.LeftShift))<span class="comment">//判断是否奔跑</span></span><br><span class="line">                &#123;</span><br><span class="line">                    anim.SetInteger(<span class="string">&quot;Speed&quot;</span>, <span class="number">2</span>);<span class="comment">//奔跑状态</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    anim.SetInteger(<span class="string">&quot;Speed&quot;</span>, <span class="number">1</span>);<span class="comment">//行走状态</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                anim.SetInteger(<span class="string">&quot;Speed&quot;</span>, <span class="number">0</span>);<span class="comment">//站立状态</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>大功告成，Enjoy！</p>
-
+<img src="/blogs/2020/10/06/Unity%20Animator/3.5.gif" class="lazy" data-srcset="/blogs/2020/10/06/Unity%20Animator/3.5.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="3.5">
 
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2020-12-10</p></div> 
+    <div class="post-footer__meta"><p>updated at 2020-12-10</p></div> 
     <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" class="post-tags__link button"># 游戏引擎</a></div> 
 </article>
 
