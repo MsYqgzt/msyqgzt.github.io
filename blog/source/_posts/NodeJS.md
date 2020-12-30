@@ -347,7 +347,7 @@ require('fs');
 |       fs.writeSync(fd, data[, position[, encoding])        |                      fs.write()的同步版                      |
 |                   fs.close(fd, callback)                   |                      关闭一个打开的文件                      |
 |                      fs.closeSync(fd)                      |                     fs.close()的同步版本                     |
-|      fs.writeFlie(ilename, data, [options], callback)      | 异步的将数据写入一个文件,如果文件不存在则新建,如果文件原先存在，会被替换。data可以是一个string，也可以是一个原生buffer。 |
+|     fs.writeFlie(filename, data, [options], callback)      | 异步的将数据写入一个文件,如果文件不存在则新建,如果文件原先存在，会被替换。data可以是一个string，也可以是一个原生buffer。 |
 |        fs.writeFileSync(filename, data, [options])         |     fs.writeFile的同步版本。注意：没有callback，也不需要     |
 |     fs.appendFile(filename, data, [options], callback)     | 异步的将数据添加到一个文件的尾部，如果文件不存在，会创建一个新的文件。data可以是一个string，也可以是原生buffer。 |
 |        fs.appendFileSync(filename, data, [options])        |                   fs.appendFile的同步版本                    |
