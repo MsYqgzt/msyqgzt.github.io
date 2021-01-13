@@ -53,7 +53,7 @@
 <meta property="og:description" content="Mirror入门 Mirror是uMMORPG、vival和Cubica的开发人员为MMO规模的网络而构建和测试的。Mirror使联网变得容易，简洁和可维护。使用少于6000行代码即可实现uMMORPG。我们只需要一个网络库来启动我们的游戏就可以了。  准备工作 Unity Assets Store内下载Mirror，导入后重启Unity 确保游戏版本基于.NET Framework 4.x 以上">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-10-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-10T08:29:58.859Z">
+<meta property="article:modified_time" content="2021-01-13T11:28:38.839Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="游戏编程">
 <meta property="article:tag" content="联机">
@@ -198,7 +198,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mirror%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Mirror入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E9%80%A0%E4%B8%AA%E7%8E%A9%E5%AE%B6%E5%90%A7"><span class="toc-number">2.1.1.</span> <span class="toc-text">先造个玩家吧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">运行游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.1.3.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">5.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">5.1.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">5.2.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">5.2.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">5.2.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mirror%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Mirror入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E5%81%9A%E5%88%B0%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="toc-number">5.</span> <span class="toc-text">如何用Mirror实现做到网络通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">6.2.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">6.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">6.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">6.3.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">7.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">7.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -208,7 +208,7 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">Article Directory</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mirror%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Mirror入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E9%80%A0%E4%B8%AA%E7%8E%A9%E5%AE%B6%E5%90%A7"><span class="toc-number">2.1.1.</span> <span class="toc-text">先造个玩家吧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">运行游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.1.3.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">5.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">5.1.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">5.2.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">5.2.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">5.2.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mirror%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Mirror入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E5%81%9A%E5%88%B0%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="toc-number">5.</span> <span class="toc-text">如何用Mirror实现做到网络通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">6.2.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">6.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">6.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">6.3.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">7.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">7.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
     </div>
 
 
@@ -221,6 +221,8 @@
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
 <li>Unity Assets Store内下载<a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/network/mirror-129321">Mirror</a>，导入后重启Unity</li>
 <li>确保游戏版本基于<code>.NET Framework 4.x</code> 以上 </li>
+<li>手上捏一份 <a target="_blank" rel="noopener" href="https://mirror-networking.com/docs/api/Mirror.html">官方API文档</a></li>
+<li>下载一份<a target="_blank" rel="noopener" href="https://github.com/VeriorPies/ParrelSync">ParrelSync</a>，用于复制编辑器窗体，这样就能够区分服务端喝客户端的调试信息。</li>
 </ol>
 <h2 id="基本网络环境的建立"><a href="#基本网络环境的建立" class="headerlink" title="基本网络环境的建立"></a>基本网络环境的建立</h2><p>在游戏场景内添加空物体，名为<code>Network Manager</code>，挂载以下脚本</p>
 <ul>
@@ -247,7 +249,7 @@
 </ul>
 <h3 id="创建一个简单服务器"><a href="#创建一个简单服务器" class="headerlink" title="创建一个简单服务器"></a>创建一个简单服务器</h3><p>一个多人游戏是如何构成的呢？多人游戏就是多个玩家在同一个游戏世界里，每个玩家都有自己的客户端进入这个世界。</p>
 <p>那么首先就需要一个提供多个客户端数据传输的载体，也就是服务器。玩家通过客户端对服务器发起请求，最终在同一个游戏世界相遇。</p>
-<h4 id="先造个玩家吧"><a href="#先造个玩家吧" class="headerlink" title="先造个玩家吧"></a>先造个玩家吧</h4><p>作为入门的部分，我们以最简单的方式表达玩家。创建一个<code>Cube</code>，对其挂载一个简单的移动脚本，让它在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。</p>
+<h4 id="关联服务端与游戏对象"><a href="#关联服务端与游戏对象" class="headerlink" title="关联服务端与游戏对象"></a>关联服务端与游戏对象</h4><p>作为入门的部分，我们以最简单的方式表达玩家。创建一个<code>Cube</code>，对其挂载一个简单的移动脚本，让它产生时在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	transform.position += <span class="keyword">new</span> Vector3(</span><br><span class="line">		Radom.Range(<span class="number">-4f</span>,<span class="number">4f</span>),</span><br><span class="line">		Radom.Range(<span class="number">-4f</span>,<span class="number">4f</span>),</span><br><span class="line">		<span class="number">0f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>接着把挂载完成的游戏对象保存为预制体(<code>Prefabs</code>)</p>
@@ -261,13 +263,30 @@
 </blockquote>
 <p>玩家预制体内需要的脚本：</p>
 <ul>
-<li><code>NetworkIdentity</code>：该组件是网络的核心，由服务器Spwan(卵生)的物体都必须具备,该组件在卵生的时候会自动分配assetID和权限。<ul>
-<li><code>ServerOnly</code>勾选后物体只在服务器中存在</li>
-<li><code>Local Player Authority</code>勾选后在客户端中存在</li>
-</ul>
+<li><p><code>NetworkIdentity</code>：网络标识组件</p>
+<ul>
+<li><blockquote>
+<p>该组件是网络的核心，这个id是一个无字符的整数，在客户端和服务器之间传递消息时使用。因此为了能找到服务器内指定的对象，必须在会产生的每个预制体上都放置网络标识组件。</p>
+<p>由服务器Spwan(生成)的物体都必须具备，该组件在对象生成的时候会自动分配<code>Asset ID</code>和权限。</p>
+</blockquote>
+</li>
+<li><p><code>ServerOnly</code>勾选后的对象只在服务器中产生。</p>
+</li>
+<li><p><code>Local Player Authority</code>勾选后在将赋予客户端权限，使客户端可以对其进行操作。</p>
 </li>
 </ul>
-<h4 id="运行游戏"><a href="#运行游戏" class="headerlink" title="运行游戏"></a>运行游戏</h4><p>在编辑器内尝试运行游戏，会看到<code>HUD</code>的UI界面</p>
+<blockquote>
+<p>赋予权限的几种方式：</p>
+<ol>
+<li>使用<code>NetworkServer.AddPlayerForConnection(conn, player);</code>来生成一个角色对象。这种方式生成的角色会自动获得权限。</li>
+<li>对于已经存在的角色对象，使用<code>NetworkServer.Spawn(obj, connectionToClient);</code>来创建角色与客户端的关联。</li>
+<li>直接使用<code>NetworkIdentity.AssignClientAuthority(conn);</code>的方式将角色的权限移交到客户端上。如果我们想要剥夺客户端的权限，使用<code>NetworkIdentity.RemoveClientAuthority();</code>删除客户端权限。</li>
+<li>如果想要替换权限对应的角色，使用<code>NetworkIdentity.ReplacePlayerForConnection(conn, player);</code>替换权限对象。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="运行游戏"><a href="#运行游戏" class="headerlink" title="运行游戏"></a>运行游戏</h3><p>在编辑器内尝试运行游戏，会看到<code>HUD</code>的UI界面</p>
 <p>点击<code>LAN Host</code>，场景内就会出现一个立方体，代表一个<code>Player</code>进入了该服务器</p>
 <h4 id="模拟多客户端效果"><a href="#模拟多客户端效果" class="headerlink" title="模拟多客户端效果"></a>模拟多客户端效果</h4><p>在引擎菜单选择<code>建立并运行</code>(<code>Build And Run</code>)，点击<code>LAN Host</code>创建服务器，同时在引擎中运行游戏，相当于两个客户端在同时运行。<br>在引擎中选择<code>LAN Client</code>，此时两个游戏端口都出现了两个立方体，若关闭作为服务器的端口，玩家们被踢出，游戏场景会被清空。</p>
 <h2 id="服务器内玩家的移动"><a href="#服务器内玩家的移动" class="headerlink" title="服务器内玩家的移动"></a>服务器内玩家的移动</h2><p>将预制物体挂载<code>Network Transform</code>组件</p>
@@ -282,37 +301,129 @@
 
 
 
-<h2 id="与服务器的同步"><a href="#与服务器的同步" class="headerlink" title="与服务器的同步"></a>与服务器的同步</h2><h3 id="常用特征"><a href="#常用特征" class="headerlink" title="常用特征"></a>常用特征</h3><blockquote>
-<p>官方原文：</p>
+<h2 id="如何用Mirror实现做到网络通信"><a href="#如何用Mirror实现做到网络通信" class="headerlink" title="如何用Mirror实现做到网络通信"></a>如何用Mirror实现做到网络通信</h2><h2 id="与服务器的同步"><a href="#与服务器的同步" class="headerlink" title="与服务器的同步"></a>与服务器的同步</h2><h3 id="基本的回调函数"><a href="#基本的回调函数" class="headerlink" title="基本的回调函数"></a>基本的回调函数</h3><p>在服务端可以使用的回调函数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">函数名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><span style="color:green">Start</span></td>
+<td align="center">OnStartServer</td>
+<td align="center">服务器启动时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnServerSceneChanged</td>
+<td align="center">服务器场景改变时调用</td>
+</tr>
+<tr>
+<td align="center"><span style="color:green">Client Connect</span></td>
+<td align="center">OnServerConnect</td>
+<td align="center">服务器与客户端连接时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnServerReady</td>
+<td align="center">服务器连接就绪时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnServerAddPlayer</td>
+<td align="center">服务器中加入玩家时调用</td>
+</tr>
+<tr>
+<td align="center"><span style="color:red">ClientDisconnect</span></td>
+<td align="center">OnServerDisconnect</td>
+<td align="center">服务器与客户端断开连接时调用</td>
+</tr>
+<tr>
+<td align="center"><span style="color:red">Stop</span></td>
+<td align="center">OnStopServer</td>
+<td align="center">服务器关闭时调用</td>
+</tr>
+</tbody></table>
+<p>在客户端可以使用的回调函数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">函数名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><span style="color:green">Start</span></td>
+<td align="center">OnStartClient</td>
+<td align="center">客户端启动时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnClientConect</td>
+<td align="center">客户端与服务器连接时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnClientChangeScene</td>
+<td align="center">客户端切换场景时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnClientSceneChanged</td>
+<td align="center">客户端切换场景后调用</td>
+</tr>
+<tr>
+<td align="center"><span style="color:red">Stop</span></td>
+<td align="center">OnStopClient</td>
+<td align="center">客户端关闭时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">OnClientDisconnect</td>
+<td align="center">客户端与服务器断开连接时调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>对于网络行为的回调函数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">OnStartLocalPlayer</td>
+<td align="center">客户端玩家生成时回调</td>
+</tr>
+<tr>
+<td align="center">OnStopLocalPlayer</td>
+<td align="center">客户端玩家销毁时回调</td>
+</tr>
+<tr>
+<td align="center">OnStartAuthority</td>
+<td align="center">客户端玩家授权时回调</td>
+</tr>
+<tr>
+<td align="center">OnStopAuthority</td>
+<td align="center">客户端玩家解除授权时回调</td>
+</tr>
+</tbody></table>
+<h3 id="常用特征"><a href="#常用特征" class="headerlink" title="常用特征"></a>常用特征</h3><blockquote>
 <ul>
-<li><strong>[Server]</strong> / <strong>[Client]</strong> tags can be used for the server-only and client-only parts</li>
-<li><strong>[Command]</strong> s are used for Client-&gt;Server communication</li>
-<li><strong>[ClientRpc]</strong> / <strong>[TargetRpc]</strong> for Server-&gt;Client communication</li>
-<li><strong>[SyncVar]</strong> s and SyncLists are used to automatically synchronize state.</li>
-</ul>
-<blockquote>
-<p>翻译：</p>
-<ul>
-<li><strong>[Server]</strong> / <strong>[Client]</strong> 标记可用于仅用于服务器的部分和仅用于客户端的部分。</li>
-<li><strong>[Command]</strong> s 用于Client-&gt;Server通信</li>
-<li><strong>[ClientRpc]</strong> / <strong>[TargetRpc]</strong> 用于服务器-&gt;客户端通信</li>
-<li><strong>[SyncVar]</strong> s 和SyncList用于自动同步状态。</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<ul>
-<li><strong>[SyncVar]</strong><ul>
-<li>用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）</li>
-<li>这种特性的数据的修改<strong>只能从服务端修改</strong>，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。</li>
-</ul>
-</li>
 <li><strong>[Server]</strong><ul>
-<li>表示只在服务器执行</li>
+<li>表示只有服务端执行</li>
 </ul>
 </li>
 <li><strong>[Client]</strong><ul>
-<li>表示只在客户端执行</li>
+<li>表示只有当前客户端执行</li>
 </ul>
 </li>
 <li><strong>[ServerCallback]</strong><ul>
@@ -328,20 +439,39 @@
 </li>
 <li><strong>[Command]</strong><ul>
 <li>函数名以<code>Cmd</code>开头</li>
-<li>表示<strong>客户端向服务端发送的行为命令，在服务端执行</strong></li>
-<li>比如客户端角色想要发射子弹，发送命令到服务器，服务端内的玩家角色发射子弹。</li>
+<li>表示客户端调用在服务端的方法，这类方法<strong>在客户端调用，但在服务端运行</strong>。</li>
+<li>[Command]标记的方法无法在服务器上调用，因为这类方法只在服务器上运行。这些方法是从 客户端中的角色对象 发送到 服务端中的角色对象</li>
+<li>比如客户端角色通过<code>[Command]</code>发射子弹，则发射子弹的方法发送到服务器，服务端执行这个方法。</li>
+<li>只支持传递以下类型的参数<ul>
+<li>Primitive (byte, int, float, string, etc. )</li>
+<li>Built-in Unity math (Vector3, Quaternion, etc. )</li>
+<li>Arrays of pr imitive types</li>
+<li>Structs w/ these types</li>
+<li>Netwo rkIdentity</li>
+<li>Game0bject w/ NetworkIdentity </li>
 </ul>
 </li>
-<li><strong>[ClientPrc]</strong><ul>
-<li>函数名以<code>Rpc</code>开头</li>
-<li>表示<strong>服务端向客户端发送的命令，在服务端执行，使所有客户端生效</strong></li>
+<li><code>[Command(ignoreAuthority = true)]</code>可以使运行从游戏对象发送的</li>
+</ul>
+</li>
+<li><strong>[ClientRpc]</strong><ul>
+<li>函数名以<code>Rpc</code>开头（<code>Remote Procedure Call</code> - 远程过程调用）</li>
+<li>表示服务端在客户端调用方法，这类方法<strong>在服务端调用，但在客户端运行</strong></li>
 <li>比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。</li>
 </ul>
 </li>
 <li><strong>[TargetRpc]</strong><ul>
 <li>函数名以<code>Target</code>开头</li>
-<li>表示<strong>服务端向符合条件的指定客户端发送的命令，在客户端执行</strong></li>
-<li>比如玩家的得分条件，玩家击杀敌人，服务器会给这些客户端发送一个“你该得分了”的信号。</li>
+<li>表示<strong>服务端向符合条件的指定客户端调用方法</strong>，在服务端调用，在指定的客户端执行。</li>
+<li>通过传递<code>NetworkConnection</code>参数来指定客户端</li>
+<li>比如玩家的得分条件，玩家击杀敌人，服务器会执行得分方法，在指定客户端执行。</li>
+</ul>
+</li>
+<li><strong>[SyncVar]</strong><ul>
+<li>用于从服务器同步到客户端的属性标识。</li>
+<li>用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）</li>
+<li>使用<code>[SyncVar(hook = nameof(FuncName))] voidFuncName(T old, T new)&#123;&#125;</code>来监听同步变量的改变</li>
+<li>这种特性的数据的修改<strong>只能从服务端修改</strong>，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。</li>
 </ul>
 </li>
 </ul>
@@ -358,9 +488,55 @@
 <h4 id="发射子弹"><a href="#发射子弹" class="headerlink" title="发射子弹"></a>发射子弹</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> Mirror;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 子弹预制体，同样需要注册在Network Manager中 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> GameObject Bullet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerBullet</span> : <span class="title">NetworkBehavior</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnStartServer</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">base</span>.OnStartServer();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        transform.Translate(<span class="keyword">new</span> Vector3(Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>), <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            CmdFire();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 同步函数，发射子弹 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    [<span class="meta">Command</span>]</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CmdFire</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GameObject bullet = Instantitate(Bullet, transform.position + <span class="keyword">new</span> Vector(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//这一句必写，服务器同步产生此对象</span></span><br><span class="line">        NetworkServer.Spawn(bullet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="搭建服务器"><a href="#搭建服务器" class="headerlink" title="搭建服务器"></a>搭建服务器</h2><h3 id="生成服务器框架"><a href="#生成服务器框架" class="headerlink" title="生成服务器框架"></a>生成服务器框架</h3><p>服务器框架可以通过编辑器产生，这里直接使用在GayHub上找的轮子。</p>
+<p>修改路径参数，放在<code>Assets/Scripts/Editor</code>下。然后在编辑器菜单找到<code>Build</code>，选择服务端的平台。运行后会在你的项目地下生成一个<code>Builds</code>文件夹，里面包含你选择的平台的服务端文件。</p>
+<ul>
+<li><code>BuildScript.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> UnityEditor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BuildScript</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Scene Path</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">string</span> scenePath = <span class="string">&quot;Assets/Scenes/PlayScene.unity&quot;</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">MenuItem(<span class="meta-string">&quot;Build/Build All&quot;</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildAll</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        BuildWindowsServer();</span><br><span class="line">        BuildLinuxServer();</span><br><span class="line">        BuildWindowsClient();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">MenuItem(<span class="meta-string">&quot;Build/Build Server (Windows)&quot;</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildWindowsServer</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        BuildPlayerOptions buildPlayerOptions = <span class="keyword">new</span> BuildPlayerOptions()</span><br><span class="line">        &#123;</span><br><span class="line">            scenes = <span class="keyword">new</span>[] &#123; scenePath &#125;,</span><br><span class="line">            locationPathName = <span class="string">&quot;Builds/Windows/Server/Server.exe&quot;</span>,</span><br><span class="line">            target = BuildTarget.StandaloneWindows64,</span><br><span class="line">            options = BuildOptions.CompressWithLz4HC | BuildOptions.EnableHeadlessMode</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Building Server (Windows)...&quot;</span>);</span><br><span class="line">        BuildPipeline.BuildPlayer(buildPlayerOptions);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Built Server (Windows).&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">MenuItem(<span class="meta-string">&quot;Build/Build Server (Linux)&quot;</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildLinuxServer</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        BuildPlayerOptions buildPlayerOptions = <span class="keyword">new</span> BuildPlayerOptions()</span><br><span class="line">        &#123;</span><br><span class="line">            scenes = <span class="keyword">new</span>[] &#123; scenePath &#125;,</span><br><span class="line">            locationPathName = <span class="string">&quot;Builds/Linux/Server/Server.x86_64&quot;</span>,</span><br><span class="line">            target = BuildTarget.StandaloneLinux64,</span><br><span class="line">            options = BuildOptions.CompressWithLz4HC | BuildOptions.EnableHeadlessMode</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Building Server (Linux)...&quot;</span>);</span><br><span class="line">        BuildPipeline.BuildPlayer(buildPlayerOptions);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Built Server (Linux).&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    [<span class="meta">MenuItem(<span class="meta-string">&quot;Build/Build Client (Windows)&quot;</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildWindowsClient</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        BuildPlayerOptions buildPlayerOptions = <span class="keyword">new</span> BuildPlayerOptions()</span><br><span class="line">        &#123;</span><br><span class="line">            scenes = <span class="keyword">new</span>[] &#123; scenePath &#125;,</span><br><span class="line">            locationPathName = <span class="string">&quot;Builds/Windows/Client/Client.exe&quot;</span>,</span><br><span class="line">            target = BuildTarget.StandaloneWindows64,</span><br><span class="line">            options = BuildOptions.CompressWithLz4HC</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Building Client (Windows)...&quot;</span>);</span><br><span class="line">        BuildPipeline.BuildPlayer(buildPlayerOptions);</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;Built Client (Windows).&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过Git链接到服务器"><a href="#通过Git链接到服务器" class="headerlink" title="通过Git链接到服务器"></a>通过Git链接到服务器</h3><h4 id="Linux平台"><a href="#Linux平台" class="headerlink" title="Linux平台"></a>Linux平台</h4><p>租赁服务器后获得 公网IP 和 用户名</p>
+<ul>
+<li>使用git获取默认密钥，下载到指定位置：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i ~/保存路径/sshKeyPair.pem 用户名-user@公网IP</span><br></pre></td></tr></table></figure>
+
+<p>这一步结束会弹出<code>Linux</code>的服务器终端。</p>
+<ul>
+<li>接着用git上传我们生成好的服务器文件（先压缩成zip）：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp -i ~/保存路径/sshKeyPair.pem Builds/文件路径/Server.zip 用户名-user@公网IP</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此时来到服务器终端输入<code>ls</code>，会输出上传的<code>Server.zip</code>文件</li>
+<li>下一步我们需要解压文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ unzip Server.zip</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>确认解压后的文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Server/</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Server.x86_64</code>就是将要作为服务器运行的内容</p>
+<ul>
+<li>回到网页服务器的控制台，开放一个端口（可以是任意没使用过的端口，这里用7777）</li>
+<li>再回到<code>Linux</code>终端，创建<code>Server.x86_64</code>的可执行文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x ./Server.x86_64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行服务器执行文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./Server.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>若一切顺利，后台将弹出运行端口（7777）信息</p>
+<p>此时启动unity多人游戏，将连接从<code>localhost</code>IP改成`公网IP:7777，即可连接上多人游戏。</p>
+
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2020-12-10</p></div> 
+    <div class="post-footer__meta"><p>updated at 2021-01-13</p></div> 
     <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a><a href="/blogs/tags/%E8%81%94%E6%9C%BA/" class="post-tags__link button"># 联机</a></div> 
 </article>
 
