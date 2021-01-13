@@ -16,6 +16,8 @@ date: 2020-10-21
 
 1. Unity Assets Store内下载[Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)，导入后重启Unity
 2. 确保游戏版本基于`.NET Framework 4.x` 以上 
+3. 手上捏一份 [官方API文档](https://mirror-networking.com/docs/api/Mirror.html)
+4. 下载一份[ParrelSync](https://github.com/VeriorPies/ParrelSync)，用于复制编辑器窗体，这样就能够区分服务端喝客户端的调试信息。
 
 ## 基本网络环境的建立
 
@@ -42,11 +44,9 @@ date: 2020-10-21
 
 那么首先就需要一个提供多个客户端数据传输的载体，也就是服务器。玩家通过客户端对服务器发起请求，最终在同一个游戏世界相遇。
 
+#### 关联服务端与游戏对象
 
-
-#### 先造个玩家吧
-
-作为入门的部分，我们以最简单的方式表达玩家。创建一个`Cube`，对其挂载一个简单的移动脚本，让它在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。
+作为入门的部分，我们以最简单的方式表达玩家。创建一个`Cube`，对其挂载一个简单的移动脚本，让它产生时在X，Y轴上在(4,4)到(-4,-4)之间取随机位置。
 
 ```c#
 void Start(){
@@ -68,11 +68,26 @@ void Start(){
 
 玩家预制体内需要的脚本：
 
-- `NetworkIdentity`：该组件是网络的核心，由服务器Spwan(卵生)的物体都必须具备,该组件在卵生的时候会自动分配assetID和权限。
-  - `ServerOnly`勾选后物体只在服务器中存在
-  - `Local Player Authority`勾选后在客户端中存在
+- `NetworkIdentity`：网络标识组件
 
-#### 运行游戏
+  - > 该组件是网络的核心，这个id是一个无字符的整数，在客户端和服务器之间传递消息时使用。因此为了能找到服务器内指定的对象，必须在会产生的每个预制体上都放置网络标识组件。
+    >
+    > 由服务器Spwan(生成)的物体都必须具备，该组件在对象生成的时候会自动分配`Asset ID`和权限。
+    
+  - `ServerOnly`勾选后的对象只在服务器中产生。
+
+  - `Local Player Authority`勾选后在将赋予客户端权限，使客户端可以对其进行操作。
+
+  > 赋予权限的几种方式：
+  >
+  > 1. 使用`NetworkServer.AddPlayerForConnection(conn, player);`来生成一个角色对象。这种方式生成的角色会自动获得权限。
+  > 2. 对于已经存在的角色对象，使用`NetworkServer.Spawn(obj, connectionToClient);`来创建角色与客户端的关联。
+  > 3. 直接使用`NetworkIdentity.AssignClientAuthority(conn);`的方式将角色的权限移交到客户端上。如果我们想要剥夺客户端的权限，使用`NetworkIdentity.RemoveClientAuthority();`删除客户端权限。
+  > 4. 如果想要替换权限对应的角色，使用`NetworkIdentity.ReplacePlayerForConnection(conn, player);`替换权限对象。
+
+
+
+### 运行游戏
 
 在编辑器内尝试运行游戏，会看到`HUD`的UI界面
 
@@ -150,33 +165,57 @@ public class NetworkManagerOverride : NetworkManager
 
 
 
+## 如何用Mirror实现做到网络通信
+
+
+
+
+
 ## 与服务器的同步
+
+### 基本的回调函数
+
+在服务端可以使用的回调函数：
+
+|                      类别                       |        函数名        |             描述             |
+| :---------------------------------------------: | :------------------: | :--------------------------: |
+|     <span style="color:green">Start</span>      |    OnStartServer     |       服务器启动时调用       |
+|                                                 | OnServerSceneChanged |     服务器场景改变时调用     |
+| <span style="color:green">Client Connect</span> |   OnServerConnect    |   服务器与客户端连接时调用   |
+|                                                 |    OnServerReady     |     服务器连接就绪时调用     |
+|                                                 |  OnServerAddPlayer   |    服务器中加入玩家时调用    |
+| <span style="color:red">ClientDisconnect</span> |  OnServerDisconnect  | 服务器与客户端断开连接时调用 |
+|       <span style="color:red">Stop</span>       |     OnStopServer     |       服务器关闭时调用       |
+
+在客户端可以使用的回调函数：
+
+|                  类别                  |        函数名        |             描述             |
+| :------------------------------------: | :------------------: | :--------------------------: |
+| <span style="color:green">Start</span> |    OnStartClient     |       客户端启动时调用       |
+|                                        |    OnClientConect    |   客户端与服务器连接时调用   |
+|                                        | OnClientChangeScene  |     客户端切换场景时调用     |
+|                                        | OnClientSceneChanged |     客户端切换场景后调用     |
+|  <span style="color:red">Stop</span>   |     OnStopClient     |       客户端关闭时调用       |
+|                                        |  OnClientDisconnect  | 客户端与服务器断开连接时调用 |
+|                                        |                      |                              |
+
+对于网络行为的回调函数：
+
+|       函数名       |           描述           |
+| :----------------: | :----------------------: |
+| OnStartLocalPlayer |   客户端玩家生成时回调   |
+| OnStopLocalPlayer  |   客户端玩家销毁时回调   |
+|  OnStartAuthority  |   客户端玩家授权时回调   |
+|  OnStopAuthority   | 客户端玩家解除授权时回调 |
+
+
 
 ### 常用特征
 
-> 官方原文：
->
-> - **[Server]** / **[Client]** tags can be used for the server-only and client-only parts
-> - **[Command]** s are used for Client->Server communication
-> - **[ClientRpc]** / **[TargetRpc]** for Server->Client communication
-> - **[SyncVar]** s and SyncLists are used to automatically synchronize state.
->
-> > 翻译：
-> >
-> > - **[Server]** / **[Client]** 标记可用于仅用于服务器的部分和仅用于客户端的部分。
-> > - **[Command]** s 用于Client->Server通信
-> > - **[ClientRpc]** / **[TargetRpc]** 用于服务器->客户端通信
-> > - **[SyncVar]** s 和SyncList用于自动同步状态。
->
-> 
-
-> - **[SyncVar]**
->     - 用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）
->      - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。
 > - **[Server]**
->   - 表示只在服务器执行
+>   - 表示只有服务端执行
 > - **[Client]**
->    - 表示只在客户端执行
+>    - 表示只有当前客户端执行
 > - **[ServerCallback]**
 >   - 表示服务器执行的**回调函数，在服务端做判断**。
 >   - 只影响服务端。
@@ -186,16 +225,31 @@ public class NetworkManagerOverride : NetworkManager
 >   - 只影响当前客户端。
 > - **[Command]**
 >   - 函数名以`Cmd`开头
->   - 表示**客户端向服务端发送的行为命令，在服务端执行**
->   - 比如客户端角色想要发射子弹，发送命令到服务器，服务端内的玩家角色发射子弹。
-> - **[ClientPrc]**
->   - 函数名以`Rpc`开头
->   - 表示**服务端向客户端发送的命令，在服务端执行，使所有客户端生效**
+>   - 表示客户端调用在服务端的方法，这类方法**在客户端调用，但在服务端运行**。
+>   - [Command]标记的方法无法在服务器上调用，因为这类方法只在服务器上运行。这些方法是从 客户端中的角色对象 发送到 服务端中的角色对象
+>   - 比如客户端角色通过`[Command]`发射子弹，则发射子弹的方法发送到服务器，服务端执行这个方法。
+>   - 只支持传递以下类型的参数
+>     - Primitive (byte, int, float, string, etc. )
+>     - Built-in Unity math (Vector3, Quaternion, etc. )
+>     - Arrays of pr imitive types
+>     - Structs w/ these types
+>     - Netwo rkIdentity
+>     - Game0bject w/ NetworkIdentity 
+>   - `[Command(ignoreAuthority = true)]`可以使运行从游戏对象发送的
+> - **[ClientRpc]**
+>   - 函数名以`Rpc`开头（`Remote Procedure Call` - 远程过程调用）
+>   - 表示服务端在客户端调用方法，这类方法**在服务端调用，但在客户端运行**
 >   - 比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。
 > - **[TargetRpc]**
 >    - 函数名以`Target`开头
->    - 表示**服务端向符合条件的指定客户端发送的命令，在客户端执行**
->     - 比如玩家的得分条件，玩家击杀敌人，服务器会给这些客户端发送一个“你该得分了”的信号。
+>    - 表示**服务端向符合条件的指定客户端调用方法**，在服务端调用，在指定的客户端执行。
+>    - 通过传递`NetworkConnection`参数来指定客户端
+>     - 比如玩家的得分条件，玩家击杀敌人，服务器会执行得分方法，在指定客户端执行。
+> - **[SyncVar]**
+>    - 用于从服务器同步到客户端的属性标识。
+>    - 用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）
+>    - 使用`[SyncVar(hook = nameof(FuncName))] voidFuncName(T old, T new){}`来监听同步变量的改变
+>     - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。
 
 
 
@@ -286,3 +340,135 @@ public class PlayerBullet : NetworkBehavior
 }
 ```
 
+
+
+## 搭建服务器
+
+### 生成服务器框架
+
+服务器框架可以通过编辑器产生，这里直接使用在GayHub上找的轮子。
+
+修改路径参数，放在`Assets/Scripts/Editor`下。然后在编辑器菜单找到`Build`，选择服务端的平台。运行后会在你的项目地下生成一个`Builds`文件夹，里面包含你选择的平台的服务端文件。
+
+- `BuildScript.cs`
+
+```c#
+using System;
+using UnityEditor;
+
+public class BuildScript
+{
+    //Scene Path
+    const string scenePath = "Assets/Scenes/PlayScene.unity";
+
+    [MenuItem("Build/Build All")]
+    public static void BuildAll()
+    {
+        BuildWindowsServer();
+        BuildLinuxServer();
+        BuildWindowsClient();
+    }
+
+    [MenuItem("Build/Build Server (Windows)")]
+    public static void BuildWindowsServer()
+    {
+        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions()
+        {
+            scenes = new[] { scenePath },
+            locationPathName = "Builds/Windows/Server/Server.exe",
+            target = BuildTarget.StandaloneWindows64,
+            options = BuildOptions.CompressWithLz4HC | BuildOptions.EnableHeadlessMode
+        };
+
+        Console.WriteLine("Building Server (Windows)...");
+        BuildPipeline.BuildPlayer(buildPlayerOptions);
+        Console.WriteLine("Built Server (Windows).");
+    }
+
+    [MenuItem("Build/Build Server (Linux)")]
+    public static void BuildLinuxServer()
+    {
+        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions()
+        {
+            scenes = new[] { scenePath },
+            locationPathName = "Builds/Linux/Server/Server.x86_64",
+            target = BuildTarget.StandaloneLinux64,
+            options = BuildOptions.CompressWithLz4HC | BuildOptions.EnableHeadlessMode
+        };
+
+        Console.WriteLine("Building Server (Linux)...");
+        BuildPipeline.BuildPlayer(buildPlayerOptions);
+        Console.WriteLine("Built Server (Linux).");
+    }
+
+
+    [MenuItem("Build/Build Client (Windows)")]
+    public static void BuildWindowsClient()
+    {
+        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions()
+        {
+            scenes = new[] { scenePath },
+            locationPathName = "Builds/Windows/Client/Client.exe",
+            target = BuildTarget.StandaloneWindows64,
+            options = BuildOptions.CompressWithLz4HC
+        };
+
+        Console.WriteLine("Building Client (Windows)...");
+        BuildPipeline.BuildPlayer(buildPlayerOptions);
+        Console.WriteLine("Built Client (Windows).");
+    }
+}
+```
+
+### 通过Git链接到服务器
+
+#### Linux平台
+
+租赁服务器后获得 公网IP 和 用户名
+
+- 使用git获取默认密钥，下载到指定位置：
+
+```bash
+$ ssh -i ~/保存路径/sshKeyPair.pem 用户名-user@公网IP
+```
+
+这一步结束会弹出`Linux`的服务器终端。
+
+- 接着用git上传我们生成好的服务器文件（先压缩成zip）：
+
+```bash
+$ scp -i ~/保存路径/sshKeyPair.pem Builds/文件路径/Server.zip 用户名-user@公网IP
+```
+
+- 此时来到服务器终端输入`ls`，会输出上传的`Server.zip`文件
+- 下一步我们需要解压文件
+
+```bash
+$ unzip Server.zip
+```
+
+- 确认解压后的文件
+
+```bash
+$ cd Server/
+$ ls
+```
+
+其中`Server.x86_64`就是将要作为服务器运行的内容
+
+- 回到网页服务器的控制台，开放一个端口（可以是任意没使用过的端口，这里用7777）
+- 再回到`Linux`终端，创建`Server.x86_64`的可执行文件
+
+```bash
+$ chmod +x ./Server.x86_64
+```
+
+- 运行服务器执行文件
+
+```bash
+$ ./Server.x86_64
+```
+
+若一切顺利，后台将弹出运行端口（7777）信息
+
+此时启动unity多人游戏，将连接从`localhost`IP改成`公网IP:7777，即可连接上多人游戏。
