@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>游戏专业概论-考试笔记 | AlertNote</title>
+
+
+    <meta name="keywords" content="游戏">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="游戏的定义游戏规则包含的要素 必须有道具和游戏 道具是指玩家在游戏过程中所用的物品（包括所处的空间）。 规则是指玩家在游戏过程中所必须遵循的行为守则。   必须有目标 游戏进程必须具有变化性 必须具有竞争性  虚拟环境的三要素——沉浸感、互动性和想象力电子游戏的类型按运行平台分类 PC游戏 控制台游戏 掌上游戏机游戏 手机游戏 街机游戏  按架构类型分类 角色扮演类游戏  代表作品：《最终幻想》系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏专业概论-考试笔记">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2021/01/04/280e5ae3c1af/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="游戏的定义游戏规则包含的要素 必须有道具和游戏 道具是指玩家在游戏过程中所用的物品（包括所处的空间）。 规则是指玩家在游戏过程中所必须遵循的行为守则。   必须有目标 游戏进程必须具有变化性 必须具有竞争性  虚拟环境的三要素——沉浸感、互动性和想象力电子游戏的类型按运行平台分类 PC游戏 控制台游戏 掌上游戏机游戏 手机游戏 街机游戏  按架构类型分类 角色扮演类游戏  代表作品：《最终幻想》系">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-13T02:34:32.331Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="游戏">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        游戏专业概论-考试笔记
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2021/01/" class="post-meta__date button">2021-01-04</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/%E6%B8%B8%E6%88%8F/" class="button">游戏</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">游戏的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99%E5%8C%85%E5%90%AB%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text">游戏规则包含的要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0%E2%80%94%E2%80%94%E6%B2%89%E6%B5%B8%E6%84%9F%E3%80%81%E4%BA%92%E5%8A%A8%E6%80%A7%E5%92%8C%E6%83%B3%E8%B1%A1%E5%8A%9B"><span class="toc-number">1.2.</span> <span class="toc-text">虚拟环境的三要素——沉浸感、互动性和想象力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">电子游戏的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">按运行平台分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E6%9E%B6%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">按架构类型分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BA%A7%E4%B8%9A%E7%9A%84%E6%B2%BF%E9%9D%A9%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text">游戏产业的沿革与发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%9E%E7%94%9F%E2%80%94%E2%80%9420%E4%B8%96%E7%BA%AA60%E5%B9%B4%E4%BB%A3"><span class="toc-number">3.1.</span> <span class="toc-text">诞生——20世纪60年代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%B8%B8%E6%88%8F%E4%BA%A7%E4%B8%9A"><span class="toc-number">4.</span> <span class="toc-text">中国游戏产业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%B8%82%E5%9C%BA%E5%8F%91%E5%B1%95%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-number">5.</span> <span class="toc-text">游戏市场发展与展望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E9%9C%80%E6%B1%82%E5%8F%8A%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">游戏开发人员需求及过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%9A%84%E4%BA%BA%E5%91%98%E9%9C%80%E6%B1%82"><span class="toc-number">6.1.</span> <span class="toc-text">游戏开发的人员需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="toc-number">6.2.</span> <span class="toc-text">游戏开发过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB"><span class="toc-number">7.</span> <span class="toc-text">游戏设计师的背景知识体系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#D-amp-D%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E8%A7%84%E5%88%99"><span class="toc-number">7.1.</span> <span class="toc-text">D&amp;D人物属性规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%BB%84%E6%88%90%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">游戏组成结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3"><span class="toc-number">9.</span> <span class="toc-text">游戏设计文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-number">9.1.</span> <span class="toc-text">游戏设计文档的主要功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%8F%8A%E5%85%B6%E5%B7%A5%E4%BD%9C"><span class="toc-number">10.</span> <span class="toc-text">游戏软件工程师及其工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E7%BB%93%E6%9E%84"><span class="toc-number">11.</span> <span class="toc-text">游戏软件技术结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80"><span class="toc-number">11.1.</span> <span class="toc-text">游戏物理基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="toc-number">11.2.</span> <span class="toc-text">计算机程序设计基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%8E3D%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF"><span class="toc-number">11.2.1.</span> <span class="toc-text">图形学与3D图形技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">11.2.2.</span> <span class="toc-text">其他优化技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E4%B8%8E%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7"><span class="toc-number">12.</span> <span class="toc-text">游戏引擎与编辑工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E4%B8%BA%E4%BC%98%E7%A7%80%E7%9A%84%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-number">13.</span> <span class="toc-text">成为优秀的游戏软件开发工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E8%83%BD%E8%A6%81%E6%B1%82"><span class="toc-number">13.1.</span> <span class="toc-text">技能要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%8E%E6%9C%AF%E5%88%B6%E4%BD%9C%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB"><span class="toc-number">13.2.</span> <span class="toc-text">美术制作背景知识体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E5%8F%8A%E8%B4%B4%E5%9B%BE"><span class="toc-number">13.3.</span> <span class="toc-text">建模及贴图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E4%B8%BA%E6%B8%B8%E6%88%8F%E5%85%AC%E5%8F%B8%E7%9A%84%E4%B8%80%E5%91%98"><span class="toc-number">14.</span> <span class="toc-text">成为游戏公司的一员</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B4%A0%E8%B4%A8%E5%9F%B9%E5%85%BB"><span class="toc-number">14.1.</span> <span class="toc-text">基本素质培养</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E5%8A%9B%E7%9A%84%E6%95%B4%E5%90%88%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-number">14.2.</span> <span class="toc-text">能力的整合与展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86"><span class="toc-number">15.</span> <span class="toc-text">团队协作与项目管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95"><span class="toc-number">15.1.</span> <span class="toc-text">项目测试</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">游戏的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99%E5%8C%85%E5%90%AB%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text">游戏规则包含的要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0%E2%80%94%E2%80%94%E6%B2%89%E6%B5%B8%E6%84%9F%E3%80%81%E4%BA%92%E5%8A%A8%E6%80%A7%E5%92%8C%E6%83%B3%E8%B1%A1%E5%8A%9B"><span class="toc-number">1.2.</span> <span class="toc-text">虚拟环境的三要素——沉浸感、互动性和想象力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">电子游戏的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.</span> <span class="toc-text">按运行平台分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E6%9E%B6%E6%9E%84%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">按架构类型分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BA%A7%E4%B8%9A%E7%9A%84%E6%B2%BF%E9%9D%A9%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text">游戏产业的沿革与发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%9E%E7%94%9F%E2%80%94%E2%80%9420%E4%B8%96%E7%BA%AA60%E5%B9%B4%E4%BB%A3"><span class="toc-number">3.1.</span> <span class="toc-text">诞生——20世纪60年代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%B8%B8%E6%88%8F%E4%BA%A7%E4%B8%9A"><span class="toc-number">4.</span> <span class="toc-text">中国游戏产业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%B8%82%E5%9C%BA%E5%8F%91%E5%B1%95%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-number">5.</span> <span class="toc-text">游戏市场发展与展望</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E9%9C%80%E6%B1%82%E5%8F%8A%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">游戏开发人员需求及过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E7%9A%84%E4%BA%BA%E5%91%98%E9%9C%80%E6%B1%82"><span class="toc-number">6.1.</span> <span class="toc-text">游戏开发的人员需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="toc-number">6.2.</span> <span class="toc-text">游戏开发过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB"><span class="toc-number">7.</span> <span class="toc-text">游戏设计师的背景知识体系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#D-amp-D%E4%BA%BA%E7%89%A9%E5%B1%9E%E6%80%A7%E8%A7%84%E5%88%99"><span class="toc-number">7.1.</span> <span class="toc-text">D&amp;D人物属性规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%BB%84%E6%88%90%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">游戏组成结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3"><span class="toc-number">9.</span> <span class="toc-text">游戏设计文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-number">9.1.</span> <span class="toc-text">游戏设计文档的主要功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%8F%8A%E5%85%B6%E5%B7%A5%E4%BD%9C"><span class="toc-number">10.</span> <span class="toc-text">游戏软件工程师及其工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF%E7%BB%93%E6%9E%84"><span class="toc-number">11.</span> <span class="toc-text">游戏软件技术结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80"><span class="toc-number">11.1.</span> <span class="toc-text">游戏物理基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="toc-number">11.2.</span> <span class="toc-text">计算机程序设计基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%8E3D%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF"><span class="toc-number">11.2.1.</span> <span class="toc-text">图形学与3D图形技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-number">11.2.2.</span> <span class="toc-text">其他优化技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E4%B8%8E%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7"><span class="toc-number">12.</span> <span class="toc-text">游戏引擎与编辑工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E4%B8%BA%E4%BC%98%E7%A7%80%E7%9A%84%E6%B8%B8%E6%88%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-number">13.</span> <span class="toc-text">成为优秀的游戏软件开发工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E8%83%BD%E8%A6%81%E6%B1%82"><span class="toc-number">13.1.</span> <span class="toc-text">技能要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%8E%E6%9C%AF%E5%88%B6%E4%BD%9C%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB"><span class="toc-number">13.2.</span> <span class="toc-text">美术制作背景知识体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E5%8F%8A%E8%B4%B4%E5%9B%BE"><span class="toc-number">13.3.</span> <span class="toc-text">建模及贴图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E4%B8%BA%E6%B8%B8%E6%88%8F%E5%85%AC%E5%8F%B8%E7%9A%84%E4%B8%80%E5%91%98"><span class="toc-number">14.</span> <span class="toc-text">成为游戏公司的一员</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B4%A0%E8%B4%A8%E5%9F%B9%E5%85%BB"><span class="toc-number">14.1.</span> <span class="toc-text">基本素质培养</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%BD%E5%8A%9B%E7%9A%84%E6%95%B4%E5%90%88%E4%B8%8E%E5%B1%95%E7%A4%BA"><span class="toc-number">14.2.</span> <span class="toc-text">能力的整合与展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86"><span class="toc-number">15.</span> <span class="toc-text">团队协作与项目管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95"><span class="toc-number">15.1.</span> <span class="toc-text">项目测试</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="游戏的定义"><a href="#游戏的定义" class="headerlink" title="游戏的定义"></a>游戏的定义</h2><h3 id="游戏规则包含的要素"><a href="#游戏规则包含的要素" class="headerlink" title="游戏规则包含的要素"></a>游戏规则包含的要素</h3><ol>
+<li>必须有道具和游戏<ul>
+<li>道具是指玩家在游戏过程中所用的物品（包括所处的空间）。</li>
+<li>规则是指玩家在游戏过程中所必须遵循的行为守则。</li>
+</ul>
+</li>
+<li>必须有目标</li>
+<li>游戏进程必须具有变化性</li>
+<li>必须具有竞争性</li>
+</ol>
+<h3 id="虚拟环境的三要素——沉浸感、互动性和想象力"><a href="#虚拟环境的三要素——沉浸感、互动性和想象力" class="headerlink" title="虚拟环境的三要素——沉浸感、互动性和想象力"></a>虚拟环境的三要素——沉浸感、互动性和想象力</h3><h2 id="电子游戏的类型"><a href="#电子游戏的类型" class="headerlink" title="电子游戏的类型"></a>电子游戏的类型</h2><h3 id="按运行平台分类"><a href="#按运行平台分类" class="headerlink" title="按运行平台分类"></a>按运行平台分类</h3><ol>
+<li>PC游戏</li>
+<li>控制台游戏</li>
+<li>掌上游戏机游戏</li>
+<li>手机游戏</li>
+<li>街机游戏</li>
+</ol>
+<h3 id="按架构类型分类"><a href="#按架构类型分类" class="headerlink" title="按架构类型分类"></a>按架构类型分类</h3><ol>
+<li><p>角色扮演类游戏</p>
+<ul>
+<li>代表作品：《最终幻想》系列、《仙剑奇侠传》、《暗黑破坏神》、《火焰纹章》、《传奇》</li>
+</ul>
+</li>
+<li><p>即时战略类游戏</p>
+<ul>
+<li>代表作品：《星际争霸》系列、《魔兽争霸》系列、《帝国时代》及《红色警戒》系列</li>
+</ul>
+</li>
+<li><p>动作类游戏</p>
+<ul>
+<li>代表作品：《波斯王子》、《古墓丽影》</li>
+</ul>
+</li>
+<li><p>格斗类游戏</p>
+<ul>
+<li>代表作品：《街头霸王》、《The King of Fighters》（拳皇）、《三国志武将争霸2》</li>
+</ul>
+</li>
+<li><p>第一人称视角射击游戏</p>
+<ul>
+<li>代表作品：《反恐精英》、《荣誉勋章》</li>
+</ul>
+</li>
+<li><p>冒险类游戏</p>
+<ul>
+<li>代表作品：《真三国无双》、《神庙逃亡》</li>
+</ul>
+</li>
+<li><p>模拟类游戏</p>
+<ul>
+<li>代表作品：《模拟城市》、《模拟人生》、《微软模拟飞行》</li>
+</ul>
+</li>
+<li><p>运动类游戏</p>
+<ul>
+<li>FIFA系列、NBA系列、《实况足球》系列、《极品飞车》系列。</li>
+</ul>
+</li>
+<li><p>桌面类游戏</p>
+<ul>
+<li>《万智牌》、《升级》、《大富翁》</li>
+</ul>
+</li>
+<li><p>其他类型游戏</p>
+</li>
+</ol>
+<h2 id="游戏产业的沿革与发展"><a href="#游戏产业的沿革与发展" class="headerlink" title="游戏产业的沿革与发展"></a>游戏产业的沿革与发展</h2><h3 id="诞生——20世纪60年代"><a href="#诞生——20世纪60年代" class="headerlink" title="诞生——20世纪60年代"></a>诞生——20世纪60年代</h3><ul>
+<li>当时的计算机精英为电子游戏归纳出以下三条基本原则<ol>
+<li>尽可能充分地利用现有的硬件资源，并将其推至极限。</li>
+<li>在一个持续时段内尽可能提高程序的变化性。</li>
+<li>务必使观者积极、愉快地参与进来。</li>
+</ol>
+</li>
+</ul>
+<h2 id="中国游戏产业"><a href="#中国游戏产业" class="headerlink" title="中国游戏产业"></a>中国游戏产业</h2><ul>
+<li>宏碁公司的创始人<strong>施振荣</strong>把旗下的媒体事业部划分出来，成立了第三波文化事业股份有限公司（后改名为“第三波资讯股份有限公司”），主营杂志、图书、教育休闲软件和商用软件的代理发行。经典游戏《英雄无敌》就是通过第三波代理进入大陆的。</li>
+</ul>
+<h2 id="游戏市场发展与展望"><a href="#游戏市场发展与展望" class="headerlink" title="游戏市场发展与展望"></a>游戏市场发展与展望</h2><ul>
+<li>美国游戏市场是全世界游戏市场的主要支柱。</li>
+<li><strong>产品同质化</strong>是韩国游戏业最大的问题，但其良好的产业氛围使之持续发展性良好。</li>
+<li>游戏业界分为发行商和开发商两大集团。在这种市场结构中，游戏开发商并不是游戏产业的核心，发行商才是美国游戏产业链的核心环节。</li>
+<li>中国游戏市场（曾经）的特点是网络游戏占据绝大半江山，单机游戏已基本失去空间，控制台游戏和掌上游戏市场尚未加速。</li>
+</ul>
+<h2 id="游戏开发人员需求及过程"><a href="#游戏开发人员需求及过程" class="headerlink" title="游戏开发人员需求及过程"></a>游戏开发人员需求及过程</h2><h3 id="游戏开发的人员需求"><a href="#游戏开发的人员需求" class="headerlink" title="游戏开发的人员需求"></a>游戏开发的人员需求</h3><ol>
+<li>游戏项目管理类</li>
+<li>游戏策划类</li>
+<li>游戏软件开发类</li>
+<li>游戏美术类</li>
+<li>游戏音频类</li>
+<li>游戏质保类</li>
+<li>游戏运营类</li>
+</ol>
+<h3 id="游戏开发过程"><a href="#游戏开发过程" class="headerlink" title="游戏开发过程"></a>游戏开发过程</h3><p><span style='color:#e6739f'><strong>Q：游戏的开发主要经过哪些流程？各阶段有什么特点？</strong></span></p>
+<ol>
+<li><strong>立项提案：</strong>提案立项阶段要做的主要工作是明确要做什么样的游戏、游戏的名称是什么、采用何种表现方式（2D、2.5D、3D等）、游戏的特色何在、实现在什么样的平台上、人员如何搭配等问题。</li>
+<li><strong>设计</strong></li>
+<li><strong>实现</strong></li>
+<li><strong>测试及评审</strong></li>
+<li><strong>发布</strong></li>
+</ol>
+<h2 id="游戏设计师的背景知识体系"><a href="#游戏设计师的背景知识体系" class="headerlink" title="游戏设计师的背景知识体系"></a>游戏设计师的背景知识体系</h2><h3 id="D-amp-D人物属性规则"><a href="#D-amp-D人物属性规则" class="headerlink" title="D&amp;D人物属性规则"></a>D&amp;D人物属性规则</h3><p>每一项属性都部分描述了玩家的人物，并且影响到它的一些行动。￼</p>
+<ol>
+<li>力量<ul>
+<li>力量（Strength，简称Str）量化了人物的肌肉和身体强壮动，这项属性对战是野蛮人，圣骑士和巡林客等战斗系职业特别重要。</li>
+</ul>
+</li>
+<li>敏捷<ul>
+<li>敏捷（Dexterity，简称Dex）量化了手眼协调性、灵活度、反应以及平衡性。这项属性是游荡者最重要的属性，对那些通常穿着轻甲或中甲（巡林客和野蛮人），或不穿甲（法师和术士），以及任何想成为优秀弓箭手的人物来说，敏捷也很重要。￼</li>
+</ul>
+</li>
+<li>体制<ul>
+<li>体质（Constitution，简称Con）表示了人物的健康和耐力。体质加值能增加角色的生命点数，所以对所有职业都很重要。￼</li>
+</ul>
+</li>
+<li>智力<ul>
+<li>智力（Intelligence，简称Int）决定了人物学习和推理的能力。这项属性对法师非常重要，因为它决定了法师所能施展的法术数量，抵抗他们施展法术的难度，以及法术的威力，同时智力对任何想拥有多种技能的人物都很重要。￼</li>
+</ul>
+</li>
+<li>感知<ul>
+<li>感知（Wisdom，简称Wis）表现了人物的意志力、常识判断力、感知力和直觉。智力表现人物分析信息的能力，而感知更多的表现与对周围事物的察觉和了解上。感知是牧师最重要的属性，对圣骑士和巡林客也很重要。如果你希望你的人物有敏锐的直觉，那就给他高的感知属性。任何生物都有感知。￼</li>
+</ul>
+</li>
+<li>魅力<ul>
+<li>魅力（Charisma，简称Cha）表示人物的魄力、说服力、个人吸引力、领导能力和外表吸引力。这项属性对圣骑士和吟游诗人最重要，他对牧师也很重要，因为他影响着牧师驱退不死生物的能力，任何生物都有魅力。术士或吟游诗人由高魅力值到施法次数奖励。￼</li>
+</ul>
+</li>
+</ol>
+<h2 id="游戏组成结构分析"><a href="#游戏组成结构分析" class="headerlink" title="游戏组成结构分析"></a>游戏组成结构分析</h2><ul>
+<li>一般来说，音效在游戏中，以如下三种形态出现。<ol>
+<li>背景音效，与背景音乐同时播出，不间断地播放，如铁匠铺里，叮叮当当的打铁声。</li>
+<li>随机音效，在一个场景中，随机播放出来，例如湖光山色中，偶有的一两声鸟鸣。</li>
+<li>定制音效，随玩家的操作而播放的音效，例如玩家拔剑时剑的出鞘声，玩家选中场景中小狗（NPC）的“汪汪”声。</li>
+</ol>
+</li>
+</ul>
+<h2 id="游戏设计文档"><a href="#游戏设计文档" class="headerlink" title="游戏设计文档"></a>游戏设计文档</h2><h3 id="游戏设计文档的主要功能"><a href="#游戏设计文档的主要功能" class="headerlink" title="游戏设计文档的主要功能"></a>游戏设计文档的主要功能</h3><ol>
+<li>指导游戏开发的顺利进行</li>
+<li>确保游戏主题的连贯性</li>
+<li>确保游戏项目的持续性</li>
+</ol>
+<ul>
+<li><strong>游戏机制：</strong>游戏机制是在游戏环境中玩家做什么、在哪里做、什么时间做、为什么做、用什么做和怎样做的描写，是游戏规则的综合化。</li>
+</ul>
+<h2 id="游戏软件工程师及其工作"><a href="#游戏软件工程师及其工作" class="headerlink" title="游戏软件工程师及其工作"></a>游戏软件工程师及其工作</h2><p>为了完成一款游戏游戏软件工程师需要完成以下工作。</p>
+<ol>
+<li>游戏引擎的开发与维护。</li>
+<li>￼游戏编辑工具的开发与维护。</li>
+<li>游戏逻辑的实现。</li>
+<li>其他需要软件工程师来实现的内容。</li>
+</ol>
+<h2 id="游戏软件技术结构"><a href="#游戏软件技术结构" class="headerlink" title="游戏软件技术结构"></a>游戏软件技术结构</h2><h3 id="游戏物理基础"><a href="#游戏物理基础" class="headerlink" title="游戏物理基础"></a>游戏物理基础</h3><ol>
+<li>速度与加速度</li>
+<li>重力与动量</li>
+<li>爆炸效果<ul>
+<li>爆炸的过程大概可以分为两个阶段，一个阶段是爆炸的瞬间在这个瞬间物体碎裂，每个碎块都受到爆炸源的巨大冲击力。</li>
+<li>第二个阶段是这个作用力消失以后物体已经获得了巨大的速度，而且还受到重力的作用，这个阶段物体做一个自由落体运动。</li>
+</ul>
+</li>
+</ol>
+<h3 id="计算机程序设计基础"><a href="#计算机程序设计基础" class="headerlink" title="计算机程序设计基础"></a>计算机程序设计基础</h3><ul>
+<li><p>大体来说，所有的大型PC游戏，单机或多人在线游戏，都是使用C++编写的。因为到目前为止，只有C++有功能完善，足以应用于游戏开发的图形函数库。</p>
+</li>
+<li><p><strong>Java语言的优势：</strong>跨平台功能——Java程序可以在不重新编译的情况下，直接运行与不同的操作系统上。</p>
+</li>
+</ul>
+<h4 id="图形学与3D图形技术"><a href="#图形学与3D图形技术" class="headerlink" title="图形学与3D图形技术"></a>图形学与3D图形技术</h4><ul>
+<li>最基本的图元，包括<strong>点、线、三角形、多边形</strong>等。游戏中最常使用的图元是三角形。</li>
+<li><strong>曲面建模的优势：</strong><ol>
+<li>曲面模型的描述更简洁：使用曲面和数学方程式来描述。</li>
+<li>比多边形模型更平滑细腻：使用曲面计算，基本没有明显的转折。</li>
+<li>￼存储空间小：只需要存储数学公式与关键点加以计算，而不像多边形模型需要存储所有多边形的顶点。</li>
+<li>动画和碰撞检测更简单和快捷。</li>
+</ol>
+</li>
+</ul>
+<h4 id="其他优化技术"><a href="#其他优化技术" class="headerlink" title="其他优化技术"></a>其他优化技术</h4><ul>
+<li>目前3D游戏开发使用的主流API是OpenGL和DirectX。</li>
+</ul>
+<h2 id="游戏引擎与编辑工具"><a href="#游戏引擎与编辑工具" class="headerlink" title="游戏引擎与编辑工具"></a>游戏引擎与编辑工具</h2><ul>
+<li>目前游戏所采用的动画系统可以分为两种，一是骨骼动画系统，二是模型动画系统。</li>
+</ul>
+<h2 id="成为优秀的游戏软件开发工程师"><a href="#成为优秀的游戏软件开发工程师" class="headerlink" title="成为优秀的游戏软件开发工程师"></a>成为优秀的游戏软件开发工程师</h2><h3 id="技能要求"><a href="#技能要求" class="headerlink" title="技能要求"></a>技能要求</h3><ol>
+<li>扎实的软件专业基础</li>
+<li>熟练掌握常用程序语言</li>
+<li>精通图形、网络等专用技术</li>
+<li>一定的英语水平</li>
+</ol>
+<h3 id="美术制作背景知识体系"><a href="#美术制作背景知识体系" class="headerlink" title="美术制作背景知识体系"></a>美术制作背景知识体系</h3><ul>
+<li>游戏设计中主要使用的是RGB色彩系统。</li>
+<li>在游戏的世界中，人的身高不是用米或者英尺来计算的，而是用一个特殊的计量单位“头”。</li>
+</ul>
+<h3 id="建模及贴图"><a href="#建模及贴图" class="headerlink" title="建模及贴图"></a>建模及贴图</h3><ul>
+<li>三维模型的几何建模方法主要有多边形（Polygon）建模、非均匀有理B样条曲线（NURBS）建模等。</li>
+</ul>
+<h2 id="成为游戏公司的一员"><a href="#成为游戏公司的一员" class="headerlink" title="成为游戏公司的一员"></a>成为游戏公司的一员</h2><h3 id="基本素质培养"><a href="#基本素质培养" class="headerlink" title="基本素质培养"></a>基本素质培养</h3><ol>
+<li>沟通与协作</li>
+<li>毅力与持续性</li>
+<li>关注细节，追求完美</li>
+<li>广泛的知识面</li>
+</ol>
+<h3 id="能力的整合与展示"><a href="#能力的整合与展示" class="headerlink" title="能力的整合与展示"></a>能力的整合与展示</h3><p>最佳方法是通过一些完整的DEMO（Demonstrate，演示）来体现。</p>
+<h2 id="团队协作与项目管理"><a href="#团队协作与项目管理" class="headerlink" title="团队协作与项目管理"></a>团队协作与项目管理</h2><h3 id="项目测试"><a href="#项目测试" class="headerlink" title="项目测试"></a>项目测试</h3><ul>
+<li>Alpha测试阶段</li>
+<li>Beta测试阶段</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2021-01-13</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/%E6%B8%B8%E6%88%8F/" class="post-cats__link button">游戏</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F/" class="post-tags__link button"># 游戏</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2020/12/30/d1d211592bcf/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            给未来迷茫的自己
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+        </p>
+    
+    
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

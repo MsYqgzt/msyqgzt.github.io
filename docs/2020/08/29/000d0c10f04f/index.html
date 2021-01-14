@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>RPG游戏/特效制作-硬核笔记 | AlertNote</title>
+
+
+    <meta name="keywords" content="游戏编程, 游戏引擎">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="准备工作$准备工作\begin{cases}角色导入\begin{cases}模型\\动画\\贴图\end{cases}\\UI\begin{cases}血量\\法力值\\界面\\…\end{cases}\\AI(Bot)\begin{cases}扣血\\对象\\移动\end{cases}\end{cases}$ 处理素材文件 从Maya导出素材  修改世界坐标为Z轴朝上(UE4可忽略) wind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPG游戏&#x2F;特效制作-硬核笔记">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/08/29/000d0c10f04f/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="准备工作$准备工作\begin{cases}角色导入\begin{cases}模型\\动画\\贴图\end{cases}\\UI\begin{cases}血量\\法力值\\界面\\…\end{cases}\\AI(Bot)\begin{cases}扣血\\对象\\移动\end{cases}\end{cases}$ 处理素材文件 从Maya导出素材  修改世界坐标为Z轴朝上(UE4可忽略) wind">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-08-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-31T12:29:38.803Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="游戏编程">
+<meta property="article:tag" content="游戏引擎">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        RPG游戏/特效制作-硬核笔记
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2020/08/" class="post-meta__date button">2020-08-29</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/Unreal-Engine/" class="button">Unreal Engine</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">处理素材文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%80%E9%87%8F%E6%9D%90%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">血量材质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI%E5%88%B6%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">UI制作</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%B4%A0%E6%9D%90%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">处理素材文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%80%E9%87%8F%E6%9D%90%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">血量材质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI%E5%88%B6%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">UI制作</span></a></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>$<br>准备工作\begin{cases}<br>角色导入\begin{cases}模型\\动画\\贴图\end{cases}\\<br>UI\begin{cases}血量\\法力值\\界面\\…\end{cases}\\<br>AI(Bot)\begin{cases}扣血\\对象\\移动\end{cases}<br>\end{cases}<br>$</p>
+<h2 id="处理素材文件"><a href="#处理素材文件" class="headerlink" title="处理素材文件"></a>处理素材文件</h2><ul>
+<li><p>从Maya导出素材</p>
+<ul>
+<li>修改世界坐标为Z轴朝上(UE4可忽略)<ul>
+<li><code>window</code>-<code>Preferences</code>-<code>settings</code>-<code>Word Coordinate System</code></li>
+</ul>
+</li>
+<li>显示骨骼朝向，确保x轴为骨骼方向</li>
+<li>增加武器插槽节点(fire position)在根骨骼下<ul>
+<li>该节点与根骨骼不能用来k动画</li>
+</ul>
+</li>
+<li>导出FBX文件<ul>
+<li> 默认模型</li>
+<li>模型动画（勾选<code>Animation-Bake</code>动画）</li>
+</ul>
+</li>
+<li>使用<code>Marmoset Toolbag</code>测试渲染模型<ul>
+<li>导入材质</li>
+<li>导入动画</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>素材导入UE4</p>
+<ul>
+<li><p><code>Character</code>导入默认角色模型</p>
+<ul>
+<li><code>Import Mesh/Skeletal</code></li>
+</ul>
+</li>
+<li><p>创建材质</p>
+<ul>
+<li>导入贴图</li>
+<li>新建材质球</li>
+<li>贴图拖入材质球<ul>
+<li>颜色贴图-&gt;<code>Base Color</code></li>
+<li>法线贴图-&gt;<code>Normal</code></li>
+<li>高光贴图-&gt;<code>Specular</code></li>
+</ul>
+</li>
+<li>材质球拖入模型</li>
+<li>创建质感<ul>
+<li>金属质感：数字键1+左键单击-&gt;<code>Metallic</code></li>
+<li>反光质感：数字键1+左键单击-&gt;<code>Roughness</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>导入动画</p>
+<ul>
+<li>去勾选Mesh</li>
+<li><code>Skeleton</code>选择骨骼</li>
+</ul>
+</li>
+<li><p>替换角色模型</p>
+<ul>
+<li>资源管理面板-&gt;<code>Blueprints</code>-&gt;<code>TopDownCharacter</code></li>
+<li>选中<code>Mesh</code>-&gt;返回选择要使用的模型-&gt;回到面板，右侧<code>Mesh</code>导入</li>
+<li>覆盖其他动作模型（同命名），骨骼同理</li>
+<li>修改动画蓝图<ul>
+<li>修改<code>TopDownIdleRun</code>骨骼绑定</li>
+<li>根据模型状态，拖拽动画文件至动画混合的速度轴</li>
+<li>修改<code>TopDownAnimBlueprint</code>骨骼绑定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="血量材质"><a href="#血量材质" class="headerlink" title="血量材质"></a>血量材质</h2><blockquote>
+<ul>
+<li>文件结构<ul>
+<li>UI<ul>
+<li>MAT（材质）<ul>
+<li>blood</li>
+</ul>
+</li>
+<li>Texture（贴图）<ul>
+<li>血量黑白纹理</li>
+<li>球形显示黑白形状</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>导入血量材质<ul>
+<li>Mat文件夹中新建材质Blood</li>
+<li>选中贴图，切换到材质编辑器</li>
+<li>按住T，左键单击导入</li>
+</ul>
+</li>
+<li>定义颜色<ul>
+<li>按住3，创建RGB属性</li>
+<li>M键+单击创建混合属性，连接颜色和材质</li>
+<li>Blend Mode设置为Masked，Shading Mode设为Unlit，以将黑色部分设置为透明 -&gt;<code>Emissive Color</code>（高光层）</li>
+</ul>
+</li>
+<li>设置缩放：<code>TextureCoordinate</code>属性</li>
+<li>动态化：按住P键单击放置<code>Panner</code>，设置贴图速度</li>
+<li>复制多层参数不同的贴图，按住A点击放置叠加属性，将效果叠加</li>
+<li>创建底色，叠加效果</li>
+<li>圆形贴图 -&gt;<code>Opacity Mask</code>（透明通道）</li>
+<li>实现血量反馈<ul>
+<li>按住0单击放置数值变量</li>
+<li>创建<code>LinearGradient</code>（线性渐变）</li>
+<li>创建if判断</li>
+</ul>
+</li>
+<li>创建血量边界<ul>
+<li>创建<code>Add</code>节点</li>
+<li>血量数值 -&gt; <code>Add</code></li>
+<li>创建血量边界数值 -&gt;<code>Add</code></li>
+<li>创建if判断</li>
+<li><code>Add</code>-&gt;<code>if-A</code></li>
+<li><code>LinearGradient</code>-&gt;<code>if-B</code></li>
+<li>将if的结果做反向处理，与原先的血量混合-&gt;<code>Multiply</code></li>
+<li>设置单独的<code>Panner</code>和<code>TextureCoordinate</code>，和血量模块相加</li>
+<li>提高亮度</li>
+</ul>
+</li>
+</ul>
+<h2 id="UI制作"><a href="#UI制作" class="headerlink" title="UI制作"></a>UI制作</h2><blockquote>
+<ul>
+<li>文件结构<ul>
+<li>UI<ul>
+<li>Mesh</li>
+<li>MAT</li>
+<li>Texture<ul>
+<li>UI框架贴图</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>Mesh导入贴图，MAT创建材质</p>
+</li>
+<li><p>创建显示组件（Cube），导入材质，移动到摄像机前合适位置</p>
+</li>
+<li><p>同理创建血量球材质</p>
+</li>
+<li><p>绑定UI和摄像机</p>
+<ul>
+<li>在事件蓝图下创建<code>Event Begin Play</code></li>
+<li>选中UI框架，创建<code>Attach To(UI框架)</code></li>
+<li>将摄像机拖拽到蓝图内</li>
+<li>绑定位置<ul>
+<li><code>Event Begin Play</code>-&gt;<code>Attach To(UI框架)</code>根节点</li>
+<li><code>Attach To(UI框架)</code>-&gt;<code>Attach To(血量球)</code>根节点</li>
+<li>Camera -&gt;<code>In Parent</code></li>
+<li><code>Attach Type</code>=<code>Keep World Position</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>动态材质获取</p>
+<ul>
+<li>编辑角色蓝图，新建<code>Health</code>变量(<code>float</code>)</li>
+<li>新建<code>血量</code>变量(<code>MaterialInstanceDynamic</code>)</li>
+<li>将血槽材质与血量绑定<ul>
+<li>选中血槽组件</li>
+<li><code>Construction Script</code>-&gt;<code>Create Dynamic Material Instance</code>(血槽) -<code>Return Value</code>-&gt;SET（血量变量）</li>
+</ul>
+</li>
+<li>编辑事件蓝图，新建<code>Event Tick</code>-&gt; 新建<code>Set Scalar Parameter Value</code><ul>
+<li>血量变量-&gt;<code>Target</code></li>
+<li><code>Health</code>-&gt;<code>Value</code></li>
+<li>回到血量材质编辑蓝图，命名血量数值组件</li>
+<li>回到事件蓝图，设置<code>Parameter Name</code></li>
+</ul>
+</li>
+<li>动态改变血量<ul>
+<li>各种碰撞事件起点-&gt;<code>Cast To （角色名）</code>-&gt;<code>SET</code><ul>
+<li><code>As (角色名)</code>-&gt;<code>Target</code></li>
+<li><code>As (角色名)</code>-&gt;<code>Target  Health</code>-&gt;数值组件(+-*/)-&gt;<code>Health</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2020-10-31</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/Unreal-Engine/" class="post-cats__link button">Unreal Engine</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" class="post-tags__link button"># 游戏引擎</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/blogs/2020/08/29/ce25c1ed9b8c/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            与数学的中门对（被）狙
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2020/08/29/b271b5b024c9/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            WPF样式(Style)
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+        </p>
+    
+    
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

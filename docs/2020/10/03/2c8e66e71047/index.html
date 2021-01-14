@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>Unity中的&#34;常规操作&#34; | AlertNote</title>
+
+
+    <meta name="keywords" content="游戏编程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="总觉得要屯点什么🌰才开心世界坐标与屏幕坐标转换123456789101112131415public Transform target; &#x2F;&#x2F;目标对象public Vector2 offsetPos;&#x2F;&#x2F;偏移值RectTransform rectTrans; &#x2F;&#x2F;UI对象void Update()&amp;#123;    if (target &#x3D;&#x3D; null)        return;    &#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity中的&quot;常规操作&quot;">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/10/03/2c8e66e71047/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="总觉得要屯点什么🌰才开心世界坐标与屏幕坐标转换123456789101112131415public Transform target; &#x2F;&#x2F;目标对象public Vector2 offsetPos;&#x2F;&#x2F;偏移值RectTransform rectTrans; &#x2F;&#x2F;UI对象void Update()&amp;#123;    if (target &#x3D;&#x3D; null)        return;    &#x2F;&#x2F;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-10-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-10T08:29:39.564Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="游戏编程">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Unity中的&#34;常规操作&#34;
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2020/10/" class="post-meta__date button">2020-10-03</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/C/" class="button">C#</a>
+
+    <span class="separate-dot"></span><a href="/blogs/categories/Unity/" class="button">Unity</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E8%A7%89%E5%BE%97%E8%A6%81%E5%B1%AF%E7%82%B9%E4%BB%80%E4%B9%88%F0%9F%8C%B0%E6%89%8D%E5%BC%80%E5%BF%83"><span class="toc-number">1.</span> <span class="toc-text">总觉得要屯点什么🌰才开心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E4%B8%8E%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">世界坐标与屏幕坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">逆透视变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%BB%A5%E8%87%B4%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">学以致用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI%E6%8E%A7%E5%88%B6%E6%91%87%E6%9D%86"><span class="toc-number">2.1.</span> <span class="toc-text">UI控制摇杆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%B7%B3%E8%B7%83%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">简单跳跃模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E6%8E%A7%E5%88%B6%E4%BB%A5%E7%89%A9%E4%BD%93%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E8%87%AA%E7%94%B1%E8%A7%86%E8%A7%92"><span class="toc-number">2.3.</span> <span class="toc-text">鼠标控制以物体为中心的自由视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QE%E9%94%AE%E6%8E%A7%E5%88%B6%E4%BB%A5%E7%89%A9%E4%BD%93%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E7%8E%AF%E7%BB%95%E8%A7%86%E8%A7%92"><span class="toc-number">2.4.</span> <span class="toc-text">QE键控制以物体为中心的环绕视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E6%95%8C%E4%BA%BA"><span class="toc-number">2.5.</span> <span class="toc-text">查找最近的敌人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEhp%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%8C%E4%BA%BA"><span class="toc-number">2.6.</span> <span class="toc-text">查找hp最小的敌人</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E8%A7%89%E5%BE%97%E8%A6%81%E5%B1%AF%E7%82%B9%E4%BB%80%E4%B9%88%F0%9F%8C%B0%E6%89%8D%E5%BC%80%E5%BF%83"><span class="toc-number">1.</span> <span class="toc-text">总觉得要屯点什么🌰才开心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E4%B8%8E%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">世界坐标与屏幕坐标转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">逆透视变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%BB%A5%E8%87%B4%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">学以致用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI%E6%8E%A7%E5%88%B6%E6%91%87%E6%9D%86"><span class="toc-number">2.1.</span> <span class="toc-text">UI控制摇杆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%B7%B3%E8%B7%83%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">简单跳跃模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E6%8E%A7%E5%88%B6%E4%BB%A5%E7%89%A9%E4%BD%93%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E8%87%AA%E7%94%B1%E8%A7%86%E8%A7%92"><span class="toc-number">2.3.</span> <span class="toc-text">鼠标控制以物体为中心的自由视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QE%E9%94%AE%E6%8E%A7%E5%88%B6%E4%BB%A5%E7%89%A9%E4%BD%93%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E7%8E%AF%E7%BB%95%E8%A7%86%E8%A7%92"><span class="toc-number">2.4.</span> <span class="toc-text">QE键控制以物体为中心的环绕视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%9C%80%E8%BF%91%E7%9A%84%E6%95%8C%E4%BA%BA"><span class="toc-number">2.5.</span> <span class="toc-text">查找最近的敌人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEhp%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%8C%E4%BA%BA"><span class="toc-number">2.6.</span> <span class="toc-text">查找hp最小的敌人</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="总觉得要屯点什么🌰才开心"><a href="#总觉得要屯点什么🌰才开心" class="headerlink" title="总觉得要屯点什么🌰才开心"></a>总觉得要屯点什么🌰才开心</h2><h3 id="世界坐标与屏幕坐标转换"><a href="#世界坐标与屏幕坐标转换" class="headerlink" title="世界坐标与屏幕坐标转换"></a>世界坐标与屏幕坐标转换</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Transform target; <span class="comment">//目标对象</span></span><br><span class="line"><span class="keyword">public</span> Vector2 offsetPos;<span class="comment">//偏移值</span></span><br><span class="line">RectTransform rectTrans; <span class="comment">//UI对象</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (target == <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//获取跟随目标的位置</span></span><br><span class="line">    Vector3 tarPos = target.transform.position;</span><br><span class="line">    <span class="comment">//将目标的世界坐标转换为屏幕坐标</span></span><br><span class="line">    Vector2 pos = RectTransformUtility.WorldToScreenPoint(Camera.main, tarPos);</span><br><span class="line">    <span class="comment">//将获取到的屏幕坐标赋给UI对象，并加上偏移值</span></span><br><span class="line">    rectTrans.position = pos + offsetPos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="逆透视变换"><a href="#逆透视变换" class="headerlink" title="逆透视变换"></a>逆透视变换</h3><blockquote>
+<p>将鼠标的屏幕二维坐标转换成三维投射坐标</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">unproject_mouse_position</span>(<span class="params"><span class="keyword">out</span> Vector3 word_position, Vector3 mouse_position</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span> ret;</span><br><span class="line">	<span class="keyword">float</span> depth;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//用于检测和地面相交的平面</span></span><br><span class="line">	Plane plane = <span class="keyword">new</span> Plane(Vector3.up, Vector3.zero);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//穿过摄像机位置和鼠标光标位置的直线</span></span><br><span class="line">	Ray ray = <span class="keyword">this</span>.main_camera.GetComponent&lt;Camera&gt;().ScreenPosintToRay(mouse_position);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//求出直线和地面的交点</span></span><br><span class="line">	<span class="keyword">if</span>(plane.Raycast(ray,<span class="keyword">out</span> depth))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//根据Raycast方法的结果计算交点的坐标</span></span><br><span class="line">		word_position = ray.origin + ray.direction * depth;</span><br><span class="line">		ret = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		world_position = Vector3.zero;</span><br><span class="line">		ret = <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span>(ret);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="学以致用"><a href="#学以致用" class="headerlink" title="学以致用"></a>学以致用</h2><h3 id="UI控制摇杆"><a href="#UI控制摇杆" class="headerlink" title="UI控制摇杆"></a>UI控制摇杆</h3><blockquote>
+<p><strong>UI的层级结构（对象名 - [类型]描述）：</strong></p>
+<ul>
+<li><code>Canvas</code> - [Canvas]UI根对象<ul>
+<li><code>Joystick</code> - [Image]摇杆的可触控范围<ul>
+<li><code>Background</code> - [Image]摇杆背景<ul>
+<li><code>Handle</code> - [Image]摇杆对象</li>
+</ul>
+</li>
+<li><code>DirectionArrow</code> - [Image]背景外围的方向箭头</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>EnumFlagsAttribute.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnumFlagsAttribute</span> : <span class="title">PropertyAttribute</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Joystick.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Joystick</span> : <span class="title">MonoBehaviour</span>, <span class="title">IPointerDownHandler</span>, <span class="title">IDragHandler</span>, <span class="title">IPointerUpHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> maxRadius = <span class="number">100</span>; <span class="comment">//Handle 移动最大半径</span></span><br><span class="line">    [<span class="meta">EnumFlags</span>]</span><br><span class="line">    <span class="keyword">public</span> Direction activatedAxis = (Direction)(<span class="number">-1</span>); <span class="comment">//选择激活的轴向</span></span><br><span class="line">    [<span class="meta">SerializeField</span>] <span class="keyword">bool</span> <span class="keyword">dynamic</span> = <span class="literal">true</span>; <span class="comment">// 动态摇杆</span></span><br><span class="line">    [<span class="meta">SerializeField</span>] Transform handle; <span class="comment">//摇杆</span></span><br><span class="line">    [<span class="meta">SerializeField</span>] Transform backGround; <span class="comment">//背景</span></span><br><span class="line">    <span class="keyword">public</span> JoystickEvent OnValueChanged = <span class="keyword">new</span> JoystickEvent(); <span class="comment">//事件 ： 摇杆被 拖拽时</span></span><br><span class="line">    <span class="keyword">public</span> JoystickEvent OnPointerDown = <span class="keyword">new</span> JoystickEvent(); <span class="comment">// 事件： 摇杆被按下时</span></span><br><span class="line">    <span class="keyword">public</span> JoystickEvent OnPointerUp = <span class="keyword">new</span> JoystickEvent(); <span class="comment">//事件 ： 摇杆上抬起时</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> IsDraging &#123; <span class="keyword">get</span> &#123; <span class="keyword">return</span> fingerId != <span class="keyword">int</span>.MinValue; &#125; &#125; <span class="comment">//摇杆拖拽状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> DynamicJoystick <span class="comment">//运行时代码配置摇杆是否为动态摇杆</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">dynamic</span> != <span class="keyword">value</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">dynamic</span> = <span class="keyword">value</span>;</span><br><span class="line">                ConfigJoystick();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">dynamic</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">region</span> MonoBehaviour functions</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)</span> =&gt; backGroundOriginLocalPostion = backGround.localPosition;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> =&gt; OnValueChanged.Invoke(handle.localPosition / maxRadius);</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnDisable</span>(<span class="params"></span>)</span> =&gt; RestJoystick(); <span class="comment">//意外被 Disable 各单位需要被重置</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">region</span> The implement of pointer event Interface</span></span><br><span class="line">    <span class="keyword">void</span> IPointerDownHandler.OnPointerDown(PointerEventData eventData)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (eventData.pointerId &lt; <span class="number">-1</span> || IsDraging) <span class="keyword">return</span>; <span class="comment">//适配 Touch：只响应一个Touch；适配鼠标：只响应左键</span></span><br><span class="line">        fingerId = eventData.pointerId;</span><br><span class="line">        pointerDownPosition = eventData.position;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">dynamic</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            pointerDownPosition[<span class="number">2</span>] = eventData.pressEventCamera?.WorldToScreenPoint(backGround.position).z ?? backGround.position.z;</span><br><span class="line">            backGround.position = eventData.pressEventCamera?.ScreenToWorldPoint(pointerDownPosition) ?? pointerDownPosition; ;</span><br><span class="line">        &#125;</span><br><span class="line">        OnPointerDown.Invoke(eventData.position);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> IDragHandler.OnDrag(PointerEventData eventData)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (fingerId != eventData.pointerId) <span class="keyword">return</span>;</span><br><span class="line">        Vector2 direction = eventData.position - (Vector2)pointerDownPosition; <span class="comment">//得到BackGround 指向 Handle 的向量</span></span><br><span class="line">        <span class="keyword">float</span> radius = Mathf.Clamp(Vector3.Magnitude(direction), <span class="number">0</span>, maxRadius); <span class="comment">//获取并锁定向量的长度 以控制 Handle 半径</span></span><br><span class="line">        Vector2 localPosition = <span class="keyword">new</span> Vector2()</span><br><span class="line">        &#123;</span><br><span class="line">            x = (<span class="number">0</span> != (activatedAxis &amp; Direction.Horizontal)) ? (direction.normalized * radius).x : <span class="number">0</span>, <span class="comment">//确认是否激活水平轴向</span></span><br><span class="line">            y = (<span class="number">0</span> != (activatedAxis &amp; Direction.Vertical)) ? (direction.normalized * radius).y : <span class="number">0</span>       <span class="comment">//确认是否激活垂直轴向，激活就搞事情</span></span><br><span class="line">        &#125;;</span><br><span class="line">        handle.localPosition = localPosition;      <span class="comment">//更新 Handle 位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> IPointerUpHandler.OnPointerUp(PointerEventData eventData)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (fingerId != eventData.pointerId) <span class="keyword">return</span>;<span class="comment">//正确的手指抬起时才会重置摇杆；</span></span><br><span class="line">        RestJoystick();</span><br><span class="line">        OnPointerUp.Invoke(eventData.position);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">region</span> Assistant functions / fields / structures</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">RestJoystick</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        backGround.localPosition = backGroundOriginLocalPostion;</span><br><span class="line">        handle.localPosition = Vector3.zero;</span><br><span class="line">        fingerId = <span class="keyword">int</span>.MinValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ConfigJoystick</span>(<span class="params"></span>) <span class="comment">//配置动态/静态摇杆</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">dynamic</span>) backGroundOriginLocalPostion = backGround.localPosition;</span><br><span class="line">        GetComponent&lt;Image&gt;().raycastTarget = <span class="keyword">dynamic</span>;</span><br><span class="line">        handle.GetComponent&lt;Image&gt;().raycastTarget = !<span class="keyword">dynamic</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnValidate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!handle) handle = transform.Find(<span class="string">&quot;BackGround/Handle&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (!backGround) backGround = transform.Find(<span class="string">&quot;BackGround&quot;</span>);</span><br><span class="line">        ConfigJoystick();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="keyword">private</span> Vector3 backGroundOriginLocalPostion, pointerDownPosition;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> fingerId = <span class="keyword">int</span>.MinValue; <span class="comment">//当前触发摇杆的 pointerId ，预设一个永远无法企及的值</span></span><br><span class="line">    [<span class="meta">System.Serializable</span>] <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JoystickEvent</span> : <span class="title">UnityEvent</span>&lt;<span class="title">Vector2</span>&gt; &#123; &#125;</span><br><span class="line">    [<span class="meta">System.Flags</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> Direction</span><br><span class="line">    &#123;</span><br><span class="line">        Horizontal = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">        Vertical = <span class="number">1</span> &lt;&lt; <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>DirectionArrow.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DirectionArrow</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Joystick joystick;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        joystick = GetComponentInParent&lt;Joystick&gt;();</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> == joystick)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InvalidOperationException(<span class="string">&quot;The directional arrow is an optional part of the joystick and it relies on the instance of the joystick!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        joystick.OnPointerUp.AddListener(OnPointerUp);</span><br><span class="line">        joystick.OnValueChanged.AddListener(UpdateDirectionArrow);</span><br><span class="line">        gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnDestroy</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        joystick.OnPointerUp.RemoveListener(OnPointerUp);</span><br><span class="line">        joystick.OnValueChanged.RemoveListener(UpdateDirectionArrow);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 更新指向器的朝向</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">UpdateDirectionArrow</span>(<span class="params">Vector2 position</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (position.magnitude != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!gameObject.activeSelf)</span><br><span class="line">            &#123;</span><br><span class="line">                gameObject.SetActive(<span class="literal">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            transform.localEulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, Vector2.Angle(Vector2.right, position) * (position.y &gt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">-1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnPointerUp</span>(<span class="params">Vector2 pos</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="简单跳跃模块"><a href="#简单跳跃模块" class="headerlink" title="简单跳跃模块"></a>简单跳跃模块</h3><ul>
+<li><code>Player.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Player</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> jumpHeight = <span class="number">2f</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> is_landing = <span class="literal">false</span>;<span class="comment">//着陆标记</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        is_landing = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_landing)<span class="comment">//着陆后触发</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">            &#123;</span><br><span class="line">                is_landing = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">float</span> jump_speed = Mathf.Sqrt(<span class="number">2f</span> * Mathf.Abs(Physics.gravity.y) * jumpHeight);<span class="comment">//v=√2gh</span></span><br><span class="line">                GetComponent&lt;Rigidbody&gt;().velocity = Vector3.up * jump_speed;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionEnter</span>(<span class="params">Collision collision</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//着陆判定</span></span><br><span class="line">        <span class="keyword">if</span> (collision.gameObject.tag == <span class="string">&quot;Floor&quot;</span>)</span><br><span class="line">            is_landing = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="鼠标控制以物体为中心的自由视角"><a href="#鼠标控制以物体为中心的自由视角" class="headerlink" title="鼠标控制以物体为中心的自由视角"></a>鼠标控制以物体为中心的自由视角</h3><ul>
+<li><code>freeView.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">freeView</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//摄像机参照的模型</span></span><br><span class="line">    <span class="keyword">public</span> Transform target;</span><br><span class="line">    <span class="comment">//摄像机距离模型的默认距离</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> distance = <span class="number">10.0f</span>;</span><br><span class="line">    <span class="comment">//鼠标在x轴和y轴方向移动的速度</span></span><br><span class="line">    <span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">    <span class="comment">//限制旋转角度的最小值与最大值</span></span><br><span class="line">    <span class="keyword">float</span> yMinLimit = <span class="number">-20.0f</span>;</span><br><span class="line">    <span class="keyword">float</span> yMaxLimit = <span class="number">80.0f</span>;</span><br><span class="line">    <span class="comment">//鼠标在x和y轴方向移动的速度</span></span><br><span class="line">    <span class="keyword">float</span> xSpeed = <span class="number">250.0f</span>;</span><br><span class="line">    <span class="keyword">float</span> ySpeed = <span class="number">120.0f</span>;</span><br><span class="line">    <span class="comment">// Use this for initialization</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//初始化x和y轴角度，使其等于参照模型的角度</span></span><br><span class="line">        Vector2 Angles = transform.eulerAngles;</span><br><span class="line">        x = Angles.y;</span><br><span class="line">        y = Angles.x;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (gameObject.GetComponent&lt;Rigidbody&gt;() != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            gameObject.GetComponent&lt;Rigidbody&gt;().freezeRotation = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//Debug.Log (this.transform == this.gameObject.transform);</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">LateUpdate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (target)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//根据垂直方向的增减量修改摄像机距离参照物的距离</span></span><br><span class="line">            distance += Input.GetAxis(<span class="string">&quot;Mouse ScrollWheel&quot;</span>) * <span class="number">-2f</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//根据鼠标移动修改摄像机的角度</span></span><br><span class="line">            x += Input.GetAxis(<span class="string">&quot;Mouse X&quot;</span>) * xSpeed * <span class="number">0.02f</span>;</span><br><span class="line">            y -= Input.GetAxis(<span class="string">&quot;Mouse Y&quot;</span>) * ySpeed * <span class="number">0.02f</span>;</span><br><span class="line">            <span class="comment">//限制了摄像机在X轴方向上的视觉范围</span></span><br><span class="line">            y = ClampAngle(y, yMinLimit, yMaxLimit);</span><br><span class="line"></span><br><span class="line">            Quaternion rotation = Quaternion.Euler(y, x, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            Vector3 position = rotation * <span class="keyword">new</span> Vector3(<span class="number">0.0f</span>, <span class="number">0.0f</span>, -distance) + target.position;</span><br><span class="line">            <span class="comment">//Debug.Log(position.ToString());</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置摄像机的位置与旋转</span></span><br><span class="line">            transform.rotation = rotation;</span><br><span class="line">            transform.position = position;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">float</span> <span class="title">ClampAngle</span>(<span class="params"><span class="keyword">float</span> angle, <span class="keyword">float</span> min, <span class="keyword">float</span> max</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//这里之所以要加360，因为比如-380,与-20是等价的</span></span><br><span class="line">        <span class="keyword">if</span> (angle &lt; <span class="number">-360</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            angle += <span class="number">360</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (angle &gt; <span class="number">360</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            angle -= <span class="number">360</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Mathf.Clamp(angle, min, max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="QE键控制以物体为中心的环绕视角"><a href="#QE键控制以物体为中心的环绕视角" class="headerlink" title="QE键控制以物体为中心的环绕视角"></a>QE键控制以物体为中心的环绕视角</h3><ul>
+<li><code>QERotation.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">QERotation</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//摄像机参照的模型</span></span><br><span class="line">    <span class="keyword">public</span> GameObject target;</span><br><span class="line">    <span class="comment">//摄像机距离模型的默认距离</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> distance = <span class="number">10.0f</span>;</span><br><span class="line">    <span class="comment">//鼠标在x轴和y轴方向移动的速度</span></span><br><span class="line">    <span class="keyword">float</span> RotX;</span><br><span class="line">    <span class="keyword">float</span> RotY;</span><br><span class="line">    <span class="comment">//鼠标在x和y轴方向移动的速度</span></span><br><span class="line">    <span class="keyword">float</span> xSpeed = <span class="number">0f</span>;</span><br><span class="line">    <span class="comment">//旋转速度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> rotValue = <span class="number">60f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//初始化x和y轴角度，使其等于参照模型的角度</span></span><br><span class="line">        Vector2 Angles = transform.eulerAngles;</span><br><span class="line">        RotX = Angles.y;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (gameObject.GetComponent&lt;Rigidbody&gt;() != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            gameObject.GetComponent&lt;Rigidbody&gt;().freezeRotation = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//Debug.Log (this.transform == this.gameObject.transform);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">LateUpdate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (target)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//根据垂直方向的增减量修改摄像机距离参照物的距离</span></span><br><span class="line">            distance += Input.GetAxis(<span class="string">&quot;Mouse ScrollWheel&quot;</span>) * <span class="number">-2f</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//根据鼠标移动修改摄像机的角度</span></span><br><span class="line">            RotX += xSpeed * Time.deltaTime;</span><br><span class="line">            RotY = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">            Quaternion rotation = Quaternion.Euler(RotY, RotX, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//根据模型碰撞箱高度 获取偏移量</span></span><br><span class="line">            <span class="keyword">float</span> Offset = target.GetComponent&lt;Collider&gt;().bounds.size.y / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            Vector3 position = rotation * <span class="keyword">new</span> Vector3(<span class="number">0.0f</span>, Offset, -distance) + target.transform.position;</span><br><span class="line">            <span class="comment">//Debug.Log(position.ToString());</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置摄像机的位置与旋转</span></span><br><span class="line">            transform.rotation = rotation;</span><br><span class="line">            transform.position = position;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(KeyCode.Q))</span><br><span class="line">        &#123;</span><br><span class="line">            xSpeed = -rotValue;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKey(KeyCode.E))</span><br><span class="line">        &#123;</span><br><span class="line">            xSpeed = rotValue;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            xSpeed = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找最近的敌人"><a href="#查找最近的敌人" class="headerlink" title="查找最近的敌人"></a>查找最近的敌人</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前物体与敌人的距离</span></span><br><span class="line"><span class="keyword">float</span> distance =Vector3.Distance(<span class="string">&quot;物体1的位置&quot;</span>, <span class="string">&quot;物体2的位置&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查找hp最小的敌人"><a href="#查找hp最小的敌人" class="headerlink" title="查找hp最小的敌人"></a>查找hp最小的敌人</h3><ul>
+<li><code>Enemy.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> HP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>FindEnemyDemo.cs</code></li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">FindEnemyDemo</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">    <span class="comment">//思路：</span></span><br><span class="line">    <span class="comment">//得到所有的敌人获取他们的hp</span></span><br><span class="line">    <span class="comment">//根据当前组件查找其他组件</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;获取血量最低的敌人&quot;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//查找场景中所有有Enemy的对象</span></span><br><span class="line">            Enemy[] AllEnemy= Object.FindObjectsOfType&lt;Enemy&gt;();</span><br><span class="line">            <span class="comment">//获取血量最低的对象</span></span><br><span class="line">            Enemy min = FindEnemyByMinHP(AllEnemy);</span><br><span class="line">            print(min);</span><br><span class="line">            <span class="comment">//根据Enemy类型的引用 获取 其他组件类型的引用</span></span><br><span class="line">            min.GetComponent&lt;MeshRenderer&gt;().material.color = Color.red;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查找血量最低的敌人</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Enemy <span class="title">FindEnemyByMinHP</span>(<span class="params">Enemy[] allEnemy</span>) </span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//假设 第一个敌人的血最少</span></span><br><span class="line">        Enemy min = allEnemy[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//第一个依次和兄弟元素进行比较，小于min的就替换掉</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; allEnemy.Length<span class="number">-1</span>; i++)<span class="comment">//两个比一次，</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (min.HP &gt; allEnemy[i+<span class="number">1</span>].HP)</span><br><span class="line">            &#123;</span><br><span class="line">                min=allEnemy[i+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2020-12-10</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/blogs/2020/10/05/4c38f5288c18/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            修心体验
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2020/09/24/2b94abf9d207/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Node.JS大峡谷
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+        </p>
+    
+    
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

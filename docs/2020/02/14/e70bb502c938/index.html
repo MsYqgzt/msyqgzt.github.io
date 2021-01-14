@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>如何搭建一个简单博客 | AlertNote</title>
+
+
+    <meta name="keywords" content="创作">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="如何搭建一个博客准备工作大体流程和所需工具 安装Node.js 选择一个博客框架并用js下载资源 创建在线网页存储项目 安装git（或TortoiseGit） 在Github上创建项目并启用Github Page 将框架和文档通过git上传至项目中   写文章并通过git上传  安装Node.js搜索Node.js进入官网下载LTS版本，安装过程保持默认即可 搭建博客框架  这里以docsify框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何搭建一个简单博客">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/02/14/e70bb502c938/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="如何搭建一个博客准备工作大体流程和所需工具 安装Node.js 选择一个博客框架并用js下载资源 创建在线网页存储项目 安装git（或TortoiseGit） 在Github上创建项目并启用Github Page 将框架和文档通过git上传至项目中   写文章并通过git上传  安装Node.js搜索Node.js进入官网下载LTS版本，安装过程保持默认即可 搭建博客框架  这里以docsify框">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/JNLKwzh9364VWXl.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/fSghIk7Fi5uAHQl.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/PCQR5VLwSqfTtno.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/tgrYAjVhW9s7OCx.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/toMJpiFlqOacHeC.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/TAyjz2Pa3H1Zo5W.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/eDScGwpXZCJdiUH.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/61Uo7hCR3EJicBG.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/4KzeJtPrd8yF61s.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/chnCSg5eKHd4m87.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/yNnTU7lpa4MmCSO.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/GpxZPzan9h6B7CF.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/14/Z59YepX6asEPLzr.png">
+<meta property="article:published_time" content="2020-02-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-31T12:30:50.303Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="创作">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/14/JNLKwzh9364VWXl.png">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        如何搭建一个简单博客
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2020/02/" class="post-meta__date button">2020-02-14</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/%E5%8D%9A%E5%AE%A2/" class="button">博客</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E4%BD%93%E6%B5%81%E7%A8%8B%E5%92%8C%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">大体流程和所需工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-number">3.</span> <span class="toc-text">搭建博客框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8node-js%E5%AE%89%E8%A3%85%E6%A1%86%E6%9E%B6"><span class="toc-number">3.1.</span> <span class="toc-text">利用node.js安装框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.2.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E8%B5%84%E6%BA%90%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.</span> <span class="toc-text">了解资源结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BA%BF%E7%BD%91%E9%A1%B5%E5%AD%98%E5%82%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">创建并设置在线网页存储项目</span></a></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E4%BD%93%E6%B5%81%E7%A8%8B%E5%92%8C%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">大体流程和所需工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-number">3.</span> <span class="toc-text">搭建博客框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8node-js%E5%AE%89%E8%A3%85%E6%A1%86%E6%9E%B6"><span class="toc-number">3.1.</span> <span class="toc-text">利用node.js安装框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.2.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E8%B5%84%E6%BA%90%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.</span> <span class="toc-text">了解资源结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BA%BF%E7%BD%91%E9%A1%B5%E5%AD%98%E5%82%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">创建并设置在线网页存储项目</span></a></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="如何搭建一个博客"><a href="#如何搭建一个博客" class="headerlink" title="如何搭建一个博客"></a>如何搭建一个博客</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="大体流程和所需工具"><a href="#大体流程和所需工具" class="headerlink" title="大体流程和所需工具"></a>大体流程和所需工具</h3><ul>
+<li>安装<code>Node.js</code></li>
+<li>选择一个博客框架并用js下载资源</li>
+<li>创建在线网页存储项目<ul>
+<li>安装git（或TortoiseGit）</li>
+<li>在Github上创建项目并启用Github Page</li>
+<li>将框架和文档通过git上传至项目中</li>
+</ul>
+</li>
+<li>写文章并通过git上传</li>
+</ul>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>搜索Node.js进入官网下载LTS版本，安装过程保持默认即可<br><img src="https://i.loli.net/2020/02/14/JNLKwzh9364VWXl.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/JNLKwzh9364VWXl.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="node.png"></p>
+<h2 id="搭建博客框架"><a href="#搭建博客框架" class="headerlink" title="搭建博客框架"></a>搭建博客框架</h2><p>  这里以<code>docsify</code>框架为例。也有诸如GitBook、Hexo等其他框架，用法大同小异。目前的框架虽然结构简单，但满足基本需求，而且很容易上手。<br>  搜索这个框架，查看帮助文档内的搭建步骤。</p>
+<h3 id="利用node-js安装框架"><a href="#利用node-js安装框架" class="headerlink" title="利用node.js安装框架"></a>利用node.js安装框架</h3><p>  首先创建一个文件夹，用于存放框架文件，这里我命名为”MyBlog”。这里可以看到文件夹的路径，让我们把它复制下来。<br>  <img src="https://i.loli.net/2020/02/14/fSghIk7Fi5uAHQl.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/fSghIk7Fi5uAHQl.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>  右键任务栏的开始图标，选择<code>Windows PowerShell(管理员)</code>，输入 cd [之前复制的路径]，这样下载的资源就会存在这个目录底下。<br>  接着按照帮助文档，输入指令回车，会调用js下载资源，等待下载完成即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i docsify-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="https://i.loli.net/2020/02/14/PCQR5VLwSqfTtno.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/PCQR5VLwSqfTtno.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>  在PowerShell中输入指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docsify init ./docs</span><br></pre></td></tr></table></figure>
+<p>  之后文件夹中会出现docs文件夹，里面包含三个初始文件，并且框架搭建已经完成，可以按照提示进行本地运行<br>  <img src="https://i.loli.net/2020/02/14/tgrYAjVhW9s7OCx.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/tgrYAjVhW9s7OCx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>  按照提示输入<code>docsify serve ./docs</code>后，在浏览器内粘贴复制的本地查看地址（默认为<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> ） 即可实时查看保存后的搭建效果，在PowerShell界面按下<code>Ctrl + C</code>可退出本地预览<br>  <img src="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<h3 id="了解资源结构"><a href="#了解资源结构" class="headerlink" title="了解资源结构"></a>了解资源结构</h3><p>回到docs文件夹内，打开<code>README.md</code><br><img src="https://i.loli.net/2020/02/14/toMJpiFlqOacHeC.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/toMJpiFlqOacHeC.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"><br>这个文档即为博客首页，可以修改其内容。</p>
+<p>打开index.html，自带默认内容，帮助文档中包含了其他可添加配置项，限于篇幅，具体请参照其中内容。<br>修改name属性的内容为’我的博客名’</p>
+<p><img src="https://i.loli.net/2020/02/14/TAyjz2Pa3H1Zo5W.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/TAyjz2Pa3H1Zo5W.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>保存文档后即可查看本地效果</p>
+<p><img src="https://i.loli.net/2020/02/14/eDScGwpXZCJdiUH.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/eDScGwpXZCJdiUH.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>至此博客的初步搭建已经完成。</p>
+<blockquote>
+<p>[!warning|style:flat|label:注意|labelVisibility:visible|iconVisibility:visible]<br>除中文外的标点符号均为英文标点，html属性之间需要逗号分隔，否则会导致出错</p>
+</blockquote>
+<h2 id="创建并设置在线网页存储项目"><a href="#创建并设置在线网页存储项目" class="headerlink" title="创建并设置在线网页存储项目"></a>创建并设置在线网页存储项目</h2><p> TortoiseGit基于Git，Git使用代码指令操作，而TortoiseGit增加了可视化的界面操作，更容易上手。</p>
+<p>以TortoiseGit为例，首先搜索下载并安装TortoiseGit，随后可以选择安装对应的语言翻译包。</p>
+<p> 在Github开源网站上用自己的账户创建一个空白的项目，会得到一个项目的链接，现在先不要关闭这个网页</p>
+<p>在博客文件夹中，右键选择<code>Git 在这里创建版本库</code>，创建一个新的版本库<br><img src="https://i.loli.net/2020/02/14/61Uo7hCR3EJicBG.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/61Uo7hCR3EJicBG.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>接着继续右键，设置库的内容<br><img src="https://i.loli.net/2020/02/14/4KzeJtPrd8yF61s.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/4KzeJtPrd8yF61s.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>将之前网页得到的链接复制到这个文本框内保存，添加后若有提示，点否<br><img src="https://i.loli.net/2020/02/14/chnCSg5eKHd4m87.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/chnCSg5eKHd4m87.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>到这一步，在线存储工作就准备完毕，在右键菜单内，选择<code>Git提交 -&gt; &quot;master&quot;</code>，并勾选所有文件修改</p>
+<p><img src="https://i.loli.net/2020/02/14/yNnTU7lpa4MmCSO.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/yNnTU7lpa4MmCSO.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>等待提交完成后，刷新之前的网页，发现在线库中出现了之前上传的docs文件夹<br><img src="https://i.loli.net/2020/02/14/GpxZPzan9h6B7CF.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/GpxZPzan9h6B7CF.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>最后，点击菜单最后的<code>Setings</code>进入设置界面，在GithubPage中，将<code>Source</code>选项选择第二项<code>master branch /docs folder</code>并保存。会出现绿色消息框，里面的链接即为生成的网页在线地址。<br><img src="https://i.loli.net/2020/02/14/Z59YepX6asEPLzr.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/Z59YepX6asEPLzr.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>至此搭建博客网页的全流程结束。</p>
+<p>若以后更新博客内容，直接在文件内选择<code>Git提交 -&gt; &quot;master&quot;</code>，勾选所有文件修改 即可完成。</p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2020-10-31</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/%E5%8D%9A%E5%AE%A2/" class="post-cats__link button">博客</a><a href="/blogs/tags/%E5%88%9B%E4%BD%9C/" class="post-tags__link button"># 创作</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/blogs/2020/02/15/002b89212c85/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            Adobe Audition 录音后期技巧
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+        </p>
+    
+    
+        
+            <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+        
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
