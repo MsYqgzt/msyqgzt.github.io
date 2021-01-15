@@ -53,7 +53,7 @@
 <meta property="og:description" content="Mirror是uMMORPG、vival和Cubica的开发人员为MMO规模的网络而构建和测试的。 Mirror使联网变得容易，简洁和可维护。使用少于6000行代码即可实现uMMORPG。我们只需要一个网络库来启动我们的游戏就可以了。  多人游戏入门在开始之前，必须先大致了解多人游戏和网络通信的原理，这样才能更方便我们理解后续的代码行为。 多人游戏模式的演变单机双人游戏最原始的多人游戏从双人游戏">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-10-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-14T14:18:56.815Z">
+<meta property="article:modified_time" content="2021-01-15T04:34:01.428Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="游戏编程">
 <meta property="article:tag" content="联机">
@@ -133,7 +133,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -198,7 +198,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">多人游戏入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-number">1.1.</span> <span class="toc-text">多人游戏模式的演变</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E5%8F%8C%E4%BA%BA%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">单机双人游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">局域网游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">服务器游戏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">网络传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">UDP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">KCP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E5%81%9A%E5%88%B0%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="toc-number">5.</span> <span class="toc-text">如何用Mirror实现做到网络通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">6.2.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">6.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">6.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">6.3.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">7.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">7.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">多人游戏入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-number">1.1.</span> <span class="toc-text">多人游戏模式的演变</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E5%8F%8C%E4%BA%BA%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">单机双人游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">局域网游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">服务器游戏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">网络传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">UDP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">KCP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5"><span class="toc-number">4.</span> <span class="toc-text">用Mirror实现与服务器同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Mirror%E7%9A%84%E5%87%BD%E6%95%B0%E6%A0%87%E7%AD%BE"><span class="toc-number">4.2.</span> <span class="toc-text">使用Mirror的函数标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-Client"><span class="toc-number">4.2.1.</span> <span class="toc-text">[Server&#x2F;Client]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Command"><span class="toc-number">4.2.2.</span> <span class="toc-text">[Command]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClientRpc-TargetRpc"><span class="toc-number">4.2.3.</span> <span class="toc-text">[ClientRpc&#x2F;TargetRpc]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SyncVar"><span class="toc-number">4.2.4.</span> <span class="toc-text">[SyncVar]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ServerCallback"><span class="toc-number">4.2.5.</span> <span class="toc-text">[ServerCallback]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClientCallBack"><span class="toc-number">4.2.6.</span> <span class="toc-text">[ClientCallBack]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">4.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">4.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">4.3.2.</span> <span class="toc-text">发射子弹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.3.3.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">5.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">5.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -207,8 +207,8 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">多人游戏入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-number">1.1.</span> <span class="toc-text">多人游戏模式的演变</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E5%8F%8C%E4%BA%BA%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">单机双人游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">局域网游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">服务器游戏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">网络传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">UDP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">KCP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E5%81%9A%E5%88%B0%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1"><span class="toc-number">5.</span> <span class="toc-text">如何用Mirror实现做到网络通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%90%8C%E6%AD%A5"><span class="toc-number">6.</span> <span class="toc-text">与服务器的同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81"><span class="toc-number">6.2.</span> <span class="toc-text">常用特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">6.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">6.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">6.3.2.</span> <span class="toc-text">发射子弹</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">7.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">7.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">多人游戏入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%BC%94%E5%8F%98"><span class="toc-number">1.1.</span> <span class="toc-text">多人游戏模式的演变</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E5%8F%8C%E4%BA%BA%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">单机双人游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">局域网游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">服务器游戏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">网络传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">UDP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">KCP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">准备工作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-number">2.</span> <span class="toc-text">基本网络环境的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">创建一个简单服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">关联服务端与游戏对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B8%B8%E6%88%8F"><span class="toc-number">2.2.</span> <span class="toc-text">运行游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%88%E6%9E%9C"><span class="toc-number">2.2.1.</span> <span class="toc-text">模拟多客户端效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">服务器内玩家的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8Mirror%E5%AE%9E%E7%8E%B0%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8C%E6%AD%A5"><span class="toc-number">4.</span> <span class="toc-text">用Mirror实现与服务器同步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">基本的回调函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Mirror%E7%9A%84%E5%87%BD%E6%95%B0%E6%A0%87%E7%AD%BE"><span class="toc-number">4.2.</span> <span class="toc-text">使用Mirror的函数标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-Client"><span class="toc-number">4.2.1.</span> <span class="toc-text">[Server&#x2F;Client]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Command"><span class="toc-number">4.2.2.</span> <span class="toc-text">[Command]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClientRpc-TargetRpc"><span class="toc-number">4.2.3.</span> <span class="toc-text">[ClientRpc&#x2F;TargetRpc]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SyncVar"><span class="toc-number">4.2.4.</span> <span class="toc-text">[SyncVar]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ServerCallback"><span class="toc-number">4.2.5.</span> <span class="toc-text">[ServerCallback]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ClientCallBack"><span class="toc-number">4.2.6.</span> <span class="toc-text">[ClientCallBack]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E4%BA%9B%F0%9F%8C%B0"><span class="toc-number">4.3.</span> <span class="toc-text">举些🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2%E5%A4%96%E8%A7%82"><span class="toc-number">4.3.1.</span> <span class="toc-text">角色外观</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E5%AD%90%E5%BC%B9"><span class="toc-number">4.3.2.</span> <span class="toc-text">发射子弹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%A7%BB%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">4.3.3.</span> <span class="toc-text">多人游戏中玩家的移动控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">搭建服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">5.1.</span> <span class="toc-text">生成服务器框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%93%BE%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">通过Git链接到服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="toc-number">5.2.1.</span> <span class="toc-text">Linux平台</span></a></li></ol></li></ol></li></ol>
     </div>
 
 
@@ -222,18 +222,17 @@
 <h2 id="多人游戏入门"><a href="#多人游戏入门" class="headerlink" title="多人游戏入门"></a>多人游戏入门</h2><p>在开始之前，必须先大致了解多人游戏和网络通信的原理，这样才能更方便我们理解后续的代码行为。</p>
 <h3 id="多人游戏模式的演变"><a href="#多人游戏模式的演变" class="headerlink" title="多人游戏模式的演变"></a>多人游戏模式的演变</h3><h4 id="单机双人游戏"><a href="#单机双人游戏" class="headerlink" title="单机双人游戏"></a>单机双人游戏</h4><p>最原始的多人游戏从双人游戏开始，叫上隔壁邻居和小伙伴到自家客厅，排队轮流游戏。</p>
 <pre class="mermaid">graph TB;
-  Player1-->Client
-  Player2-->Client</pre>
+  p1(Player1)-->Client;
+  p2(Player2)-->Client;</pre>
 
 <p>这种方式的优点在于<strong>无延迟</strong>，道理很简单，因为游戏客户端只有一个，代码只在一个客户端运行，所有的游戏行为是完全同步的。</p>
 <p>而缺点也显而易见，那就是<strong>地域要求高</strong>，我们必须在同一屋檐下才能s进行游戏，甚至必须在同一个房间内。</p>
 <p>直到后来出现了局域网游戏。</p>
 <h4 id="局域网游戏"><a href="#局域网游戏" class="headerlink" title="局域网游戏"></a>局域网游戏</h4><p>局域网游戏很大程度解放了对于玩家的地域要求。</p>
 <pre class="mermaid">graph TB;
-  server(Client1/Server)
-  Client2-->server(Client1/Server)
-  Client3-->server(Client1/Server)
-  otherClient(...)-->server(Client1/Server)</pre>
+  Client2-->server(Client1/Server);
+  Client3-->server(Client1/Server);
+  otherClient(...)-->server(Client1/Server);</pre>
 
 <p>游戏的方式就是让某个玩家创建一个游戏房间，这台客户端也就成为了<strong>服务端</strong>，只要处于同一IP地址的客户端都可以连接到这服务器，在多台设备中进行多人游戏。因此主要的优点在于<strong>可参与玩家数量的增加</strong>，以及和临近小伙伴游戏<strong>更便捷</strong>。</p>
 <p>这种方式的缺点有两点：</p>
@@ -244,10 +243,10 @@
 <p>那么有没有办法彻底解决地域位置的缺陷呢？答案是有的，就是现在大部分多人游戏选择的服务器游戏方式。</p>
 <h4 id="服务器游戏"><a href="#服务器游戏" class="headerlink" title="服务器游戏"></a>服务器游戏</h4><p>服务器游戏完全解放了对于客户端地域的要求。某游戏开发商提供内置的服务器端口向互联网开放，玩家启动游戏客户端后自动连接到这台服务器，实现全网互联。</p>
 <pre class="mermaid">graph TB;
-  Client1-->server(Server)
-  Client2-->server(Server)
-  Client3-->server(Server)
-  otherClient(...)-->server(Server)</pre>
+  Client1-->server(Server);
+  Client2-->server(Server);
+  Client3-->server(Server);
+  otherClient(...)-->server(Server);</pre>
 
 <p>优点显而易见，<strong>很大程度上解决了玩家之间的地域要求</strong>（排除特殊因素）</p>
 <p>而传统多人游戏方式的优点也就成为了现在的缺点，<strong>客户端之间存在一定程度的延迟</strong>，这取决于玩家到服务器的距离，以及跨区域的传输时间等因素。</p>
@@ -258,6 +257,16 @@
 <p>TCP在传递数据之前，会有三次握手来建立连接，就像打电话一样，电话机之间需要事先拨号建立连接，<strong>一切传输都建立在已连接的前提下</strong>。数据传递时，有确认、窗口、重传、拥塞控制机制，在数据传完后，还会断开连接用来节约系统资源。</p>
 <p>TCP在传递数据之前要建立连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。</p>
 </blockquote>
+<pre class="mermaid">sequenceDiagram
+  participant Client;
+  participant Server;
+  Client->>Server:1.发送连接请求
+  Server->>Client:2.发送一个应答
+  Client->>Server:3.发送一个确认报文
+  note left of Server:连接成功</pre>
+
+
+
 <p>综上：</p>
 <ul>
 <li><p>TCP传输协议的特点是：<strong>可靠，稳定，并且按顺序传输数据</strong></p>
@@ -271,6 +280,17 @@
 <p>UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，是一个<strong>无状态的传输协议</strong>，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。</p>
 <p>因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。</p>
 </blockquote>
+<pre class="mermaid">sequenceDiagram
+  participant Client;
+  participant Server;
+  Server->>Client:你可以停下了
+  Client->>Server:为啥？
+  Server->>Client:传输结束了，请停下吧
+  Client->>Server:我不要，这好好玩
+  Server->>Client:停下！
+  Client->>Server:我不！
+  Client-->Server:……</pre>
+
 <p>综上：</p>
 <ul>
 <li><p>UDP传输协议的特点是：<strong>快，比TCP协议稍安全</strong></p>
@@ -294,10 +314,10 @@
 <p>而这里的主角Mirror正是基于KCP协议。</p>
 <p>好了，现在我们对多人游戏的基本原理有了大致的概念，这会有利于后面更准确理解Mirror方法的使用方式。</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>Unity Assets Store内下载<a target="_blank" rel="noopener" href="https://assetstore.unity.com/packages/tools/network/mirror-129321">Mirror</a>，导入后重启Unity。</li>
+<li>在Unity Assets Store内下载<a href="https://assetstore.unity.com/packages/tools/network/mirror-129321">Mirror</a>，导入后重启Unity。</li>
 <li>确保游戏版本基于<code>.NET Framework 4.x</code>以上。 </li>
-<li>手上捏一份<a target="_blank" rel="noopener" href="https://mirror-networking.com/docs/api/Mirror.html">官方API文档</a>。</li>
-<li>下载一份<a target="_blank" rel="noopener" href="https://github.com/VeriorPies/ParrelSync">ParrelSync</a>，这玩意儿会把你的游戏项目实时复制一份，这样就能够分别调试服务端和客户端等多端口的情况。</li>
+<li>手上捏一份<a href="https://mirror-networking.com/docs/api/Mirror.html">官方API文档</a>。</li>
+<li>下载一份<a href="https://github.com/VeriorPies/ParrelSync">ParrelSync</a>，这玩意儿会把你的游戏项目实时复制一份，这样就能够分别调试服务端和客户端等多端口的情况。</li>
 </ol>
 <h2 id="基本网络环境的建立"><a href="#基本网络环境的建立" class="headerlink" title="基本网络环境的建立"></a>基本网络环境的建立</h2><p>在游戏场景内添加空物体，名为<code>Network Manager</code>，挂载以下脚本</p>
 <ul>
@@ -316,9 +336,9 @@
 </ul>
 </li>
 <li><code>Network Manager HUD</code>- 网络调试基础面板<ul>
-<li><code>LAN Host</code>：作为服务器，同时作为客户端登陆游戏场景。</li>
-<li><code>LAN Client IP</code>：仅作为客户端连接到指定IP地址的游戏场景。</li>
-<li><code>LAN Server Only</code>：仅作为服务器创建场景，不产生玩家。</li>
+<li><code>LAN Host</code>：<strong>作为服务器，同时作为客户端</strong>登陆游戏场景。就像局域网房间一样。</li>
+<li><code>LAN Client IP</code>：<strong>仅作为客户端</strong>连接到指定IP地址的游戏场景。</li>
+<li><code>LAN Server Only</code>：<strong>仅作为服务器</strong>创建场景，不产生玩家。</li>
 </ul>
 </li>
 </ul>
@@ -332,11 +352,11 @@
 <blockquote>
 <p><strong>脚本需要做的更改：</strong></p>
 <ul>
-<li><code>using Mirror</code></li>
+<li><code>using Mirror;</code></li>
 <li>脚本继承类改为<code>NetworkBehaviour</code>（继承自<code>MonoBehaviour</code>）</li>
 </ul>
 </blockquote>
-<p>玩家预制体内需要的脚本：</p>
+<p><strong>在服务器存在的游戏预制体</strong>内需要的脚本：</p>
 <ul>
 <li><p><code>NetworkIdentity</code>：网络标识组件</p>
 <ul>
@@ -362,21 +382,17 @@
 </li>
 </ul>
 <h3 id="运行游戏"><a href="#运行游戏" class="headerlink" title="运行游戏"></a>运行游戏</h3><p>在编辑器内尝试运行游戏，会看到<code>HUD</code>的UI界面</p>
-<p>点击<code>LAN Host</code>，场景内就会出现一个立方体，代表一个<code>Player</code>进入了该服务器</p>
-<h4 id="模拟多客户端效果"><a href="#模拟多客户端效果" class="headerlink" title="模拟多客户端效果"></a>模拟多客户端效果</h4><p>在引擎菜单选择<code>建立并运行</code>(<code>Build And Run</code>)，点击<code>LAN Host</code>创建服务器，同时在引擎中运行游戏，相当于两个客户端在同时运行。<br>在引擎中选择<code>LAN Client</code>，此时两个游戏端口都出现了两个立方体，若关闭作为服务器的端口，玩家们被踢出，游戏场景会被清空。</p>
-<h2 id="服务器内玩家的移动"><a href="#服务器内玩家的移动" class="headerlink" title="服务器内玩家的移动"></a>服务器内玩家的移动</h2><p>将预制物体挂载<code>Network Transform</code>组件</p>
+<p>点击<code>LAN Host</code>，场景内就会出现一个立方体，代表一个<code>Player</code>创建并加s入了自己的服务器</p>
+<h4 id="模拟多客户端效果"><a href="#模拟多客户端效果" class="headerlink" title="模拟多客户端效果"></a>模拟多客户端效果</h4><p>在引擎菜单选择<code>ParrelSync</code>，克隆当前的游戏项目，两个编辑器同时运行游戏，相当于两个客户端在同时运行。此时两个游戏端口都出现了两个立方体，若关闭作为服务器的端口，玩家们被踢出，游戏场景会被清空。</p>
+<h2 id="服务器内玩家的移动"><a href="#服务器内玩家的移动" class="headerlink" title="服务器内玩家的移动"></a>服务器内玩家的移动</h2><p>多人游戏中的游戏物体只需要一个脚本即可同步位置信息。</p>
+<p>将预制物体挂载<code>Network Transform</code>组件</p>
 <ul>
 <li><code>Compress Rotation</code>用于控制服务器对于物体旋转的字节压缩，也可以选择无旋转</li>
 <li><code>Network Sync Mode</code>用于控制服务器同步模式，默认是<code>Observes</code>观察者，每个人都将在网络中获得同步；或者选择<code>Owner</code>所有者，只有拥有玩家的端口获得网络同步。</li>
-<li><code>Client Authority</code>：客户端玩家是否获得服务器授权。若要<strong>在客户端控制角色并同步到服务器</strong>，需要勾选此项。</li>
+<li><code>Client Authority</code>：客户端玩家是否获得服务器授权。若要<strong>在客户端控制角色并同步到服务器</strong>，需勾选此项。</li>
 <li><code>Network Sync Interval</code>：用于控制服务器的同步间隔</li>
 </ul>
-<h2 id="多人游戏中玩家的移动控制"><a href="#多人游戏中玩家的移动控制" class="headerlink" title="多人游戏中玩家的移动控制"></a>多人游戏中玩家的移动控制</h2><h3 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h3><p>以下脚本实现了双人乒乓球的球拍移动，并同步至服务器</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Mirror;</span><br><span class="line"></span><br><span class="line"><span class="comment">//复写NetworkManager类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">NetworkManagerOverride</span> : <span class="title">NetworkManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//从NetworkManager继承到playerPrefab属性</span></span><br><span class="line">	Gameobject player;</span><br><span class="line">    Gameobject ball;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 玩家加入服务器时触发的事件 <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnServerAddPlayer</span>(<span class="params">NetworkConnection conn</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板</span></span><br><span class="line">        <span class="keyword">if</span> (numPlayers == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            player = Instantitate(playerPrefab, <span class="keyword">new</span> Vector3(<span class="number">-10</span>, <span class="number">0</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numPlayers == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            player = Instantitate(playerPrefab, <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        NetworkServer.AddPlayerForConnection(conn, player);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (numPlayers == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ball = Instantitate(spawnPrefabs.Find(prefab))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 玩家离开服务器时触发的事件 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnServerDisconnect</span>(<span class="params">NetworkConnection conn</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ball != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            NetworkServer.Destroy(ball);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">base</span>.ConServerDisconnect(conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="如何用Mirror实现做到网络通信"><a href="#如何用Mirror实现做到网络通信" class="headerlink" title="如何用Mirror实现做到网络通信"></a>如何用Mirror实现做到网络通信</h2><h2 id="与服务器的同步"><a href="#与服务器的同步" class="headerlink" title="与服务器的同步"></a>与服务器的同步</h2><h3 id="基本的回调函数"><a href="#基本的回调函数" class="headerlink" title="基本的回调函数"></a>基本的回调函数</h3><p>在服务端可以使用的回调函数：</p>
+<h2 id="用Mirror实现与服务器同步"><a href="#用Mirror实现与服务器同步" class="headerlink" title="用Mirror实现与服务器同步"></a>用Mirror实现与服务器同步</h2><h3 id="基本的回调函数"><a href="#基本的回调函数" class="headerlink" title="基本的回调函数"></a>基本的回调函数</h3><p>在服务端可以使用的回调函数：</p>
 <table>
 <thead>
 <tr>
@@ -475,83 +491,95 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">OnStartLocalPlayer</td>
+<td align="center">OnStartLocalPlayer()</td>
 <td align="center">客户端玩家生成时回调</td>
 </tr>
 <tr>
-<td align="center">OnStopLocalPlayer</td>
+<td align="center">OnStopLocalPlayer()</td>
 <td align="center">客户端玩家销毁时回调</td>
 </tr>
 <tr>
-<td align="center">OnStartAuthority</td>
+<td align="center">OnStartAuthority()</td>
 <td align="center">客户端玩家授权时回调</td>
 </tr>
 <tr>
-<td align="center">OnStopAuthority</td>
+<td align="center">OnStopAuthority()</td>
 <td align="center">客户端玩家解除授权时回调</td>
 </tr>
 </tbody></table>
-<h3 id="常用特征"><a href="#常用特征" class="headerlink" title="常用特征"></a>常用特征</h3><blockquote>
+<h3 id="使用Mirror的函数标签"><a href="#使用Mirror的函数标签" class="headerlink" title="使用Mirror的函数标签"></a>使用Mirror的函数标签</h3><p>前面提到了不同终端之间的通信方式，那么如何做到同步每个端的游戏场景呢？这里就要用到Mirror的函数标签</p>
+<h4 id="Server-Client"><a href="#Server-Client" class="headerlink" title="[Server/Client]"></a>[Server/Client]</h4><p>这类标签表示当前终端类型执行对应的回调函数。</p>
 <ul>
-<li><strong>[Server]</strong><ul>
+<li><p><strong>[Server]</strong></p>
+<ul>
 <li>表示只有服务端执行</li>
 </ul>
 </li>
-<li><strong>[Client]</strong><ul>
+<li><p><strong>[Client]</strong></p>
+<ul>
 <li>表示只有当前客户端执行</li>
 </ul>
 </li>
-<li><strong>[ServerCallback]</strong><ul>
-<li>表示服务器执行的<strong>回调函数，在服务端做判断</strong>。</li>
-<li>只影响服务端。</li>
-<li>比如子弹中的碰撞：<code>OnTriggerEnter()</code>，在前面加一个<code>[ServerCallBack]</code>的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。</li>
-</ul>
+<li><p>🌰：</p>
 </li>
-<li><strong>[ClientCallBack]</strong><ul>
-<li>表示客户端执行的<strong>回调函数，在客户端做判断</strong>。</li>
-<li>只影响当前客户端。</li>
 </ul>
-</li>
-<li><strong>[Command]</strong><ul>
-<li>函数名以<code>Cmd</code>开头</li>
-<li>表示客户端调用在服务端的方法，这类方法<strong>在客户端调用，但在服务端运行</strong>。</li>
-<li>[Command]标记的方法无法在服务器上调用，因为这类方法只在服务器上运行。这些方法是从 客户端中的角色对象 发送到 服务端中的角色对象</li>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Server</span>]</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ServerCallback</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Debug.Log(<span class="string">&quot;服务器运行该回调&quot;</span>);    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Client</span>]</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClientCallback</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Debug.Log(<span class="string">&quot;当前客户端运行该回调&quot;</span>);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Command"><a href="#Command" class="headerlink" title="[Command]"></a>[Command]</h4><p>这个标签的用途非常大，作为客户端向服务端发起请求的主要方式</p>
+<ul>
+<li>函数名以<code>Cmd</code>开头（官方要求）</li>
+<li>表示客户端调用在服务端的方法，这类方法<strong>只能在客户端调用，但在服务端执行</strong>。</li>
+<li>[Command]标记的方法<strong>无法在服务端调用</strong>，因为这类方法只在服务器上运行。这些方法是 从客户端中的角色对象 发送到 服务端中的角色对象。</li>
 <li>比如客户端角色通过<code>[Command]</code>发射子弹，则发射子弹的方法发送到服务器，服务端执行这个方法。</li>
-<li>只支持传递以下类型的参数<ul>
+<li>只支持传递以下类型的参数（w/译为with）<ul>
 <li>Primitive (byte, int, float, string, etc. )</li>
 <li>Built-in Unity math (Vector3, Quaternion, etc. )</li>
-<li>Arrays of pr imitive types</li>
+<li>Arrays of primitive types</li>
 <li>Structs w/ these types</li>
-<li>Netwo rkIdentity</li>
-<li>Game0bject w/ NetworkIdentity </li>
+<li>NetworkIdentity</li>
+<li>Game0bject w/ NetworkIdentity</li>
 </ul>
 </li>
-<li><code>[Command(ignoreAuthority = true)]</code>可以使运行从游戏对象发送的</li>
+<li><code>[Command(ignoreAuthority = true)]</code>可以忽略客户端的权限运行回调</li>
 </ul>
-</li>
-<li><strong>[ClientRpc]</strong><ul>
-<li>函数名以<code>Rpc</code>开头（<code>Remote Procedure Call</code> - 远程过程调用）</li>
+<h4 id="ClientRpc-TargetRpc"><a href="#ClientRpc-TargetRpc" class="headerlink" title="[ClientRpc/TargetRpc]"></a>[ClientRpc/TargetRpc]</h4><p>这类标签是[Command]的相反操作，是服务端向客户端发起请求的主要方式（<code>Rpc-Remote Procedure Call</code> - 远程过程调用）</p>
+<ul>
+<li><p>[ClientRpc]函数名以<code>Rpc</code>开头</p>
+<ul>
 <li>表示服务端在客户端调用方法，这类方法<strong>在服务端调用，但在客户端运行</strong></li>
 <li>比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。</li>
 </ul>
 </li>
-<li><strong>[TargetRpc]</strong><ul>
-<li>函数名以<code>Target</code>开头</li>
+<li><p>[TargetRpc]函数名以<code>Target</code>开头</p>
+<ul>
 <li>表示<strong>服务端向符合条件的指定客户端调用方法</strong>，在服务端调用，在指定的客户端执行。</li>
-<li>通过传递<code>NetworkConnection</code>参数来指定客户端</li>
+<li>通过传递<code>NetworkConnection</code>参数来指定客户端，如<code>void TargetCallback(NetworkConnection conn)</code></li>
 <li>比如玩家的得分条件，玩家击杀敌人，服务器会执行得分方法，在指定客户端执行。</li>
 </ul>
 </li>
-<li><strong>[SyncVar]</strong><ul>
+</ul>
+<h4 id="SyncVar"><a href="#SyncVar" class="headerlink" title="[SyncVar]"></a>[SyncVar]</h4><p>此标签用来同步每个客户端的指定变量，标记在变量定义前；</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SyncVar</span>] <span class="keyword">int</span> hp;</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>用于从服务器同步到客户端的属性标识。</li>
 <li>用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）</li>
 <li>使用<code>[SyncVar(hook = nameof(FuncName))] voidFuncName(T old, T new)&#123;&#125;</code>来监听同步变量的改变</li>
 <li>这种特性的数据的修改<strong>只能从服务端修改</strong>，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。</li>
 </ul>
-</li>
+<h4 id="ServerCallback"><a href="#ServerCallback" class="headerlink" title="[ServerCallback]"></a>[ServerCallback]</h4><ul>
+<li>表示服务器执行的<strong>回调函数，在服务端做判断</strong>。</li>
+<li>只影响服务端。</li>
+<li>比如子弹中的碰撞：<code>OnTriggerEnter()</code>，在前面加一个<code>[ServerCallBack]</code>的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。</li>
 </ul>
-</blockquote>
-<h3 id="举些🌰"><a href="#举些🌰" class="headerlink" title="举些🌰"></a>举些🌰</h3><h4 id="角色外观"><a href="#角色外观" class="headerlink" title="角色外观"></a>角色外观</h4><p>在服务器中，每个玩家都有自己独特的外观，为了实现不同玩家不同颜色，通常会想到随机的材质颜色。</p>
+<h4 id="ClientCallBack"><a href="#ClientCallBack" class="headerlink" title="[ClientCallBack]"></a>[ClientCallBack]</h4><ul>
+<li>表示客户端执行的<strong>回调函数，在客户端做判断</strong>。</li>
+<li>只影响客户端。</li>
+</ul>
+<h3 id="举些🌰"><a href="#举些🌰" class="headerlink" title="举些🌰"></a>举些🌰</h3><p>这些案例不代表这些标签的标准用法，<strong>最终的逻辑要以实际情况而定</strong>。</p>
+<h4 id="角色外观"><a href="#角色外观" class="headerlink" title="角色外观"></a>角色外观</h4><p>在服务器中，每个玩家都有自己独特的外观，为了实现不同玩家不同颜色，通常会想到随机的材质颜色。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerColor</span> : <span class="title">MonoBehavior</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Color color = <span class="keyword">new</span> Color(Random.Range(<span class="number">0</span>, <span class="number">255</span>) / <span class="number">255f</span>, Random.Range(<span class="number">0</span>, <span class="number">255</span>) / <span class="number">255f</span>, Random.Range(<span class="number">0</span>, <span class="number">255</span>) / <span class="number">255f</span>);</span><br><span class="line">        GetComponent&lt;Renderer&gt;().material.SetColor(<span class="string">&quot;_Color&quot;</span>, color);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>但在服务器上，每个端口看到的随机颜色都是不一样的，这是因为随机的数据只在本机上计算，颜色数据与服务器没有产生关联。</p>
@@ -561,6 +589,11 @@
 
 
 <h4 id="发射子弹"><a href="#发射子弹" class="headerlink" title="发射子弹"></a>发射子弹</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> Mirror;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 子弹预制体，同样需要注册在Network Manager中 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> GameObject Bullet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerBullet</span> : <span class="title">NetworkBehavior</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnStartServer</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">base</span>.OnStartServer();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        transform.Translate(<span class="keyword">new</span> Vector3(Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>), <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span>(Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">        &#123;</span><br><span class="line">            CmdFire();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 同步函数，发射子弹 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    [<span class="meta">Command</span>]</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CmdFire</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GameObject bullet = Instantitate(Bullet, transform.position + <span class="keyword">new</span> Vector(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//这一句必写，服务器同步产生此对象</span></span><br><span class="line">        NetworkServer.Spawn(bullet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="多人游戏中玩家的移动控制"><a href="#多人游戏中玩家的移动控制" class="headerlink" title="多人游戏中玩家的移动控制"></a>多人游戏中玩家的移动控制</h4><p>以下脚本实现了双人乒乓球的球拍移动，并同步至服务器</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Mirror;</span><br><span class="line"></span><br><span class="line"><span class="comment">//复写NetworkManager类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">NetworkManagerOverride</span> : <span class="title">NetworkManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//从NetworkManager继承到playerPrefab属性</span></span><br><span class="line">	Gameobject player;</span><br><span class="line">    Gameobject ball;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 玩家加入服务器时触发的事件 <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnServerAddPlayer</span>(<span class="params">NetworkConnection conn</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板</span></span><br><span class="line">        <span class="keyword">if</span> (numPlayers == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            player = Instantitate(playerPrefab, <span class="keyword">new</span> Vector3(<span class="number">-10</span>, <span class="number">0</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numPlayers == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            player = Instantitate(playerPrefab, <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>), transform.rotation);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        NetworkServer.AddPlayerForConnection(conn, player);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (numPlayers == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ball = Instantitate(spawnPrefabs.Find(prefab))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"><span class="doctag">///</span><span class="doctag">&lt;summary&gt;</span> 玩家离开服务器时触发的事件 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnServerDisconnect</span>(<span class="params">NetworkConnection conn</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ball != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            NetworkServer.Destroy(ball);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">base</span>.ConServerDisconnect(conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -611,7 +644,7 @@
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2021-01-14</p></div> 
+    <div class="post-footer__meta"><p>updated at 2021-01-15</p></div> 
     <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a><a href="/blogs/tags/%E8%81%94%E6%9C%BA/" class="post-tags__link button"># 联机</a></div> 
 </article>
 
@@ -686,22 +719,34 @@
  
  
 
- 
-    
-        
-        <p class="footer-copyright">
-            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
-        </p>
-    
-    
-        
-            <p>&lt;创作不易，且行且珍惜&gt;</p>
 
-        
     
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+    
+    <p class="footer-copyright">
+        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+    </p>
+    
+    
+    
+    <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+    
+    
+
+    
+    <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({
+                theme: 'forest'
+            });
+        }
+    </script>
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a
+            href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
-
         </div>
         
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>

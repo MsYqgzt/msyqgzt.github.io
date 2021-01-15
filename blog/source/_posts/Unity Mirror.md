@@ -5,6 +5,7 @@ categories:
 - [Unity]
 - [C#]
 mathjax: true
+
 date: 2020-10-21
 ---
 
@@ -24,8 +25,8 @@ date: 2020-10-21
 
 ```mermaid
 graph TB;
-  Player1-->Client
-  Player2-->Client
+  p1(Player1)-->Client;
+  p2(Player2)-->Client;
 ```
 
 这种方式的优点在于**无延迟**，道理很简单，因为游戏客户端只有一个，代码只在一个客户端运行，所有的游戏行为是完全同步的。
@@ -42,10 +43,9 @@ graph TB;
 
 ```mermaid
 graph TB;
-  server(Client1/Server)
-  Client2-->server(Client1/Server)
-  Client3-->server(Client1/Server)
-  otherClient(...)-->server(Client1/Server)
+  Client2-->server(Client1/Server);
+  Client3-->server(Client1/Server);
+  otherClient(...)-->server(Client1/Server);
 ```
 
 游戏的方式就是让某个玩家创建一个游戏房间，这台客户端也就成为了**服务端**，只要处于同一IP地址的客户端都可以连接到这服务器，在多台设备中进行多人游戏。因此主要的优点在于**可参与玩家数量的增加**，以及和临近小伙伴游戏**更便捷**。
@@ -65,10 +65,10 @@ graph TB;
 
 ```mermaid
 graph TB;
-  Client1-->server(Server)
-  Client2-->server(Server)
-  Client3-->server(Server)
-  otherClient(...)-->server(Server)
+  Client1-->server(Server);
+  Client2-->server(Server);
+  Client3-->server(Server);
+  otherClient(...)-->server(Server);
 ```
 
 优点显而易见，**很大程度上解决了玩家之间的地域要求**（排除特殊因素）
@@ -87,6 +87,18 @@ graph TB;
 >
 > TCP在传递数据之前要建立连接，这会消耗时间，而且在数据传递时，确认机制、重传机制、拥塞控制机制等都会消耗大量的时间，而且要在每台设备上维护所有的传输连接，事实上，每个连接都会占用系统的CPU、内存等硬件资源。而且，因为TCP有确认机制、三次握手机制，这些也导致TCP容易被人利用，实现DOS、DDOS、CC等攻击。
 
+```mermaid
+sequenceDiagram
+  participant Client;
+  participant Server;
+  Client->>Server:1.发送连接请求
+  Server->>Client:2.发送一个应答
+  Client->>Server:3.发送一个确认报文
+  note left of Server:连接成功
+```
+
+
+
 综上：
 
 - TCP传输协议的特点是：**可靠，稳定，并且按顺序传输数据**
@@ -101,6 +113,19 @@ graph TB;
 > UDP没有TCP的握手、确认、窗口、重传、拥塞控制等机制，是一个**无状态的传输协议**，所以它在传递数据时非常快。没有TCP的这些机制，UDP较TCP被攻击者利用的漏洞就要少一些。
 >
 > 因为UDP没有TCP那些可靠的机制，在数据传递时，如果网络质量不好，就会很容易丢包。
+
+```mermaid
+sequenceDiagram
+  participant Client;
+  participant Server;
+  Server->>Client:你可以停下了
+  Client->>Server:为啥？
+  Server->>Client:传输结束了，请停下吧
+  Client->>Server:我不要，这好好玩
+  Server->>Client:停下！
+  Client->>Server:我不！
+  Client-->Server:……
+```
 
 综上：
 
@@ -132,7 +157,7 @@ TCP保证数据准确交付，UDP保证数据快速到达，而KCP则是**两种
 
 ### 准备工作
 
-1. Unity Assets Store内下载[Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)，导入后重启Unity。
+1. 在Unity Assets Store内下载[Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)，导入后重启Unity。
 2. 确保游戏版本基于`.NET Framework 4.x`以上。 
 3. 手上捏一份[官方API文档](https://mirror-networking.com/docs/api/Mirror.html)。
 4. 下载一份[ParrelSync](https://github.com/VeriorPies/ParrelSync)，这玩意儿会把你的游戏项目实时复制一份，这样就能够分别调试服务端和客户端等多端口的情况。
@@ -152,9 +177,9 @@ TCP保证数据准确交付，UDP保证数据快速到达，而KCP则是**两种
     - `Auto Create Player`：玩家进入游戏场景时是否自动产生预制角色
     - `Registered Spawnable Prefabs`：可生成的预制体列表。在游戏场景中临时产生的物体，如子弹等模型，都需要作为预制体注册进这个列表
 - `Network Manager HUD`- 网络调试基础面板
-  - `LAN Host`：作为服务器，同时作为客户端登陆游戏场景。
-  - `LAN Client IP`：仅作为客户端连接到指定IP地址的游戏场景。
-  - `LAN Server Only`：仅作为服务器创建场景，不产生玩家。
+  - `LAN Host`：**作为服务器，同时作为客户端**登陆游戏场景。就像局域网房间一样。
+  - `LAN Client IP`：**仅作为客户端**连接到指定IP地址的游戏场景。
+  - `LAN Server Only`：**仅作为服务器**创建场景，不产生玩家。
 
 
 
@@ -183,10 +208,10 @@ void Start(){
 
 > **脚本需要做的更改：**
 >
-> - `using Mirror`
+> - `using Mirror;`
 > - 脚本继承类改为`NetworkBehaviour`（继承自`MonoBehaviour`）
 
-玩家预制体内需要的脚本：
+**在服务器存在的游戏预制体**内需要的脚本：
 
 - `NetworkIdentity`：网络标识组件
 
@@ -211,87 +236,28 @@ void Start(){
 
 在编辑器内尝试运行游戏，会看到`HUD`的UI界面
 
-点击`LAN Host`，场景内就会出现一个立方体，代表一个`Player`进入了该服务器
-
-
+点击`LAN Host`，场景内就会出现一个立方体，代表一个`Player`创建并加s入了自己的服务器
 
 #### 模拟多客户端效果
 
-在引擎菜单选择`建立并运行`(`Build And Run`)，点击`LAN Host`创建服务器，同时在引擎中运行游戏，相当于两个客户端在同时运行。
-在引擎中选择`LAN Client`，此时两个游戏端口都出现了两个立方体，若关闭作为服务器的端口，玩家们被踢出，游戏场景会被清空。
+在引擎菜单选择`ParrelSync`，克隆当前的游戏项目，两个编辑器同时运行游戏，相当于两个客户端在同时运行。此时两个游戏端口都出现了两个立方体，若关闭作为服务器的端口，玩家们被踢出，游戏场景会被清空。
 
 
 
 ## 服务器内玩家的移动
 
+多人游戏中的游戏物体只需要一个脚本即可同步位置信息。
+
 将预制物体挂载`Network Transform`组件
 
 - `Compress Rotation`用于控制服务器对于物体旋转的字节压缩，也可以选择无旋转
 - `Network Sync Mode`用于控制服务器同步模式，默认是`Observes`观察者，每个人都将在网络中获得同步；或者选择`Owner`所有者，只有拥有玩家的端口获得网络同步。
-- `Client Authority`：客户端玩家是否获得服务器授权。若要**在客户端控制角色并同步到服务器**，需要勾选此项。
+- `Client Authority`：客户端玩家是否获得服务器授权。若要**在客户端控制角色并同步到服务器**，需勾选此项。
 - `Network Sync Interval`：用于控制服务器的同步间隔
 
 
 
-## 多人游戏中玩家的移动控制
-
-### 举个🌰
-
-以下脚本实现了双人乒乓球的球拍移动，并同步至服务器
-
-```c#
-using Mirror;
-
-//复写NetworkManager类
-public class NetworkManagerOverride : NetworkManager
-{
-    //从NetworkManager继承到playerPrefab属性
-	Gameobject player;
-    Gameobject ball;
-    
-    ///<summary> 玩家加入服务器时触发的事件 <summary>
-    public override void OnServerAddPlayer(NetworkConnection conn)
-    {
-        //判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板
-        if (numPlayers == 0)
-        {
-            player = Instantitate(playerPrefab, new Vector3(-10, 0, 0), transform.rotation);
-        }
-        else if (numPlayers == 1)
-        {
-            player = Instantitate(playerPrefab, new Vector3(10, 0, 0), transform.rotation);
-        }
-        
-        NetworkServer.AddPlayerForConnection(conn, player);
-        
-        if (numPlayers == 2)
-        {
-            ball = Instantitate(spawnPrefabs.Find(prefab))
-        }
-    }
-    
-    ///<summary> 玩家离开服务器时触发的事件 </summary>
-    public override void OnServerDisconnect(NetworkConnection conn)
-    {
-        if (ball != null)
-        {
-            NetworkServer.Destroy(ball);
-        }
-        
-        base.ConServerDisconnect(conn);
-    }
-}
-```
-
-
-
-## 如何用Mirror实现做到网络通信
-
-
-
-
-
-## 与服务器的同步
+## 用Mirror实现与服务器同步
 
 ### 基本的回调函数
 
@@ -321,59 +287,111 @@ public class NetworkManagerOverride : NetworkManager
 
 对于网络行为的回调函数：
 
-|       函数名       |           描述           |
-| :----------------: | :----------------------: |
-| OnStartLocalPlayer |   客户端玩家生成时回调   |
-| OnStopLocalPlayer  |   客户端玩家销毁时回调   |
-|  OnStartAuthority  |   客户端玩家授权时回调   |
-|  OnStopAuthority   | 客户端玩家解除授权时回调 |
+|        函数名        |           描述           |
+| :------------------: | :----------------------: |
+| OnStartLocalPlayer() |   客户端玩家生成时回调   |
+| OnStopLocalPlayer()  |   客户端玩家销毁时回调   |
+|  OnStartAuthority()  |   客户端玩家授权时回调   |
+|  OnStopAuthority()   | 客户端玩家解除授权时回调 |
 
 
 
-### 常用特征
+### 使用Mirror的函数标签
 
-> - **[Server]**
->   - 表示只有服务端执行
-> - **[Client]**
->    - 表示只有当前客户端执行
-> - **[ServerCallback]**
->   - 表示服务器执行的**回调函数，在服务端做判断**。
->   - 只影响服务端。
->   - 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
-> - **[ClientCallBack]**
->   - 表示客户端执行的**回调函数，在客户端做判断**。
->   - 只影响当前客户端。
-> - **[Command]**
->   - 函数名以`Cmd`开头
->   - 表示客户端调用在服务端的方法，这类方法**在客户端调用，但在服务端运行**。
->   - [Command]标记的方法无法在服务器上调用，因为这类方法只在服务器上运行。这些方法是从 客户端中的角色对象 发送到 服务端中的角色对象
->   - 比如客户端角色通过`[Command]`发射子弹，则发射子弹的方法发送到服务器，服务端执行这个方法。
->   - 只支持传递以下类型的参数
->     - Primitive (byte, int, float, string, etc. )
->     - Built-in Unity math (Vector3, Quaternion, etc. )
->     - Arrays of pr imitive types
->     - Structs w/ these types
->     - Netwo rkIdentity
->     - Game0bject w/ NetworkIdentity 
->   - `[Command(ignoreAuthority = true)]`可以使运行从游戏对象发送的
-> - **[ClientRpc]**
->   - 函数名以`Rpc`开头（`Remote Procedure Call` - 远程过程调用）
->   - 表示服务端在客户端调用方法，这类方法**在服务端调用，但在客户端运行**
->   - 比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。
-> - **[TargetRpc]**
->    - 函数名以`Target`开头
->    - 表示**服务端向符合条件的指定客户端调用方法**，在服务端调用，在指定的客户端执行。
->    - 通过传递`NetworkConnection`参数来指定客户端
->     - 比如玩家的得分条件，玩家击杀敌人，服务器会执行得分方法，在指定客户端执行。
-> - **[SyncVar]**
->    - 用于从服务器同步到客户端的属性标识。
->    - 用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）
->    - 使用`[SyncVar(hook = nameof(FuncName))] voidFuncName(T old, T new){}`来监听同步变量的改变
->     - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。
+前面提到了不同终端之间的通信方式，那么如何做到同步每个端的游戏场景呢？这里就要用到Mirror的函数标签
+
+#### [Server/Client]
+
+这类标签表示当前终端类型执行对应的回调函数。
+
+- **[Server]**
+  - 表示只有服务端执行
+- **[Client]**
+  - 表示只有当前客户端执行
+
+- 🌰：
+
+```c#
+[Server]
+void ServerCallback()
+{
+	Debug.Log("服务器运行该回调");    
+}
+
+[Client]
+void ClientCallback()
+{
+	Debug.Log("当前客户端运行该回调");    
+}
+```
 
 
+
+#### [Command]
+
+这个标签的用途非常大，作为客户端向服务端发起请求的主要方式
+
+- 函数名以`Cmd`开头（官方要求）
+- 表示客户端调用在服务端的方法，这类方法**只能在客户端调用，但在服务端执行**。
+- [Command]标记的方法**无法在服务端调用**，因为这类方法只在服务器上运行。这些方法是 从客户端中的角色对象 发送到 服务端中的角色对象。
+- 比如客户端角色通过`[Command]`发射子弹，则发射子弹的方法发送到服务器，服务端执行这个方法。
+- 只支持传递以下类型的参数（w/译为with）
+  - Primitive (byte, int, float, string, etc. )
+  - Built-in Unity math (Vector3, Quaternion, etc. )
+  - Arrays of primitive types
+  - Structs w/ these types
+  - NetworkIdentity
+  - Game0bject w/ NetworkIdentity
+- `[Command(ignoreAuthority = true)]`可以忽略客户端的权限运行回调
+
+
+
+#### [ClientRpc/TargetRpc]
+
+这类标签是[Command]的相反操作，是服务端向客户端发起请求的主要方式（`Rpc-Remote Procedure Call` - 远程过程调用）
+
+- [ClientRpc]函数名以`Rpc`开头
+  - 表示服务端在客户端调用方法，这类方法**在服务端调用，但在客户端运行**
+  - 比如物体碰撞产生的声音，服务端向客户端发送播放碰撞声音的命令，所有客户端都播放声音。
+
+- [TargetRpc]函数名以`Target`开头
+  - 表示**服务端向符合条件的指定客户端调用方法**，在服务端调用，在指定的客户端执行。
+  - 通过传递`NetworkConnection`参数来指定客户端，如`void TargetCallback(NetworkConnection conn)`
+   - 比如玩家的得分条件，玩家击杀敌人，服务器会执行得分方法，在指定客户端执行。
+
+
+
+#### [SyncVar]
+
+此标签用来同步每个客户端的指定变量，标记在变量定义前；
+
+```c#
+[SyncVar] int hp;
+```
+
+- 用于从服务器同步到客户端的属性标识。
+- 用于标识序列化变量，实现同步数据（例: 把hp标识，就可以实现同步减血）
+- 使用`[SyncVar(hook = nameof(FuncName))] voidFuncName(T old, T new){}`来监听同步变量的改变
+ - 这种特性的数据的修改**只能从服务端修改**，客户端是没有权限修改的，只能读取。要通过有[ServerCallBack]，[Server]的方法修改。
+
+
+
+#### [ServerCallback]
+
+- 表示服务器执行的**回调函数，在服务端做判断**。
+- 只影响服务端。
+- 比如子弹中的碰撞：`OnTriggerEnter()`，在前面加一个`[ServerCallBack]`的特性，这个判定则在服务端判定，相当于告诉服务器，要是撞到了就调用这个方法。
+
+
+
+#### [ClientCallBack]
+
+- 表示客户端执行的**回调函数，在客户端做判断**。
+- 只影响客户端。
 
 ### 举些🌰
+
+这些案例不代表这些标签的标准用法，**最终的逻辑要以实际情况而定**。
 
 #### 角色外观
 
@@ -456,6 +474,56 @@ public class PlayerBullet : NetworkBehavior
         
         //这一句必写，服务器同步产生此对象
         NetworkServer.Spawn(bullet);
+    }
+}
+```
+
+
+
+#### 多人游戏中玩家的移动控制
+
+以下脚本实现了双人乒乓球的球拍移动，并同步至服务器
+
+```c#
+using Mirror;
+
+//复写NetworkManager类
+public class NetworkManagerOverride : NetworkManager
+{
+    //从NetworkManager继承到playerPrefab属性
+	Gameobject player;
+    Gameobject ball;
+    
+    ///<summary> 玩家加入服务器时触发的事件 <summary>
+    public override void OnServerAddPlayer(NetworkConnection conn)
+    {
+        //判断玩家个数，第一个玩家在左侧生成挡板，第二个玩家在右侧生成挡板
+        if (numPlayers == 0)
+        {
+            player = Instantitate(playerPrefab, new Vector3(-10, 0, 0), transform.rotation);
+        }
+        else if (numPlayers == 1)
+        {
+            player = Instantitate(playerPrefab, new Vector3(10, 0, 0), transform.rotation);
+        }
+        
+        NetworkServer.AddPlayerForConnection(conn, player);
+        
+        if (numPlayers == 2)
+        {
+            ball = Instantitate(spawnPrefabs.Find(prefab))
+        }
+    }
+    
+    ///<summary> 玩家离开服务器时触发的事件 </summary>
+    public override void OnServerDisconnect(NetworkConnection conn)
+    {
+        if (ball != null)
+        {
+            NetworkServer.Destroy(ball);
+        }
+        
+        base.ConServerDisconnect(conn);
     }
 }
 ```

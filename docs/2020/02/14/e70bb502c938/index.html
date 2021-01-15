@@ -147,7 +147,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -219,7 +219,7 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
+        <div class="toc-title">Article Directory</div>
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E4%BD%93%E6%B5%81%E7%A8%8B%E5%92%8C%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">大体流程和所需工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-number">3.</span> <span class="toc-text">搭建博客框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8node-js%E5%AE%89%E8%A3%85%E6%A1%86%E6%9E%B6"><span class="toc-number">3.1.</span> <span class="toc-text">利用node.js安装框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.2.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E8%B5%84%E6%BA%90%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.</span> <span class="toc-text">了解资源结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BA%BF%E7%BD%91%E9%A1%B5%E5%AD%98%E5%82%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">创建并设置在线网页存储项目</span></a></li></ol>
     </div>
 
@@ -248,7 +248,7 @@
 <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>  在PowerShell中输入指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docsify init ./docs</span><br></pre></td></tr></table></figure>
 <p>  之后文件夹中会出现docs文件夹，里面包含三个初始文件，并且框架搭建已经完成，可以按照提示进行本地运行<br>  <img src="https://i.loli.net/2020/02/14/tgrYAjVhW9s7OCx.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/tgrYAjVhW9s7OCx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
-<p>  按照提示输入<code>docsify serve ./docs</code>后，在浏览器内粘贴复制的本地查看地址（默认为<a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> ） 即可实时查看保存后的搭建效果，在PowerShell界面按下<code>Ctrl + C</code>可退出本地预览<br>  <img src="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
+<p>  按照提示输入<code>docsify serve ./docs</code>后，在浏览器内粘贴复制的本地查看地址（默认为<a href="http://localhost:3000/">http://localhost:3000</a> ） 即可实时查看保存后的搭建效果，在PowerShell界面按下<code>Ctrl + C</code>可退出本地预览<br>  <img src="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/ihmQ95y4UeKuTrS.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
 <h3 id="了解资源结构"><a href="#了解资源结构" class="headerlink" title="了解资源结构"></a>了解资源结构</h3><p>回到docs文件夹内，打开<code>README.md</code><br><img src="https://i.loli.net/2020/02/14/toMJpiFlqOacHeC.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/toMJpiFlqOacHeC.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"><br>这个文档即为博客首页，可以修改其内容。</p>
 <p>打开index.html，自带默认内容，帮助文档中包含了其他可添加配置项，限于篇幅，具体请参照其中内容。<br>修改name属性的内容为’我的博客名’</p>
 <p><img src="https://i.loli.net/2020/02/14/TAyjz2Pa3H1Zo5W.png" class="lazy" data-srcset="https://i.loli.net/2020/02/14/TAyjz2Pa3H1Zo5W.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image.png"></p>
@@ -273,7 +273,7 @@
 
     </div>
      
-    <div class="post-footer__meta"><p>更新于 2020-10-31</p></div> 
+    <div class="post-footer__meta"><p>updated at 2020-10-31</p></div> 
     <div class="post-meta__cats"><a href="/blogs/categories/%E5%8D%9A%E5%AE%A2/" class="post-cats__link button">博客</a><a href="/blogs/tags/%E5%88%9B%E4%BD%9C/" class="post-tags__link button"># 创作</a></div> 
 </article>
 
@@ -334,22 +334,34 @@
  
  
 
- 
-    
-        
-        <p class="footer-copyright">
-            Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
-        </p>
-    
-    
-        
-            <p>&lt;创作不易，且行且珍惜&gt;</p>
 
-        
     
-    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+    
+    <p class="footer-copyright">
+        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+    </p>
+    
+    
+    
+    <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+    
+    
+
+    
+    <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({
+                theme: 'forest'
+            });
+        }
+    </script>
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a
+            href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
 </footer>
-
         </div>
         
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>

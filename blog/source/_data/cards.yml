@@ -376,6 +376,12 @@ back_to_top: true
 # 深色模式
 darkmode: true
 
+# mermaid chart
+mermaid: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  version: "8.0.0" # default v7.1.2
+  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+  #startOnload: true  # default true
 
 # ---------------------------------------------------------------
 # CDN for vendors
