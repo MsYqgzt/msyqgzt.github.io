@@ -16,19 +16,19 @@
     <!--icon-->
 
     
-        <link rel="shortcut icon" href="/favicon-standard.svg">
+        <link rel="shortcut icon" href="/blogs/favicon-standard.svg">
     
     
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-standard.svg">
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon-standard.svg">
     
     
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-standard.svg">
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon-standard.svg">
     
     
-        <link rel="apple-touch-icon" sizes="180x180" href="/appleTouch_favicon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
     
     
-        <link rel="mask-icon" href="/appleTouch_favicon.png">
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
     
 
 
@@ -48,7 +48,7 @@
     <meta name="description" content="NodeJS与JavaScript的一些区别 顶层对象 JavaScript：window NodeJS：global    模块(modules) 在node中，文件和模块是一一对应的，一个文件即一个模块，我们通常会把实现同一类功能的代码写在同一个文件里面。  每个模块都有自己的作用域，比如变量、exports属性等，因此访问其他模块的内容就得先调用模块。 可以将数据结构大致整理为:   $$\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.JS大峡谷">
-<meta property="og:url" content="http://msyqgzt.gitee.io/2020/09/24/2b94abf9d207/index.html">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/09/24/2b94abf9d207/index.html">
 <meta property="og:site_name" content="AlertNote">
 <meta property="og:description" content="NodeJS与JavaScript的一些区别 顶层对象 JavaScript：window NodeJS：global    模块(modules) 在node中，文件和模块是一一对应的，一个文件即一个模块，我们通常会把实现同一类功能的代码写在同一个文件里面。  每个模块都有自己的作用域，比如变量、exports属性等，因此访问其他模块的内容就得先调用模块。 可以将数据结构大致整理为:   $$\">
 <meta property="og:locale">
@@ -61,23 +61,23 @@
 
 
     
-<link rel="stylesheet" href="/css/style/main.css">
+<link rel="stylesheet" href="/blogs/css/style/main.css">
  
 
 
     
-<link rel="stylesheet" href="/css/darkmode.css">
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
 
     
-<script src="/js/darkmode.js"></script>
+<script src="/blogs/js/darkmode.js"></script>
 
 
 
     
     
-        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
         
-            <link rel="stylesheet" id="hl-dark-theme" href="/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
         
     
 
@@ -96,7 +96,7 @@
         <div id="app">
             <header class="header">
     <div class="header__left">
-        <a href="/" class="button">
+        <a href="/blogs/" class="button">
             <span class="logo__text">AlertNote</span>
         </a>
     </div>
@@ -104,23 +104,23 @@
         
             <div class="navbar__menus">
                 
-                    <a href="/" class="navbar-menu button">首页</a>
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
                 
-                    <a href="/categories/" class="navbar-menu button">分类</a>
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
                 
-                    <a href="/tags/" class="navbar-menu button">标签</a>
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
                 
-                    <a href="/archives/" class="navbar-menu button">归档</a>
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
                 
-                    <a href="/friends/" class="navbar-menu button">友链</a>
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
                 
-                    <a href="/about/" class="navbar-menu button">关于我</a>
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
                 
             </div>
         
         
         
-    <a href="/search/" id="btn-search">
+    <a href="/blogs/search/" id="btn-search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
     </a>
 
@@ -133,7 +133,7 @@
 
 
          
-    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
             <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
         </svg>
@@ -144,17 +144,17 @@
             <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
             <div class="dropdown-menus" id="dropdown-menus">
                 
-                    <a href="/" class="dropdown-menu button">首页</a>
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
                 
-                    <a href="/categories/" class="dropdown-menu button">分类</a>
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
                 
-                    <a href="/tags/" class="dropdown-menu button">标签</a>
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
                 
-                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
                 
-                    <a href="/friends/" class="dropdown-menu button">友链</a>
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
                 
-                    <a href="/about/" class="dropdown-menu button">关于我</a>
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
                 
             </div>
         
@@ -170,11 +170,11 @@
         Node.JS大峡谷
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2020/09/" class="post-meta__date button">2020-09-24</a>
+        <a href="/blogs/archives/2020/09/" class="post-meta__date button">2020-09-24</a>
         
-    <span class="separate-dot"></span><a href="/categories/JavaScript/" class="button">JavaScript</a>
+    <span class="separate-dot"></span><a href="/blogs/categories/JavaScript/" class="button">JavaScript</a>
 
-    <span class="separate-dot"></span><a href="/categories/Node/" class="button">Node</a>
+    <span class="separate-dot"></span><a href="/blogs/categories/Node/" class="button">Node</a>
 
  
         
@@ -207,7 +207,7 @@
         </svg>
     </a>
     <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">Article Directory</div>
+        <div class="toc-title">文章目录</div>
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS%E4%B8%8EJavaScript%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">NodeJS与JavaScript的一些区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97-modules"><span class="toc-number">2.</span> <span class="toc-text">模块(modules)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B0%83%E7%94%A8-require"><span class="toc-number">2.1.</span> <span class="toc-text">模块调用(require)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE-exports"><span class="toc-number">2.2.</span> <span class="toc-text">模块数据(exports)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text">举个🌰</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">global对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arguments%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">arguments对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BE%E5%87%A0%E4%B8%AA%F0%9F%8C%B0"><span class="toc-number">4.1.</span> <span class="toc-text">举几个🌰</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%8F%82%E6%95%B0%E6%B1%82%E5%92%8C"><span class="toc-number">4.1.1.</span> <span class="toc-text">遍历参数求和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%BF%9E%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.2.</span> <span class="toc-text">定义连接字符串的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%88%9B%E5%BB%BAHTML%E5%88%97%E8%A1%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.3.</span> <span class="toc-text">定义创建HTML列表的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-File-System"><span class="toc-number">5.</span> <span class="toc-text">文件系统(File System)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">http模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#server-on%E4%BA%8B%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">server.on事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url%E6%A8%A1%E5%9D%97"><span class="toc-number">7.</span> <span class="toc-text">url模块</span></a></li></ol>
     </div>
 
@@ -694,15 +694,15 @@
 </div></blockquote>
     </div>
      
-    <div class="post-footer__meta"><p>updated at 2021-01-10</p></div> 
-    <div class="post-meta__cats"><a href="/categories/JavaScript/" class="post-cats__link button">JavaScript</a><a href="/categories/Node/" class="post-cats__link button">Node</a><a href="/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a><a href="/tags/%E5%89%8D%E7%AB%AF/" class="post-tags__link button"># 前端</a></div> 
+    <div class="post-footer__meta"><p>更新于 2021-01-10</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/JavaScript/" class="post-cats__link button">JavaScript</a><a href="/blogs/categories/Node/" class="post-cats__link button">Node</a><a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a><a href="/blogs/tags/%E5%89%8D%E7%AB%AF/" class="post-tags__link button"># 前端</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2020/10/03/2c8e66e71047/" class="nav__link">
+                <a href="/blogs/2020/10/03/2c8e66e71047/" class="nav__link">
                     <div>
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
                     </div>
@@ -719,7 +719,7 @@
         </div>
         <div class="nav__next">
             
-                <a href="/2020/09/09/d55651b33bf8/" class="nav__link">
+                <a href="/blogs/2020/09/09/d55651b33bf8/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
@@ -773,7 +773,7 @@
     
     
     <p class="footer-copyright">
-        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/">AlertNote</a>
+        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
     </p>
     
     
