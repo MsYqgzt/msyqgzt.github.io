@@ -52,15 +52,15 @@
 <meta property="og:site_name" content="AlertNote">
 <meta property="og:description" content="常用程序设计模式命令模式 将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销操作。其本质是将命令的生产者和命令的消费者分开；命令模式属于一种行为模式。 ——摘自《游戏编程模式》  举个🌰角色移动 最普通的命令响应类，比如角色类，响应命令实现特定的动作  123456789101112public class Actor&amp;#123;    p">
 <meta property="og:locale">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/95381a0f7812/flyweight-trees.jpg">
-<meta property="og:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/95381a0f7812/flyweight-tree-model.jpg">
+<meta property="og:image" content="http://msyqgzt.gitee.io/2020/08/29/95381a0f7812/flyweight-trees.jpg">
+<meta property="og:image" content="http://msyqgzt.gitee.io/2020/08/29/95381a0f7812/flyweight-tree-model.jpg">
 <meta property="article:published_time" content="2020-08-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-31T12:30:57.012Z">
 <meta property="article:author" content="Alert">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="设计">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://msyqgzt.gitee.io/blogs/2020/08/29/95381a0f7812/flyweight-trees.jpg">
+<meta name="twitter:image" content="http://msyqgzt.gitee.io/2020/08/29/95381a0f7812/flyweight-trees.jpg">
 
 
     
@@ -280,12 +280,12 @@
 <li>在森林中树的位置和朝向。</li>
 <li>大小和色彩之类的调节参数，让每棵树都看起来与众不同。</li>
 </ul>
-<img src="/blogs/2020/08/29/95381a0f7812/flyweight-trees.jpg" class="lazy" data-srcset="/blogs/2020/08/29/95381a0f7812/flyweight-trees.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="flyweight-trees">
+<img src="/2020/08/29/95381a0f7812/flyweight-trees.jpg" class="lazy" data-srcset="/2020/08/29/95381a0f7812/flyweight-trees.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="flyweight-trees">
 
 <p>关键点在于，哪怕森林里有千千万万的树，它们大多数长得一模一样。 它们使用了相同的网格和纹理。 这意味着这些树的实例的大部分字段是<em>一样的</em>。</p>
 <p>我们可以通过显式地将对象切为两部分来更加明确地模拟。 首先，将树共有的数据拿出来分离到另一个类中。游戏只需要一个这种类， 因为没有必要在内存中把相同的网格和纹理重复一千遍。 </p>
 <p>游戏世界中每个树的实例只需有一个对这个共享<code>Model</code>的<em>引用</em>。 留在<code>Tree</code>中的是那些实例相关的数据</p>
-<img src="/blogs/2020/08/29/95381a0f7812/flyweight-tree-model.jpg" class="lazy" data-srcset="/blogs/2020/08/29/95381a0f7812/flyweight-tree-model.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="flyweight-tree-model">
+<img src="/2020/08/29/95381a0f7812/flyweight-tree-model.jpg" class="lazy" data-srcset="/2020/08/29/95381a0f7812/flyweight-tree-model.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" class="" title="flyweight-tree-model">
 
 <hr>
 <p>享元模式一般涉及的几种角色：</p>
