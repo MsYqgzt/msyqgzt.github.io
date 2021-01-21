@@ -11,10 +11,15 @@ author: Alert
 language: cn
 timezone: ''
 
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: sitemap-baidu.xml
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://msyqgzt.gitee.io/blogs/
-root: /blogs/
+url: http://msyqgzt.gitee.io
+root: /
 permalink: :year/:month/:day/:hash/
 permalink_defaults:
 pretty_urls:
@@ -103,7 +108,9 @@ theme: cards
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@gitee.com:MsYqgzt/blogs.git
+  branch: master
 
 #=======================================================
 
