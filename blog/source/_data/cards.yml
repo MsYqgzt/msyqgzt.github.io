@@ -61,16 +61,12 @@ navbar:
 
 # 封面 cover 设置
 cover:
-
   # 显示在最上方 cover 处的站点名称
   sitename: AlertNote
-
   # 若 avatar 配置不为空，则优先使用 avatar 覆盖 sitename
   avatar: /favicon.png
-
   # logo 下方的一句话介绍
-  description: 休息一下，和放弃没关系。
-
+  description: 已识乾坤大，仍怜草木青。
 
 
 # ---------------------------------------------------------------
@@ -133,7 +129,7 @@ meta:
   # 默认文章作者（可在front-matter中覆盖）
   author:
     name: Alert
-    url: https://msyqgzt.gitee.io/blogs/
+    url: https://msyqgzt.gitee.io/blogs/about/
   
   # 文章创建日期
   date:
@@ -174,7 +170,6 @@ meta:
     - '文章默认使用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 协议进行许可，使用时请注意遵守协议。'
       # - ''
       # - ''
-
 
 
 # ---------------------------------------------------------------

@@ -5,7 +5,6 @@ categories:
 - [Unity]
 - [C#]
 mathjax: true
-
 date: 2020-10-21
 ---
 
@@ -159,7 +158,7 @@ TCP保证数据准确交付，UDP保证数据快速到达，而KCP则是**两种
 
 1. 在Unity Assets Store内下载[Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321)，导入后重启Unity。
 2. 确保游戏版本基于`.NET Framework 4.x`以上。 
-3. 手上捏一份[官方API文档](https://mirror-networking.com/docs/api/Mirror.html)。
+3. 手上捏一份[官方文档](https://mirror-networking.com/docs/Articles/General)，这里面的教学更全面，有条件的直接跟这个。
 4. 下载一份[ParrelSync](https://github.com/VeriorPies/ParrelSync)，这玩意儿会把你的游戏项目实时复制一份，这样就能够分别调试服务端和客户端等多端口的情况。
 
 
@@ -176,7 +175,7 @@ TCP保证数据准确交付，UDP保证数据快速到达，而KCP则是**两种
     - `Player Prefab`：作为玩家代表的角色产生的预制体
     - `Auto Create Player`：玩家进入游戏场景时是否自动产生预制角色
     - `Registered Spawnable Prefabs`：可生成的预制体列表。在游戏场景中临时产生的物体，如子弹等模型，都需要作为预制体注册进这个列表
-- `Network Manager HUD`- 网络调试基础面板
+- `Network Manager HUD`- 网络调试基础面板，提供了管理网络游戏状态的默认UI。
   - `LAN Host`：**作为服务器，同时作为客户端**登陆游戏场景。就像局域网房间一样。
   - `LAN Client IP`：**仅作为客户端**连接到指定IP地址的游戏场景。
   - `LAN Server Only`：**仅作为服务器**创建场景，不产生玩家。
@@ -343,6 +342,50 @@ void ClientCallback()
   - NetworkIdentity
   - Game0bject w/ NetworkIdentity
 - `[Command(ignoreAuthority = true)]`可以忽略客户端的权限运行回调
+- 🌰：玩家`Player.cs`脚本中实现发射子弹
+
+```c#
+using Mirror;
+
+public class Player : NetworkBehaviour
+{
+    void Update()
+    {
+        if (!isLocalPlayer)
+            return;
+
+        var x = Input.GetAxis("Horizontal")*0.1f;
+        var z = Input.GetAxis("Vertical")*0.1f;
+
+        transform.Translate(x, 0, z);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Command方法在客户端调用，但在服务端执行
+            CmdFire();
+        }
+    }
+    
+    // [Command]代码在服务器执行!
+    [Command]
+    void CmdFire()
+    {
+       // 在本地产生【子弹】物体
+       GameObject bullet = Instantiate(
+            bulletPrefab,
+            transform.position - transform.forward,
+            Quaternion.identity);
+
+       bullet.GetComponent<Rigidbody>().velocity = -transform.forward * 4;
+       
+       // 在所有客户端产生子弹
+       NetworkServer.Spawn(bullet);
+       
+       // 当子弹在服务器被销毁，也会在所有客户端自动销毁
+       Destroy(bullet, 2.0f);
+    }
+}
+```
 
 
 
