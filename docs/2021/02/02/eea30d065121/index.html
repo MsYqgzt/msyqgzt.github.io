@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>Unity 贝塞尔(Bezier)曲线绘制 | AlertNote</title>
+
+
+    <meta name="keywords" content="算法, 游戏编程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity 贝塞尔(Bezier)曲线绘制">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2021/02/02/eea30d065121/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-02T15:47:39.189Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="游戏编程">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Unity 贝塞尔(Bezier)曲线绘制
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2021/02/" class="post-meta__date button">2021-02-02</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/C/" class="button">C#</a>
+
+    <span class="separate-dot"></span><a href="/blogs/categories/Unity/" class="button">Unity</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line">[<span class="meta">ExecuteInEditMode</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BezierCurvePointRenderer</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">Header(<span class="meta-string">&quot;依赖组件&quot;</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> LineRenderer lineRenderer;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Header(<span class="meta-string">&quot;顶点集合&quot;</span>)</span>]</span><br><span class="line">    [<span class="meta">Tooltip(<span class="meta-string">&quot;全部顶点集合，按顺序连接&quot;</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> Transform[] positions;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Header(<span class="meta-string">&quot;[可选]构建曲面的顶点&quot;</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> Transform point1;</span><br><span class="line">    <span class="keyword">public</span> Transform point2;</span><br><span class="line">    <span class="keyword">public</span> Transform point3;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Header(<span class="meta-string">&quot;相关参数&quot;</span>)</span>]</span><br><span class="line">    [<span class="meta">Tooltip(<span class="meta-string">&quot;构建曲线的顶点数，数值越大曲线越平滑&quot;</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> vertexCount;</span><br><span class="line"></span><br><span class="line">    List&lt;Vector3&gt; pointList;<span class="comment">//绘制点集合</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        pointList = <span class="keyword">new</span> List&lt;Vector3&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//BezierCurveWithThree();</span></span><br><span class="line"></span><br><span class="line">        BezierCurveWithUnlimitPoints();</span><br><span class="line"></span><br><span class="line">        lineRenderer.positionCount = pointList.Count;</span><br><span class="line">        lineRenderer.SetPositions(pointList.ToArray());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> 三点Bezier绘制 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">BezierCurveWithThree</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        pointList.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> ratio = <span class="number">0</span>; ratio &lt;= <span class="number">1</span>; ratio += <span class="number">1.0f</span> / vertexCount)</span><br><span class="line">        &#123;</span><br><span class="line">            Vector3 tangentLineVertex1 = Vector3.Lerp(point1.position, point2.position, ratio);</span><br><span class="line">            Vector3 tangentLineVertex2 = Vector3.Lerp(point2.position, point3.position, ratio);</span><br><span class="line">            Vector3 bezierPoint = Vector3.Lerp(tangentLineVertex1, tangentLineVertex2, ratio);</span><br><span class="line">            pointList.Add(bezierPoint);</span><br><span class="line">        &#125;</span><br><span class="line">        pointList.Add(point3.position);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> 无限点Bezier绘制 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BezierCurveWithUnlimitPoints</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        pointList.Clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> ratio = <span class="number">0</span>; ratio &lt;= <span class="number">1</span>; ratio += <span class="number">1.0f</span> / vertexCount)</span><br><span class="line">        &#123;</span><br><span class="line">            pointList.Add(UnlimitBezierCurve(positions, ratio));</span><br><span class="line">        &#125;</span><br><span class="line">        pointList.Add(positions[positions.Length - <span class="number">1</span>].position);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Vector3 <span class="title">UnlimitBezierCurve</span>(<span class="params">Transform[] trans, <span class="keyword">float</span> t</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Vector3[] temp = <span class="keyword">new</span> Vector3[trans.Length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; temp.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp[i] = trans[i].position;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = temp.Length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - i; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                temp[j] = Vector3.Lerp(temp[j], temp[j + <span class="number">1</span>], t);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> 绘制函数 <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnDrawGizmos</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">region</span> 无限制顶点数</span></span><br><span class="line"></span><br><span class="line">        Gizmos.color = Color.green;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; positions.Length - <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            Gizmos.DrawLine(positions[i].position, positions[i + <span class="number">1</span>].position);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Gizmos.color = Color.red;</span><br><span class="line"></span><br><span class="line">        Vector3[] temp = <span class="keyword">new</span> Vector3[positions.Length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; temp.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp[i] = positions[i].position;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = temp.Length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">float</span> ratio = <span class="number">0.5f</span> / vertexCount; ratio &lt; <span class="number">1</span>; ratio += <span class="number">1.0f</span> / vertexCount)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">2</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Gizmos.DrawLine(Vector3.Lerp(temp[i], temp[i + <span class="number">1</span>], ratio), Vector3.Lerp(temp[i + <span class="number">2</span>], temp[i + <span class="number">3</span>], ratio));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+     
+    <div class="post-footer__meta"><p>更新于 2021-02-02</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E7%AE%97%E6%B3%95/" class="post-tags__link button"># 算法</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2021/01/04/280e5ae3c1af/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            游戏专业概论-考试笔记
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+
+    
+    
+    <p class="footer-copyright">
+        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+    </p>
+    
+    
+    
+    <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+    
+    
+
+    
+    <script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({
+                theme: 'forest'
+            });
+        }
+    </script>
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a
+            href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
