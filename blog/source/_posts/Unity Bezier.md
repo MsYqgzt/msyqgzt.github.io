@@ -1,5 +1,5 @@
 ---
-title: Unity 贝塞尔(Bezier)曲线绘制
+title: Unity 绘制贝塞尔(Bezier)曲线曲面
 tags: [游戏编程, 算法]
 categories: 
 - [Unity]
@@ -7,8 +7,6 @@ categories:
 mathjax: true
 date: 2021-02-02
 ---
-
-
 
 ```c#
 using System.Collections.Generic;

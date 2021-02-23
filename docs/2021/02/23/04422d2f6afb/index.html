@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/blogs/favicon-standard.svg">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/blogs/appleTouch_favicon.png">
+    
+    
+        <link rel="mask-icon" href="/blogs/appleTouch_favicon.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>Google Protocol buffers | AlertNote</title>
+
+
+    <meta name="keywords" content="编程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Protocol buffer 简介Protocol Buffer是Google提出的一种支持多平台、多语言、可扩展的的数据序列化机制，相较于XML来说，protobuf更小更快更简单，支持自定义的数据结构，用protobuf编译器生成特定语言的源代码，如C++、Java、Python，目前protobuf对主流的编程语言都提供了支持,非常方便的进行序列化和反序列化。 &gt; Protocol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Protocol buffers">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2021/02/23/04422d2f6afb/index.html">
+<meta property="og:site_name" content="AlertNote">
+<meta property="og:description" content="Protocol buffer 简介Protocol Buffer是Google提出的一种支持多平台、多语言、可扩展的的数据序列化机制，相较于XML来说，protobuf更小更快更简单，支持自定义的数据结构，用protobuf编译器生成特定语言的源代码，如C++、Java、Python，目前protobuf对主流的编程语言都提供了支持,非常方便的进行序列化和反序列化。 &gt; Protocol">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-23T15:06:07.314Z">
+<meta property="article:author" content="Alert">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/blogs/css/style/main.css">
+ 
+
+
+    
+<link rel="stylesheet" href="/blogs/css/darkmode.css">
+
+    
+<script src="/blogs/js/darkmode.js"></script>
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/blogs/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+            <link rel="stylesheet" id="hl-dark-theme" href="/blogs/css/highlight/dark.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')!==-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/blogs/" class="button">
+            <span class="logo__text">AlertNote</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/blogs/" class="navbar-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="navbar-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="navbar-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="navbar-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="navbar-menu button">关于我</a>
+                
+            </div>
+        
+        
+        
+    <a href="/blogs/search/" id="btn-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="32"><path d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z"></path></svg>
+    </a>
+
+
+        
+        
+    <a href="javaScript:void(0);" id="btn-toggle-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </a>
+
+
+         
+    <a href="#" class="button" id="b2t" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/blogs/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/blogs/categories/" class="dropdown-menu button">分类</a>
+                
+                    <a href="/blogs/tags/" class="dropdown-menu button">标签</a>
+                
+                    <a href="/blogs/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/blogs/friends/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/blogs/about/" class="dropdown-menu button">关于我</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        Google Protocol buffers
+    </h1>
+    <div class="post-title__meta">
+        <a href="/blogs/archives/2021/02/" class="post-meta__date button">2021-02-23</a>
+        
+    <span class="separate-dot"></span><a href="/blogs/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="button">数据结构</a>
+
+ 
+        
+    
+     
+    <span id="busuanzi_container_page_pv" hidden>
+        <span class="separate-dot"></span>
+        <span></span>
+        <span id="busuanzi_value_page_pv"></span>
+        <span>次访问</span>
+    </span>
+
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Protocol-buffer-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Protocol buffer 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol-Buffer-%E4%B8%8E-XML%E3%80%81JSON-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">Protocol Buffer 与 XML、JSON 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proto%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">.proto文件语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.</span> <span class="toc-text">Message定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%85%8Dfield%E7%BC%96%E5%8F%B7"><span class="toc-number">2.1.1.</span> <span class="toc-text">分配field编号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#field%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">field类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9Amessage%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.3.</span> <span class="toc-text">多message结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reserved-field%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">reserved field类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C"><span class="toc-number">2.1.5.</span> <span class="toc-text">编译结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text">默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96message%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">使用其他message类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.1.</span> <span class="toc-text">同文件引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.2.</span> <span class="toc-text">不同文件引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.6.</span> <span class="toc-text">嵌套类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0message%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.7.</span> <span class="toc-text">更新message类型</span></a></li></ol></li></ol>
+        </div>
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">Article Directory</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Protocol-buffer-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Protocol buffer 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Protocol-Buffer-%E4%B8%8E-XML%E3%80%81JSON-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">Protocol Buffer 与 XML、JSON 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proto%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">.proto文件语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Message%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.</span> <span class="toc-text">Message定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%85%8Dfield%E7%BC%96%E5%8F%B7"><span class="toc-number">2.1.1.</span> <span class="toc-text">分配field编号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#field%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">field类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9Amessage%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.3.</span> <span class="toc-text">多message结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reserved-field%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">reserved field类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C"><span class="toc-number">2.1.5.</span> <span class="toc-text">编译结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text">默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96message%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">使用其他message类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.1.</span> <span class="toc-text">同文件引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%96%87%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.2.</span> <span class="toc-text">不同文件引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.6.</span> <span class="toc-text">嵌套类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0message%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.7.</span> <span class="toc-text">更新message类型</span></a></li></ol></li></ol>
+    </div>
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="Protocol-buffer-简介"><a href="#Protocol-buffer-简介" class="headerlink" title="Protocol buffer 简介"></a>Protocol buffer 简介</h2><p><code>Protocol Buffer</code>是Google提出的一种支持多平台、多语言、可扩展的的数据序列化机制，相较于XML来说，<code>protobuf</code>更小更快更简单，支持自定义的数据结构，用<code>protobuf</code>编译器生成特定语言的源代码，如C++、Java、Python，目前<code>protobuf</code>对主流的编程语言都提供了支持,非常方便的进行序列化和反序列化。</p>
+<p><a href="https://developers.google.com/protocol-buffers">&gt; Protocol Buffer官方文档</a></p>
+<h3 id="Protocol-Buffer-与-XML、JSON-的区别"><a href="#Protocol-Buffer-与-XML、JSON-的区别" class="headerlink" title="Protocol Buffer 与 XML、JSON 的区别"></a>Protocol Buffer 与 XML、JSON 的区别</h3><ul>
+<li><code>Protocol Buffer</code> 和 <code>XML</code>、<code>JSON</code>一样都是<em>结构数据序列化</em>的工具，但它们的数据格式有比较大的区别：<ul>
+<li>首先，Protocol Buffer 序列化之后得到的数据不是可读的字符串，而是<strong>二进制流</strong></li>
+<li>其次，XML 和 JSON 格式的数据信息都包含在了序列化之后的数据中，不需要任何其它信息就能还原序列化之后的数据；但使用 Protocol Buffer 需要事先定义数据的格式(<code>.proto</code> 协议文件)，<strong>还原</strong>一个序列化之后的数据<strong>需要使用到这个定义好的数据格式</strong></li>
+<li>最后，在传输数据量较大的需求场景下，<code>Protocol Buffer</code> 比 <code>XML</code>、<code>JSON</code> <strong>更小（3到10倍）、更快（20到100倍）、使用 &amp; 维护更简单</strong>；而且 <code>Protocol Buffer</code> 可以跨平台、跨语音使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="proto文件语法"><a href="#proto文件语法" class="headerlink" title=".proto文件语法"></a><code>.proto</code>文件语法</h2><ul>
+<li><code>package</code>在Java里面代表这个文件所在的包名，在c#里面代表该文件的命名空间；</li>
+<li><code>message</code>代表一个类；</li>
+<li><code>required</code>代表该字段必填</li>
+<li><code>optional</code>代表该字段可选，并可以为其设置默认值<code>[defalut=值]</code> </li>
+</ul>
+<h3 id="Message定义"><a href="#Message定义" class="headerlink" title="Message定义"></a>Message定义</h3><p>一个搜索请求的<code>message</code>格式的简单🌰</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;<span class="comment">//定义proto版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//message包含多个种类的fields</span></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">SearchRequest</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> query = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">int32</span> page_number = <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">int32</span> result_per_page = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述例子中<code>fields</code>的种类都是数值型的（<code>string</code>和<code>int32</code>），当然也可以指定更加复杂的<code>fields</code>，比如枚举类型<code>enum</code>，或者是嵌套的<code>message</code>类型</p>
+<h4 id="分配field编号"><a href="#分配field编号" class="headerlink" title="分配field编号"></a>分配field编号</h4><p>上述例子中每个<code>field</code>都被分配了一个编号，这个编号是这个<code>field</code>的唯一标识，其中需要注意的是，<strong>标识1-15在编码的时候只占用一个字节，16-2047占用两个字节</strong>，所以为了进一步优化我们的程序，对于那种经常出现的element，建议使用1-15来作为他们的唯一标识，对那些不被经常使用的element，建议使用16-2047，编号的范围是$1-2^{29}$（19000-19999是系统预留的，不要使用）</p>
+<h4 id="field类型"><a href="#field类型" class="headerlink" title="field类型"></a>field类型</h4><p><code>message</code>当中的<code>field</code>类型包含以下两种（proto3）：</p>
+<ul>
+<li><p>singular</p>
+</li>
+<li><p>repeated：该类型的field可以在message中重复使用（类似于数组），他们的顺序会被保存，通过索引进行检索，数值类型的repeated默认使用packed编码方式</p>
+</li>
+</ul>
+<h4 id="多message结构"><a href="#多message结构" class="headerlink" title="多message结构"></a>多message结构</h4><p>在一个proto文件中可以定义多个<code>protobuf</code></p>
+<h4 id="reserved-field类型"><a href="#reserved-field类型" class="headerlink" title="reserved field类型"></a>reserved field类型</h4><p>在开发过程中可能会涉及到对proto文件中<code>message</code>各个fields的修改，可能是更新、删除某个field及其表示，这样可能会导致调用的服务失败。</p>
+<p>其中一个防止这种问题的方式是，确保你要删除的<code>field</code>的标识（或是名字）是<code>reserved</code>，具体<code>protobuf</code>的编译器会决定未来这个field表示能否被使用</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数字标识和命名不能在同一条语句中混合声明</span></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  reserved <span class="number">2</span>, <span class="number">15</span>, <span class="number">9</span> to <span class="number">11</span>;</span><br><span class="line">  reserved <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="编译结果"><a href="#编译结果" class="headerlink" title="编译结果"></a>编译结果</h4><p>使用<code>protoc</code>编译一个<code>.proto</code>文件</p>
+<details ><summary>这里是我个人的编译方式</summary><div class="fold-content"><ol>
+<li>找到<code>google.protobuf.tools</code>包所在目录下的<code>protoc.exe</code>文件</li>
+<li>在这个文件目录下创建<code>src</code>和<code>gen</code>文件夹</li>
+<li>将自己的<code>xx.proto</code>文件移动到<code>src</code>文件夹内<ul>
+<li><code>.proto</code>文件之间可以互相引用，要正常使用，必须把所有相关的proto文件都准备好</li>
+</ul>
+</li>
+<li>在<code>protoc.exe</code>文件所在目录打开命令行，执行以下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\protoc.exe --proto_path=src --csharp_out=gen xx.proto</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>在<code>gen</code>文件夹中会产生等量的<code>.cs</code>文件，这就是对应的<strong>解码器</strong>，把它们导入自己的项目中</li>
+</ol>
+</div></details>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>具体的<code>proto</code>类型对应的生成类中的类型可参考<a href="https://developers.google.com/protocol-buffers/docs/proto3#scalar">官方文档</a></p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><ul>
+<li>对于<code>string</code>和<code>byte</code>类型，默认值为空；</li>
+<li>对于<code>bool</code>类型，默认值是<code>false</code>；</li>
+<li>对于数值类型，默认值是0；</li>
+<li>对于枚举类型，默认值是第一个枚举值，默认为0；</li>
+<li>对于<code>message</code>类型，默认值由编程语言决定；</li>
+<li>对于<code>repeated field</code>，默认值为空</li>
+</ul>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>当采用枚举类型之后，枚举中的值都是预先定义好的，对于上述例子，可以再额外增加一个枚举类型corpus，具体如下</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">SearchRequest</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> query = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">int32</span> page_number = <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">int32</span> result_per_page = <span class="number">3</span>;</span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">Corpus</span> </span>&#123;</span><br><span class="line">	  UNIVERSAL = <span class="number">0</span>;</span><br><span class="line">	  WEB = <span class="number">1</span>;</span><br><span class="line">	  IMAGES = <span class="number">2</span>;</span><br><span class="line">	  LOCAL = <span class="number">3</span>;</span><br><span class="line">	  NEWS = <span class="number">4</span>;</span><br><span class="line">	  PRODUCTS = <span class="number">5</span>;</span><br><span class="line">	  VIDEO = <span class="number">6</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Corpus corpus = <span class="number">4</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>通常枚举类型的第一个值初始化为0，而且在<code>message</code>中使用枚举类型，<strong>必须要给定一个为0的值，而且这个为0的值应该为第一个元素</strong></p>
+<p>指定<code>option allow_alias = true;</code>来容许两个枚举元素有相同的值，即这两个元素能够相互替代</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">EnumAllowingAlias</span> </span>&#123;</span><br><span class="line">  <span class="keyword">option</span> allow_alias = <span class="literal">true</span>;</span><br><span class="line">  UNKNOWN = <span class="number">0</span>;</span><br><span class="line">  STARTED = <span class="number">1</span>;</span><br><span class="line">  RUNNING = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">EnumNotAllowingAlias</span> </span>&#123;</span><br><span class="line">  UNKNOWN = <span class="number">0</span>;</span><br><span class="line">  STARTED = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// RUNNING = 1;//取消注释这一行，将导致Google内部出现编译错误，并在外部出现警告消息。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，枚举类型不仅可以定义在<code>message</code>内部，也可以定义在<code>message</code>外部，而且在不同message中可以重用<code>enum</code>。</p>
+<p>在更改枚举类型<code>field</code>时，为保证系统运行正常，同样可以指定<code>reserved</code>数字标识和命名</p>
+<h3 id="使用其他message类型"><a href="#使用其他message类型" class="headerlink" title="使用其他message类型"></a>使用其他message类型</h3><h4 id="同文件引用"><a href="#同文件引用" class="headerlink" title="同文件引用"></a>同文件引用</h4><figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">SearchResponse</span> </span>&#123;</span><br><span class="line">  <span class="keyword">repeated</span> Result results = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Result</span> </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> url = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">string</span> title = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">repeated</span> <span class="built_in">string</span> snippets = <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="不同文件引用"><a href="#不同文件引用" class="headerlink" title="不同文件引用"></a>不同文件引用</h4><p>引用其他proto文件中定义好的message类型</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;myproject/other_protos.proto&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>有时我们会对引用的<code>proto</code>文件进行更改，比如将其内容移动到另外一个地方，这样我们就需要对调用方import路径进行更改，当调用方非常多的时候，这种方法是非常低效的。</p>
+<p><code>protobuf</code>提供一种机制，我们可以在原有位置提供一个新位置<code>proto</code>文件的“副本”，通过使用<code>import public</code>表示来实现，具体可以参考如下例子</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new.proto</span></span><br><span class="line"><span class="comment">// All definitions are moved here</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// old.proto</span></span><br><span class="line"><span class="comment">// This is the proto that all clients are importing.</span></span><br><span class="line"><span class="keyword">import</span> public <span class="string">&quot;new.proto&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;other.proto&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// client.proto</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;old.proto&quot;</span>;</span><br><span class="line"><span class="comment">// You use definitions from old.proto and new.proto, but not other.proto</span></span><br></pre></td></tr></table></figure>
+
+<p>这时编译器就会在某些固定目录下查询import的<code>proto</code>文件（具体在命令行编译的时候，由<code>-I/—proto_path</code>指定），如果上述路径找不到，编译器会在调用路径进行查找。通常将<code>—proto_path</code>设置为项目的根目录，然后import的时候使用完整的路径名</p>
+<blockquote>
+<p>proto2中的枚举类型无法直接使用</p>
+</blockquote>
+<h3 id="嵌套类型"><a href="#嵌套类型" class="headerlink" title="嵌套类型"></a>嵌套类型</h3><p>具体如下</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">SearchResponse</span> </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">message</span> <span class="title">Result</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> url = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">string</span> title = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">repeated</span> <span class="built_in">string</span> snippets = <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">repeated</span> Result results = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在parent<code>message</code>之外调用嵌套的<code>message</code>可以用如下方式：<code>SearchResponse.Result</code>，嵌套结构可以更加复杂，具体如下：</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Outer</span> </span>&#123;       <span class="comment">// Level 0</span></span><br><span class="line">  <span class="class"><span class="keyword">message</span> <span class="title">MiddleAA</span> </span>&#123;  <span class="comment">// Level 1</span></span><br><span class="line">    <span class="class"><span class="keyword">message</span> <span class="title">Inner</span> </span>&#123;   <span class="comment">// Level 2</span></span><br><span class="line">      <span class="built_in">int64</span> ival = <span class="number">1</span>;</span><br><span class="line">      <span class="built_in">bool</span>  booly = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class"><span class="keyword">message</span> <span class="title">MiddleBB</span> </span>&#123;  <span class="comment">// Level 1</span></span><br><span class="line">    <span class="class"><span class="keyword">message</span> <span class="title">Inner</span> </span>&#123;   <span class="comment">// Level 2</span></span><br><span class="line">      <span class="built_in">int32</span> ival = <span class="number">1</span>;</span><br><span class="line">      <span class="built_in">bool</span>  booly = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新message类型"><a href="#更新message类型" class="headerlink" title="更新message类型"></a>更新message类型</h3><p>当现有的<code>message</code>已经无法满足现有业务需要，你需要更新你的<code>message</code>类型以支持更复杂的业务，这就涉及到向后兼容的问题了，为保证已有服务不受影响，需要遵守以下的一些规定</p>
+<ol>
+<li><p>不要更改已经存在的<code>fields</code>的数字标识</p>
+</li>
+<li><p>如果添加新的<code>field</code>，利用旧代码序列化得到的<code>message</code>可以使用新的代码进行解析，你需要记住各个元素的默认值。新代码创建的<code>field</code>同样可以由旧代码进行加解析</p>
+</li>
+<li><p><code>field</code>可以被删除，但是需要保证其对应的数字标识不再被使用，你可以通过加前缀的方式来重新使用这个<code>field name</code>，或者指定数字标识为<code>reserved</code>来避免这种情况</p>
+</li>
+<li><p><code>int32</code>、<code>int64</code>、<code>uint32</code>、<code>uint64</code>、<code>bool</code>这些类型都是互相兼容的，并不会影响前向、后向兼容性</p>
+</li>
+<li><p><code>sint32</code>和<code>sint64</code>之间是互相兼容的，但是和其他数字类型是不兼容的</p>
+</li>
+<li><p><code>string</code>和<code>bytes</code>是互相兼容的，只要使用的是<code>UTF-8</code>编码</p>
+</li>
+<li><p>如果<code>byte</code>包含<code>message</code>的编码版本，则嵌套的<code>message</code>和<code>bytes</code>兼容</p>
+</li>
+<li><p><code>flexed32</code>兼容<code>sfixed32</code>,<code>fixed64</code>,<code>sfixed64</code></p>
+</li>
+<li><p><code>enum</code>兼容<code>int32</code>，<code>uint32</code>，<code>int64</code>and <code>uint64</code>。对于这个值在转化时，不同语言的客户端处理方式会有所不同</p>
+</li>
+</ol>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/95869546">Protocol Buffer详解</a></li>
+</ol>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2021-02-23</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-cats__link button">数据结构</a><a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/blogs/2021/02/20/96ec1591c3ca/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            Unity Shader入门
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>名访客</span>
+            
+                <span>,</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>次访问</span>
+            
+        </span>
+    
+ 
+ 
+
+
+    
+    
+    <p class="footer-copyright">
+        Copyright © 2019&nbsp;-&nbsp;2021 <a href="/blogs/">AlertNote</a>
+    </p>
+    
+    
+    
+    <p>&lt;创作不易，且行且珍惜&gt;</p>
+
+    
+    
+
+    
+    <script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({
+                theme: 'forest'
+            });
+        }
+    </script>
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a
+            href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+        </div>
+        
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.4.1/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        let lazyloadT = Boolean('true'),
+            auto_fancybox = Boolean('true')
+        if (auto_fancybox) {
+            $(".post__content").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        } else {
+            $(".post__content").find("fancybox").find('img').each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                if (lazyloadT) {
+                    $(element).attr("href", $(this).attr("data-srcset"));
+                }
+                $(this).wrap(element);
+            });
+        }
+    </script>
+ 
+
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

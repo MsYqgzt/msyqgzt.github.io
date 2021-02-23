@@ -14,6 +14,7 @@ layout: about
 ## 技能清单
 
 - 平面设计：PhotoShop/Illustrator
+- 影视后期：Premere Pro
 - 桌面开发：C#/WPF
 - Web开发：html/Javascript/Node
 - 游戏开发：Unity
