@@ -35,27 +35,27 @@
     <!-- meta -->
 
 
-<title>Unity 屏幕震动效果 | AlertNote</title>
+<title>在C#中使用Protocol buffer | AlertNote</title>
 
 
-    <meta name="keywords" content="游戏编程">
+    <meta name="keywords" content="编程">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455using UnityEngine;public class ScreenShake : MonoBehaviour&amp;#123;    private float shakeTime &#x3D; 0.0f;">
+    <meta name="description" content="准备工作  Visual Studio NuGet安装:Google.Protobuf和Google.Protobuf.Tools 准备好.proto文件   使用步骤 找到google.protobuf.tools包所在目录下的protoc.exe文件 在这个文件目录下创建src和gen文件夹 将自己的xx.proto文件移动到src文件夹内 .proto文件之间可以互相引用，要正常使用，必须把">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity 屏幕震动效果">
-<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2020/12/10/5a940f921429/index.html">
+<meta property="og:title" content="在C#中使用Protocol buffer">
+<meta property="og:url" content="http://msyqgzt.gitee.io/blogs/2021/02/24/f84d38e88f8c/index.html">
 <meta property="og:site_name" content="AlertNote">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455using UnityEngine;public class ScreenShake : MonoBehaviour&amp;#123;    private float shakeTime &#x3D; 0.0f;">
+<meta property="og:description" content="准备工作  Visual Studio NuGet安装:Google.Protobuf和Google.Protobuf.Tools 准备好.proto文件   使用步骤 找到google.protobuf.tools包所在目录下的protoc.exe文件 在这个文件目录下创建src和gen文件夹 将自己的xx.proto文件移动到src文件夹内 .proto文件之间可以互相引用，要正常使用，必须把">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-12-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-10T08:49:59.600Z">
+<meta property="article:published_time" content="2021-02-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-26T15:59:26.660Z">
 <meta property="article:author" content="Alert">
-<meta property="article:tag" content="游戏编程">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -166,14 +166,12 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        Unity 屏幕震动效果
+        在C#中使用Protocol buffer
     </h1>
     <div class="post-title__meta">
-        <a href="/blogs/archives/2020/12/" class="post-meta__date button">2020-12-10</a>
+        <a href="/blogs/archives/2021/02/" class="post-meta__date button">2021-02-24</a>
         
     <span class="separate-dot"></span><a href="/blogs/categories/C/" class="button">C#</a>
-
-    <span class="separate-dot"></span><a href="/blogs/categories/Unity/" class="button">Unity</a>
 
  
         
@@ -197,7 +195,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%F0%9F%8C%B0"><span class="toc-number">3.</span> <span class="toc-text">官方🌰</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -207,50 +205,60 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">文章目錄</div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%F0%9F%8C%B0"><span class="toc-number">3.</span> <span class="toc-text">官方🌰</span></a></li></ol>
     </div>
 
 
 <article class="post content-card">
     <div class="post__header"></div>
     <div class="post__content">
-        <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScreenShake</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> shakeTime = <span class="number">0.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> fps = <span class="number">20.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> frameTime = <span class="number">0.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">region</span> Inspector</span></span><br><span class="line">    <span class="keyword">public</span> Camera cam;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> isShakeCamera = <span class="literal">false</span>;</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Use this for initialization</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        shakeTime = <span class="number">2.0f</span>;</span><br><span class="line">        fps = <span class="number">20.0f</span>;</span><br><span class="line">        frameTime = <span class="number">0.03f</span>;</span><br><span class="line">        shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line">        <span class="comment">//isshakeCamera=true;//启动后查看一次效果</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isShakeCamera)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (shakeTime &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                shakeTime -= Time.deltaTime;</span><br><span class="line">                <span class="keyword">if</span> (shakeTime &lt;= <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    cam.rect = <span class="keyword">new</span> Rect(<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">                    isShakeCamera = <span class="literal">false</span>;</span><br><span class="line">                    shakeTime = <span class="number">1.0f</span>;</span><br><span class="line">                    fps = <span class="number">20.0f</span>;</span><br><span class="line">                    frameTime = <span class="number">0.03f</span>;</span><br><span class="line">                    shakeDelta = <span class="number">0.005f</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    frameTime += Time.deltaTime;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (frameTime &gt; <span class="number">1.0</span> / fps)</span><br><span class="line">                    &#123;</span><br><span class="line">                        frameTime = <span class="number">0</span>;</span><br><span class="line">                        cam.rect = <span class="keyword">new</span> Rect(shakeDelta * (<span class="number">-1.0f</span> + <span class="number">2.0f</span> * Random.<span class="keyword">value</span>), shakeDelta * (<span class="number">-1.0f</span> + <span class="number">2.0f</span> * Random.<span class="keyword">value</span>), <span class="number">1.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+<ol>
+<li>Visual Studio</li>
+<li>NuGet安装:<code>Google.Protobuf</code>和<code>Google.Protobuf.Tools</code></li>
+<li><span style="color:red">准备好<code>.proto</code>文件</span></li>
+</ol>
+</blockquote>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li>找到<code>google.protobuf.tools</code>包所在目录下的<code>protoc.exe</code>文件</li>
+<li>在这个文件目录下创建<code>src</code>和<code>gen</code>文件夹</li>
+<li>将自己的<code>xx.proto</code>文件移动到<code>src</code>文件夹内<ul>
+<li><code>.proto</code>文件之间可以互相引用，要正常使用，必须把所有相关的proto文件都准备好</li>
+</ul>
+</li>
+<li>在<code>protoc.exe</code>文件所在目录打开命令行，执行以下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\protoc.exe --proto_path=src --csharp_out=gen xx.proto</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>在<code>gen</code>文件夹中会产生等量的<code>.cs</code>文件，这就是对应的<strong>解码器</strong>，把它们导入自己的项目中</li>
+<li>在导入的解码器中已经具备了该<code>.proto</code>文件具备的函数。</li>
+</ol>
+<h2 id="官方🌰"><a href="#官方🌰" class="headerlink" title="官方🌰"></a>官方🌰</h2><p>proto的转换无非就是<strong>类和二进制流相互转换</strong>，颠过去倒回来。</p>
+<p>官方提供的通讯录案例，实现了对于<code>Person</code>和<code>AddressBook</code>两个 message 的操作方法，这里仅翻译补充注释内容</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Google.Protobuf.Examples.AddressBook</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">internal</span> <span class="keyword">class</span> <span class="title">SampleUsage</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">byte</span>[] bytes;</span><br><span class="line">            <span class="comment">// 新建一个 person</span></span><br><span class="line">            Person person = <span class="keyword">new</span> Person</span><br><span class="line">            &#123;</span><br><span class="line">                Id = <span class="number">1</span>,</span><br><span class="line">                Name = <span class="string">&quot;Foo&quot;</span>,</span><br><span class="line">                Email = <span class="string">&quot;foo@bar&quot;</span>,</span><br><span class="line">                Phones = &#123; <span class="keyword">new</span> Person.Types.PhoneNumber &#123; Number = <span class="string">&quot;555-1212&quot;</span> &#125; &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="keyword">using</span> (MemoryStream stream = <span class="keyword">new</span> MemoryStream())<span class="comment">//方法一：通过内存流</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 保存 person 到二进制流</span></span><br><span class="line">                person.WriteTo(stream);</span><br><span class="line">                bytes = stream.ToArray();</span><br><span class="line">            &#125;</span><br><span class="line">            Person copy = Person.Parser.ParseFrom(bytes);<span class="comment">//将二进制流转换回 person 类</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//同理</span></span><br><span class="line">            AddressBook book = <span class="keyword">new</span> AddressBook</span><br><span class="line">            &#123;</span><br><span class="line">                People = &#123; copy &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            bytes = book.ToByteArray();<span class="comment">//方法二：直接用内部方法 将类转成二进制数组</span></span><br><span class="line">            <span class="comment">// 二进制数组 转到 类</span></span><br><span class="line">            AddressBook restored = AddressBook.Parser.ParseFrom(bytes);</span><br><span class="line">            <span class="comment">// message 消息提供了等值比较的深度搜索:</span></span><br><span class="line">            <span class="keyword">if</span> (restored.People.Count != <span class="number">1</span> || !person.Equals(restored.People[<span class="number">0</span>]))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;There is a bad person in here!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
      
-    <div class="post-footer__meta"><p>更新於 2020-12-10</p></div> 
-    <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/categories/Unity/" class="post-cats__link button">Unity</a><a href="/blogs/tags/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 游戏编程</a></div> 
+    <div class="post-footer__meta"><p>更新於 2021-02-26</p></div> 
+    <div class="post-meta__cats"><a href="/blogs/categories/C/" class="post-cats__link button">C#</a><a href="/blogs/tags/%E7%BC%96%E7%A8%8B/" class="post-tags__link button"># 编程</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/blogs/2020/12/10/5f607a6589fc/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            Unity 场景的淡出淡入切换
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/blogs/2020/12/10/cb17210d44d5/" class="nav__link">
+                <a href="/blogs/2021/02/23/04422d2f6afb/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            Unity 重要的函数
+                            Protocol buffers 深入浅出♂
                         </div>
                     </div>
                     <div>
